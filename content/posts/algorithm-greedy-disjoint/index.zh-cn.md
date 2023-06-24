@@ -8,12 +8,13 @@ author: "Bard"
 description: "."
 images: []
 resources:
-tags: ["greedy"]
+tags: ["greed"]
 categories: ["algorithm"]
 
 twemoji: false
 lightgallery: true
 ---
+
 ```
 package main
 

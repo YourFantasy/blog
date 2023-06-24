@@ -2,7 +2,7 @@
     <channel>
         <title>编程浪子</title>
         <link>https://www.bardblog.cn/</link>
-        <description>Hugo theme - LoveIt</description>
+        <description>分享、记录。</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>cz950601@gmail.com (Bard)</managingEditor>
             <webMaster>cz950601@gmail.com (Bard)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 06 Mar 2020 21:40:32 &#43;0800</lastBuildDate>
             <atom:link href="https://www.bardblog.cn/index.xml" rel="self" type="application/rss+xml" />
