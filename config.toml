@@ -487,7 +487,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
       # Disqus comment config (https://disqus.com/)
       # Disqus 评论系统设置 (https://disqus.com/)
       [params.page.comment.disqus]
-        enable = true
+        enable = false
         # Disqus shortname to use Disqus in posts
         # Disqus 的 shortname，用来在文章中启用 Disqus 评论系统
         shortname = ""
@@ -502,7 +502,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
       # Valine comment config (https://github.com/xCss/Valine)
       # Valine 评论系统设置 (https://github.com/xCss/Valine)
       [params.page.comment.valine]
-        enable = true
+        enable = false
         appId = "QGzwQXOqs5JOhN4RGPOkR2mR-MdYXbMMI"
         appKey = "WBmoGyJtbqUswvfLh6L8iEBr"
         placeholder = ""
@@ -531,7 +531,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
       # Facebook comment config (https://developers.facebook.com/docs/plugins/comments)
       # Facebook 评论系统设置 (https://developers.facebook.com/docs/plugins/comments)
       [params.page.comment.facebook]
-        enable = true
+        enable = false
         width = "100%"
         numPosts = 10
         appId = ""
@@ -552,7 +552,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
       # Commento comment config (https://commento.io/)
       # Commento comment 评论系统设置 (https://commento.io/)
       [params.page.comment.commento]
-        enable = false
+        enable = true
       # utterances comment config (https://utteranc.es/)
       # utterances comment 评论系统设置 (https://utteranc.es/)
       [params.page.comment.utterances]
@@ -669,7 +669,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
   # Cookie consent config
   # Cookie 许可配置
   [params.cookieconsent]
-    enable = false
+    enable = true
     # text strings used for Cookie consent banner
     # 用于 Cookie 许可横幅的文本字符串
     [params.cookieconsent.content]
@@ -850,7 +850,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
         maxResultLength = 10
         snippetLength = 30
         highlightTag = "em"
-        absoluteURL = false
+        absoluteURL = true
         [languages.en.params.search.algolia]
           index = "index.en"
           appID = "PASDMWALPK"
@@ -943,7 +943,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
         maxResultLength = 10
         snippetLength = 50
         highlightTag = "em"
-        absoluteURL = false
+        absoluteURL = true
         [languages.zh-cn.params.search.algolia]
           index = "index.zh-cn"
           appID = "PASDMWALPK"
