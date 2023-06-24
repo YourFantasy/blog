@@ -2,7 +2,7 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>https://www.bardblog.cn/en/theme-documentation-basics/</loc><lastmod>2023-06-24T11:39:18&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://www.bardblog.cn/en/theme-documentation-basics/</loc><lastmod>2023-06-24T20:10:45&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
                         href="https://www.bardblog.cn/theme-documentation-basics/"
@@ -11,7 +11,7 @@
                     hreflang="en"
                     href="https://www.bardblog.cn/en/theme-documentation-basics/"
                     /></url><url>
-            <loc>https://www.bardblog.cn/en/theme-documentation-content/</loc><lastmod>2023-06-24T11:39:18&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://www.bardblog.cn/en/theme-documentation-content/</loc><lastmod>2023-06-24T20:10:45&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
                         href="https://www.bardblog.cn/theme-documentation-content/"
@@ -20,7 +20,7 @@
                     hreflang="en"
                     href="https://www.bardblog.cn/en/theme-documentation-content/"
                     /></url><url>
-            <loc>https://www.bardblog.cn/en/theme-documentation-built-in-shortcodes/</loc><lastmod>2023-06-24T11:39:18&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://www.bardblog.cn/en/theme-documentation-built-in-shortcodes/</loc><lastmod>2023-06-24T20:10:45&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
                         href="https://www.bardblog.cn/theme-documentation-built-in-shortcodes/"
@@ -29,7 +29,7 @@
                     hreflang="en"
                     href="https://www.bardblog.cn/en/theme-documentation-built-in-shortcodes/"
                     /></url><url>
-            <loc>https://www.bardblog.cn/en/theme-documentation-extended-shortcodes/</loc><lastmod>2023-06-24T11:39:18&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://www.bardblog.cn/en/theme-documentation-extended-shortcodes/</loc><lastmod>2023-06-24T20:10:45&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
                         href="https://www.bardblog.cn/theme-documentation-extended-shortcodes/"
@@ -38,7 +38,7 @@
                     hreflang="en"
                     href="https://www.bardblog.cn/en/theme-documentation-extended-shortcodes/"
                     /></url><url>
-            <loc>https://www.bardblog.cn/en/basic-markdown-syntax/</loc><lastmod>2023-06-24T11:39:18&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://www.bardblog.cn/en/basic-markdown-syntax/</loc><lastmod>2023-06-24T20:10:45&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
                         href="https://www.bardblog.cn/basic-markdown-syntax/"
@@ -47,7 +47,7 @@
                     hreflang="en"
                     href="https://www.bardblog.cn/en/basic-markdown-syntax/"
                     /></url><url>
-            <loc>https://www.bardblog.cn/en/theme-documentation-mermaid-shortcode/</loc><lastmod>2023-06-24T11:39:18&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://www.bardblog.cn/en/theme-documentation-mermaid-shortcode/</loc><lastmod>2023-06-24T20:10:45&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
                         href="https://www.bardblog.cn/theme-documentation-mermaid-shortcode/"
@@ -56,7 +56,7 @@
                     hreflang="en"
                     href="https://www.bardblog.cn/en/theme-documentation-mermaid-shortcode/"
                     /></url><url>
-            <loc>https://www.bardblog.cn/en/emoji-support/</loc><lastmod>2023-06-24T11:39:18&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://www.bardblog.cn/en/emoji-support/</loc><lastmod>2023-06-24T20:10:45&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
                         href="https://www.bardblog.cn/emoji-support/"
@@ -65,7 +65,7 @@
                     hreflang="en"
                     href="https://www.bardblog.cn/en/emoji-support/"
                     /></url><url>
-            <loc>https://www.bardblog.cn/en/theme-documentation-echarts-shortcode/</loc><lastmod>2023-06-24T11:39:18&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://www.bardblog.cn/en/theme-documentation-echarts-shortcode/</loc><lastmod>2023-06-24T20:10:45&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
                         href="https://www.bardblog.cn/theme-documentation-echarts-shortcode/"
@@ -74,7 +74,7 @@
                     hreflang="en"
                     href="https://www.bardblog.cn/en/theme-documentation-echarts-shortcode/"
                     /></url><url>
-            <loc>https://www.bardblog.cn/en/theme-documentation-mapbox-shortcode/</loc><lastmod>2023-06-24T11:39:18&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://www.bardblog.cn/en/theme-documentation-mapbox-shortcode/</loc><lastmod>2023-06-24T20:10:45&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
                         href="https://www.bardblog.cn/theme-documentation-mapbox-shortcode/"
@@ -83,7 +83,7 @@
                     hreflang="en"
                     href="https://www.bardblog.cn/en/theme-documentation-mapbox-shortcode/"
                     /></url><url>
-            <loc>https://www.bardblog.cn/en/theme-documentation-music-shortcode/</loc><lastmod>2023-06-24T11:39:18&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://www.bardblog.cn/en/theme-documentation-music-shortcode/</loc><lastmod>2023-06-24T20:10:45&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
                         href="https://www.bardblog.cn/theme-documentation-music-shortcode/"
@@ -92,7 +92,7 @@
                     hreflang="en"
                     href="https://www.bardblog.cn/en/theme-documentation-music-shortcode/"
                     /></url><url>
-            <loc>https://www.bardblog.cn/en/theme-documentation-bilibili-shortcode/</loc><lastmod>2023-06-24T11:39:18&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://www.bardblog.cn/en/theme-documentation-bilibili-shortcode/</loc><lastmod>2023-06-24T20:10:45&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
                         href="https://www.bardblog.cn/theme-documentation-bilibili-shortcode/"
@@ -101,7 +101,7 @@
                     hreflang="en"
                     href="https://www.bardblog.cn/en/theme-documentation-bilibili-shortcode/"
                     /></url><url>
-            <loc>https://www.bardblog.cn/en/theme-documentation-typeit-shortcode/</loc><lastmod>2023-06-24T11:39:18&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://www.bardblog.cn/en/theme-documentation-typeit-shortcode/</loc><lastmod>2023-06-24T20:10:45&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
                         href="https://www.bardblog.cn/theme-documentation-typeit-shortcode/"
@@ -119,7 +119,7 @@
                     hreflang="en"
                     href="https://www.bardblog.cn/en/about/"
                     /></url><url>
-            <loc>https://www.bardblog.cn/en/categories/</loc><lastmod>2023-06-24T11:39:18&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://www.bardblog.cn/en/categories/</loc><lastmod>2023-06-24T20:10:45&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
                         href="https://www.bardblog.cn/categories/"
@@ -128,7 +128,7 @@
                     hreflang="en"
                     href="https://www.bardblog.cn/en/categories/"
                     /></url><url>
-            <loc>https://www.bardblog.cn/en/tags/configuration/</loc><lastmod>2023-06-24T11:39:18&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://www.bardblog.cn/en/tags/configuration/</loc><lastmod>2023-06-24T20:10:45&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
                         href="https://www.bardblog.cn/tags/configuration/"
@@ -137,7 +137,7 @@
                     hreflang="en"
                     href="https://www.bardblog.cn/en/tags/configuration/"
                     /></url><url>
-            <loc>https://www.bardblog.cn/en/tags/installation/</loc><lastmod>2023-06-24T11:39:18&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://www.bardblog.cn/en/tags/installation/</loc><lastmod>2023-06-24T20:10:45&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
                         href="https://www.bardblog.cn/tags/installation/"
@@ -146,7 +146,7 @@
                     hreflang="en"
                     href="https://www.bardblog.cn/en/tags/installation/"
                     /></url><url>
-            <loc>https://www.bardblog.cn/en/posts/</loc><lastmod>2023-06-24T11:39:18&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://www.bardblog.cn/en/posts/</loc><lastmod>2023-06-24T20:10:45&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
                         href="https://www.bardblog.cn/posts/"
@@ -155,7 +155,7 @@
                     hreflang="en"
                     href="https://www.bardblog.cn/en/posts/"
                     /></url><url>
-            <loc>https://www.bardblog.cn/en/tags/</loc><lastmod>2023-06-24T11:39:18&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://www.bardblog.cn/en/tags/</loc><lastmod>2023-06-24T20:10:45&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
                         href="https://www.bardblog.cn/tags/"
@@ -164,7 +164,7 @@
                     hreflang="en"
                     href="https://www.bardblog.cn/en/tags/"
                     /></url><url>
-            <loc>https://www.bardblog.cn/en/</loc><lastmod>2023-06-24T11:39:18&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://www.bardblog.cn/en/</loc><lastmod>2023-06-24T20:10:45&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
                         href="https://www.bardblog.cn/"
@@ -173,7 +173,7 @@
                     hreflang="en"
                     href="https://www.bardblog.cn/en/"
                     /></url><url>
-            <loc>https://www.bardblog.cn/en/tags/content/</loc><lastmod>2023-06-24T11:39:18&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://www.bardblog.cn/en/tags/content/</loc><lastmod>2023-06-24T20:10:45&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
                         href="https://www.bardblog.cn/tags/content/"
@@ -182,7 +182,7 @@
                     hreflang="en"
                     href="https://www.bardblog.cn/en/tags/content/"
                     /></url><url>
-            <loc>https://www.bardblog.cn/en/tags/markdown/</loc><lastmod>2023-06-24T11:39:18&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://www.bardblog.cn/en/tags/markdown/</loc><lastmod>2023-06-24T20:10:45&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
                         href="https://www.bardblog.cn/tags/markdown/"
@@ -191,7 +191,7 @@
                     hreflang="en"
                     href="https://www.bardblog.cn/en/tags/markdown/"
                     /></url><url>
-            <loc>https://www.bardblog.cn/en/tags/shortcodes/</loc><lastmod>2023-06-24T11:39:18&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://www.bardblog.cn/en/tags/shortcodes/</loc><lastmod>2023-06-24T20:10:45&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
                         href="https://www.bardblog.cn/tags/shortcodes/"
@@ -200,7 +200,7 @@
                     hreflang="en"
                     href="https://www.bardblog.cn/en/tags/shortcodes/"
                     /></url><url>
-            <loc>https://www.bardblog.cn/en/tags/html/</loc><lastmod>2023-06-24T11:39:18&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://www.bardblog.cn/en/tags/html/</loc><lastmod>2023-06-24T20:10:45&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
                         href="https://www.bardblog.cn/tags/html/"
@@ -209,7 +209,7 @@
                     hreflang="en"
                     href="https://www.bardblog.cn/en/tags/html/"
                     /></url><url>
-            <loc>https://www.bardblog.cn/en/categories/markdown/</loc><lastmod>2023-06-24T11:39:18&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://www.bardblog.cn/en/categories/markdown/</loc><lastmod>2023-06-24T20:10:45&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
                         href="https://www.bardblog.cn/categories/markdown/"
@@ -218,7 +218,7 @@
                     hreflang="en"
                     href="https://www.bardblog.cn/en/categories/markdown/"
                     /></url><url>
-            <loc>https://www.bardblog.cn/en/tags/emoji/</loc><lastmod>2023-06-24T11:39:18&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://www.bardblog.cn/en/tags/emoji/</loc><lastmod>2023-06-24T20:10:45&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
                         href="https://www.bardblog.cn/tags/emoji/"
