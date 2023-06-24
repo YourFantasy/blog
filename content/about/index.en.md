@@ -10,7 +10,7 @@ lightgallery: true
 math:
   enable: true
 ---
-programmer
+
 
 English name: BardChen
 

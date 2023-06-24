@@ -1,6 +1,6 @@
 # About Bard
 
-programmer
+
 
 English name: BardChen
 
