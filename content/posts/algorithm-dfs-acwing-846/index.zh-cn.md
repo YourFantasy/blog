@@ -33,7 +33,7 @@ lightgallery: true
 数据范围
 1≤n≤105
 ```markdown
-输入样例
+输入样例:
 9
 1 2
 1 7

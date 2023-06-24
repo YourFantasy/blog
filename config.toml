@@ -371,7 +371,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     hiddenFromSearch = false
     # whether to enable twemoji
     # 是否使用 twemoji
-    twemoji = false
+    twemoji = true
     # whether to enable lightgallery
     # 是否使用 lightgallery
     lightgallery = false
@@ -873,7 +873,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
         Facebook = "xxxx"
         Telegram = "xxxx"
         Youtubelegacy = "xxxx"
-        Phone = "555-555-555"
+        Phone = "+8615571348690"
         Email = "cz950601@gmail.com"
         RSS = true
         [languages.en.params.social.Mastodon]
@@ -964,7 +964,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
         Zhihu = "YourFantasy"
         Bilibili = "27886442"
         Email = "cz950601@gmail.com"
-        Phone = "15571348690"
+        Phone = "+8615571348690"
         RSS = true
         Twitter = "cz960601"
         Instagram = "xxxx"

@@ -36,8 +36,8 @@ lightgallery: true
 1≤N≤105
 ,
 −109≤ai≤bi≤109
-输入样例：
 ```markdown
+输入样例：
 3
 -1 1
 2 4
