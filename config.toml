@@ -496,7 +496,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
       [params.page.comment.gitalk]
         enable = true
         owner = "YourFantasy"
-        repo = "https://github.com/YourFantasy/blog"
+        repo = "blog"
         clientId = "64f57a27c4b33d7930ff"
         clientSecret = "34e7c8aa13489f51aa54f53c4734d0e38762b83f"
       # Valine comment config (https://github.com/xCss/Valine)
