@@ -4,7 +4,7 @@
         <link>https://www.bardblog.cn/</link>
         <description>分享、记录。</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>cz950601@gmail.com (Bard)</managingEditor>
-            <webMaster>cz950601@gmail.com (Bard)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 06 Mar 2020 21:40:32 &#43;0800</lastBuildDate>
+            <webMaster>cz950601@gmail.com (Bard)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 24 Jun 2023 12:57:40 &#43;0800</lastBuildDate>
             <atom:link href="https://www.bardblog.cn/index.xml" rel="self" type="application/rss+xml" />
         <item>
     <title>主题文档 - 基本概念</title>
@@ -31,6 +31,22 @@
     <description><![CDATA[<p><strong>Hugo</strong> 提供了多个内置的 Shortcodes, 以方便作者保持 Markdown 内容的整洁.</p>]]></description>
 </item>
 <item>
+    <title>连通块点数最大值</title>
+    <link>https://www.bardblog.cn/algorithm-dfs-acwing-846/</link>
+    <pubDate>Sat, 24 Jun 2023 12:57:40 &#43;0800</pubDate>
+    <author>Bard</author>
+    <guid>https://www.bardblog.cn/algorithm-dfs-acwing-846/</guid>
+    <description><![CDATA[题目描述 给定一颗树，树中包含 n 个结点（编号 1∼n）和 n−1 条无向边。 请你找到树的重心，并输出将重心删除后，剩余各个连通块中点数的最大值。 重心]]></description>
+</item>
+<item>
+    <title>迷宫最小的移动次数</title>
+    <link>https://www.bardblog.cn/algorithm-bfs-acwing-844/</link>
+    <pubDate>Sat, 24 Jun 2023 12:57:40 &#43;0800</pubDate>
+    <author>Bard</author>
+    <guid>https://www.bardblog.cn/algorithm-bfs-acwing-844/</guid>
+    <description><![CDATA[题目描述 给定一个 n×m 的二维整数数组，用来表示一个迷宫，数组中只包含 0 或 1，其中 0 表示可以走的路，1 表示不可通过的墙壁。 最初，有一个人位于左]]></description>
+</item>
+<item>
     <title>主题文档 - 扩展 Shortcodes</title>
     <link>https://www.bardblog.cn/theme-documentation-extended-shortcodes/</link>
     <pubDate>Tue, 03 Mar 2020 16:29:59 &#43;0800</pubDate>
@@ -45,6 +61,14 @@
     <author>Dillon</author>
     <guid>https://www.bardblog.cn/basic-markdown-syntax/</guid>
     <description><![CDATA[<p>这篇文章提供了可以在 Hugo 的文章中使用的基本 Markdown 语法示例.</p>]]></description>
+</item>
+<item>
+    <title>最大不相交区间数量</title>
+    <link>https://www.bardblog.cn/algorithm-greedy-disjoint/</link>
+    <pubDate>Sat, 24 Jun 2023 12:57:40 &#43;0800</pubDate>
+    <author>Bard</author>
+    <guid>https://www.bardblog.cn/algorithm-greedy-disjoint/</guid>
+    <description><![CDATA[题目描述 给定 N 个闭区间 [ai,bi] ，请你在数轴上选择若干个区间，使得选中的区间之间互不相交（包括端点）。 输出可选取区间的最大数量。 输入格式 第一行包含整]]></description>
 </item>
 <item>
     <title>主题文档 - mermaid Shortcode</title>
@@ -62,31 +86,6 @@
     <author>Dillon</author>
     <guid>https://www.bardblog.cn/emoji-support/</guid>
     <description><![CDATA[<p>Emoji 可以通过多种方式在 Hugo 项目中启用.</p>]]></description>
-</item>
-<item>
-    <title>主题文档 - echarts Shortcode</title>
-    <link>https://www.bardblog.cn/theme-documentation-echarts-shortcode/</link>
-    <pubDate>Tue, 03 Mar 2020 14:29:59 &#43;0800</pubDate>
-    <author>Dillon</author>
-    <guid>https://www.bardblog.cn/theme-documentation-echarts-shortcode/</guid>
-    <description><![CDATA[<p><code>echarts</code> shortcode 使用 <a href="https://echarts.apache.org/" target="_blank" rel="noopener noreffer ">ECharts</a> 库提供数据可视化的功能.</p>]]></description>
-</item>
-<item>
-    <title>主题文档 - mapbox Shortcode</title>
-    <link>https://www.bardblog.cn/theme-documentation-mapbox-shortcode/</link>
-    <pubDate>Tue, 03 Mar 2020 13:29:59 &#43;0800</pubDate>
-    <author>Dillon</author>
-    <guid>https://www.bardblog.cn/theme-documentation-mapbox-shortcode/</guid>
-    <description><![CDATA[<a href="https://github.com/dillonzq/LoveIt/releases/tag/v0.2.0" rel="noopener noreffer" target="_blank"></a>
-<p><code>mapbox</code> shortcode 使用 <a href="https://docs.mapbox.com/mapbox-gl-js" target="_blank" rel="noopener noreffer ">Mapbox GL JS</a> 库提供互动式地图的功能.</p>]]></description>
-</item>
-<item>
-    <title>主题文档 - music Shortcode</title>
-    <link>https://www.bardblog.cn/theme-documentation-music-shortcode/</link>
-    <pubDate>Tue, 03 Mar 2020 12:29:59 &#43;0800</pubDate>
-    <author>Dillon</author>
-    <guid>https://www.bardblog.cn/theme-documentation-music-shortcode/</guid>
-    <description><![CDATA[<p><code>music</code> shortcode 基于 <a href="https://github.com/MoePlayer/APlayer" target="_blank" rel="noopener noreffer ">APlayer</a> 和 <a href="https://github.com/metowolf/MetingJS" target="_blank" rel="noopener noreffer ">MetingJS</a> 库提供了一个内嵌的响应式音乐播放器.</p>]]></description>
 </item>
 </channel>
 </rss>

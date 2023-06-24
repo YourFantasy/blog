@@ -1,19 +1,5 @@
----
-weight: 4
-title: "连通块点数最大值"
-date: 2023-06-24T12:57:40+08:00
-lastmod: 2023-06-24T14:57:40+08:00
-draft: false
-author: "Bard"
-description: "深度优先搜索解决连通块问题"
-images: []
-resources:
+# 连通块点数最大值
 
-tags: ["algorithm","bfs"]
-categories: ["technology"]
-
-lightgallery: true
----
 
 # 题目描述
 给定一颗树，树中包含 n 个结点（编号 1∼n）和 n−1 条无向边。

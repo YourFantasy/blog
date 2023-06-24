@@ -1,19 +1,5 @@
----
-weight: 4
-title: "迷宫最小的移动次数"
-date: 2023-06-24T12:57:40+08:00
-lastmod: 2023-06-24T14:57:40+08:00
-draft: false
-author: "Bard"
-description: "bfs解决最短路问题"
-images: []
-resources:
+# 迷宫最小的移动次数
 
-tags: ["algorithm","bfs"]
-categories: ["technology"]
-
-lightgallery: true
----
 
 
 

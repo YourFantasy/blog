@@ -1,19 +1,5 @@
----
-weight: 5
-title: "最大不相交区间数量"
-date: 2023-06-24T12:57:40+08:00
-lastmod: 2023-06-24T14:57:40+08:00
-draft: false
-author: "Bard"
-description: "贪心算法解决区间合并问题"
-images: []
-resources:
+# 最大不相交区间数量
 
-tags: ["algorithm","greed"]
-categories: ["technology"]
-
-lightgallery: true
----
 
 # 题目描述
 

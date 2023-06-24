@@ -1,0 +1,32 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>algorithm - 标签 - 编程浪子</title>
+        <link>https://www.bardblog.cn/tags/algorithm/</link>
+        <description>algorithm - 标签 - 编程浪子</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>cz950601@gmail.com (Bard)</managingEditor>
+            <webMaster>cz950601@gmail.com (Bard)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 24 Jun 2023 12:57:40 &#43;0800</lastBuildDate><atom:link href="https://www.bardblog.cn/tags/algorithm/" rel="self" type="application/rss+xml" /><item>
+    <title>连通块点数最大值</title>
+    <link>https://www.bardblog.cn/algorithm-dfs-acwing-846/</link>
+    <pubDate>Sat, 24 Jun 2023 12:57:40 &#43;0800</pubDate>
+    <author>Bard</author>
+    <guid>https://www.bardblog.cn/algorithm-dfs-acwing-846/</guid>
+    <description><![CDATA[题目描述 给定一颗树，树中包含 n 个结点（编号 1∼n）和 n−1 条无向边。 请你找到树的重心，并输出将重心删除后，剩余各个连通块中点数的最大值。 重心]]></description>
+</item>
+<item>
+    <title>迷宫最小的移动次数</title>
+    <link>https://www.bardblog.cn/algorithm-bfs-acwing-844/</link>
+    <pubDate>Sat, 24 Jun 2023 12:57:40 &#43;0800</pubDate>
+    <author>Bard</author>
+    <guid>https://www.bardblog.cn/algorithm-bfs-acwing-844/</guid>
+    <description><![CDATA[题目描述 给定一个 n×m 的二维整数数组，用来表示一个迷宫，数组中只包含 0 或 1，其中 0 表示可以走的路，1 表示不可通过的墙壁。 最初，有一个人位于左]]></description>
+</item>
+<item>
+    <title>最大不相交区间数量</title>
+    <link>https://www.bardblog.cn/algorithm-greedy-disjoint/</link>
+    <pubDate>Sat, 24 Jun 2023 12:57:40 &#43;0800</pubDate>
+    <author>Bard</author>
+    <guid>https://www.bardblog.cn/algorithm-greedy-disjoint/</guid>
+    <description><![CDATA[题目描述 给定 N 个闭区间 [ai,bi] ，请你在数轴上选择若干个区间，使得选中的区间之间互不相交（包括端点）。 输出可选取区间的最大数量。 输入格式 第一行包含整]]></description>
+</item>
+</channel>
+</rss>
