@@ -1,0 +1,92 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>编程浪子</title>
+        <link>https://www.bardblog.cn/</link>
+        <description>Hugo theme - LoveIt</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>cz950601@gmail.com (Bard)</managingEditor>
+            <webMaster>cz950601@gmail.com (Bard)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 06 Mar 2020 21:40:32 &#43;0800</lastBuildDate>
+            <atom:link href="https://www.bardblog.cn/index.xml" rel="self" type="application/rss+xml" />
+        <item>
+    <title>主题文档 - 基本概念</title>
+    <link>https://www.bardblog.cn/theme-documentation-basics/</link>
+    <pubDate>Fri, 06 Mar 2020 21:40:32 &#43;0800</pubDate>
+    <author>Dillon</author>
+    <guid>https://www.bardblog.cn/theme-documentation-basics/</guid>
+    <description><![CDATA[<p>探索 Hugo - <strong>LoveIt</strong> 主题的全部内容和背后的核心概念.</p>]]></description>
+</item>
+<item>
+    <title>主题文档 - 内容</title>
+    <link>https://www.bardblog.cn/theme-documentation-content/</link>
+    <pubDate>Thu, 05 Mar 2020 16:30:05 &#43;0800</pubDate>
+    <author>Dillon</author>
+    <guid>https://www.bardblog.cn/theme-documentation-content/</guid>
+    <description><![CDATA[<p>了解如何在 <strong>LoveIt</strong> 主题中快速, 直观地创建和组织内容.</p>]]></description>
+</item>
+<item>
+    <title>主题文档 - 内置 Shortcodes</title>
+    <link>https://www.bardblog.cn/theme-documentation-built-in-shortcodes/</link>
+    <pubDate>Wed, 04 Mar 2020 16:29:59 &#43;0800</pubDate>
+    <author>Dillon</author>
+    <guid>https://www.bardblog.cn/theme-documentation-built-in-shortcodes/</guid>
+    <description><![CDATA[<p><strong>Hugo</strong> 提供了多个内置的 Shortcodes, 以方便作者保持 Markdown 内容的整洁.</p>]]></description>
+</item>
+<item>
+    <title>主题文档 - 扩展 Shortcodes</title>
+    <link>https://www.bardblog.cn/theme-documentation-extended-shortcodes/</link>
+    <pubDate>Tue, 03 Mar 2020 16:29:59 &#43;0800</pubDate>
+    <author>Dillon</author>
+    <guid>https://www.bardblog.cn/theme-documentation-extended-shortcodes/</guid>
+    <description><![CDATA[<p><strong>LoveIt</strong> 主题在 Hugo 内置的 shortcode 的基础上提供多个扩展的 shortcode.</p>]]></description>
+</item>
+<item>
+    <title>Markdown 基本语法</title>
+    <link>https://www.bardblog.cn/basic-markdown-syntax/</link>
+    <pubDate>Sun, 01 Dec 2019 21:57:40 &#43;0800</pubDate>
+    <author>Dillon</author>
+    <guid>https://www.bardblog.cn/basic-markdown-syntax/</guid>
+    <description><![CDATA[<p>这篇文章提供了可以在 Hugo 的文章中使用的基本 Markdown 语法示例.</p>]]></description>
+</item>
+<item>
+    <title>主题文档 - mermaid Shortcode</title>
+    <link>https://www.bardblog.cn/theme-documentation-mermaid-shortcode/</link>
+    <pubDate>Tue, 03 Mar 2020 15:29:59 &#43;0800</pubDate>
+    <author>Dillon</author>
+    <guid>https://www.bardblog.cn/theme-documentation-mermaid-shortcode/</guid>
+    <description><![CDATA[<a href="https://github.com/dillonzq/LoveIt/releases/tag/v0.2.11" rel="noopener noreffer" target="_blank"></a>
+<p><code>mermaid</code> shortcode 使用 <a href="https://mermaidjs.github.io/" target="_blank" rel="noopener noreffer ">Mermaid</a> 库提供绘制图表和流程图的功能.</p>]]></description>
+</item>
+<item>
+    <title> 最大不相交区间数量</title>
+    <link>https://www.bardblog.cn/algorithm-bfs-disjoint/</link>
+    <pubDate>Tue, 01 Oct 2019 17:55:28 &#43;0800</pubDate>
+    <author>Bard</author>
+    <guid>https://www.bardblog.cn/algorithm-bfs-disjoint/</guid>
+    <description><![CDATA[1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70]]></description>
+</item>
+<item>
+    <title>Emoji 支持</title>
+    <link>https://www.bardblog.cn/emoji-support/</link>
+    <pubDate>Tue, 01 Oct 2019 17:55:28 &#43;0800</pubDate>
+    <author>Dillon</author>
+    <guid>https://www.bardblog.cn/emoji-support/</guid>
+    <description><![CDATA[<p>Emoji 可以通过多种方式在 Hugo 项目中启用.</p>]]></description>
+</item>
+<item>
+    <title>主题文档 - echarts Shortcode</title>
+    <link>https://www.bardblog.cn/theme-documentation-echarts-shortcode/</link>
+    <pubDate>Tue, 03 Mar 2020 14:29:59 &#43;0800</pubDate>
+    <author>Dillon</author>
+    <guid>https://www.bardblog.cn/theme-documentation-echarts-shortcode/</guid>
+    <description><![CDATA[<p><code>echarts</code> shortcode 使用 <a href="https://echarts.apache.org/" target="_blank" rel="noopener noreffer ">ECharts</a> 库提供数据可视化的功能.</p>]]></description>
+</item>
+<item>
+    <title>主题文档 - mapbox Shortcode</title>
+    <link>https://www.bardblog.cn/theme-documentation-mapbox-shortcode/</link>
+    <pubDate>Tue, 03 Mar 2020 13:29:59 &#43;0800</pubDate>
+    <author>Dillon</author>
+    <guid>https://www.bardblog.cn/theme-documentation-mapbox-shortcode/</guid>
+    <description><![CDATA[<a href="https://github.com/dillonzq/LoveIt/releases/tag/v0.2.0" rel="noopener noreffer" target="_blank"></a>
+<p><code>mapbox</code> shortcode 使用 <a href="https://docs.mapbox.com/mapbox-gl-js" target="_blank" rel="noopener noreffer ">Mapbox GL JS</a> 库提供互动式地图的功能.</p>]]></description>
+</item>
+</channel>
+</rss>
