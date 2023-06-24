@@ -1,15 +1,14 @@
 ---
 weight: 5
 title: " 最大不相交区间数量"
-date: 2019-10-01T17:55:28+08:00
-lastmod: 2023-06-01T17:55:28+08:00
+date: 2023-06-24T17:55:28+08:00
+lastmod: 2023-06-24T17:55:28+08:00
 draft: false
 author: "Bard"
-authorLink: "https://dillonzq.com"
-description: "Hugo 和 LoveIt 中的 Emoji 的用法指南."
+description: "."
 images: []
 resources:
-tags: ["bfs"]
+tags: ["greedy"]
 categories: ["algorithm"]
 
 twemoji: false

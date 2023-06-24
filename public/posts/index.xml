@@ -54,14 +54,6 @@
 <p><code>mermaid</code> shortcode 使用 <a href="https://mermaidjs.github.io/" target="_blank" rel="noopener noreffer ">Mermaid</a> 库提供绘制图表和流程图的功能.</p>]]></description>
 </item>
 <item>
-    <title> 最大不相交区间数量</title>
-    <link>https://www.bardblog.cn/algorithm-bfs-disjoint/</link>
-    <pubDate>Tue, 01 Oct 2019 17:55:28 &#43;0800</pubDate>
-    <author>Bard</author>
-    <guid>https://www.bardblog.cn/algorithm-bfs-disjoint/</guid>
-    <description><![CDATA[1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70]]></description>
-</item>
-<item>
     <title>Emoji 支持</title>
     <link>https://www.bardblog.cn/emoji-support/</link>
     <pubDate>Tue, 01 Oct 2019 17:55:28 &#43;0800</pubDate>
@@ -85,6 +77,14 @@
     <guid>https://www.bardblog.cn/theme-documentation-mapbox-shortcode/</guid>
     <description><![CDATA[<a href="https://github.com/dillonzq/LoveIt/releases/tag/v0.2.0" rel="noopener noreffer" target="_blank"></a>
 <p><code>mapbox</code> shortcode 使用 <a href="https://docs.mapbox.com/mapbox-gl-js" target="_blank" rel="noopener noreffer ">Mapbox GL JS</a> 库提供互动式地图的功能.</p>]]></description>
+</item>
+<item>
+    <title>主题文档 - music Shortcode</title>
+    <link>https://www.bardblog.cn/theme-documentation-music-shortcode/</link>
+    <pubDate>Tue, 03 Mar 2020 12:29:59 &#43;0800</pubDate>
+    <author>Dillon</author>
+    <guid>https://www.bardblog.cn/theme-documentation-music-shortcode/</guid>
+    <description><![CDATA[<p><code>music</code> shortcode 基于 <a href="https://github.com/MoePlayer/APlayer" target="_blank" rel="noopener noreffer ">APlayer</a> 和 <a href="https://github.com/metowolf/MetingJS" target="_blank" rel="noopener noreffer ">MetingJS</a> 库提供了一个内嵌的响应式音乐播放器.</p>]]></description>
 </item>
 </channel>
 </rss>
