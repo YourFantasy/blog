@@ -9,7 +9,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.bardblog.cn/desigin-pattern-factory/" /><meta property="og:image" content="https://www.bardblog.cn/logo.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2023-06-24T12:57:40+08:00" />
-<meta property="article:modified_time" content="2023-06-24T18:49:56+08:00" /><meta property="og:site_name" content="编程浪子" />
+<meta property="article:modified_time" content="2023-06-24T21:49:43+08:00" /><meta property="og:site_name" content="编程浪子" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://www.bardblog.cn/logo.png"/>
 
@@ -34,8 +34,8 @@
                             "url": "https:\/\/www.bardblog.cn\/images\/Apple-Devices-Preview.png",
                             "width":  3200 ,
                             "height":  2048 
-                        }],"genre": "posts","keywords": "desigin-patter","wordcount":  2770 ,
-        "url": "https:\/\/www.bardblog.cn\/desigin-pattern-factory\/","datePublished": "2023-06-24T12:57:40+08:00","dateModified": "2023-06-24T18:49:56+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+                        }],"genre": "posts","keywords": "desigin-patter","wordcount":  2769 ,
+        "url": "https:\/\/www.bardblog.cn\/desigin-pattern-factory\/","datePublished": "2023-06-24T12:57:40+08:00","dateModified": "2023-06-24T21:49:43+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": {
                     "@type": "ImageObject",
@@ -119,7 +119,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">设计模式之工厂模式</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bard</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/technology/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>technology</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-06-24">2023-06-24</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 2770 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-06-24">2023-06-24</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 2769 字&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 6 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -559,13 +559,13 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>简单总结一下工厂方法模式的优缺点：</p>
-<p><strong>优点</strong>：
--1.可扩展性好，当需要增加一款新的产品时（如添加奥迪汽车），无需修改抽象工厂和抽象工厂提供的接口，祝需要添加一个具体工厂和具体产品就行了，更加符合“开闭原则”，简单工厂模式则需要修改工厂类的判断逻辑，
-2.符合单一职责原则：每个具体工厂类只负责生产对应的产品。简单工厂模式的工厂类还需要有一定逻辑判断
-3.基于⼯⼚⻆⾊和产品⻆⾊的多态性设计是⼯⼚⽅法模式的关键。它能够使⼯⼚可以⾃主确定创建何种产品对象（该产品的工厂类只需要实现抽象工厂接口即可），⽽如何创建这个对象的细节则完全封装在具体⼯⼚内部。⼯⼚⽅法模式之所以⼜被称为多态⼯⼚模式，是因为所有的具体⼯⼚类都具有同⼀抽象⽗类。
-<strong>缺点</strong>：
-1.每次添加新的产品，都需要编写新的具体产品类，并且同时也要提供该产品对应的工厂类，当系统中产品数量表多的时候，类的个数会因此成倍增加，会在一定成都上导致系统的复杂性，并且多个类需要编译运行，会在一定程度上增加系统的开销
-2.一个具体工厂类只能创建一种具体产品</p>
+<p><strong>优点：</strong></p>
+<p>1.可扩展性好，当需要增加一款新的产品时（如添加奥迪汽车），无需修改抽象工厂和抽象工厂提供的接口，祝需要添加一个具体工厂和具体产品就行了，更加符合“开闭原则”，简单工厂模式则需要修改工厂类的判断逻辑，</p>
+<p>2.符合单一职责原则：每个具体工厂类只负责生产对应的产品。简单工厂模式的工厂类还需要有一定逻辑判断</p>
+<p>3.基于⼯⼚⻆⾊和产品⻆⾊的多态性设计是⼯⼚⽅法模式的关键。它能够使⼯⼚可以⾃主确定创建何种产品对象（该产品的工厂类只需要实现抽象工厂接口即可），⽽如何创建这个对象的细节则完全封装在具体⼯⼚内部。⼯⼚⽅法模式之所以⼜被称为多态⼯⼚模式，是因为所有的具体⼯⼚类都具有同⼀抽象⽗类。</p>
+<p><strong>缺点：</strong></p>
+<p>1.每次添加新的产品，都需要编写新的具体产品类，并且同时也要提供该产品对应的工厂类，当系统中产品数量表多的时候，类的个数会因此成倍增加，会在一定成都上导致系统的复杂性，并且多个类需要编译运行，会在一定程度上增加系统的开销</p>
+<p>2.一个具体工厂类只能创建一种具体产品</p>
 <h2 id="抽象工厂模式">抽象工厂模式</h2>
 <blockquote>
 <p>抽象工厂模式可以理解为生产工厂的工厂，即有一个超级工厂生产其他的工厂。马克思说过：“人是一切社会关系的总和”，一个人在社会上不可能只扮演一种角色，一个人的职业可能是程序员、也有其相应的家庭角色；同时程序员也有go、java、python程序员等，家庭角色也可能是是父亲、儿子、
@@ -821,8 +821,8 @@
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>更新于 2023-06-24&nbsp;<a class="git-hash" href="https://github.com/YourFantasy/blog/commit/31c47d2daa3db4c3ef5d49a2876db39f1e966b4e" target="_blank" title="commit by bardchen(bardchen@tencent.com) 31c47d2daa3db4c3ef5d49a2876db39f1e966b4e: 新增设计模式之工厂模式">
-                                    <i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>31c47d2</a></span>
+                <span>更新于 2023-06-24&nbsp;<a class="git-hash" href="https://github.com/YourFantasy/blog/commit/ac6b7df374e9d7e1462ea8b42ceec63f6e105465" target="_blank" title="commit by bardchen(bardchen@tencent.com) ac6b7df374e9d7e1462ea8b42ceec63f6e105465: 更新文档格式">
+                                    <i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>ac6b7df</a></span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"><span>
