@@ -68,7 +68,7 @@
     <pubDate>Sat, 24 Jun 2023 12:57:40 &#43;0800</pubDate>
     <author>Bard</author>
     <guid>https://www.bardblog.cn/algorithm-greedy-disjoint/</guid>
-    <description><![CDATA[题目描述 给定 N 个闭区间 [ai,bi] ，请你在数轴上选择若干个区间，使得选中的区间之间互不相交（包括端点）。 输出可选取区间的最大数量。 输入格式 第一行包含整]]></description>
+    <description><![CDATA[题目描述 给定 N个闭区间 [ai,bi]，请你在数轴上选择若干个区间，使得选中的区间之间互不相交（包括端点）。 输出可选取区间的最大数量。 输入格式]]></description>
 </item>
 <item>
     <title>主题文档 - mermaid Shortcode</title>

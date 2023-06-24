@@ -9,7 +9,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.bardblog.cn/algorithm-dfs-acwing-846/" /><meta property="og:image" content="https://www.bardblog.cn/logo.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2023-06-24T12:57:40+08:00" />
-<meta property="article:modified_time" content="2023-06-24T17:43:47+08:00" /><meta property="og:site_name" content="编程浪子" />
+<meta property="article:modified_time" content="2023-06-24T17:58:06+08:00" /><meta property="og:site_name" content="编程浪子" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://www.bardblog.cn/logo.png"/>
 
@@ -34,8 +34,8 @@
                             "url": "https:\/\/www.bardblog.cn\/images\/Apple-Devices-Preview.png",
                             "width":  3200 ,
                             "height":  2048 
-                        }],"genre": "posts","keywords": "algorithm, bfs","wordcount":  1038 ,
-        "url": "https:\/\/www.bardblog.cn\/algorithm-dfs-acwing-846\/","datePublished": "2023-06-24T12:57:40+08:00","dateModified": "2023-06-24T17:43:47+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+                        }],"genre": "posts","keywords": "algorithm, bfs","wordcount":  1048 ,
+        "url": "https:\/\/www.bardblog.cn\/algorithm-dfs-acwing-846\/","datePublished": "2023-06-24T12:57:40+08:00","dateModified": "2023-06-24T17:58:06+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": {
                     "@type": "ImageObject",
@@ -119,7 +119,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">连通块点数最大值</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bard</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/technology/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>technology</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-06-24">2023-06-24</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1038 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-06-24">2023-06-24</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1048 字&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 3 分钟&nbsp;<span id="/algorithm-dfs-acwing-846/" class="leancloud_visitors" data-flag-title="连通块点数最大值">
                         <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
@@ -150,18 +150,34 @@
 <p>输出格式
 输出一个整数 m，表示将重心删除后，剩余各个连通块中点数的最大值。</p>
 <p>数据范围
-1≤n≤105
-输入样例
-9
-1 2
-1 7
-1 4
-2 8
-2 5
-4 3
-3 9
-4 6</p>
-<h2 id="实现思路">实现思路</h2>
+1≤n≤105</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="line"><span class="cl">输入样例
+</span></span><span class="line"><span class="cl">9
+</span></span><span class="line"><span class="cl">1 2
+</span></span><span class="line"><span class="cl">1 7
+</span></span><span class="line"><span class="cl">1 4
+</span></span><span class="line"><span class="cl">2 8
+</span></span><span class="line"><span class="cl">2 5
+</span></span><span class="line"><span class="cl">4 3
+</span></span><span class="line"><span class="cl">3 9
+</span></span><span class="line"><span class="cl">4 6
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="实现思路">实现思路</h2>
 <h2 id="代码实现">代码实现</h2>
 <h3 id="代码1">代码1</h3>
 <div class="highlight"><div class="chroma">
@@ -461,8 +477,8 @@
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>更新于 2023-06-24&nbsp;<a class="git-hash" href="https://github.com/YourFantasy/blog/commit/f2d4f294c49a4abd7a4c0fd4c5bda50d42b67d8e" target="_blank" title="commit by bardchen(bardchen@tencent.com) f2d4f294c49a4abd7a4c0fd4c5bda50d42b67d8e: update matter">
-                                    <i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>f2d4f29</a></span>
+                <span>更新于 2023-06-24&nbsp;<a class="git-hash" href="https://github.com/YourFantasy/blog/commit/496dd8d1d7dd7cf7f6873f9635665058779fdbb6" target="_blank" title="commit by bardchen(bardchen@tencent.com) 496dd8d1d7dd7cf7f6873f9635665058779fdbb6: 调整格式">
+                                    <i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>496dd8d</a></span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"><span>

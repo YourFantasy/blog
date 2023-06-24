@@ -32,6 +32,7 @@ lightgallery: true
 
 数据范围
 1≤n≤105
+```markdown
 输入样例
 9
 1 2
@@ -42,6 +43,7 @@ lightgallery: true
 4 3
 3 9
 4 6
+```
 
 ## 实现思路
 
