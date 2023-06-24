@@ -15,7 +15,7 @@ categories: ["technology"]
 lightgallery: true
 ---
 
-# 题目描述
+## 题目描述
 给定一颗树，树中包含 n 个结点（编号 1∼n）和 n−1 条无向边。
 
 请你找到树的重心，并输出将重心删除后，剩余各个连通块中点数的最大值。
@@ -43,11 +43,11 @@ lightgallery: true
 3 9
 4 6
 
-# 实现思路
+## 实现思路
 
-# 代码实现
+## 代码实现
+### 代码1
 
-## 代码1
 ```go
 package main
 
@@ -131,7 +131,8 @@ type listNode struct {
 
 ```
 
-## 代码2
+###	代码2
+
 ```go
 package main
 

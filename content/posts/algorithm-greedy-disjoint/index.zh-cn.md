@@ -15,7 +15,7 @@ categories: ["technology"]
 lightgallery: true
 ---
 
-# 题目描述
+## 题目描述
 
 给定 N
  个闭区间 [ai,bi]
@@ -46,7 +46,8 @@ lightgallery: true
 输出样例：
 2
 
-# 代码实现
+## 代码实现
+
 ```
 package main
 
@@ -90,7 +91,7 @@ func main() {
 
 ```
 
-# 证明
+## 证明
 先把原始区间按照右端点从小到大排序
 
 对于第一个区间，选择右端点
