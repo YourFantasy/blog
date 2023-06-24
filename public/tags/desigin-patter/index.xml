@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>desigin-patter - 标签 - 编程浪子</title>
+        <link>https://www.bardblog.cn/tags/desigin-patter/</link>
+        <description>desigin-patter - 标签 - 编程浪子</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>cz950601@gmail.com (Bard)</managingEditor>
+            <webMaster>cz950601@gmail.com (Bard)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 24 Jun 2023 12:57:40 &#43;0800</lastBuildDate><atom:link href="https://www.bardblog.cn/tags/desigin-patter/" rel="self" type="application/rss+xml" /><item>
+    <title>设计模式之工厂模式</title>
+    <link>https://www.bardblog.cn/desigin-pattern-factory/</link>
+    <pubDate>Sat, 24 Jun 2023 12:57:40 &#43;0800</pubDate>
+    <author>Bard</author>
+    <guid>https://www.bardblog.cn/desigin-pattern-factory/</guid>
+    <description><![CDATA[工厂模式大致可分为 简单工厂模式 工厂方法模式 抽象工厂模式 下面就这三种工厂模式做一下介绍并配上实现代码 简单工厂模式 简单工厂模式，也叫静态方法模式]]></description>
+</item>
+</channel>
+</rss>

@@ -45,6 +45,14 @@
     <description><![CDATA[题目描述 给定一个 n×m 的二维整数数组，用来表示一个迷宫，数组中只包含 0 或 1，其中 0 表示可以走的路，1 表示不可通过的墙壁。 最初，有一个人位于左]]></description>
 </item>
 <item>
+    <title>设计模式之工厂模式</title>
+    <link>https://www.bardblog.cn/desigin-pattern-factory/</link>
+    <pubDate>Sat, 24 Jun 2023 12:57:40 &#43;0800</pubDate>
+    <author>Bard</author>
+    <guid>https://www.bardblog.cn/desigin-pattern-factory/</guid>
+    <description><![CDATA[工厂模式大致可分为 简单工厂模式 工厂方法模式 抽象工厂模式 下面就这三种工厂模式做一下介绍并配上实现代码 简单工厂模式 简单工厂模式，也叫静态方法模式]]></description>
+</item>
+<item>
     <title>主题文档 - 扩展 Shortcodes</title>
     <link>https://www.bardblog.cn/theme-documentation-extended-shortcodes/</link>
     <pubDate>Tue, 03 Mar 2020 16:29:59 &#43;0800</pubDate>
@@ -76,14 +84,6 @@
     <guid>https://www.bardblog.cn/theme-documentation-mermaid-shortcode/</guid>
     <description><![CDATA[<a href="https://github.com/dillonzq/LoveIt/releases/tag/v0.2.11" rel="noopener noreffer" target="_blank"></a>
 <p><code>mermaid</code> shortcode 使用 <a href="https://mermaidjs.github.io/" target="_blank" rel="noopener noreffer ">Mermaid</a> 库提供绘制图表和流程图的功能.</p>]]></description>
-</item>
-<item>
-    <title>Emoji 支持</title>
-    <link>https://www.bardblog.cn/emoji-support/</link>
-    <pubDate>Tue, 01 Oct 2019 17:55:28 &#43;0800</pubDate>
-    <author>Dillon</author>
-    <guid>https://www.bardblog.cn/emoji-support/</guid>
-    <description><![CDATA[<p>Emoji 可以通过多种方式在 Hugo 项目中启用.</p>]]></description>
 </item>
 </channel>
 </rss>
