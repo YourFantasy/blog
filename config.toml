@@ -495,10 +495,10 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
       # Gitalk 评论系统设置 (https://github.com/gitalk/gitalk)
       [params.page.comment.gitalk]
         enable = true
-        owner = ""
-        repo = ""
-        clientId = ""
-        clientSecret = ""
+        owner = "YourFantasy"
+        repo = "https://github.com/YourFantasy/blog"
+        clientId = "64f57a27c4b33d7930ff"
+        clientSecret = "34e7c8aa13489f51aa54f53c4734d0e38762b83f"
       # Valine comment config (https://github.com/xCss/Valine)
       # Valine 评论系统设置 (https://github.com/xCss/Valine)
       [params.page.comment.valine]
