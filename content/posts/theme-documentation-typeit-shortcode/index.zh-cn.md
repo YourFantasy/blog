@@ -4,8 +4,8 @@ title: "主题文档 - typeit Shortcode"
 date: 2020-03-03T10:29:59+08:00
 lastmod: 2020-03-03T10:29:59+08:00
 draft: false
-author: "Dillon"
-authorLink: "https://dillonzq.com"
+author: "Bard"
+authorLink: "https://www.bardblog.cn"
 description: "typeit shortcode 基于 TypeIt 库提供了打字动画."
 images: []
 resources:

@@ -4,8 +4,8 @@ title: "Theme Documentation - Extended Shortcodes"
 date: 2020-03-03T16:29:41+08:00
 lastmod: 2020-06-12T10:10:13+03:00
 draft: false
-author: "Dillon"
-authorLink: "https://dillonzq.com"
+author: "Bard"
+authorLink: "https://www.bardblog.cn"
 description: "LoveIt theme provides multiple shortcodes on top of built-in ones in Hugo."
 images: []
 resources:
@@ -378,7 +378,7 @@ Block Formula:
 console.log('Hello LoveIt!');
 {{< /script >}}
 
-This renders as {{< person "https://dillonzq.com/" Dillon "author of the LoveIt theme" >}}.
+This renders as {{< person "https://www.bardblog.cn/" Dillon "author of the LoveIt theme" >}}.
 Raw content using Markdown syntax: {{< raw >}}**Hello**{{< /raw >}}
 
 ## 13 person
@@ -418,7 +418,7 @@ This renders as {{< person url="https://evgenykuznetsov.org" name="Evgeny Kuznet
 Without an explicitly given picture, a generic icon is used. This input:
 
 ```markdown
-{{</* person "https://dillonzq.com/" Dillon "author of the LoveIt theme" */>}}
+{{</* person "https://www.bardblog.cn/" Dillon "author of the LoveIt theme" */>}}
 ```
 
-This renders as {{< person "https://dillonzq.com/" Dillon "author of the LoveIt theme" >}}.
+This renders as {{< person "https://www.bardblog.cn/" Dillon "author of the LoveIt theme" >}}.

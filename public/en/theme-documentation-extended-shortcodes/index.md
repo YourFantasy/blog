@@ -356,7 +356,7 @@ Block Formula:
 console.log('Hello LoveIt!');
 {{< /script >}}
 
-This renders as {{< person "https://dillonzq.com/" Dillon "author of the LoveIt theme" >}}.
+This renders as {{< person "https://www.bardblog.cn/" Dillon "author of the LoveIt theme" >}}.
 Raw content using Markdown syntax: {{< raw >}}**Hello**{{< /raw >}}
 
 ## 13 person
@@ -396,8 +396,8 @@ This renders as {{< person url="https://evgenykuznetsov.org" name="Evgeny Kuznet
 Without an explicitly given picture, a generic icon is used. This input:
 
 ```markdown
-{{</* person "https://dillonzq.com/" Dillon "author of the LoveIt theme" */>}}
+{{</* person "https://www.bardblog.cn/" Dillon "author of the LoveIt theme" */>}}
 ```
 
-This renders as {{< person "https://dillonzq.com/" Dillon "author of the LoveIt theme" >}}.
+This renders as {{< person "https://www.bardblog.cn/" Dillon "author of the LoveIt theme" >}}.
 

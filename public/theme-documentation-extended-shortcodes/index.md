@@ -391,8 +391,8 @@ console.log('Hello LoveIt!');
 一个使用通用图标的 `person` 示例:
 
 ```markdown
-{{</* person "https://dillonzq.com/" Dillon "author of the LoveIt theme" */>}}
+{{</* person "https://www.bardblog.cn/" Dillon "author of the LoveIt theme" */>}}
 ```
 
-呈现的输出效果为 {{< person "https://dillonzq.com/" Dillon "author of the LoveIt theme" >}}.
+呈现的输出效果为 {{< person "https://www.bardblog.cn/" Dillon "author of the LoveIt theme" >}}.
 

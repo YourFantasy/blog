@@ -4,8 +4,8 @@ title: "Theme Documentation - bilibili Shortcode"
 date: 2020-03-03T11:29:41+08:00
 lastmod: 2020-03-03T12:29:41+08:00
 draft: false
-author: "Dillon"
-authorLink: "https://dillonzq.com"
+author: "Bard"
+authorLink: "https://www.bardblog.cn"
 description: "The bilibili shortcode embeds a responsive video player for bilibili videos."
 images: []
 resources:
