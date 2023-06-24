@@ -531,7 +531,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
       # Facebook comment config (https://developers.facebook.com/docs/plugins/comments)
       # Facebook 评论系统设置 (https://developers.facebook.com/docs/plugins/comments)
       [params.page.comment.facebook]
-        enable = true
+        enable = false
         width = "300%"
         numPosts = 10
         appId = ""
@@ -541,7 +541,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
       # Telegram comments config (https://comments.app/)
       # Telegram comments 评论系统设置 (https://comments.app/)
       [params.page.comment.telegram]
-        enable = true
+        enable = false
         siteID = ""
         limit = 5
         height = ""
