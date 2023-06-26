@@ -51,7 +51,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
 [author]
   name = "Bard"
   email = "cz950601@gmail.com"
-  link = ""
+  link = "https://www.bardblog.cn"
 
 # Menu config
 # 菜单配置
