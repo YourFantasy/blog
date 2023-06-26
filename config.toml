@@ -242,7 +242,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     [params.search.algolia]
       index = "index.zh-cn"
       appID = "58KPEJ4RD6"
-      searchKey = "d6655a9eb7aed71a76e5191ff859c05a"
+      searchKey = "a48c9e27b67c52f03f9b8daa3cbdd18e"
 
   # Home page config
   # 主页信息设置
@@ -944,7 +944,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
         [languages.zh-cn.params.search.algolia]
           index = "index.zh-cn"
           appID = "58KPEJ4RD6"
-          searchKey = "d6655a9eb7aed71a76e5191ff859c05a"
+          searchKey = "a48c9e27b67c52f03f9b8daa3cbdd18e"
       [languages.zh-cn.params.home]
         rss = 10
         [languages.zh-cn.params.home.profile]
