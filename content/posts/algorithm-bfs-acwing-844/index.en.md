@@ -1,3 +1,4 @@
+---
 weight: 4
 title: "Maximum Size of Connected Components"
 date: 2023-06-24T12:57:40+08:00
@@ -12,6 +13,7 @@ tags: ["algorithm","bfs"]
 categories: ["technology"]
 
 lightgallery: true
+---
 
 ## Problem Description
 

@@ -6,6 +6,16 @@
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>cz950601@gmail.com (Bard)</managingEditor>
             <webMaster>cz950601@gmail.com (Bard)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 24 Jun 2023 12:57:40 &#43;0800</lastBuildDate><atom:link href="https://www.bardblog.cn/en/tags/algorithm/" rel="self" type="application/rss+xml" /><item>
     <title>Maximum Size of Connected Components</title>
+    <link>https://www.bardblog.cn/en/algorithm-bfs-acwing-844/</link>
+    <pubDate>Sat, 24 Jun 2023 12:57:40 &#43;0800</pubDate>
+    <author>Bard</author>
+    <guid>https://www.bardblog.cn/en/algorithm-bfs-acwing-844/</guid>
+    <description><![CDATA[Problem Description Given an n×m 2D integer array representing a maze, where the array contains only 0s and 1s, with 0 representing a path that can be traversed and 1 representing an impassable wall.
+Initially, there is a person at the top-left corner (1, 1). It is known that the person can move one position in any direction: up, down, left, or right.
+The task is to determine the minimum number of moves required for the person to reach the bottom-right corner (n, m).]]></description>
+</item>
+<item>
+    <title>Maximum Size of Connected Components</title>
     <link>https://www.bardblog.cn/en/algorithm-dfs-acwing-846/</link>
     <pubDate>Sat, 24 Jun 2023 12:57:40 &#43;0800</pubDate>
     <author>Bard</author>
