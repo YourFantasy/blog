@@ -240,9 +240,9 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     # 是否在搜索索引中使用基于 baseURL 的绝对路径
     absoluteURL = true
     [params.search.algolia]
-      index = ""
-      appID = ""
-      searchKey = ""
+      index = "index.zh-cn"
+      appID = "58KPEJ4RD6"
+      searchKey = "d6655a9eb7aed71a76e5191ff859c05a"
 
   # Home page config
   # 主页信息设置
@@ -787,7 +787,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
 # 多语言
 [languages]
   [languages.en]
-    weight = 1
+    weight = 2
     languageCode = "en"
     languageName = "English"
     hasCJKLanguage = false
@@ -878,7 +878,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
         RSS = true
 
   [languages.zh-cn]
-    weight = 2
+    weight = 1
     languageCode = "zh-CN"
     languageName = "简体中文"
     hasCJKLanguage = true
@@ -943,8 +943,8 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
         absoluteURL = true
         [languages.zh-cn.params.search.algolia]
           index = "index.zh-cn"
-          appID = "PASDMWALPK"
-          searchKey = "b42948e51daaa93df92381c8e2ac0f93"
+          appID = "58KPEJ4RD6"
+          searchKey = "d6655a9eb7aed71a76e5191ff859c05a"
       [languages.zh-cn.params.home]
         rss = 10
         [languages.zh-cn.params.home.profile]

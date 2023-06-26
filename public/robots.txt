@@ -61,4 +61,4 @@ Disallow: /
 User-agent: ZoominfoBot
 Disallow: /
 
-Sitemap: https://www.bardblog.cn/en/sitemap.xml
+Sitemap: https://www.bardblog.cn/sitemap.xml

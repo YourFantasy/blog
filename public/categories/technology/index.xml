@@ -5,14 +5,6 @@
         <description>technology - 分类 - 编程浪子</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>cz950601@gmail.com (Bard)</managingEditor>
             <webMaster>cz950601@gmail.com (Bard)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 24 Jun 2023 12:57:40 &#43;0800</lastBuildDate><atom:link href="https://www.bardblog.cn/categories/technology/" rel="self" type="application/rss+xml" /><item>
-    <title>设计模式之工厂模式</title>
-    <link>https://www.bardblog.cn/desigin-pattern-factory/</link>
-    <pubDate>Sat, 24 Jun 2023 12:57:40 &#43;0800</pubDate>
-    <author>Bard</author>
-    <guid>https://www.bardblog.cn/desigin-pattern-factory/</guid>
-    <description><![CDATA[工厂模式大致可分为 简单工厂模式 工厂方法模式 抽象工厂模式 下面就这三种工厂模式做一下介绍并配上实现代码 简单工厂模式 简单工厂模式，也叫静态方法模式]]></description>
-</item>
-<item>
     <title>连通块点数最大值</title>
     <link>https://www.bardblog.cn/algorithm-dfs-acwing-846/</link>
     <pubDate>Sat, 24 Jun 2023 12:57:40 &#43;0800</pubDate>
@@ -27,6 +19,14 @@
     <author>Bard</author>
     <guid>https://www.bardblog.cn/algorithm-bfs-acwing-844/</guid>
     <description><![CDATA[题目描述 给定一个 n×m 的二维整数数组，用来表示一个迷宫，数组中只包含 0 或 1，其中 0 表示可以走的路，1 表示不可通过的墙壁。 最初，有一个人位于左]]></description>
+</item>
+<item>
+    <title>设计模式之工厂模式</title>
+    <link>https://www.bardblog.cn/desigin-pattern-factory/</link>
+    <pubDate>Sat, 24 Jun 2023 12:57:40 &#43;0800</pubDate>
+    <author>Bard</author>
+    <guid>https://www.bardblog.cn/desigin-pattern-factory/</guid>
+    <description><![CDATA[工厂模式大致可分为 简单工厂模式 工厂方法模式 抽象工厂模式 下面就这三种工厂模式做一下介绍并配上实现代码 简单工厂模式 简单工厂模式，也叫静态方法模式]]></description>
 </item>
 <item>
     <title>最大不相交区间数量</title>
