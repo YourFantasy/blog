@@ -90,9 +90,7 @@ type Animal interface {
 	weight() int
 }
 
-type Dog
-
- struct {
+type Dog struct {
 }
 
 func (d *Dog) eat() {
