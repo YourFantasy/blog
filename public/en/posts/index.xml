@@ -38,6 +38,17 @@
 Simple Factory Pattern The Simple Factory pattern, also known as the Static Method pattern, defines a static method in the object creation factory class to create objects.]]></description>
 </item>
 <item>
+    <title>Maximum Size of Connected Components</title>
+    <link>https://www.bardblog.cn/en/algorithm-dfs-acwing-846/</link>
+    <pubDate>Sat, 24 Jun 2023 12:57:40 &#43;0800</pubDate>
+    <author>Bard</author>
+    <guid>https://www.bardblog.cn/en/algorithm-dfs-acwing-846/</guid>
+    <description><![CDATA[Problem Description Given a tree with n nodes (numbered 1 to n) and n-1 undirected edges.
+Please find the centroid of the tree and output the maximum number of nodes in each remaining connected component after removing the centroid.
+Centroid Definition: The centroid of a tree is a node such that if it is removed, the maximum number of nodes in each remaining connected component is minimized.
+Input Format The first line contains an integer n, representing the number of nodes in the tree.]]></description>
+</item>
+<item>
     <title>Theme Documentation - Extended Shortcodes</title>
     <link>https://www.bardblog.cn/en/theme-documentation-extended-shortcodes/</link>
     <pubDate>Tue, 03 Mar 2020 16:29:41 &#43;0800</pubDate>
@@ -52,6 +63,17 @@ Simple Factory Pattern The Simple Factory pattern, also known as the Static Meth
     <author>Bard</author>
     <guid>https://www.bardblog.cn/en/basic-markdown-syntax/</guid>
     <description><![CDATA[<p>This article offers a sample of basic Markdown syntax that can be used in Hugo content files.</p>]]></description>
+</item>
+<item>
+    <title>Maximum Non-overlapping Intervals</title>
+    <link>https://www.bardblog.cn/en/algorithm-greedy-disjoint/</link>
+    <pubDate>Sat, 24 Jun 2023 12:57:40 &#43;0800</pubDate>
+    <author>Bard</author>
+    <guid>https://www.bardblog.cn/en/algorithm-greedy-disjoint/</guid>
+    <description><![CDATA[Problem Description Given N closed intervals [ai, bi], you need to select a subset of intervals on the number line such that the selected intervals do not overlap with each other (including the endpoints).
+Output the maximum number of intervals that can be selected.
+Input Format The first line contains an integer N, representing the number of intervals.
+The next N lines contain two integers ai and bi each, representing the endpoints of an interval.]]></description>
 </item>
 <item>
     <title>Theme Documentation - mermaid Shortcode</title>
@@ -69,23 +91,6 @@ Simple Factory Pattern The Simple Factory pattern, also known as the Static Meth
     <author>Bard</author>
     <guid>https://www.bardblog.cn/en/emoji-support/</guid>
     <description><![CDATA[<p>Emoji can be enabled in a Hugo project in a number of ways.</p>]]></description>
-</item>
-<item>
-    <title>Theme Documentation - echarts Shortcode</title>
-    <link>https://www.bardblog.cn/en/theme-documentation-echarts-shortcode/</link>
-    <pubDate>Tue, 03 Mar 2020 14:29:41 &#43;0800</pubDate>
-    <author>Bard</author>
-    <guid>https://www.bardblog.cn/en/theme-documentation-echarts-shortcode/</guid>
-    <description><![CDATA[<p>The <code>echarts</code> shortcode supports data visualization in Hugo with <a href="https://echarts.apache.org/" target="_blank" rel="noopener noreffer ">ECharts</a> library.</p>]]></description>
-</item>
-<item>
-    <title>Theme Documentation - mapbox Shortcode</title>
-    <link>https://www.bardblog.cn/en/theme-documentation-mapbox-shortcode/</link>
-    <pubDate>Tue, 03 Mar 2020 13:29:41 &#43;0800</pubDate>
-    <author>Bard</author>
-    <guid>https://www.bardblog.cn/en/theme-documentation-mapbox-shortcode/</guid>
-    <description><![CDATA[<a href="https://github.com/dillonzq/LoveIt/releases/tag/v0.2.0" rel="noopener noreffer" target="_blank"></a>
-<p>The <code>mapbox</code> shortcode supports interactive maps in Hugo with <a href="https://docs.mapbox.com/mapbox-gl-js" target="_blank" rel="noopener noreffer ">Mapbox GL JS</a> library.</p>]]></description>
 </item>
 </channel>
 </rss>

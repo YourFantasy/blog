@@ -1,41 +1,41 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>最大不相交区间数量 - 编程浪子</title><meta name="Description" content="贪心算法解决区间合并问题"><meta property="og:title" content="最大不相交区间数量" />
-<meta property="og:description" content="贪心算法解决区间合并问题" />
+        <title>Maximum Non-overlapping Intervals - 编程浪子</title><meta name="Description" content="Solving interval merging problem using Greedy algorithm"><meta property="og:title" content="Maximum Non-overlapping Intervals" />
+<meta property="og:description" content="Solving interval merging problem using Greedy algorithm" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://www.bardblog.cn/algorithm-greedy-disjoint/" /><meta property="og:image" content="https://www.bardblog.cn/logo.png"/><meta property="article:section" content="posts" />
+<meta property="og:url" content="https://www.bardblog.cn/en/algorithm-greedy-disjoint/" /><meta property="og:image" content="https://www.bardblog.cn/logo.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2023-06-24T12:57:40+08:00" />
-<meta property="article:modified_time" content="2023-06-24T18:49:56+08:00" /><meta property="og:site_name" content="编程浪子" />
+<meta property="article:modified_time" content="2023-06-24T14:57:40+08:00" /><meta property="og:site_name" content="编程浪子" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://www.bardblog.cn/logo.png"/>
 
-<meta name="twitter:title" content="最大不相交区间数量"/>
-<meta name="twitter:description" content="贪心算法解决区间合并问题"/>
+<meta name="twitter:title" content="Maximum Non-overlapping Intervals"/>
+<meta name="twitter:description" content="Solving interval merging problem using Greedy algorithm"/>
 <meta name="application-name" content="Bard">
 <meta name="apple-mobile-web-app-title" content="Bard"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://www.bardblog.cn/algorithm-greedy-disjoint/" /><link rel="prev" href="https://www.bardblog.cn/theme-documentation-mermaid-shortcode/" /><link rel="next" href="https://www.bardblog.cn/basic-markdown-syntax/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://www.bardblog.cn/en/algorithm-greedy-disjoint/" /><link rel="prev" href="https://www.bardblog.cn/en/theme-documentation-mermaid-shortcode/" /><link rel="next" href="https://www.bardblog.cn/en/basic-markdown-syntax/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "最大不相交区间数量",
-        "inLanguage": "zh-CN",
+        "headline": "Maximum Non-overlapping Intervals",
+        "inLanguage": "en",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https:\/\/www.bardblog.cn\/algorithm-greedy-disjoint\/"
+            "@id": "https:\/\/www.bardblog.cn\/en\/algorithm-greedy-disjoint\/"
         },"image": [{
                             "@type": "ImageObject",
                             "url": "https:\/\/www.bardblog.cn\/images\/Apple-Devices-Preview.png",
                             "width":  3200 ,
                             "height":  2048 
-                        }],"genre": "posts","keywords": "algorithm, greed","wordcount":  488 ,
-        "url": "https:\/\/www.bardblog.cn\/algorithm-greedy-disjoint\/","datePublished": "2023-06-24T12:57:40+08:00","dateModified": "2023-06-24T18:49:56+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+                        }],"genre": "posts","keywords": "algorithm, greed","wordcount":  371 ,
+        "url": "https:\/\/www.bardblog.cn\/en\/algorithm-greedy-disjoint\/","datePublished": "2023-06-24T12:57:40+08:00","dateModified": "2023-06-24T14:57:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": {
                     "@type": "ImageObject",
@@ -45,7 +45,7 @@
                 }},"author": {
                 "@type": "Person",
                 "name": "Bard"
-            },"description": "贪心算法解决区间合并问题"
+            },"description": "Solving interval merging problem using Greedy algorithm"
     }
     </script></head>
     <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
@@ -53,25 +53,25 @@
         <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
     <div class="header-wrapper">
         <div class="header-title">
-            <a href="/" title="编程浪子"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw' aria-hidden='true'></i></span><span id="id-1" class="typeit"></span></a>
+            <a href="/en/" title="编程浪子"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw' aria-hidden='true'></i></span><span id="id-1" class="typeit"></span></a>
         </div>
         <div class="menu">
-            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/categories/documentation/"> 文档 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/YourFantasy/blog" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
-                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
-                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+            <div class="menu-inner"><a class="menu-item" href="/en/posts/"> Posts </a><a class="menu-item" href="/en/tags/"> Tags </a><a class="menu-item" href="/en/categories/"> Categories </a><a class="menu-item" href="/en/categories/documentation/"> Docs </a><a class="menu-item" href="/en/about/"> About </a><a class="menu-item" href="https://github.com/YourFantasy/blog" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
                             <i class="fas fa-search fa-fw" aria-hidden="true"></i>
                         </a>
-                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
                             <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
                         </a>
                         <span class="search-button search-loading" id="search-loading-desktop">
                             <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
                         </span>
-                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
                     <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
-                </a><a href="javascript:void(0);" class="menu-item language" title="选择语言">
+                </a><a href="javascript:void(0);" class="menu-item language" title="Select Language">
                     <i class="fa fa-globe" aria-hidden="true"></i>                      
-                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/algorithm-greedy-disjoint/" selected>简体中文</option><option value="/en/algorithm-greedy-disjoint/">English</option></select>
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/algorithm-greedy-disjoint/">简体中文</option><option value="/en/algorithm-greedy-disjoint/" selected>English</option></select>
                 </a></div>
         </div>
     </div>
@@ -79,7 +79,7 @@
     <div class="header-container">
         <div class="header-wrapper">
             <div class="header-title">
-                <a href="/" title="编程浪子"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw' aria-hidden='true'></i></span><span id="id-2" class="typeit"></span></a>
+                <a href="/en/" title="编程浪子"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw' aria-hidden='true'></i></span><span id="id-2" class="typeit"></span></a>
             </div>
             <div class="menu-toggle" id="menu-toggle-mobile">
                 <span></span><span></span><span></span>
@@ -87,11 +87,11 @@
         </div>
         <div class="menu" id="menu-mobile"><div class="search-wrapper">
                     <div class="search mobile" id="search-mobile">
-                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
-                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
                             <i class="fas fa-search fa-fw" aria-hidden="true"></i>
                         </a>
-                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
                             <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
                         </a>
                         <span class="search-button search-loading" id="search-loading-mobile">
@@ -99,13 +99,13 @@
                         </span>
                     </div>
                     <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
-                        取消
+                        Cancel
                     </a>
-                </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/categories/documentation/" title="">文档</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/YourFantasy/blog" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                </div><a class="menu-item" href="/en/posts/" title="">Posts</a><a class="menu-item" href="/en/tags/" title="">Tags</a><a class="menu-item" href="/en/categories/" title="">Categories</a><a class="menu-item" href="/en/categories/documentation/" title="">Docs</a><a class="menu-item" href="/en/about/" title="">About</a><a class="menu-item" href="https://github.com/YourFantasy/blog" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
                 <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
-            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">
+            </a><a href="javascript:void(0);" class="menu-item" title="Select Language">
                     <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
-                    <select class="language-select" onchange="location = this.value;"><option value="/algorithm-greedy-disjoint/" selected>简体中文</option><option value="/en/algorithm-greedy-disjoint/">English</option></select>
+                    <select class="language-select" onchange="location = this.value;"><option value="/algorithm-greedy-disjoint/">简体中文</option><option value="/en/algorithm-greedy-disjoint/" selected>English</option></select>
                 </a></div>
     </div>
 </header><div class="search-dropdown desktop">
@@ -115,39 +115,35 @@
         <div id="search-dropdown-mobile"></div>
     </div><main class="main">
                 <div class="container"><div class="toc" id="toc-auto">
-            <h2 class="toc-title">目录</h2>
+            <h2 class="toc-title">Contents</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">最大不相交区间数量</h1><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="https://www.bardblog.cn" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bard</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/technology/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>technology</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-06-24">2023-06-24</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 488 字&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 1 分钟&nbsp;</div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Maximum Non-overlapping Intervals</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://www.bardblog.cn" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bard</a></span>&nbsp;<span class="post-category">included in <a href="/en/categories/technology/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>technology</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-06-24">2023-06-24</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;371 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;2 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
-                    <span>目录</span>
+                    <span>Contents</span>
                     <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#题目描述">题目描述</a></li>
-    <li><a href="#代码实现">代码实现</a></li>
-    <li><a href="#证明">证明</a></li>
+    <li><a href="#problem-description">Problem Description</a></li>
+    <li><a href="#code-implementation">Code Implementation</a></li>
+    <li><a href="#proof">Proof</a></li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h2 id="题目描述">题目描述</h2>
-<p>给定 N个闭区间 [ai,bi]，请你在数轴上选择若干个区间，使得选中的区间之间互不相交（包括端点）。</p>
-<p>输出可选取区间的最大数量。</p>
-<p>输入格式
-第一行包含整数 N
-，表示区间数。</p>
-<p>接下来 N
-行，每行包含两个整数 ai,bi
-，表示一个区间的两个端点。</p>
-<p>输出格式
-输出一个整数，表示可选取区间的最大数量。</p>
-<p>数据范围
-1≤N≤105
-,
-−109≤ai≤bi≤109</p>
+            </div><div class="content" id="content"><h2 id="problem-description">Problem Description</h2>
+<p>Given N closed intervals [ai, bi], you need to select a subset of intervals on the number line such that the selected intervals do not overlap with each other (including the endpoints).</p>
+<p>Output the maximum number of intervals that can be selected.</p>
+<p>Input Format
+The first line contains an integer N, representing the number of intervals.</p>
+<p>The next N lines contain two integers ai and bi each, representing the endpoints of an interval.</p>
+<p>Output Format
+Output an integer representing the maximum number of non-overlapping intervals that can be selected.</p>
+<p>Constraints
+1 ≤ N ≤ 105,
+-109 ≤ ai ≤ bi ≤ 109</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -159,16 +155,16 @@
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="line"><span class="cl">输入样例：
+<pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="line"><span class="cl">Sample Input:
 </span></span><span class="line"><span class="cl">3
 </span></span><span class="line"><span class="cl">-1 1
 </span></span><span class="line"><span class="cl">2 4
 </span></span><span class="line"><span class="cl">3 5
-</span></span><span class="line"><span class="cl">输出样例：
+</span></span><span class="line"><span class="cl">Sample Output:
 </span></span><span class="line"><span class="cl">2
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="代码实现">代码实现</h2>
+</div><h2 id="code-implementation">Code Implementation</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -253,52 +249,50 @@
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="证明">证明</h2>
-<p>先把原始区间按照右端点从小到大排序</p>
-<p>对于第一个区间，选择右端点</p>
-<p>从第二个区间开始，判断两个区间是否有交集，如果有交集，则合并两个区间（rightPoint是合并之前区间内最小右端点）；否则不相交区间+1
-对于第k个区间，如果当前区间和前面所有区间（如果当前区间的左端点大于之前区间的最小右端点）都不相交，
-不相交区间+1</p>
+</div><h2 id="proof">Proof</h2>
+<p>First, sort the original intervals in ascending order of their right endpoints.</p>
+<p>For the first interval, select its right endpoint.</p>
+<p>Starting from the second interval, check if there is an intersection between the current interval and the previous intervals. If there is an intersection, merge the two intervals (rightPoint is the minimum right endpoint before merging); otherwise, increment the count of non-overlapping intervals.
+For the k-th interval, if the current interval does not intersect with any of the previous intervals (if the left endpoint of the current interval is greater than the minimum right endpoint of the previous intervals), increment the count of non-overlapping intervals by 1.</p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>更新于 2023-06-24&nbsp;<a class="git-hash" href="https://github.com/YourFantasy/blog/commit/31c47d2daa3db4c3ef5d49a2876db39f1e966b4e" target="_blank" title="commit by bardchen(bardchen@tencent.com) 31c47d2daa3db4c3ef5d49a2876db39f1e966b4e: 新增设计模式之工厂模式">
-                                    <i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>31c47d2</a></span>
+                <span>Updated on 2023-06-24</span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"><span>
-                            <a class="link-to-markdown" href="/algorithm-greedy-disjoint/index.md" target="_blank">阅读原始文档</a>
+                            <a class="link-to-markdown" href="/en/algorithm-greedy-disjoint/index.md" target="_blank">Read Markdown</a>
                         </span></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://www.bardblog.cn/algorithm-greedy-disjoint/" data-title="最大不相交区间数量" data-via="cz960601" data-hashtags="algorithm,greed"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://www.bardblog.cn/algorithm-greedy-disjoint/" data-hashtag="algorithm"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://www.bardblog.cn/algorithm-greedy-disjoint/" data-title="最大不相交区间数量"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Reddit" data-sharer="reddit" data-url="https://www.bardblog.cn/algorithm-greedy-disjoint/"><i class="fab fa-reddit fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://www.bardblog.cn/algorithm-greedy-disjoint/" data-title="最大不相交区间数量"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://www.bardblog.cn/algorithm-greedy-disjoint/" data-title="最大不相交区间数量"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://www.bardblog.cn/en/algorithm-greedy-disjoint/" data-title="Maximum Non-overlapping Intervals" data-via="cz960601" data-hashtags="algorithm,greed"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://www.bardblog.cn/en/algorithm-greedy-disjoint/" data-hashtag="algorithm"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://www.bardblog.cn/en/algorithm-greedy-disjoint/" data-title="Maximum Non-overlapping Intervals"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Reddit" data-sharer="reddit" data-url="https://www.bardblog.cn/en/algorithm-greedy-disjoint/"><i class="fab fa-reddit fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://www.bardblog.cn/en/algorithm-greedy-disjoint/" data-title="Maximum Non-overlapping Intervals"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://www.bardblog.cn/en/algorithm-greedy-disjoint/" data-title="Maximum Non-overlapping Intervals"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/algorithm/">algorithm</a>,&nbsp;<a href="/tags/greed/">greed</a></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/en/tags/algorithm/">algorithm</a>,&nbsp;<a href="/en/tags/greed/">greed</a></section>
         <section>
-            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/en/">Home</a></span>
         </section>
     </div>
 
-    <div class="post-nav"><a href="/theme-documentation-mermaid-shortcode/" class="prev" rel="prev" title="主题文档 - mermaid Shortcode"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>主题文档 - mermaid Shortcode</a>
-            <a href="/basic-markdown-syntax/" class="next" rel="next" title="Markdown 基本语法">Markdown 基本语法<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+    <div class="post-nav"><a href="/en/theme-documentation-mermaid-shortcode/" class="prev" rel="prev" title="Theme Documentation - mermaid Shortcode"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Theme Documentation - mermaid Shortcode</a>
+            <a href="/en/basic-markdown-syntax/" class="next" rel="next" title="Basic Markdown Syntax">Basic Markdown Syntax<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 <div id="comments"><div id="gitalk" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://github.com/gitalk/gitalk"></a>Gitalk</a>.
             </noscript></div></article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.114.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.114.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
                 </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://www.bardblog.cn" target="_blank">Bard</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>
 
-        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
                 <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
-            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
                 <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
             </a>
-        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.13.1/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/twemoji@14.0.2/dist/twemoji.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/mhchem.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"gitalk":{"admin":["YourFantasy"],"clientID":"64f57a27c4b33d7930ff","clientSecret":"34e7c8aa13489f51aa54f53c4734d0e38762b83f","id":"2023-06-24T12:57:40+08:00","owner":"YourFantasy","repo":"blog","title":"最大不相交区间数量"}},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"data":{"id-1":"编程浪子","id-2":"编程浪子"},"lightgallery":true,"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"58KPEJ4RD6","algoliaIndex":"index.zh-cn","algoliaSearchKey":"a48c9e27b67c52f03f9b8daa3cbdd18e","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"},"twemoji":true,"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.13.1/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/twemoji@14.0.2/dist/twemoji.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/mhchem.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{"gitalk":{"admin":["YourFantasy"],"clientID":"64f57a27c4b33d7930ff","clientSecret":"34e7c8aa13489f51aa54f53c4734d0e38762b83f","id":"2023-06-24T12:57:40+08:00","owner":"YourFantasy","repo":"blog","title":"Maximum Non-overlapping Intervals"}},"cookieconsent":{"content":{"dismiss":"Got it!","link":"Learn more","message":"This website uses Cookies to improve your experience."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"data":{"id-1":"编程浪子","id-2":"编程浪子"},"lightgallery":true,"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"58KPEJ4RD6","algoliaIndex":"index.en","algoliaSearchKey":"a48c9e27b67c52f03f9b8daa3cbdd18e","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"algolia"},"twemoji":true,"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
 </html>

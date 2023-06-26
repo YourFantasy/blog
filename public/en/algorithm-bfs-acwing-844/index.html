@@ -1,41 +1,49 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>迷宫最小的移动次数 - 编程浪子</title><meta name="Description" content="bfs解决最短路问题"><meta property="og:title" content="迷宫最小的移动次数" />
-<meta property="og:description" content="bfs解决最短路问题" />
+        <title> - 编程浪子</title><meta name="Description" content="分享、记录。"><meta property="og:title" content="" />
+<meta property="og:description" content="weight: 4 title: &ldquo;Maximum Size of Connected Components&rdquo; date: 2023-06-24T12:57:40&#43;08:00 lastmod: 2023-06-24T14:57:40&#43;08:00 draft: false author: &ldquo;Bard&rdquo; description: &ldquo;Solving connected components problem using Depth-First Search&rdquo; images: [] resources:
+tags: [&ldquo;algorithm&rdquo;,&ldquo;bfs&rdquo;] categories: [&ldquo;technology&rdquo;]
+lightgallery: true
+Problem Description Given an n×m 2D integer array representing a maze, where the array contains only 0s and 1s, with 0 representing a path that can be traversed and 1 representing an impassable wall.
+Initially, there is a person at the top-left corner (1, 1)." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://www.bardblog.cn/algorithm-bfs-acwing-844/" /><meta property="og:image" content="https://www.bardblog.cn/logo.png"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2023-06-24T12:57:40+08:00" />
-<meta property="article:modified_time" content="2023-06-24T18:05:16+08:00" /><meta property="og:site_name" content="编程浪子" />
+<meta property="og:url" content="https://www.bardblog.cn/en/algorithm-bfs-acwing-844/" /><meta property="og:image" content="https://www.bardblog.cn/logo.png"/><meta property="article:section" content="posts" />
+
+<meta property="og:site_name" content="编程浪子" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://www.bardblog.cn/logo.png"/>
 
-<meta name="twitter:title" content="迷宫最小的移动次数"/>
-<meta name="twitter:description" content="bfs解决最短路问题"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="weight: 4 title: &ldquo;Maximum Size of Connected Components&rdquo; date: 2023-06-24T12:57:40&#43;08:00 lastmod: 2023-06-24T14:57:40&#43;08:00 draft: false author: &ldquo;Bard&rdquo; description: &ldquo;Solving connected components problem using Depth-First Search&rdquo; images: [] resources:
+tags: [&ldquo;algorithm&rdquo;,&ldquo;bfs&rdquo;] categories: [&ldquo;technology&rdquo;]
+lightgallery: true
+Problem Description Given an n×m 2D integer array representing a maze, where the array contains only 0s and 1s, with 0 representing a path that can be traversed and 1 representing an impassable wall.
+Initially, there is a person at the top-left corner (1, 1)."/>
 <meta name="application-name" content="Bard">
 <meta name="apple-mobile-web-app-title" content="Bard"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://www.bardblog.cn/algorithm-bfs-acwing-844/" /><link rel="prev" href="https://www.bardblog.cn/desigin-pattern-factory/" /><link rel="next" href="https://www.bardblog.cn/algorithm-dfs-acwing-846/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://www.bardblog.cn/en/algorithm-bfs-acwing-844/" /><link rel="next" href="https://www.bardblog.cn/en/theme-documentation-typeit-shortcode/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "迷宫最小的移动次数",
-        "inLanguage": "zh-CN",
+        "headline": "",
+        "inLanguage": "en",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https:\/\/www.bardblog.cn\/algorithm-bfs-acwing-844\/"
+            "@id": "https:\/\/www.bardblog.cn\/en\/algorithm-bfs-acwing-844\/"
         },"image": [{
                             "@type": "ImageObject",
                             "url": "https:\/\/www.bardblog.cn\/images\/Apple-Devices-Preview.png",
                             "width":  3200 ,
                             "height":  2048 
-                        }],"genre": "posts","keywords": "algorithm, bfs","wordcount":  669 ,
-        "url": "https:\/\/www.bardblog.cn\/algorithm-bfs-acwing-844\/","datePublished": "2023-06-24T12:57:40+08:00","dateModified": "2023-06-24T18:05:16+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+                        }],"genre": "posts","wordcount":  608 ,
+        "url": "https:\/\/www.bardblog.cn\/en\/algorithm-bfs-acwing-844\/","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": {
                     "@type": "ImageObject",
@@ -45,7 +53,7 @@
                 }},"author": {
                 "@type": "Person",
                 "name": "Bard"
-            },"description": "bfs解决最短路问题"
+            },"description": ""
     }
     </script></head>
     <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
@@ -53,25 +61,25 @@
         <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
     <div class="header-wrapper">
         <div class="header-title">
-            <a href="/" title="编程浪子"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw' aria-hidden='true'></i></span><span id="id-1" class="typeit"></span></a>
+            <a href="/en/" title="编程浪子"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw' aria-hidden='true'></i></span><span id="id-1" class="typeit"></span></a>
         </div>
         <div class="menu">
-            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/categories/documentation/"> 文档 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/YourFantasy/blog" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
-                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
-                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+            <div class="menu-inner"><a class="menu-item" href="/en/posts/"> Posts </a><a class="menu-item" href="/en/tags/"> Tags </a><a class="menu-item" href="/en/categories/"> Categories </a><a class="menu-item" href="/en/categories/documentation/"> Docs </a><a class="menu-item" href="/en/about/"> About </a><a class="menu-item" href="https://github.com/YourFantasy/blog" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
                             <i class="fas fa-search fa-fw" aria-hidden="true"></i>
                         </a>
-                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
                             <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
                         </a>
                         <span class="search-button search-loading" id="search-loading-desktop">
                             <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
                         </span>
-                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
                     <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
-                </a><a href="javascript:void(0);" class="menu-item language" title="选择语言">
+                </a><a href="javascript:void(0);" class="menu-item language" title="Select Language">
                     <i class="fa fa-globe" aria-hidden="true"></i>                      
-                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/algorithm-bfs-acwing-844/" selected>简体中文</option><option value="/en/algorithm-bfs-acwing-844/">English</option></select>
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/algorithm-bfs-acwing-844/">简体中文</option><option value="/en/algorithm-bfs-acwing-844/" selected>English</option></select>
                 </a></div>
         </div>
     </div>
@@ -79,7 +87,7 @@
     <div class="header-container">
         <div class="header-wrapper">
             <div class="header-title">
-                <a href="/" title="编程浪子"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw' aria-hidden='true'></i></span><span id="id-2" class="typeit"></span></a>
+                <a href="/en/" title="编程浪子"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw' aria-hidden='true'></i></span><span id="id-2" class="typeit"></span></a>
             </div>
             <div class="menu-toggle" id="menu-toggle-mobile">
                 <span></span><span></span><span></span>
@@ -87,11 +95,11 @@
         </div>
         <div class="menu" id="menu-mobile"><div class="search-wrapper">
                     <div class="search mobile" id="search-mobile">
-                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
-                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
                             <i class="fas fa-search fa-fw" aria-hidden="true"></i>
                         </a>
-                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
                             <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
                         </a>
                         <span class="search-button search-loading" id="search-loading-mobile">
@@ -99,13 +107,13 @@
                         </span>
                     </div>
                     <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
-                        取消
+                        Cancel
                     </a>
-                </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/categories/documentation/" title="">文档</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/YourFantasy/blog" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                </div><a class="menu-item" href="/en/posts/" title="">Posts</a><a class="menu-item" href="/en/tags/" title="">Tags</a><a class="menu-item" href="/en/categories/" title="">Categories</a><a class="menu-item" href="/en/categories/documentation/" title="">Docs</a><a class="menu-item" href="/en/about/" title="">About</a><a class="menu-item" href="https://github.com/YourFantasy/blog" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
                 <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
-            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">
+            </a><a href="javascript:void(0);" class="menu-item" title="Select Language">
                     <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
-                    <select class="language-select" onchange="location = this.value;"><option value="/algorithm-bfs-acwing-844/" selected>简体中文</option><option value="/en/algorithm-bfs-acwing-844/">English</option></select>
+                    <select class="language-select" onchange="location = this.value;"><option value="/algorithm-bfs-acwing-844/">简体中文</option><option value="/en/algorithm-bfs-acwing-844/" selected>English</option></select>
                 </a></div>
     </div>
 </header><div class="search-dropdown desktop">
@@ -115,36 +123,48 @@
         <div id="search-dropdown-mobile"></div>
     </div><main class="main">
                 <div class="container"><div class="toc" id="toc-auto">
-            <h2 class="toc-title">目录</h2>
+            <h2 class="toc-title">Contents</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">迷宫最小的移动次数</h1><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="https://www.bardblog.cn" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bard</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/technology/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>technology</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-06-24">2023-06-24</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 669 字&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX"></h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://www.bardblog.cn" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bard</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="0001-01-01">0001-01-01</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;608 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;3 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
-                    <span>目录</span>
+                    <span>Contents</span>
                     <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#题目描述">题目描述</a></li>
-    <li><a href="#实现思路">实现思路</a></li>
-    <li><a href="#代码实现">代码实现</a></li>
+    <li><a href="#problem-description">Problem Description</a></li>
+    <li><a href="#approach">Approach</a></li>
+    <li><a href="#code-implementation">Code Implementation</a></li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h2 id="题目描述">题目描述</h2>
-<p>给定一个 n×m 的二维整数数组，用来表示一个迷宫，数组中只包含 0 或 1，其中 0 表示可以走的路，1 表示不可通过的墙壁。</p>
-<p>最初，有一个人位于左上角 (1,1) 处，已知该人每次可以向上、下、左、右任意一个方向移动一个位置。</p>
-<p>请问，该人从左上角移动至右下角 (n,m) 处，至少需要移动多少次。</p>
-<p>数据保证 (1,1) 处和 (n,m) 处的数字为 0，且一定至少存在一条通路。</p>
-<p>输入格式
-第一行包含两个整数 n 和 m。</p>
-<p>接下来 n 行，每行包含 m 个整数（0 或 1），表示完整的二维数组迷宫。</p>
-<p>输出格式
-输出一个整数，表示从左上角移动至右下角的最少移动次数。</p>
-<p>数据范围
-1≤n,m≤100</p>
+            </div><div class="content" id="content"><p>weight: 4
+title: &ldquo;Maximum Size of Connected Components&rdquo;
+date: 2023-06-24T12:57:40+08:00
+lastmod: 2023-06-24T14:57:40+08:00
+draft: false
+author: &ldquo;Bard&rdquo;
+description: &ldquo;Solving connected components problem using Depth-First Search&rdquo;
+images: []
+resources:</p>
+<p>tags: [&ldquo;algorithm&rdquo;,&ldquo;bfs&rdquo;]
+categories: [&ldquo;technology&rdquo;]</p>
+<p>lightgallery: true</p>
+<h2 id="problem-description">Problem Description</h2>
+<p>Given an n×m 2D integer array representing a maze, where the array contains only 0s and 1s, with 0 representing a path that can be traversed and 1 representing an impassable wall.</p>
+<p>Initially, there is a person at the top-left corner (1, 1). It is known that the person can move one position in any direction: up, down, left, or right.</p>
+<p>The task is to determine the minimum number of moves required for the person to reach the bottom-right corner (n, m).</p>
+<p>It is guaranteed that the numbers at the top-left corner (1, 1) and the bottom-right corner (n, m) are both 0, and there is at least one valid path.</p>
+<p>Input Format
+The first line contains two integers, n and m.</p>
+<p>The next n lines contain m integers (0 or 1), representing the complete 2D array maze.</p>
+<p>Output Format
+Print a single integer, representing the minimum number of moves required to reach the bottom-right corner from the top-left corner.</p>
+<p>Constraints
+1 ≤ n, m ≤ 100</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -158,20 +178,20 @@
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="line"><span class="cl">输入样例：
+<pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="line"><span class="cl">Input Example:
 </span></span><span class="line"><span class="cl">5 5
 </span></span><span class="line"><span class="cl">0 1 0 0 0
 </span></span><span class="line"><span class="cl">0 1 0 1 0
 </span></span><span class="line"><span class="cl">0 0 0 0 0
 </span></span><span class="line"><span class="cl">0 1 1 1 0
 </span></span><span class="line"><span class="cl">0 0 0 1 0
-</span></span><span class="line"><span class="cl">输出样例：
+</span></span><span class="line"><span class="cl">Output Example:
 </span></span><span class="line"><span class="cl">8
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="实现思路">实现思路</h2>
-<p>典型的最短路问题，遍历从起始到终点的路径，记录最小值。</p>
-<h2 id="代码实现">代码实现</h2>
+</div><h2 id="approach">Approach</h2>
+<p>This is a typical shortest path problem. We can use breadth-first search (BFS) to traverse the path from the start to the end, while keeping track of the minimum number of moves.</p>
+<h2 id="code-implementation">Code Implementation</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -252,6 +272,8 @@
 </span><span class="lnt">76
 </span><span class="lnt">77
 </span><span class="lnt">78
+</span><span class="lnt">79
+</span><span class="lnt">80
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
@@ -287,9 +309,11 @@
 </span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="p">!</span><span class="nx">q</span><span class="p">.</span><span class="nf">isEmpty</span><span class="p">()</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">		<span class="nx">t</span> <span class="o">:=</span> <span class="nx">q</span><span class="p">.</span><span class="nf">pop</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl">		<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="mi">4</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">			<span class="c1">// 上下左右四个方向寻找
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>			<span class="nx">x</span><span class="p">,</span> <span class="nx">y</span> <span class="o">:=</span> <span class="nx">t</span><span class="p">.</span><span class="nx">x</span><span class="o">+</span><span class="nx">dx</span><span class="p">[</span><span class="nx">i</span><span class="p">],</span> <span class="nx">t</span><span class="p">.</span><span class="nx">y</span><span class="o">+</span><span class="nx">dy</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="c1">// 当前位置的下一个位置
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>			<span class="k">if</span> <span class="nx">x</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">x</span> <span class="p">&lt;</span> <span class="nx">n</span> <span class="o">&amp;&amp;</span> <span class="nx">y</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">y</span> <span class="p">&lt;</span> <span class="nx">m</span> <span class="o">&amp;&amp;</span> <span class="nx">nums</span><span class="p">[</span><span class="nx">x</span><span class="p">][</span><span class="nx">y</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">d</span><span class="p">[</span><span class="nx">x</span><span class="p">][</span><span class="nx">y</span><span class="p">]</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="c1">// Check four directions: up, down, left, right
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>			<span class="nx">x</span><span class="p">,</span> <span class="nx">y</span> <span class="o">:=</span> <span class="nx">t</span><span class="p">.</span><span class="nx">x</span><span class="o">+</span><span class="nx">dx</span><span class="p">[</span><span class="nx">i</span><span class="p">],</span> <span class="nx">t</span><span class="p">.</span><span class="nx">y</span><span class="o">+</span><span class="nx">dy</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="c1">// Next position from the current position
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>			<span class="k">if</span> <span class="nx">x</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">x</span> <span class="p">&lt;</span> <span class="nx">n</span> <span class="o">&amp;&amp;</span> <span class="nx">y</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">y</span> <span class="p">&lt;</span> <span class="nx">m</span> <span class="o">&amp;&amp;</span> <span class="nx">nums</span><span class="p">[</span><span class="nx">x</span><span class="p">][</span><span class="nx">y</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">d</span><span class="p">[</span><span class="nx">x</span><span class="p">][</span><span class="nx">y</span><span class="p">]</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">				<span class="nx">d</span><span class="p">[</span><span class="nx">x</span><span class="p">][</span><span class="nx">y</span><span class="p">]</span> <span class="p">=</span> <span class="nx">d</span><span class="p">[</span><span class="nx">t</span><span class="p">.</span><span class="nx">x</span><span class="p">][</span><span class="nx">t</span><span class="p">.</span><span class="nx">y</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
 </span></span><span class="line"><span class="cl">				<span class="nx">q</span><span class="p">.</span><span class="nf">push</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">pair</span><span class="p">{</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">})</span>
 </span></span><span class="line"><span class="cl">			<span class="p">}</span>
@@ -338,42 +362,41 @@
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>更新于 2023-06-24&nbsp;<a class="git-hash" href="https://github.com/YourFantasy/blog/commit/4bdef7dd35105aeb11e1d0652d7cedaba598922d" target="_blank" title="commit by bardchen(bardchen@tencent.com) 4bdef7dd35105aeb11e1d0652d7cedaba598922d: 更新样式">
-                                    <i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>4bdef7d</a></span>
+                <span>Updated on 0001-01-01</span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"><span>
-                            <a class="link-to-markdown" href="/algorithm-bfs-acwing-844/index.md" target="_blank">阅读原始文档</a>
+                            <a class="link-to-markdown" href="/en/algorithm-bfs-acwing-844/index.md" target="_blank">Read Markdown</a>
                         </span></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://www.bardblog.cn/algorithm-bfs-acwing-844/" data-title="迷宫最小的移动次数" data-via="cz960601" data-hashtags="algorithm,bfs"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://www.bardblog.cn/algorithm-bfs-acwing-844/" data-hashtag="algorithm"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://www.bardblog.cn/algorithm-bfs-acwing-844/" data-title="迷宫最小的移动次数"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Reddit" data-sharer="reddit" data-url="https://www.bardblog.cn/algorithm-bfs-acwing-844/"><i class="fab fa-reddit fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://www.bardblog.cn/algorithm-bfs-acwing-844/" data-title="迷宫最小的移动次数"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://www.bardblog.cn/algorithm-bfs-acwing-844/" data-title="迷宫最小的移动次数"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://www.bardblog.cn/en/algorithm-bfs-acwing-844/" data-title="" data-via="cz960601"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://www.bardblog.cn/en/algorithm-bfs-acwing-844/"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://www.bardblog.cn/en/algorithm-bfs-acwing-844/" data-title=""><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Reddit" data-sharer="reddit" data-url="https://www.bardblog.cn/en/algorithm-bfs-acwing-844/"><i class="fab fa-reddit fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://www.bardblog.cn/en/algorithm-bfs-acwing-844/" data-title=""><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://www.bardblog.cn/en/algorithm-bfs-acwing-844/" data-title=""><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/algorithm/">algorithm</a>,&nbsp;<a href="/tags/bfs/">bfs</a></section>
+        <section class="post-tags"></section>
         <section>
-            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/en/">Home</a></span>
         </section>
     </div>
 
-    <div class="post-nav"><a href="/desigin-pattern-factory/" class="prev" rel="prev" title="设计模式之工厂模式"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>设计模式之工厂模式</a>
-            <a href="/algorithm-dfs-acwing-846/" class="next" rel="next" title="连通块点数最大值">连通块点数最大值<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+    <div class="post-nav">
+            <a href="/en/theme-documentation-typeit-shortcode/" class="next" rel="next" title="Theme Documentation - typeit Shortcode">Theme Documentation - typeit Shortcode<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 <div id="comments"><div id="gitalk" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://github.com/gitalk/gitalk"></a>Gitalk</a>.
             </noscript></div></article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.114.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.114.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
                 </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://www.bardblog.cn" target="_blank">Bard</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>
 
-        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
                 <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
-            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
                 <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
             </a>
-        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.13.1/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/twemoji@14.0.2/dist/twemoji.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/mhchem.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"gitalk":{"admin":["YourFantasy"],"clientID":"64f57a27c4b33d7930ff","clientSecret":"34e7c8aa13489f51aa54f53c4734d0e38762b83f","id":"2023-06-24T12:57:40+08:00","owner":"YourFantasy","repo":"blog","title":"迷宫最小的移动次数"}},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"data":{"id-1":"编程浪子","id-2":"编程浪子"},"lightgallery":true,"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"58KPEJ4RD6","algoliaIndex":"index.zh-cn","algoliaSearchKey":"a48c9e27b67c52f03f9b8daa3cbdd18e","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"},"twemoji":true,"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.13.1/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/twemoji@14.0.2/dist/twemoji.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/mhchem.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{"gitalk":{"admin":["YourFantasy"],"clientID":"64f57a27c4b33d7930ff","clientSecret":"34e7c8aa13489f51aa54f53c4734d0e38762b83f","id":"0001-01-01T00:00:00Z","owner":"YourFantasy","repo":"blog","title":""}},"cookieconsent":{"content":{"dismiss":"Got it!","link":"Learn more","message":"This website uses Cookies to improve your experience."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"data":{"id-1":"编程浪子","id-2":"编程浪子"},"lightgallery":true,"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"58KPEJ4RD6","algoliaIndex":"index.en","algoliaSearchKey":"a48c9e27b67c52f03f9b8daa3cbdd18e","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"algolia"},"twemoji":true,"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
 </html>

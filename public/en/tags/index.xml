@@ -13,6 +13,30 @@
     <description><![CDATA[]]></description>
 </item>
 <item>
+    <title>algorithm</title>
+    <link>https://www.bardblog.cn/en/tags/algorithm/</link>
+    <pubDate>Sat, 24 Jun 2023 12:57:40 &#43;0800</pubDate>
+    <author>Bard</author>
+    <guid>https://www.bardblog.cn/en/tags/algorithm/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>bfs</title>
+    <link>https://www.bardblog.cn/en/tags/bfs/</link>
+    <pubDate>Sat, 24 Jun 2023 12:57:40 &#43;0800</pubDate>
+    <author>Bard</author>
+    <guid>https://www.bardblog.cn/en/tags/bfs/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>greed</title>
+    <link>https://www.bardblog.cn/en/tags/greed/</link>
+    <pubDate>Sat, 24 Jun 2023 12:57:40 &#43;0800</pubDate>
+    <author>Bard</author>
+    <guid>https://www.bardblog.cn/en/tags/greed/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
     <title>configuration</title>
     <link>https://www.bardblog.cn/en/tags/configuration/</link>
     <pubDate>Fri, 06 Mar 2020 21:29:01 &#43;0800</pubDate>
@@ -58,14 +82,6 @@
     <pubDate>Sun, 01 Dec 2019 21:57:40 &#43;0800</pubDate>
     <author>Bard</author>
     <guid>https://www.bardblog.cn/en/tags/html/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>emoji</title>
-    <link>https://www.bardblog.cn/en/tags/emoji/</link>
-    <pubDate>Tue, 01 Oct 2019 17:55:28 &#43;0800</pubDate>
-    <author>Bard</author>
-    <guid>https://www.bardblog.cn/en/tags/emoji/</guid>
     <description><![CDATA[]]></description>
 </item>
 </channel>

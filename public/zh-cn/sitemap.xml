@@ -29,8 +29,24 @@
                     hreflang="zh-cn"
                     href="https://www.bardblog.cn/theme-documentation-built-in-shortcodes/"
                     /></url><url>
-            <loc>https://www.bardblog.cn/algorithm-dfs-acwing-846/</loc><lastmod>2023-06-24T18:49:56&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://www.bardblog.cn/algorithm-bfs-acwing-844/</loc><lastmod>2023-06-24T18:05:16&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://www.bardblog.cn/algorithm-dfs-acwing-846/</loc><lastmod>2023-06-24T18:49:56&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="en"
+                        href="https://www.bardblog.cn/en/algorithm-dfs-acwing-846/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="zh-cn"
+                    href="https://www.bardblog.cn/algorithm-dfs-acwing-846/"
+                    /></url><url>
+            <loc>https://www.bardblog.cn/algorithm-bfs-acwing-844/</loc><lastmod>2023-06-24T18:05:16&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="en"
+                        href="https://www.bardblog.cn/en/algorithm-bfs-acwing-844/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="zh-cn"
+                    href="https://www.bardblog.cn/algorithm-bfs-acwing-844/"
+                    /></url><url>
             <loc>https://www.bardblog.cn/desigin-pattern-factory/</loc><lastmod>2023-06-26T17:34:54&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
@@ -58,7 +74,15 @@
                     hreflang="zh-cn"
                     href="https://www.bardblog.cn/basic-markdown-syntax/"
                     /></url><url>
-            <loc>https://www.bardblog.cn/algorithm-greedy-disjoint/</loc><lastmod>2023-06-24T18:49:56&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://www.bardblog.cn/algorithm-greedy-disjoint/</loc><lastmod>2023-06-24T18:49:56&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="en"
+                        href="https://www.bardblog.cn/en/algorithm-greedy-disjoint/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="zh-cn"
+                    href="https://www.bardblog.cn/algorithm-greedy-disjoint/"
+                    /></url><url>
             <loc>https://www.bardblog.cn/theme-documentation-mermaid-shortcode/</loc><lastmod>2023-06-24T20:10:45&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
@@ -131,8 +155,24 @@
                     hreflang="zh-cn"
                     href="https://www.bardblog.cn/about/"
                     /></url><url>
-            <loc>https://www.bardblog.cn/tags/algorithm/</loc><lastmod>2023-06-24T18:49:56&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://www.bardblog.cn/tags/bfs/</loc><lastmod>2023-06-24T18:49:56&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://www.bardblog.cn/tags/algorithm/</loc><lastmod>2023-06-24T18:49:56&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="en"
+                        href="https://www.bardblog.cn/en/tags/algorithm/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="zh-cn"
+                    href="https://www.bardblog.cn/tags/algorithm/"
+                    /></url><url>
+            <loc>https://www.bardblog.cn/tags/bfs/</loc><lastmod>2023-06-24T18:49:56&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="en"
+                        href="https://www.bardblog.cn/en/tags/bfs/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="zh-cn"
+                    href="https://www.bardblog.cn/tags/bfs/"
+                    /></url><url>
             <loc>https://www.bardblog.cn/categories/</loc><lastmod>2023-06-26T17:34:54&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
@@ -143,7 +183,15 @@
                     href="https://www.bardblog.cn/categories/"
                     /></url><url>
             <loc>https://www.bardblog.cn/tags/desigin-patter/</loc><lastmod>2023-06-26T17:34:54&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://www.bardblog.cn/tags/greed/</loc><lastmod>2023-06-24T18:49:56&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://www.bardblog.cn/tags/greed/</loc><lastmod>2023-06-24T18:49:56&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="en"
+                        href="https://www.bardblog.cn/en/tags/greed/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="zh-cn"
+                    href="https://www.bardblog.cn/tags/greed/"
+                    /></url><url>
             <loc>https://www.bardblog.cn/posts/</loc><lastmod>2023-06-26T17:34:54&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"

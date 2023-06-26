@@ -1,0 +1,19 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>bfs - Tag - 编程浪子</title>
+        <link>https://www.bardblog.cn/en/tags/bfs/</link>
+        <description>bfs - Tag - 编程浪子</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>cz950601@gmail.com (Bard)</managingEditor>
+            <webMaster>cz950601@gmail.com (Bard)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 24 Jun 2023 12:57:40 &#43;0800</lastBuildDate><atom:link href="https://www.bardblog.cn/en/tags/bfs/" rel="self" type="application/rss+xml" /><item>
+    <title>Maximum Size of Connected Components</title>
+    <link>https://www.bardblog.cn/en/algorithm-dfs-acwing-846/</link>
+    <pubDate>Sat, 24 Jun 2023 12:57:40 &#43;0800</pubDate>
+    <author>Bard</author>
+    <guid>https://www.bardblog.cn/en/algorithm-dfs-acwing-846/</guid>
+    <description><![CDATA[Problem Description Given a tree with n nodes (numbered 1 to n) and n-1 undirected edges.
+Please find the centroid of the tree and output the maximum number of nodes in each remaining connected component after removing the centroid.
+Centroid Definition: The centroid of a tree is a node such that if it is removed, the maximum number of nodes in each remaining connected component is minimized.
+Input Format The first line contains an integer n, representing the number of nodes in the tree.]]></description>
+</item>
+</channel>
+</rss>

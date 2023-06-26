@@ -38,6 +38,15 @@
                     hreflang="en"
                     href="https://www.bardblog.cn/en/desigin-pattern-factory/"
                     /></url><url>
+            <loc>https://www.bardblog.cn/en/algorithm-dfs-acwing-846/</loc><lastmod>2023-06-24T14:57:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://www.bardblog.cn/algorithm-dfs-acwing-846/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://www.bardblog.cn/en/algorithm-dfs-acwing-846/"
+                    /></url><url>
             <loc>https://www.bardblog.cn/en/theme-documentation-extended-shortcodes/</loc><lastmod>2023-06-24T20:10:45&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
@@ -55,6 +64,15 @@
                     rel="alternate"
                     hreflang="en"
                     href="https://www.bardblog.cn/en/basic-markdown-syntax/"
+                    /></url><url>
+            <loc>https://www.bardblog.cn/en/algorithm-greedy-disjoint/</loc><lastmod>2023-06-24T14:57:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://www.bardblog.cn/algorithm-greedy-disjoint/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://www.bardblog.cn/en/algorithm-greedy-disjoint/"
                     /></url><url>
             <loc>https://www.bardblog.cn/en/theme-documentation-mermaid-shortcode/</loc><lastmod>2023-06-24T20:10:45&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
@@ -174,6 +192,33 @@
                     hreflang="en"
                     href="https://www.bardblog.cn/en/about/"
                     /></url><url>
+            <loc>https://www.bardblog.cn/en/tags/algorithm/</loc><lastmod>2023-06-24T14:57:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://www.bardblog.cn/tags/algorithm/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://www.bardblog.cn/en/tags/algorithm/"
+                    /></url><url>
+            <loc>https://www.bardblog.cn/en/tags/bfs/</loc><lastmod>2023-06-24T14:57:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://www.bardblog.cn/tags/bfs/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://www.bardblog.cn/en/tags/bfs/"
+                    /></url><url>
+            <loc>https://www.bardblog.cn/en/tags/greed/</loc><lastmod>2023-06-24T14:57:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://www.bardblog.cn/tags/greed/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://www.bardblog.cn/en/tags/greed/"
+                    /></url><url>
             <loc>https://www.bardblog.cn/en/tags/configuration/</loc><lastmod>2023-06-24T20:10:45&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
@@ -245,6 +290,15 @@
                     rel="alternate"
                     hreflang="en"
                     href="https://www.bardblog.cn/en/tags/emoji/"
+                    /></url><url>
+            <loc>https://www.bardblog.cn/en/algorithm-bfs-acwing-844/</loc><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://www.bardblog.cn/algorithm-bfs-acwing-844/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://www.bardblog.cn/en/algorithm-bfs-acwing-844/"
                     /></url><url>
             <loc>https://www.bardblog.cn/en/categories/documentation/</loc><lastmod>2023-06-24T11:39:18&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
