@@ -19,7 +19,7 @@ The Factory Method pattern is a creational design pattern that provides a way to
 
 ## Simple Factory Pattern
 
-The Simple Factory pattern, also known as the Static Method pattern, defines a static method in the object creation factory class to create objects. The Simple Factory design pattern allows clients (users) to create the desired product instances without knowing the specific details of the objects. Users can directly use the created objects without worrying about how they are created.
+> The Simple Factory pattern, also known as the Static Method pattern, defines a static method in the object creation factory class to create objects. The Simple Factory design pattern allows clients (users) to create the desired product instances without knowing the specific details of the objects. Users can directly use the created objects without worrying about how they are created.
 
 **Class Diagram:**
 
