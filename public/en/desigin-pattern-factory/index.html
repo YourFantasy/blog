@@ -1,41 +1,41 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>设计模式之工厂模式 - 编程浪子</title><meta name="Description" content="三种工厂模式"><meta property="og:title" content="设计模式之工厂模式" />
-<meta property="og:description" content="三种工厂模式" />
+        <title>Factory Pattern - 编程浪子</title><meta name="Description" content="Three types of factory patterns"><meta property="og:title" content="Factory Pattern" />
+<meta property="og:description" content="Three types of factory patterns" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://www.bardblog.cn/desigin-pattern-factory/" /><meta property="og:image" content="https://www.bardblog.cn/logo.png"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2023-06-24T12:57:40+08:00" />
-<meta property="article:modified_time" content="2023-06-26T17:34:54+08:00" /><meta property="og:site_name" content="编程浪子" />
+<meta property="og:url" content="https://www.bardblog.cn/en/desigin-pattern-factory/" /><meta property="og:image" content="https://www.bardblog.cn/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-06-26T12:57:40+08:00" />
+<meta property="article:modified_time" content="2023-06-26T19:57:40+08:00" /><meta property="og:site_name" content="编程浪子" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://www.bardblog.cn/logo.png"/>
 
-<meta name="twitter:title" content="设计模式之工厂模式"/>
-<meta name="twitter:description" content="三种工厂模式"/>
+<meta name="twitter:title" content="Factory Pattern"/>
+<meta name="twitter:description" content="Three types of factory patterns"/>
 <meta name="application-name" content="Bard">
 <meta name="apple-mobile-web-app-title" content="Bard"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://www.bardblog.cn/desigin-pattern-factory/" /><link rel="prev" href="https://www.bardblog.cn/theme-documentation-extended-shortcodes/" /><link rel="next" href="https://www.bardblog.cn/algorithm-bfs-acwing-844/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://www.bardblog.cn/en/desigin-pattern-factory/" /><link rel="prev" href="https://www.bardblog.cn/en/theme-documentation-extended-shortcodes/" /><link rel="next" href="https://www.bardblog.cn/en/theme-documentation-built-in-shortcodes/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "设计模式之工厂模式",
-        "inLanguage": "zh-CN",
+        "headline": "Factory Pattern",
+        "inLanguage": "en",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https:\/\/www.bardblog.cn\/desigin-pattern-factory\/"
+            "@id": "https:\/\/www.bardblog.cn\/en\/desigin-pattern-factory\/"
         },"image": [{
                             "@type": "ImageObject",
                             "url": "https:\/\/www.bardblog.cn\/images\/Apple-Devices-Preview.png",
                             "width":  3200 ,
                             "height":  2048 
-                        }],"genre": "posts","keywords": "desigin-patter","wordcount":  2769 ,
-        "url": "https:\/\/www.bardblog.cn\/desigin-pattern-factory\/","datePublished": "2023-06-24T12:57:40+08:00","dateModified": "2023-06-26T17:34:54+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+                        }],"genre": "posts","keywords": "design-pattern","wordcount":  1962 ,
+        "url": "https:\/\/www.bardblog.cn\/en\/desigin-pattern-factory\/","datePublished": "2023-06-26T12:57:40+08:00","dateModified": "2023-06-26T19:57:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": {
                     "@type": "ImageObject",
@@ -45,7 +45,7 @@
                 }},"author": {
                 "@type": "Person",
                 "name": "Bard"
-            },"description": "三种工厂模式"
+            },"description": "Three types of factory patterns"
     }
     </script></head>
     <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
@@ -53,25 +53,25 @@
         <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
     <div class="header-wrapper">
         <div class="header-title">
-            <a href="/" title="编程浪子"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw' aria-hidden='true'></i></span><span id="id-1" class="typeit"></span></a>
+            <a href="/en/" title="编程浪子"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw' aria-hidden='true'></i></span><span id="id-1" class="typeit"></span></a>
         </div>
         <div class="menu">
-            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/categories/documentation/"> 文档 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/YourFantasy/blog" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
-                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
-                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+            <div class="menu-inner"><a class="menu-item" href="/en/posts/"> Posts </a><a class="menu-item" href="/en/tags/"> Tags </a><a class="menu-item" href="/en/categories/"> Categories </a><a class="menu-item" href="/en/categories/documentation/"> Docs </a><a class="menu-item" href="/en/about/"> About </a><a class="menu-item" href="https://github.com/YourFantasy/blog" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
                             <i class="fas fa-search fa-fw" aria-hidden="true"></i>
                         </a>
-                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
                             <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
                         </a>
                         <span class="search-button search-loading" id="search-loading-desktop">
                             <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
                         </span>
-                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
                     <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
-                </a><a href="javascript:void(0);" class="menu-item language" title="选择语言">
+                </a><a href="javascript:void(0);" class="menu-item language" title="Select Language">
                     <i class="fa fa-globe" aria-hidden="true"></i>                      
-                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/desigin-pattern-factory/" selected>简体中文</option><option value="/en/desigin-pattern-factory/">English</option></select>
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/desigin-pattern-factory/">简体中文</option><option value="/en/desigin-pattern-factory/" selected>English</option></select>
                 </a></div>
         </div>
     </div>
@@ -79,7 +79,7 @@
     <div class="header-container">
         <div class="header-wrapper">
             <div class="header-title">
-                <a href="/" title="编程浪子"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw' aria-hidden='true'></i></span><span id="id-2" class="typeit"></span></a>
+                <a href="/en/" title="编程浪子"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw' aria-hidden='true'></i></span><span id="id-2" class="typeit"></span></a>
             </div>
             <div class="menu-toggle" id="menu-toggle-mobile">
                 <span></span><span></span><span></span>
@@ -87,11 +87,11 @@
         </div>
         <div class="menu" id="menu-mobile"><div class="search-wrapper">
                     <div class="search mobile" id="search-mobile">
-                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
-                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
                             <i class="fas fa-search fa-fw" aria-hidden="true"></i>
                         </a>
-                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
                             <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
                         </a>
                         <span class="search-button search-loading" id="search-loading-mobile">
@@ -99,13 +99,13 @@
                         </span>
                     </div>
                     <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
-                        取消
+                        Cancel
                     </a>
-                </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/categories/documentation/" title="">文档</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/YourFantasy/blog" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                </div><a class="menu-item" href="/en/posts/" title="">Posts</a><a class="menu-item" href="/en/tags/" title="">Tags</a><a class="menu-item" href="/en/categories/" title="">Categories</a><a class="menu-item" href="/en/categories/documentation/" title="">Docs</a><a class="menu-item" href="/en/about/" title="">About</a><a class="menu-item" href="https://github.com/YourFantasy/blog" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
                 <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
-            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">
+            </a><a href="javascript:void(0);" class="menu-item" title="Select Language">
                     <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
-                    <select class="language-select" onchange="location = this.value;"><option value="/desigin-pattern-factory/" selected>简体中文</option><option value="/en/desigin-pattern-factory/">English</option></select>
+                    <select class="language-select" onchange="location = this.value;"><option value="/desigin-pattern-factory/">简体中文</option><option value="/en/desigin-pattern-factory/" selected>English</option></select>
                 </a></div>
     </div>
 </header><div class="search-dropdown desktop">
@@ -115,46 +115,38 @@
         <div id="search-dropdown-mobile"></div>
     </div><main class="main">
                 <div class="container"><div class="toc" id="toc-auto">
-            <h2 class="toc-title">目录</h2>
+            <h2 class="toc-title">Contents</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">设计模式之工厂模式</h1><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="https://www.bardblog.cn" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bard</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/technology/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>technology</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-06-24">2023-06-24</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 2769 字&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 6 分钟&nbsp;</div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Factory Pattern</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://www.bardblog.cn" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bard</a></span>&nbsp;<span class="post-category">included in <a href="/en/categories/technology/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>technology</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-06-26">2023-06-26</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1962 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;10 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
-                    <span>目录</span>
+                    <span>Contents</span>
                     <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#简单工厂模式">简单工厂模式</a></li>
-    <li><a href="#工厂方法模式">工厂方法模式</a></li>
-    <li><a href="#抽象工厂模式">抽象工厂模式</a></li>
-    <li><a href="#小结">小结</a></li>
+    <li><a href="#simple-factory-pattern">Simple Factory Pattern</a></li>
+    <li><a href="#factory-method-pattern">Factory Method Pattern</a></li>
+    <li><a href="#abstract-factory-pattern">Abstract Factory Pattern</a></li>
+    <li><a href="#summary">Summary</a></li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><p>工厂模式大致可分为</p>
-<ul>
-<li>简单工厂模式</li>
-<li>工厂方法模式</li>
-<li>抽象工厂模式</li>
-</ul>
-<p>下面就这三种工厂模式做一下介绍并配上实现代码</p>
-<h2 id="简单工厂模式">简单工厂模式</h2>
-<blockquote>
-<p>简单工厂模式，也叫静态方法模式，在对象创建工厂类中定义了一个静态方法来创建对象，简单工厂设计模式让客户端（使用者）无需知道对象的具体细节就能创建出所需的产品实例，使用者可以直接使用生产出来的对象而无需关心对象是如何生产出来的。</p>
-</blockquote>
-<p><strong>类图：</strong></p>
+            </div><div class="content" id="content"><p>The Factory Method pattern is a creational design pattern that provides a way to delegate the creation of objects to subclasses. In the Factory Method pattern, an abstract factory class defines an interface for creating objects, but the specific object creation is deferred to the subclasses.</p>
+<h2 id="simple-factory-pattern">Simple Factory Pattern</h2>
+<p>The Simple Factory pattern, also known as the Static Method pattern, defines a static method in the object creation factory class to create objects. The Simple Factory design pattern allows clients (users) to create the desired product instances without knowing the specific details of the objects. Users can directly use the created objects without worrying about how they are created.</p>
+<p><strong>Class Diagram:</strong></p>
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="/desigin-pattern-factory/simple_factory.png"
-        data-srcset="/desigin-pattern-factory/simple_factory.png, /desigin-pattern-factory/simple_factory.png 1.5x, /desigin-pattern-factory/simple_factory.png 2x"
+        data-src="/en/desigin-pattern-factory/simple_factory.png"
+        data-srcset="/en/desigin-pattern-factory/simple_factory.png, /en/desigin-pattern-factory/simple_factory.png 1.5x, /en/desigin-pattern-factory/simple_factory.png 2x"
         data-sizes="auto"
-        alt="/desigin-pattern-factory/simple_factory.png"
-        title="类图" width="994" height="482" /></p>
-<p><strong>代码：</strong></p>
+        alt="/en/desigin-pattern-factory/simple_factory.png"
+        title="Class Diagram" width="994" height="482" /></p>
+<p><strong>Code:</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -271,8 +263,8 @@
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>可以看到简单工厂模式还是挺简单的，实现了将创建实例和使用实例分离，使用者无需关心实例创建过程，实现了分离解耦，无需知道被创建对象的详细信息，只需要知道该对象对应的类型映射即可。那么简单工厂模式有什么缺点呢？在生产对象的时候，根据传入的animal类型来确定创建哪个具体的动物对象，当我们增加更多的annimal种类的时候，比如增加兔子、大象等animal，随着动物种类的越来越多，newAnimal方法就会不断膨胀，并且每次动物种类发生变动的时候，都要去修改这部分代码，不符合开闭原则。</p>
-<p>那么如何解决上述问题呢？其实也不能说解决，只能算一个编程小技巧，可以发现newAnimal方法大量的swich case，每次如何干掉这些swich case呢？在main函数中，当我们需要创建某个具体动物对象的时候，需要传入animalType字段然后调用newAnimal方法创建对象，也就是说，我们需要用到某个动物对象的时候才去创建，是一种“懒加载思想”;如果我们每次增加一个新的动物的时候，就创建该动物的实例，然后放到一个map字典中，在要用到该动物的时候，直接从map中取，不就不用维护一个newAnimal方法吗？其实就是把“懒加载思想”转化为“饿加载思想”，不管你用不用我这个对象，我这个对象既然存在，不管三七二十一，就创建一个对象实例塞到map字典里面再说。代码可以改为如下这样：</p>
+</div><p>As you can see, the Simple Factory pattern is quite simple. It separates the creation and usage of instances, allowing the users to create objects without knowing the details of the objects&rsquo; creation process. It achieves separation and decoupling, where users only need to know the type mapping of the objects they want to create. However, what are the drawbacks of the Simple Factory pattern? When producing objects, the specific animal object to be created is determined based on the animal type passed in. As we add more animal types, such as rabbits or elephants, the <code>newAnimal</code> method will expand continuously. Moreover, whenever the animal types change, we have to modify this part of the code, which violates the Open-Closed Principle.</p>
+<p>So, how can we address this issue? We can&rsquo;t really say that it solves the problem completely, but it can be considered as a programming technique. We can observe that the <code>newAnimal</code> method contains a lot of switch cases. How can we get rid of these switch cases? In the <code>main</code> function, when we need to create a specific animal object, we need to pass the <code>animalType</code> field and then call the <code>newAnimal</code> method to create the object. In other words, we create the object only when we need to use a certain animal object, which follows a &ldquo;lazy loading&rdquo; approach. If we create an instance of each animal whenever we add a new animal, and then put it into a map dictionary, we can simply fetch the object from the map without maintaining the <code>newAnimal</code> method. In essence, it transforms the &ldquo;lazy loading&rdquo; approach into an &ldquo;eager loading&rdquo; approach. Regardless of whether you use the object or not, if the object exists, we create an object instance and put it into the map dictionary. The code can be modified as follows:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -338,13 +330,15 @@
 </span><span class="lnt">61
 </span><span class="lnt">62
 </span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// 饿加载，注册到map工厂
+</span></span><span class="line"><span class="cl"><span class="c1">// Eager loading, register into the factory map
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="nf">init</span><span class="p">()</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">	<span class="nf">Register</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">Dog</span><span class="p">{})</span>
 </span></span><span class="line"><span class="cl">	<span class="nf">Register</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">Cat</span><span class="p">{})</span>
@@ -355,7 +349,9 @@
 </span></span><span class="line"><span class="cl">	<span class="nf">weight</span><span class="p">()</span> <span class="kt">int</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Dog</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Dog</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> <span class="kd">struct</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">d</span> <span class="o">*</span><span class="nx">Dog</span><span class="p">)</span> <span class="nf">eat</span><span class="p">()</span> <span class="p">{</span>
@@ -405,19 +401,19 @@
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="工厂方法模式">工厂方法模式</h2>
+</div><h2 id="factory-method-pattern">Factory Method Pattern</h2>
 <blockquote>
-<p>工厂方法模式也叫多态工厂模式，前面介绍了一下简单工厂模式，动物创建工厂无论什么Dog还是Cat都在同一个动物工厂生产，每次需要增加新的动物种类的时候，动物工厂都需要作出相应的改变。就好比，每次生产一个新的动物物种，都需要增加相应的配套工具，这对于系统的扩展性不是很好。工厂方法模式可以看作是对简单工厂模式的一种升级，即不同种类的动物不再在同一个动物工厂生产了，而是进行了细分，每种类型的动物都有一个专门的动物工厂进行生产，这里以汽车作为例子。</p>
+<p>The Factory Method pattern, also known as the Polymorphic Factory pattern, is an upgraded version of the Simple Factory pattern. In the previous explanation, we discussed the Simple Factory pattern, where different types of animals, such as dogs and cats, were produced by the same animal factory. However, every time a new animal species is added, the animal factory needs to be modified accordingly. It&rsquo;s like needing to add matching tools every time a new animal species is produced, which is not very scalable. The Factory Method pattern can be seen as an improvement to the Simple Factory pattern, where different types of animals are no longer produced by the same animal factory. Instead, the production is further divided, and each type of animal has its own dedicated animal factory. Let&rsquo;s take the example of cars.</p>
 </blockquote>
-<p><strong>类图：</strong>
+<p><strong>Class Diagram:</strong>
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="/desigin-pattern-factory/factory_method.png"
-        data-srcset="/desigin-pattern-factory/factory_method.png, /desigin-pattern-factory/factory_method.png 1.5x, /desigin-pattern-factory/factory_method.png 2x"
+        data-src="/en/desigin-pattern-factory/factory_method.png"
+        data-srcset="/en/desigin-pattern-factory/factory_method.png, /en/desigin-pattern-factory/factory_method.png 1.5x, /en/desigin-pattern-factory/factory_method.png 2x"
         data-sizes="auto"
-        alt="/desigin-pattern-factory/factory_method.png"
-        title="类图" width="1356" height="484" /></p>
+        alt="/en/desigin-pattern-factory/factory_method.png"
+        title="Class Diagram" width="1356" height="484" /></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -486,50 +482,48 @@
 </span><span class="lnt">64
 </span><span class="lnt">65
 </span><span class="lnt">66
-</span><span class="lnt">67
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// Car 汽车抽象接口，定义car的两个行为，开车和加油
+</span></span><span class="line"><span class="cl"><span class="c1">// Car abstract interface for cars, defining two behaviors: drive and refuel
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">type</span> <span class="nx">Car</span> <span class="kd">interface</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">	<span class="nf">drive</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">	<span class="nf">oil</span><span class="p">(</span><span class="nx">cnt</span> <span class="kt">int</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">refuel</span><span class="p">(</span><span class="nx">cnt</span> <span class="kt">int</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// Bmw 宝马汽车
+</span></span><span class="line"><span class="cl"><span class="c1">// Bmw BMW car
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">type</span> <span class="nx">Bmw</span> <span class="kd">struct</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">b</span> <span class="o">*</span><span class="nx">Bmw</span><span class="p">)</span> <span class="nf">drive</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;i drive bmw!&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;I&#39;m driving a BMW!&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">b</span> <span class="o">*</span><span class="nx">Bmw</span><span class="p">)</span> <span class="nf">oil</span><span class="p">(</span><span class="nx">cnt</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;bmw add &#34;</span><span class="p">,</span> <span class="nx">cnt</span><span class="p">,</span> <span class="s">&#34; oil&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">b</span> <span class="o">*</span><span class="nx">Bmw</span><span class="p">)</span> <span class="nf">refuel</span><span class="p">(</span><span class="nx">cnt</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Adding&#34;</span><span class="p">,</span> <span class="nx">cnt</span><span class="p">,</span> <span class="s">&#34;liters of fuel to the BMW&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// Benz 奔驰汽车
+</span></span><span class="line"><span class="cl"><span class="c1">// Benz Benz car
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">type</span> <span class="nx">Benz</span> <span class="kd">struct</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">b</span> <span class="o">*</span><span class="nx">Benz</span><span class="p">)</span> <span class="nf">drive</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;i drive benz!&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;I&#39;m driving a Benz!&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">b</span> <span class="o">*</span><span class="nx">Benz</span><span class="p">)</span> <span class="nf">oil</span><span class="p">(</span><span class="nx">cnt</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;benz add &#34;</span><span class="p">,</span> <span class="nx">cnt</span><span class="p">,</span> <span class="s">&#34; oil&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">b</span> <span class="o">*</span><span class="nx">Benz</span><span class="p">)</span> <span class="nf">refuel</span><span class="p">(</span><span class="nx">cnt</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Adding&#34;</span><span class="p">,</span> <span class="nx">cnt</span><span class="p">,</span> <span class="s">&#34;liters of fuel to the Benz&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// CarFactory 汽车工厂接口，生产汽车
+</span></span><span class="line"><span class="cl"><span class="c1">// CarFactory interface for car factories, responsible for car production
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">type</span> <span class="nx">CarFactory</span> <span class="kd">interface</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">	<span class="nf">makeCar</span><span class="p">()</span> <span class="nx">Car</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// BmwFactory 宝马汽车工厂，生产宝马汽车
+</span></span><span class="line"><span class="cl"><span class="c1">// BmwFactory BMW car factory, producing BMW cars
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">type</span> <span class="nx">BmwFactory</span> <span class="kd">struct</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
@@ -537,7 +531,7 @@
 </span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nb">new</span><span class="p">(</span><span class="nx">Bmw</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// BenzFactory 奔驰汽车工厂，生产奔驰汽车
+</span></span><span class="line"><span class="cl"><span class="c1">// BenzFactory Benz car factory, producing Benz cars
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">type</span> <span class="nx">BenzFactory</span> <span class="kd">struct</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
@@ -549,38 +543,51 @@
 </span></span><span class="line"><span class="cl">	<span class="nx">bmwFactory</span> <span class="o">:=</span> <span class="nb">new</span><span class="p">(</span><span class="nx">BmwFactory</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">	<span class="nx">bmw</span> <span class="o">:=</span> <span class="nx">bmwFactory</span><span class="p">.</span><span class="nf">makeCar</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl">	<span class="nx">bmw</span><span class="p">.</span><span class="nf">drive</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">bmw</span><span class="p">.</span><span class="nf">oil</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">bmw</span><span class="p">.</span><span class="nf">refuel</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">	<span class="nx">benzFactory</span> <span class="o">:=</span> <span class="nb">new</span><span class="p">(</span><span class="nx">BenzFactory</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">	<span class="nx">benz</span> <span class="o">:=</span> <span class="nx">benzFactory</span><span class="p">.</span><span class="nf">makeCar</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl">	<span class="nx">benz</span><span class="p">.</span><span class="nf">drive</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">benz</span><span class="p">.</span><span class="nf">oil</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">benz</span><span class="p">.</span><span class="nf">refuel</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>简单总结一下工厂方法模式的优缺点：</p>
-<p><strong>优点：</strong></p>
-<p>1.可扩展性好，当需要增加一款新的产品时（如添加奥迪汽车），无需修改抽象工厂和抽象工厂提供的接口，祝需要添加一个具体工厂和具体产品就行了，更加符合“开闭原则”，简单工厂模式则需要修改工厂类的判断逻辑，</p>
-<p>2.符合单一职责原则：每个具体工厂类只负责生产对应的产品。简单工厂模式的工厂类还需要有一定逻辑判断</p>
-<p>3.基于⼯⼚⻆⾊和产品⻆⾊的多态性设计是⼯⼚⽅法模式的关键。它能够使⼯⼚可以⾃主确定创建何种产品对象（该产品的工厂类只需要实现抽象工厂接口即可），⽽如何创建这个对象的细节则完全封装在具体⼯⼚内部。⼯⼚⽅法模式之所以⼜被称为多态⼯⼚模式，是因为所有的具体⼯⼚类都具有同⼀抽象⽗类。</p>
-<p><strong>缺点：</strong></p>
-<p>1.每次添加新的产品，都需要编写新的具体产品类，并且同时也要提供该产品对应的工厂类，当系统中产品数量表多的时候，类的个数会因此成倍增加，会在一定成都上导致系统的复杂性，并且多个类需要编译运行，会在一定程度上增加系统的开销</p>
-<p>2.一个具体工厂类只能创建一种具体产品</p>
-<h2 id="抽象工厂模式">抽象工厂模式</h2>
+</div><p>In summary, let&rsquo;s highlight the advantages and disadvantages of the Factory Method pattern:</p>
+<p><strong>Advantages:</strong></p>
+<ol>
+<li>
+<p>Good scalability: When a new product (e.g., adding an Audi car) needs to be added, there is no need to modify the abstract factory or the interface provided by the abstract factory. Only a specific factory and product need to be added. This approach aligns with the &ldquo;Open-Closed Principle.&rdquo; In contrast, the Simple Factory pattern requires modification of the factory class&rsquo;s conditional logic.</p>
+</li>
+<li>
+<p>Adheres to the Single Responsibility Principle: Each specific factory class is only responsible for producing the corresponding product. The Simple Factory pattern&rsquo;s factory class requires additional logical checks.</p>
+</li>
+<li>
+<p>The key to the Factory Method pattern lies in the polymorphism design based on the factory and product roles. It allows the factory to independently determine which product object to create (the product&rsquo;s factory class only needs to implement the abstract factory interface). The details of how to create the object are completely encapsulated within the specific factory. The Factory Method pattern is also referred to as the &ldquo;Polymorphic Factory&rdquo; pattern because all specific factory classes have the same abstract parent class.</p>
+</li>
+</ol>
+<p><strong>Disadvantages:</strong></p>
+<ol>
+<li>
+<p>Every time a new product is added, new concrete product classes need to be written, along with providing the corresponding factory classes,When the number of products in the system becomes large, the number of classes increases exponentially, resulting in increased system complexity. Additionally, multiple classes need to be compiled and executed, which adds to the system&rsquo;s overhead.</p>
+</li>
+<li>
+<p>A specific factory class can only create one specific product.</p>
+</li>
+</ol>
+<h2 id="abstract-factory-pattern">Abstract Factory Pattern</h2>
 <blockquote>
-<p>抽象工厂模式可以理解为生产工厂的工厂，即有一个超级工厂生产其他的工厂。马克思说过：“人是一切社会关系的总和”，一个人在社会上不可能只扮演一种角色，一个人的职业可能是程序员、也有其相应的家庭角色；同时程序员也有go、java、python程序员等，家庭角色也可能是是父亲、儿子、
-丈夫等，共同构成了社会关系的总和。抽象工厂模式可以理解为简单工厂模式和工厂方法模式的结合体。自然也继承了各自的优缺点。</p>
+<p>The Abstract Factory pattern can be understood as a factory of factories, where there is a super factory that produces other factories. As Marx said, &ldquo;Man is the sum of all social relations.&rdquo; A person cannot play only one role in society. A person&rsquo;s occupation could be a programmer, and they also have corresponding family roles. Likewise, a programmer could specialize in languages such as Go, Java, or Python, and their family roles could be a father, son, or husband. Together, these roles constitute the sum of social relations. The Abstract Factory pattern can be seen as a combination of the Simple Factory pattern and the Factory Method pattern. It inherits their respective advantages and disadvantages.</p>
 </blockquote>
-<p><strong>类图：</strong>
+<p><strong>Class Diagram:</strong>
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="/desigin-pattern-factory/abstract_factory.png"
-        data-srcset="/desigin-pattern-factory/abstract_factory.png, /desigin-pattern-factory/abstract_factory.png 1.5x, /desigin-pattern-factory/abstract_factory.png 2x"
+        data-src="/en/desigin-pattern-factory/abstract_factory.png"
+        data-srcset="/en/desigin-pattern-factory/abstract_factory.png, /en/desigin-pattern-factory/abstract_factory.png 1.5x, /en/desigin-pattern-factory/abstract_factory.png 2x"
         data-sizes="auto"
-        alt="/desigin-pattern-factory/abstract_factory.png"
-        title="类图" width="1500" height="247" /></p>
-<p><strong>代码：</strong></p>
+        alt="/en/desigin-pattern-factory/abstract_factory.png"
+        title="Class Diagram" width="1500" height="247" /></p>
+<p><strong>Code:</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">  1
@@ -711,14 +718,14 @@
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">j</span> <span class="o">*</span><span class="nx">javaProgrammer</span><span class="p">)</span> <span class="nf">writeCode</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;i am  a java programmer,i write java&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;I am a Java programmer. I write Java.&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">goProgrammer</span> <span class="kd">struct</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">g</span> <span class="o">*</span><span class="nx">goProgrammer</span><span class="p">)</span> <span class="nf">writeCode</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;i am  a golang programmer,i write go&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;I am a Golang programmer. I write Go.&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">family</span> <span class="kd">interface</span> <span class="p">{</span>
@@ -729,14 +736,14 @@
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">f</span> <span class="o">*</span><span class="nx">father</span><span class="p">)</span> <span class="nf">love</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;i am a father ,i love my wife and my son&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;I am a father. I love my wife and my son.&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">son</span> <span class="kd">struct</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">s</span> <span class="o">*</span><span class="nx">son</span><span class="p">)</span> <span class="nf">love</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;i am a son ,i love my father and my mother&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;I am a son. I love my father and my mother.&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">programmerFactory</span> <span class="kd">struct</span> <span class="p">{</span>
@@ -815,48 +822,47 @@
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="小结">小结</h2>
-<p>工厂模式作为最简单也最容易理解同时也是日常使用比较多的一个设计模式，大致可分为三种，在日常开发过程中，正确的使用设计模式能够极大的简化我们的代码，降低代码的耦合度，提升可维护性（毕竟是前人经验的总结），但切记千万不能滥用设计模式，使用不当可能会适得其反，千万不要为了使用设计模式而去使用设计模式！！！</p>
+</div><h2 id="summary">Summary</h2>
+<p>The Factory pattern is the simplest and most easily understandable design pattern, and it is widely used in daily development. It can be roughly divided into three types. Correctly using design patterns in our code can greatly simplify the code, reduce code coupling, and improve maintainability (after all, it is a summary of previous experiences). However, it is essential to avoid the misuse of design patterns. Improper use can have adverse effects. Don&rsquo;t use design patterns just for the sake of using them!</p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>更新于 2023-06-26&nbsp;<a class="git-hash" href="https://github.com/YourFantasy/blog/commit/7cd3582e700e816b1efca373e0d8c26eb2f22551" target="_blank" title="commit by bardchen(bardchen@tencent.com) 7cd3582e700e816b1efca373e0d8c26eb2f22551: 替换成本地图片">
-                                    <i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>7cd3582</a></span>
+                <span>Updated on 2023-06-26</span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"><span>
-                            <a class="link-to-markdown" href="/desigin-pattern-factory/index.md" target="_blank">阅读原始文档</a>
+                            <a class="link-to-markdown" href="/en/desigin-pattern-factory/index.md" target="_blank">Read Markdown</a>
                         </span></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://www.bardblog.cn/desigin-pattern-factory/" data-title="设计模式之工厂模式" data-via="cz960601" data-hashtags="desigin-patter"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://www.bardblog.cn/desigin-pattern-factory/" data-hashtag="desigin-patter"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://www.bardblog.cn/desigin-pattern-factory/" data-title="设计模式之工厂模式"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Reddit" data-sharer="reddit" data-url="https://www.bardblog.cn/desigin-pattern-factory/"><i class="fab fa-reddit fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://www.bardblog.cn/desigin-pattern-factory/" data-title="设计模式之工厂模式"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://www.bardblog.cn/desigin-pattern-factory/" data-title="设计模式之工厂模式"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://www.bardblog.cn/en/desigin-pattern-factory/" data-title="Factory Pattern" data-via="cz960601" data-hashtags="design-pattern"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://www.bardblog.cn/en/desigin-pattern-factory/" data-hashtag="design-pattern"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://www.bardblog.cn/en/desigin-pattern-factory/" data-title="Factory Pattern"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Reddit" data-sharer="reddit" data-url="https://www.bardblog.cn/en/desigin-pattern-factory/"><i class="fab fa-reddit fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://www.bardblog.cn/en/desigin-pattern-factory/" data-title="Factory Pattern"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://www.bardblog.cn/en/desigin-pattern-factory/" data-title="Factory Pattern"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/desigin-patter/">desigin-patter</a></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/en/tags/design-pattern/">design-pattern</a></section>
         <section>
-            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/en/">Home</a></span>
         </section>
     </div>
 
-    <div class="post-nav"><a href="/theme-documentation-extended-shortcodes/" class="prev" rel="prev" title="主题文档 - 扩展 Shortcodes"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>主题文档 - 扩展 Shortcodes</a>
-            <a href="/algorithm-bfs-acwing-844/" class="next" rel="next" title="迷宫最小的移动次数">迷宫最小的移动次数<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+    <div class="post-nav"><a href="/en/theme-documentation-extended-shortcodes/" class="prev" rel="prev" title="Theme Documentation - Extended Shortcodes"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Theme Documentation - Extended Shortcodes</a>
+            <a href="/en/theme-documentation-built-in-shortcodes/" class="next" rel="next" title="Theme Documentation - Built-in Shortcodes">Theme Documentation - Built-in Shortcodes<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 <div id="comments"><div id="gitalk" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://github.com/gitalk/gitalk"></a>Gitalk</a>.
             </noscript></div></article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.114.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.114.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
                 </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://www.bardblog.cn" target="_blank">Bard</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>
 
-        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
                 <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
-            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
                 <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
             </a>
-        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.13.1/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/twemoji@14.0.2/dist/twemoji.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/mhchem.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"gitalk":{"admin":["YourFantasy"],"clientID":"64f57a27c4b33d7930ff","clientSecret":"34e7c8aa13489f51aa54f53c4734d0e38762b83f","id":"2023-06-24T12:57:40+08:00","owner":"YourFantasy","repo":"blog","title":"设计模式之工厂模式"}},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"data":{"id-1":"编程浪子","id-2":"编程浪子"},"lightgallery":true,"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"58KPEJ4RD6","algoliaIndex":"index.zh-cn","algoliaSearchKey":"a48c9e27b67c52f03f9b8daa3cbdd18e","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"},"twemoji":true,"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.13.1/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/twemoji@14.0.2/dist/twemoji.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/mhchem.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{"gitalk":{"admin":["YourFantasy"],"clientID":"64f57a27c4b33d7930ff","clientSecret":"34e7c8aa13489f51aa54f53c4734d0e38762b83f","id":"2023-06-26T12:57:40+08:00","owner":"YourFantasy","repo":"blog","title":"Factory Pattern"}},"cookieconsent":{"content":{"dismiss":"Got it!","link":"Learn more","message":"This website uses Cookies to improve your experience."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"data":{"id-1":"编程浪子","id-2":"编程浪子"},"lightgallery":true,"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"58KPEJ4RD6","algoliaIndex":"index.en","algoliaSearchKey":"a48c9e27b67c52f03f9b8daa3cbdd18e","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"algolia"},"twemoji":true,"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
 </html>

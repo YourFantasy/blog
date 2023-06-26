@@ -31,7 +31,15 @@
                     /></url><url>
             <loc>https://www.bardblog.cn/algorithm-dfs-acwing-846/</loc><lastmod>2023-06-24T18:49:56&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://www.bardblog.cn/algorithm-bfs-acwing-844/</loc><lastmod>2023-06-24T18:05:16&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://www.bardblog.cn/desigin-pattern-factory/</loc><lastmod>2023-06-26T17:34:54&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://www.bardblog.cn/desigin-pattern-factory/</loc><lastmod>2023-06-26T17:34:54&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="en"
+                        href="https://www.bardblog.cn/en/desigin-pattern-factory/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="zh-cn"
+                    href="https://www.bardblog.cn/desigin-pattern-factory/"
+                    /></url><url>
             <loc>https://www.bardblog.cn/theme-documentation-extended-shortcodes/</loc><lastmod>2023-06-24T20:10:45&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
@@ -154,7 +162,15 @@
                     hreflang="zh-cn"
                     href="https://www.bardblog.cn/tags/"
                     /></url><url>
-            <loc>https://www.bardblog.cn/categories/technology/</loc><lastmod>2023-06-26T17:34:54&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://www.bardblog.cn/categories/technology/</loc><lastmod>2023-06-26T17:34:54&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="en"
+                        href="https://www.bardblog.cn/en/categories/technology/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="zh-cn"
+                    href="https://www.bardblog.cn/categories/technology/"
+                    /></url><url>
             <loc>https://www.bardblog.cn/</loc><lastmod>2023-06-26T17:34:54&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
