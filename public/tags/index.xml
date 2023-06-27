@@ -4,7 +4,23 @@
         <link>https://www.bardblog.cn/tags/</link>
         <description>Tags - 标签 - 编程浪子</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>cz950601@gmail.com (Bard)</managingEditor>
-            <webMaster>cz950601@gmail.com (Bard)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 24 Jun 2023 12:57:40 &#43;0800</lastBuildDate><atom:link href="https://www.bardblog.cn/tags/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>cz950601@gmail.com (Bard)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 27 Jun 2023 00:01:52 &#43;0800</lastBuildDate><atom:link href="https://www.bardblog.cn/tags/" rel="self" type="application/rss+xml" /><item>
+    <title>git</title>
+    <link>https://www.bardblog.cn/tags/git/</link>
+    <pubDate>Tue, 27 Jun 2023 00:01:52 &#43;0800</pubDate>
+    <author>Bard</author>
+    <guid>https://www.bardblog.cn/tags/git/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>linux</title>
+    <link>https://www.bardblog.cn/tags/linux/</link>
+    <pubDate>Tue, 27 Jun 2023 00:01:52 &#43;0800</pubDate>
+    <author>Bard</author>
+    <guid>https://www.bardblog.cn/tags/linux/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
     <title>algorithm</title>
     <link>https://www.bardblog.cn/tags/algorithm/</link>
     <pubDate>Sat, 24 Jun 2023 12:57:40 &#43;0800</pubDate>
@@ -66,22 +82,6 @@
     <pubDate>Tue, 01 Oct 2019 17:55:28 &#43;0800</pubDate>
     <author>Bard</author>
     <guid>https://www.bardblog.cn/tags/emoji/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>安装</title>
-    <link>https://www.bardblog.cn/tags/installation/</link>
-    <pubDate>Mon, 01 Jan 0001 00:00:00 &#43;0000</pubDate>
-    <author>Bard</author>
-    <guid>https://www.bardblog.cn/tags/installation/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>内容</title>
-    <link>https://www.bardblog.cn/tags/content/</link>
-    <pubDate>Mon, 01 Jan 0001 00:00:00 &#43;0000</pubDate>
-    <author>Bard</author>
-    <guid>https://www.bardblog.cn/tags/content/</guid>
     <description><![CDATA[]]></description>
 </item>
 </channel>

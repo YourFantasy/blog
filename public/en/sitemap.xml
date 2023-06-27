@@ -146,6 +146,15 @@
                     hreflang="en"
                     href="https://www.bardblog.cn/en/theme-documentation-typeit-shortcode/"
                     /></url><url>
+            <loc>https://www.bardblog.cn/en/git-advanced-usage/</loc><lastmod>2023-06-27T00:01:52&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://www.bardblog.cn/git-advanced-usage/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://www.bardblog.cn/en/git-advanced-usage/"
+                    /></url><url>
             <loc>https://www.bardblog.cn/en/categories/</loc><lastmod>2023-06-27T09:53:11&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
@@ -155,14 +164,23 @@
                     hreflang="en"
                     href="https://www.bardblog.cn/en/categories/"
                     /></url><url>
-            <loc>https://www.bardblog.cn/en/tags/design-pattern/</loc><lastmod>2023-06-27T09:53:11&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://www.bardblog.cn/en/tags/git/</loc><lastmod>2023-06-27T00:01:52&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
-                        href="https://www.bardblog.cn/tags/design-pattern/"
+                        href="https://www.bardblog.cn/tags/git/"
                         /><xhtml:link
                     rel="alternate"
                     hreflang="en"
-                    href="https://www.bardblog.cn/en/tags/design-pattern/"
+                    href="https://www.bardblog.cn/en/tags/git/"
+                    /></url><url>
+            <loc>https://www.bardblog.cn/en/tags/linux/</loc><lastmod>2023-06-27T00:01:52&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://www.bardblog.cn/tags/linux/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://www.bardblog.cn/en/tags/linux/"
                     /></url><url>
             <loc>https://www.bardblog.cn/en/posts/</loc><lastmod>2023-06-27T09:53:11&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
@@ -199,6 +217,15 @@
                     rel="alternate"
                     hreflang="en"
                     href="https://www.bardblog.cn/en/"
+                    /></url><url>
+            <loc>https://www.bardblog.cn/en/tags/design-pattern/</loc><lastmod>2023-06-27T09:53:11&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://www.bardblog.cn/tags/design-pattern/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://www.bardblog.cn/en/tags/design-pattern/"
                     /></url><url>
             <loc>https://www.bardblog.cn/en/about/</loc><lastmod>2023-06-24T15:14:30&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"

@@ -4,7 +4,23 @@
         <link>https://www.bardblog.cn/en/tags/</link>
         <description>Tags - Tag - 编程浪子</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>cz950601@gmail.com (Bard)</managingEditor>
-            <webMaster>cz950601@gmail.com (Bard)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 26 Jun 2023 12:57:40 &#43;0800</lastBuildDate><atom:link href="https://www.bardblog.cn/en/tags/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>cz950601@gmail.com (Bard)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 27 Jun 2023 00:01:52 &#43;0800</lastBuildDate><atom:link href="https://www.bardblog.cn/en/tags/" rel="self" type="application/rss+xml" /><item>
+    <title>git</title>
+    <link>https://www.bardblog.cn/en/tags/git/</link>
+    <pubDate>Tue, 27 Jun 2023 00:01:52 &#43;0800</pubDate>
+    <author>Bard</author>
+    <guid>https://www.bardblog.cn/en/tags/git/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>linux</title>
+    <link>https://www.bardblog.cn/en/tags/linux/</link>
+    <pubDate>Tue, 27 Jun 2023 00:01:52 &#43;0800</pubDate>
+    <author>Bard</author>
+    <guid>https://www.bardblog.cn/en/tags/linux/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
     <title>design-pattern</title>
     <link>https://www.bardblog.cn/en/tags/design-pattern/</link>
     <pubDate>Mon, 26 Jun 2023 12:57:40 &#43;0800</pubDate>
@@ -66,22 +82,6 @@
     <pubDate>Thu, 05 Mar 2020 15:58:26 &#43;0800</pubDate>
     <author>Bard</author>
     <guid>https://www.bardblog.cn/en/tags/markdown/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>shortcodes</title>
-    <link>https://www.bardblog.cn/en/tags/shortcodes/</link>
-    <pubDate>Wed, 04 Mar 2020 16:29:41 &#43;0800</pubDate>
-    <author>Bard</author>
-    <guid>https://www.bardblog.cn/en/tags/shortcodes/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>HTML</title>
-    <link>https://www.bardblog.cn/en/tags/html/</link>
-    <pubDate>Sun, 01 Dec 2019 21:57:40 &#43;0800</pubDate>
-    <author>Bard</author>
-    <guid>https://www.bardblog.cn/en/tags/html/</guid>
     <description><![CDATA[]]></description>
 </item>
 </channel>
