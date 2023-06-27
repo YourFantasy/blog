@@ -22,7 +22,6 @@ The Factory Method pattern is a creational design pattern that provides a way to
 > The Simple Factory pattern, also known as the Static Method pattern, defines a static method in the object creation factory class to create objects. The Simple Factory design pattern allows clients (users) to create the desired product instances without knowing the specific details of the objects. Users can directly use the created objects without worrying about how they are created.
 
 **Class Diagram:**
-
 ![Class Diagram](simple_factory.png)
 
 **Code:**
@@ -88,6 +87,7 @@ As you can see, the Simple Factory pattern is quite simple. It separates the cre
 
 So, how can we address this issue? We can't really say that it solves the problem completely, but it can be considered as a programming technique. We can observe that the `newAnimal` method contains a lot of switch cases. How can we get rid of these switch cases? In the `main` function, when we need to create a specific animal object, we need to pass the `animalType` field and then call the `newAnimal` method to create the object. In other words, we create the object only when we need to use a certain animal object, which follows a "lazy loading" approach. If we create an instance of each animal whenever we add a new animal, and then put it into a map dictionary, we can simply fetch the object from the map without maintaining the `newAnimal` method. In essence, it transforms the "lazy loading" approach into an "eager loading" approach. Regardless of whether you use the object or not, if the object exists, we create an object instance and put it into the map dictionary. The code can be modified as follows:
 
+**Code:**
 ```go
 package main
 
@@ -161,6 +161,7 @@ func main() {
 **Class Diagram:**
 ![Class Diagram](factory_method.png)
 
+**Code:**
 ```go
 package main
 
@@ -254,7 +255,6 @@ In summary, let's highlight the advantages and disadvantages of the Factory Meth
 ![Class Diagram](abstract_factory.png)
 
 **Code:**
-
 ```go
 package main
 

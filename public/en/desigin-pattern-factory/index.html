@@ -9,7 +9,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.bardblog.cn/en/desigin-pattern-factory/" /><meta property="og:image" content="https://www.bardblog.cn/logo.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2023-06-26T12:57:40+08:00" />
-<meta property="article:modified_time" content="2023-06-26T21:00:56+08:00" /><meta property="og:site_name" content="编程浪子" />
+<meta property="article:modified_time" content="2023-06-27T09:35:08+08:00" /><meta property="og:site_name" content="编程浪子" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://www.bardblog.cn/logo.png"/>
 
@@ -34,8 +34,8 @@
                             "url": "https:\/\/www.bardblog.cn\/images\/Apple-Devices-Preview.png",
                             "width":  3200 ,
                             "height":  2048 
-                        }],"genre": "posts","keywords": "design-pattern","wordcount":  1960 ,
-        "url": "https:\/\/www.bardblog.cn\/en\/desigin-pattern-factory\/","datePublished": "2023-06-26T12:57:40+08:00","dateModified": "2023-06-26T21:00:56+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+                        }],"genre": "posts","keywords": "design-pattern","wordcount":  1962 ,
+        "url": "https:\/\/www.bardblog.cn\/en\/desigin-pattern-factory\/","datePublished": "2023-06-26T12:57:40+08:00","dateModified": "2023-06-27T09:35:08+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": {
                     "@type": "ImageObject",
@@ -119,7 +119,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Factory Pattern</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://www.bardblog.cn" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bard</a></span>&nbsp;<span class="post-category">included in <a href="/en/categories/technology/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>technology</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-06-26">2023-06-26</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1960 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-06-26">2023-06-26</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1962 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;10 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -139,8 +139,8 @@
 <blockquote>
 <p>The Simple Factory pattern, also known as the Static Method pattern, defines a static method in the object creation factory class to create objects. The Simple Factory design pattern allows clients (users) to create the desired product instances without knowing the specific details of the objects. Users can directly use the created objects without worrying about how they are created.</p>
 </blockquote>
-<p><strong>Class Diagram:</strong></p>
-<p><img
+<p><strong>Class Diagram:</strong>
+<img
         class="lazyload"
         src="/svg/loading.min.svg"
         data-src="/en/desigin-pattern-factory/simple_factory.png"
@@ -267,6 +267,7 @@
 </div>
 </div><p>As you can see, the Simple Factory pattern is quite simple. It separates the creation and usage of instances, allowing the users to create objects without knowing the details of the objects&rsquo; creation process. It achieves separation and decoupling, where users only need to know the type mapping of the objects they want to create. However, what are the drawbacks of the Simple Factory pattern? When producing objects, the specific animal object to be created is determined based on the animal type passed in. As we add more animal types, such as rabbits or elephants, the <code>newAnimal</code> method will expand continuously. Moreover, whenever the animal types change, we have to modify this part of the code, which violates the Open-Closed Principle.</p>
 <p>So, how can we address this issue? We can&rsquo;t really say that it solves the problem completely, but it can be considered as a programming technique. We can observe that the <code>newAnimal</code> method contains a lot of switch cases. How can we get rid of these switch cases? In the <code>main</code> function, when we need to create a specific animal object, we need to pass the <code>animalType</code> field and then call the <code>newAnimal</code> method to create the object. In other words, we create the object only when we need to use a certain animal object, which follows a &ldquo;lazy loading&rdquo; approach. If we create an instance of each animal whenever we add a new animal, and then put it into a map dictionary, we can simply fetch the object from the map without maintaining the <code>newAnimal</code> method. In essence, it transforms the &ldquo;lazy loading&rdquo; approach into an &ldquo;eager loading&rdquo; approach. Regardless of whether you use the object or not, if the object exists, we create an object instance and put it into the map dictionary. The code can be modified as follows:</p>
+<p><strong>Code:</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -412,6 +413,7 @@
         data-sizes="auto"
         alt="/en/desigin-pattern-factory/factory_method.png"
         title="Class Diagram" width="1356" height="484" /></p>
+<p><strong>Code:</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -826,8 +828,8 @@
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2023-06-26&nbsp;<a class="git-hash" href="https://github.com/YourFantasy/blog/commit/1452e2b62da73b9bde586f6326d2df5e07d3c409" target="_blank" title="commit by bardchen(bardchen@tencent.com) 1452e2b62da73b9bde586f6326d2df5e07d3c409: 更新格式">
-                                    <i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>1452e2b</a></span>
+                <span>Updated on 2023-06-27&nbsp;<a class="git-hash" href="https://github.com/YourFantasy/blog/commit/4db71889fc74214eea2bf4160b93243f655ef34b" target="_blank" title="commit by bardchen(bardchen@tencent.com) 4db71889fc74214eea2bf4160b93243f655ef34b: 完善格式">
+                                    <i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>4db7188</a></span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"><span>
@@ -853,7 +855,7 @@
                 Please enable JavaScript to view the comments powered by <a href="https://github.com/gitalk/gitalk"></a>Gitalk</a>.
             </noscript></div></article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.114.1">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.114.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
                 </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://www.bardblog.cn" target="_blank">Bard</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>
