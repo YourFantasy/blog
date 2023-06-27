@@ -9,7 +9,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.bardblog.cn/desigin-pattern-factory/" /><meta property="og:image" content="https://www.bardblog.cn/logo.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2023-06-24T12:57:40+08:00" />
-<meta property="article:modified_time" content="2023-06-27T09:35:08+08:00" /><meta property="og:site_name" content="编程浪子" />
+<meta property="article:modified_time" content="2023-06-27T09:35:26+08:00" /><meta property="og:site_name" content="编程浪子" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://www.bardblog.cn/logo.png"/>
 
@@ -34,8 +34,8 @@
                             "url": "https:\/\/www.bardblog.cn\/images\/Apple-Devices-Preview.png",
                             "width":  3200 ,
                             "height":  2048 
-                        }],"genre": "posts","keywords": "desigin-patter","wordcount":  2775 ,
-        "url": "https:\/\/www.bardblog.cn\/desigin-pattern-factory\/","datePublished": "2023-06-24T12:57:40+08:00","dateModified": "2023-06-27T09:35:08+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+                        }],"genre": "posts","keywords": "desigin-patter","wordcount":  2793 ,
+        "url": "https:\/\/www.bardblog.cn\/desigin-pattern-factory\/","datePublished": "2023-06-24T12:57:40+08:00","dateModified": "2023-06-27T09:35:26+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": {
                     "@type": "ImageObject",
@@ -119,7 +119,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">设计模式之工厂模式</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://www.bardblog.cn" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bard</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/technology/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>technology</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-06-24">2023-06-24</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 2775 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-06-24">2023-06-24</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 2793 字&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 6 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -146,14 +146,16 @@
 <p>简单工厂模式，也叫静态方法模式，在对象创建工厂类中定义了一个静态方法来创建对象，简单工厂设计模式让客户端（使用者）无需知道对象的具体细节就能创建出所需的产品实例，使用者可以直接使用生产出来的对象而无需关心对象是如何生产出来的。</p>
 </blockquote>
 <p><strong>类图：</strong>
-<img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="/desigin-pattern-factory/simple_factory.png"
-        data-srcset="/desigin-pattern-factory/simple_factory.png, /desigin-pattern-factory/simple_factory.png 1.5x, /desigin-pattern-factory/simple_factory.png 2x"
-        data-sizes="auto"
-        alt="/desigin-pattern-factory/simple_factory.png"
-        title="类图" width="994" height="482" /></p>
+<figure><a class="lightgallery" href="/desigin-pattern-factory/simple_factory.png" title="类图" data-thumbnail="/desigin-pattern-factory/simple_factory.png" data-sub-html="<h2>简单工厂模式</h2><p>类图</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/desigin-pattern-factory/simple_factory.png"
+            data-srcset="/desigin-pattern-factory/simple_factory.png, /desigin-pattern-factory/simple_factory.png 1.5x, /desigin-pattern-factory/simple_factory.png 2x"
+            data-sizes="auto"
+            alt="/desigin-pattern-factory/simple_factory.png" width="994" height="482" />
+    </a><figcaption class="image-caption">简单工厂模式</figcaption>
+    </figure></p>
 <p><strong>代码：</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -411,14 +413,16 @@
 <p>工厂方法模式也叫多态工厂模式，前面介绍了一下简单工厂模式，动物创建工厂无论什么Dog还是Cat都在同一个动物工厂生产，每次需要增加新的动物种类的时候，动物工厂都需要作出相应的改变。就好比，每次生产一个新的动物物种，都需要增加相应的配套工具，这对于系统的扩展性不是很好。工厂方法模式可以看作是对简单工厂模式的一种升级，即不同种类的动物不再在同一个动物工厂生产了，而是进行了细分，每种类型的动物都有一个专门的动物工厂进行生产，这里以汽车作为例子。</p>
 </blockquote>
 <p><strong>类图：</strong>
-<img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="/desigin-pattern-factory/factory_method.png"
-        data-srcset="/desigin-pattern-factory/factory_method.png, /desigin-pattern-factory/factory_method.png 1.5x, /desigin-pattern-factory/factory_method.png 2x"
-        data-sizes="auto"
-        alt="/desigin-pattern-factory/factory_method.png"
-        title="类图" width="1356" height="484" /></p>
+<figure><a class="lightgallery" href="/desigin-pattern-factory/factory_method.png" title="类图" data-thumbnail="/desigin-pattern-factory/factory_method.png" data-sub-html="<h2>工厂方法模式</h2><p>类图</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/desigin-pattern-factory/factory_method.png"
+            data-srcset="/desigin-pattern-factory/factory_method.png, /desigin-pattern-factory/factory_method.png 1.5x, /desigin-pattern-factory/factory_method.png 2x"
+            data-sizes="auto"
+            alt="/desigin-pattern-factory/factory_method.png" width="1356" height="484" />
+    </a><figcaption class="image-caption">工厂方法模式</figcaption>
+    </figure></p>
 <p><strong>代码：</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -574,14 +578,16 @@
 丈夫等，共同构成了社会关系的总和。抽象工厂模式可以理解为简单工厂模式和工厂方法模式的结合体。自然也继承了各自的优缺点。</p>
 </blockquote>
 <p><strong>类图：</strong>
-<img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="/desigin-pattern-factory/abstract_factory.png"
-        data-srcset="/desigin-pattern-factory/abstract_factory.png, /desigin-pattern-factory/abstract_factory.png 1.5x, /desigin-pattern-factory/abstract_factory.png 2x"
-        data-sizes="auto"
-        alt="/desigin-pattern-factory/abstract_factory.png"
-        title="类图" width="1500" height="247" /></p>
+<figure><a class="lightgallery" href="/desigin-pattern-factory/abstract_factory.png" title="类图" data-thumbnail="/desigin-pattern-factory/abstract_factory.png" data-sub-html="<h2>抽象工厂模式</h2><p>类图</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/desigin-pattern-factory/abstract_factory.png"
+            data-srcset="/desigin-pattern-factory/abstract_factory.png, /desigin-pattern-factory/abstract_factory.png 1.5x, /desigin-pattern-factory/abstract_factory.png 2x"
+            data-sizes="auto"
+            alt="/desigin-pattern-factory/abstract_factory.png" width="1500" height="247" />
+    </a><figcaption class="image-caption">抽象工厂模式</figcaption>
+    </figure></p>
 <p><strong>代码：</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -823,8 +829,8 @@
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>更新于 2023-06-27&nbsp;<a class="git-hash" href="https://github.com/YourFantasy/blog/commit/4db71889fc74214eea2bf4160b93243f655ef34b" target="_blank" title="commit by bardchen(bardchen@tencent.com) 4db71889fc74214eea2bf4160b93243f655ef34b: 完善格式">
-                                    <i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>4db7188</a></span>
+                <span>更新于 2023-06-27&nbsp;<a class="git-hash" href="https://github.com/YourFantasy/blog/commit/8a52a935e23f35223fd0f7587ceff1d88453e05a" target="_blank" title="commit by bardchen(bardchen@tencent.com) 8a52a935e23f35223fd0f7587ceff1d88453e05a: 完善格式">
+                                    <i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>8a52a93</a></span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"><span>

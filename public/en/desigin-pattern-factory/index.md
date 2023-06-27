@@ -8,7 +8,7 @@ The Factory Method pattern is a creational design pattern that provides a way to
 > The Simple Factory pattern, also known as the Static Method pattern, defines a static method in the object creation factory class to create objects. The Simple Factory design pattern allows clients (users) to create the desired product instances without knowing the specific details of the objects. Users can directly use the created objects without worrying about how they are created.
 
 **Class Diagram:**
-![Class Diagram](simple_factory.png)
+![Class Diagram](simple_factory.png "Simple Factory Pattern")
 
 **Code:**
 ```go
@@ -145,7 +145,7 @@ func main() {
 > The Factory Method pattern, also known as the Polymorphic Factory pattern, is an upgraded version of the Simple Factory pattern. In the previous explanation, we discussed the Simple Factory pattern, where different types of animals, such as dogs and cats, were produced by the same animal factory. However, every time a new animal species is added, the animal factory needs to be modified accordingly. It's like needing to add matching tools every time a new animal species is produced, which is not very scalable. The Factory Method pattern can be seen as an improvement to the Simple Factory pattern, where different types of animals are no longer produced by the same animal factory. Instead, the production is further divided, and each type of animal has its own dedicated animal factory. Let's take the example of cars.
 
 **Class Diagram:**
-![Class Diagram](factory_method.png)
+![Class Diagram](factory_method.png "Factory Method Pattern")
 
 **Code:**
 ```go
@@ -238,7 +238,7 @@ In summary, let's highlight the advantages and disadvantages of the Factory Meth
 > The Abstract Factory pattern can be understood as a factory of factories, where there is a super factory that produces other factories. As Marx said, "Man is the sum of all social relations." A person cannot play only one role in society. A person's occupation could be a programmer, and they also have corresponding family roles. Likewise, a programmer could specialize in languages such as Go, Java, or Python, and their family roles could be a father, son, or husband. Together, these roles constitute the sum of social relations. The Abstract Factory pattern can be seen as a combination of the Simple Factory pattern and the Factory Method pattern. It inherits their respective advantages and disadvantages.
 
 **Class Diagram:**
-![Class Diagram](abstract_factory.png)
+![Class Diagram](abstract_factory.png "Abstract Factory Pattern")
 
 **Code:**
 ```go

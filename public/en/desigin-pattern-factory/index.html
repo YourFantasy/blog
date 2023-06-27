@@ -9,7 +9,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.bardblog.cn/en/desigin-pattern-factory/" /><meta property="og:image" content="https://www.bardblog.cn/logo.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2023-06-26T12:57:40+08:00" />
-<meta property="article:modified_time" content="2023-06-27T09:35:08+08:00" /><meta property="og:site_name" content="编程浪子" />
+<meta property="article:modified_time" content="2023-06-27T09:35:26+08:00" /><meta property="og:site_name" content="编程浪子" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://www.bardblog.cn/logo.png"/>
 
@@ -34,8 +34,8 @@
                             "url": "https:\/\/www.bardblog.cn\/images\/Apple-Devices-Preview.png",
                             "width":  3200 ,
                             "height":  2048 
-                        }],"genre": "posts","keywords": "design-pattern","wordcount":  1962 ,
-        "url": "https:\/\/www.bardblog.cn\/en\/desigin-pattern-factory\/","datePublished": "2023-06-26T12:57:40+08:00","dateModified": "2023-06-27T09:35:08+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+                        }],"genre": "posts","keywords": "design-pattern","wordcount":  1971 ,
+        "url": "https:\/\/www.bardblog.cn\/en\/desigin-pattern-factory\/","datePublished": "2023-06-26T12:57:40+08:00","dateModified": "2023-06-27T09:35:26+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": {
                     "@type": "ImageObject",
@@ -119,7 +119,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Factory Pattern</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://www.bardblog.cn" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bard</a></span>&nbsp;<span class="post-category">included in <a href="/en/categories/technology/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>technology</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-06-26">2023-06-26</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1962 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-06-26">2023-06-26</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1971 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;10 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -140,14 +140,16 @@
 <p>The Simple Factory pattern, also known as the Static Method pattern, defines a static method in the object creation factory class to create objects. The Simple Factory design pattern allows clients (users) to create the desired product instances without knowing the specific details of the objects. Users can directly use the created objects without worrying about how they are created.</p>
 </blockquote>
 <p><strong>Class Diagram:</strong>
-<img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="/en/desigin-pattern-factory/simple_factory.png"
-        data-srcset="/en/desigin-pattern-factory/simple_factory.png, /en/desigin-pattern-factory/simple_factory.png 1.5x, /en/desigin-pattern-factory/simple_factory.png 2x"
-        data-sizes="auto"
-        alt="/en/desigin-pattern-factory/simple_factory.png"
-        title="Class Diagram" width="994" height="482" /></p>
+<figure><a class="lightgallery" href="/en/desigin-pattern-factory/simple_factory.png" title="Class Diagram" data-thumbnail="/en/desigin-pattern-factory/simple_factory.png" data-sub-html="<h2>Simple Factory Pattern</h2><p>Class Diagram</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/en/desigin-pattern-factory/simple_factory.png"
+            data-srcset="/en/desigin-pattern-factory/simple_factory.png, /en/desigin-pattern-factory/simple_factory.png 1.5x, /en/desigin-pattern-factory/simple_factory.png 2x"
+            data-sizes="auto"
+            alt="/en/desigin-pattern-factory/simple_factory.png" width="994" height="482" />
+    </a><figcaption class="image-caption">Simple Factory Pattern</figcaption>
+    </figure></p>
 <p><strong>Code:</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -405,14 +407,16 @@
 <p>The Factory Method pattern, also known as the Polymorphic Factory pattern, is an upgraded version of the Simple Factory pattern. In the previous explanation, we discussed the Simple Factory pattern, where different types of animals, such as dogs and cats, were produced by the same animal factory. However, every time a new animal species is added, the animal factory needs to be modified accordingly. It&rsquo;s like needing to add matching tools every time a new animal species is produced, which is not very scalable. The Factory Method pattern can be seen as an improvement to the Simple Factory pattern, where different types of animals are no longer produced by the same animal factory. Instead, the production is further divided, and each type of animal has its own dedicated animal factory. Let&rsquo;s take the example of cars.</p>
 </blockquote>
 <p><strong>Class Diagram:</strong>
-<img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="/en/desigin-pattern-factory/factory_method.png"
-        data-srcset="/en/desigin-pattern-factory/factory_method.png, /en/desigin-pattern-factory/factory_method.png 1.5x, /en/desigin-pattern-factory/factory_method.png 2x"
-        data-sizes="auto"
-        alt="/en/desigin-pattern-factory/factory_method.png"
-        title="Class Diagram" width="1356" height="484" /></p>
+<figure><a class="lightgallery" href="/en/desigin-pattern-factory/factory_method.png" title="Class Diagram" data-thumbnail="/en/desigin-pattern-factory/factory_method.png" data-sub-html="<h2>Factory Method Pattern</h2><p>Class Diagram</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/en/desigin-pattern-factory/factory_method.png"
+            data-srcset="/en/desigin-pattern-factory/factory_method.png, /en/desigin-pattern-factory/factory_method.png 1.5x, /en/desigin-pattern-factory/factory_method.png 2x"
+            data-sizes="auto"
+            alt="/en/desigin-pattern-factory/factory_method.png" width="1356" height="484" />
+    </a><figcaption class="image-caption">Factory Method Pattern</figcaption>
+    </figure></p>
 <p><strong>Code:</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -579,14 +583,16 @@
 <p>The Abstract Factory pattern can be understood as a factory of factories, where there is a super factory that produces other factories. As Marx said, &ldquo;Man is the sum of all social relations.&rdquo; A person cannot play only one role in society. A person&rsquo;s occupation could be a programmer, and they also have corresponding family roles. Likewise, a programmer could specialize in languages such as Go, Java, or Python, and their family roles could be a father, son, or husband. Together, these roles constitute the sum of social relations. The Abstract Factory pattern can be seen as a combination of the Simple Factory pattern and the Factory Method pattern. It inherits their respective advantages and disadvantages.</p>
 </blockquote>
 <p><strong>Class Diagram:</strong>
-<img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="/en/desigin-pattern-factory/abstract_factory.png"
-        data-srcset="/en/desigin-pattern-factory/abstract_factory.png, /en/desigin-pattern-factory/abstract_factory.png 1.5x, /en/desigin-pattern-factory/abstract_factory.png 2x"
-        data-sizes="auto"
-        alt="/en/desigin-pattern-factory/abstract_factory.png"
-        title="Class Diagram" width="1500" height="247" /></p>
+<figure><a class="lightgallery" href="/en/desigin-pattern-factory/abstract_factory.png" title="Class Diagram" data-thumbnail="/en/desigin-pattern-factory/abstract_factory.png" data-sub-html="<h2>Abstract Factory Pattern</h2><p>Class Diagram</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/en/desigin-pattern-factory/abstract_factory.png"
+            data-srcset="/en/desigin-pattern-factory/abstract_factory.png, /en/desigin-pattern-factory/abstract_factory.png 1.5x, /en/desigin-pattern-factory/abstract_factory.png 2x"
+            data-sizes="auto"
+            alt="/en/desigin-pattern-factory/abstract_factory.png" width="1500" height="247" />
+    </a><figcaption class="image-caption">Abstract Factory Pattern</figcaption>
+    </figure></p>
 <p><strong>Code:</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -828,8 +834,8 @@
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2023-06-27&nbsp;<a class="git-hash" href="https://github.com/YourFantasy/blog/commit/4db71889fc74214eea2bf4160b93243f655ef34b" target="_blank" title="commit by bardchen(bardchen@tencent.com) 4db71889fc74214eea2bf4160b93243f655ef34b: 完善格式">
-                                    <i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>4db7188</a></span>
+                <span>Updated on 2023-06-27&nbsp;<a class="git-hash" href="https://github.com/YourFantasy/blog/commit/8a52a935e23f35223fd0f7587ceff1d88453e05a" target="_blank" title="commit by bardchen(bardchen@tencent.com) 8a52a935e23f35223fd0f7587ceff1d88453e05a: 完善格式">
+                                    <i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>8a52a93</a></span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"><span>
