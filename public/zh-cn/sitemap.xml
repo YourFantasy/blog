@@ -47,7 +47,7 @@
                     hreflang="zh-cn"
                     href="https://www.bardblog.cn/algorithm-bfs-acwing-844/"
                     /></url><url>
-            <loc>https://www.bardblog.cn/desigin-pattern-factory/</loc><lastmod>2023-06-27T09:35:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://www.bardblog.cn/desigin-pattern-factory/</loc><lastmod>2023-06-27T09:53:11&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
                         href="https://www.bardblog.cn/en/desigin-pattern-factory/"
@@ -173,7 +173,7 @@
                     hreflang="zh-cn"
                     href="https://www.bardblog.cn/tags/bfs/"
                     /></url><url>
-            <loc>https://www.bardblog.cn/categories/</loc><lastmod>2023-06-27T09:35:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://www.bardblog.cn/categories/</loc><lastmod>2023-06-27T09:53:11&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
                         href="https://www.bardblog.cn/en/categories/"
@@ -182,7 +182,15 @@
                     hreflang="zh-cn"
                     href="https://www.bardblog.cn/categories/"
                     /></url><url>
-            <loc>https://www.bardblog.cn/tags/desigin-patter/</loc><lastmod>2023-06-27T09:35:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://www.bardblog.cn/tags/design-pattern/</loc><lastmod>2023-06-27T09:53:11&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="en"
+                        href="https://www.bardblog.cn/en/tags/design-pattern/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="zh-cn"
+                    href="https://www.bardblog.cn/tags/design-pattern/"
+                    /></url><url>
             <loc>https://www.bardblog.cn/tags/greed/</loc><lastmod>2023-06-24T18:49:56&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
@@ -192,7 +200,7 @@
                     hreflang="zh-cn"
                     href="https://www.bardblog.cn/tags/greed/"
                     /></url><url>
-            <loc>https://www.bardblog.cn/posts/</loc><lastmod>2023-06-27T09:35:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://www.bardblog.cn/posts/</loc><lastmod>2023-06-27T09:53:11&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
                         href="https://www.bardblog.cn/en/posts/"
@@ -201,7 +209,7 @@
                     hreflang="zh-cn"
                     href="https://www.bardblog.cn/posts/"
                     /></url><url>
-            <loc>https://www.bardblog.cn/tags/</loc><lastmod>2023-06-27T09:35:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://www.bardblog.cn/tags/</loc><lastmod>2023-06-27T09:53:11&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
                         href="https://www.bardblog.cn/en/tags/"
@@ -210,7 +218,7 @@
                     hreflang="zh-cn"
                     href="https://www.bardblog.cn/tags/"
                     /></url><url>
-            <loc>https://www.bardblog.cn/categories/technology/</loc><lastmod>2023-06-27T09:35:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://www.bardblog.cn/categories/technology/</loc><lastmod>2023-06-27T09:53:11&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
                         href="https://www.bardblog.cn/en/categories/technology/"
@@ -219,7 +227,7 @@
                     hreflang="zh-cn"
                     href="https://www.bardblog.cn/categories/technology/"
                     /></url><url>
-            <loc>https://www.bardblog.cn/</loc><lastmod>2023-06-27T09:35:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://www.bardblog.cn/</loc><lastmod>2023-06-27T09:53:11&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
                         href="https://www.bardblog.cn/en/"

@@ -9,7 +9,7 @@ description: "三种工厂模式"
 images: []
 resources:
 
-tags: ["desigin-patter"]
+tags: ["design-pattern"]
 categories: ["technology"]
 
 lightgallery: true
