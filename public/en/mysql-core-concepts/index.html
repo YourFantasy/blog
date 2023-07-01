@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Core Concepts of MySQL - 编程浪子</title><meta name="Description" content="Introduction to the core concepts of MySQL"><meta property="og:title" content="Core Concepts of MySQL" />
+<meta property="og:description" content="Introduction to the core concepts of MySQL" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.bardblog.cn/en/mysql-core-concepts/" /><meta property="og:image" content="https://www.bardblog.cn/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-07-01T08:59:43+08:00" />
+<meta property="article:modified_time" content="2023-07-01T08:59:43+08:00" /><meta property="og:site_name" content="编程浪子" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://www.bardblog.cn/logo.png"/>
+
+<meta name="twitter:title" content="Core Concepts of MySQL"/>
+<meta name="twitter:description" content="Introduction to the core concepts of MySQL"/>
+<meta name="application-name" content="Bard">
+<meta name="apple-mobile-web-app-title" content="Bard"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://www.bardblog.cn/en/mysql-core-concepts/" /><link rel="prev" href="https://www.bardblog.cn/en/git-advanced-usage/" /><link rel="next" href="https://www.bardblog.cn/en/theme-documentation-typeit-shortcode/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Core Concepts of MySQL",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/www.bardblog.cn\/en\/mysql-core-concepts\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/www.bardblog.cn\/images\/Apple-Devices-Preview.png",
+                            "width":  3200 ,
+                            "height":  2048 
+                        }],"genre": "posts","keywords": "MySQL, InnoDB","wordcount":  3499 ,
+        "url": "https:\/\/www.bardblog.cn\/en\/mysql-core-concepts\/","datePublished": "2023-07-01T08:59:43+08:00","dateModified": "2023-07-01T08:59:43+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "xxxx","logo": {
+                    "@type": "ImageObject",
+                    "url": "https:\/\/www.bardblog.cn\/images\/avatar.gif",
+                    "width":  700 ,
+                    "height":  700 
+                }},"author": {
+                "@type": "Person",
+                "name": "Bard"
+            },"description": "Introduction to the core concepts of MySQL"
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/en/" title="编程浪子"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw' aria-hidden='true'></i></span><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/en/posts/"> Posts </a><a class="menu-item" href="/en/tags/"> Tags </a><a class="menu-item" href="/en/categories/"> Categories </a><a class="menu-item" href="/en/categories/documentation/"> Docs </a><a class="menu-item" href="/en/about/"> About </a><a class="menu-item" href="https://github.com/YourFantasy/blog" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="Select Language">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/mysql-core-concepts/">简体中文</option><option value="/en/mysql-core-concepts/" selected>English</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/en/" title="编程浪子"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw' aria-hidden='true'></i></span><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/en/posts/" title="">Posts</a><a class="menu-item" href="/en/tags/" title="">Tags</a><a class="menu-item" href="/en/categories/" title="">Categories</a><a class="menu-item" href="/en/categories/documentation/" title="">Docs</a><a class="menu-item" href="/en/about/" title="">About</a><a class="menu-item" href="https://github.com/YourFantasy/blog" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="Select Language">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/mysql-core-concepts/">简体中文</option><option value="/en/mysql-core-concepts/" selected>English</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Core Concepts of MySQL</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://www.bardblog.cn" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bard</a></span>&nbsp;<span class="post-category">included in <a href="/en/categories/technology/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>technology</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-07-01">2023-07-01</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;3499 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;17 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#sql-statement-execution-process">SQL Statement Execution Process</a>
+      <ul>
+        <li><a href="#connector">Connector</a></li>
+        <li><a href="#query-cache">Query Cache</a></li>
+        <li><a href="#parser">Parser</a></li>
+        <li><a href="#preprocessor">Preprocessor</a></li>
+        <li><a href="#optimizer">Optimizer</a></li>
+        <li><a href="#executor">Executor</a></li>
+      </ul>
+    </li>
+    <li><a href="#indexes">Indexes</a></li>
+    <li><a href="#three-main-logs">Three Main Logs</a>
+      <ul>
+        <li><a href="#undo-log">Undo Log</a></li>
+        <li><a href="#redo-log">Redo Log</a></li>
+        <li><a href="#binary-log">Binary Log</a></li>
+      </ul>
+    </li>
+    <li><a href="#locks">Locks</a></li>
+    <li><a href="#transactions">Transactions</a>
+      <ul>
+        <li><a href="#atomicity">Atomicity</a></li>
+        <li><a href="#durability">Durability</a></li>
+        <li><a href="#isolation">Isolation</a></li>
+        <li><a href="#consistency">Consistency</a></li>
+      </ul>
+    </li>
+    <li><a href="#data-structures">Data Structures</a></li>
+    <li><a href="#memory">Memory</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="mysql">MySQL</h1>
+<p>Introduction to the core concepts of MySQL and their underlying implementation, all based on the MySQL InnoDB storage engine.</p>
+<h2 id="sql-statement-execution-process">SQL Statement Execution Process</h2>
+<p>When we start learning SQL, the first thing we usually learn is the select statement. Here&rsquo;s a simple query:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="o">//</span><span class="w"> </span><span class="n">Retrieve</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">record</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">id</span><span class="o">=</span><span class="mi">1</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="k">table</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">id</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>What is the complete process involved in executing this SQL statement? &ldquo;What does MySQL do internally when executing this simple SQL statement?&rdquo; With these questions in mind, let&rsquo;s dive into MySQL and explore its internal architecture.</p>
+<p>Let&rsquo;s start by looking at the execution process of an SQL statement from a global perspective. The diagram below illustrates the entire flow of a SQL statement, from the client to the data storage, including the modules within the MySQL architecture.</p>
+<p><figure><a class="lightgallery" href="/en/mysql-core-concepts/mysql-execution-flow.jpeg" title="MySQL Execution Flow" data-thumbnail="/en/mysql-core-concepts/mysql-execution-flow.jpeg" data-sub-html="<h2>MySQL Execution Flow</h2><p>MySQL Execution Flow</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/en/mysql-core-concepts/mysql-execution-flow.jpeg"
+            data-srcset="/en/mysql-core-concepts/mysql-execution-flow.jpeg, /en/mysql-core-concepts/mysql-execution-flow.jpeg 1.5x, /en/mysql-core-concepts/mysql-execution-flow.jpeg 2x"
+            data-sizes="auto"
+            alt="/en/mysql-core-concepts/mysql-execution-flow.jpeg" width="2802" height="1916" />
+    </a><figcaption class="image-caption">MySQL Execution Flow</figcaption>
+    </figure></p>
+<p>We can see that MySQL is divided into two layers: the <code>Server layer</code> and the <code>storage engine layer</code>.</p>
+<ul>
+<li>The <code>Server layer</code> is responsible for establishing client connections, analyzing, optimizing, and executing SQL statements. The Server layer is independent of the storage engine. It encompasses the core modules of MySQL, including the connector, parser, preprocessor, optimizer, and executor. Additionally, MySQL&rsquo;s built-in functions and all cross-storage engine features are implemented in the Server layer.</li>
+<li>The <code>storage engine layer</code> is responsible for data retrieval and storage. There are multiple storage engines available, with InnoDB, MyISAM, and Memory being common ones. These engines provide the same interface to the Server layer but have different specific implementations. In this article, we will mainly focus on the InnoDB storage engine, which is also the default storage engine in MySQL. Familiar concepts in MySQL, such as indexes, transactions, and locks, are implemented at the storage engine layer. InnoDB uses B+ tree indexes, and primary key indexes, composite indexes, and regular indexes created in database tables all use B+ tree indexes.</li>
+</ul>
+<p>The above description provides an overview of the overall architecture of MySQL, which can be considered &ldquo;not too complex.&rdquo; It consists of the Server layer and the storage engine layer. Let&rsquo;s now delve into the specific details.</p>
+<h3 id="connector">Connector</h3>
+<p>If you want to perform CRUD operations on MySQL, the first step is to establish a connection with MySQL. Generally, the following command is used to establish a connection with the MySQL service:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># -h specifies the hostname or IP address</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># -u specifies the username</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># -p specifies the password, for security reasons it is generally not hard-coded and is manually entered in the console after executing the command</span>
+</span></span><span class="line"><span class="cl">mysql -h ip -u user -p
+</span></span><span class="line"><span class="cl">For example:
+</span></span><span class="line"><span class="cl">mysql -h 192.168.1.111 -u root -p
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Since MySQL&rsquo;s transport layer protocol is based on TCP, the process of establishing a connection requires the TCP three-way handshake. If the MySQL server is running properly, after establishing the TCP connection, it will verify if the username and password are correct. If the username or password is incorrect, an error will be reported: <code>Access denied for user</code>. If the username and password are correct, the connector will query the permissions associated with that user based on the username. It will save the permissions in memory, and until the connection is closed, even if the administrator modifies the user&rsquo;s permissions, it will not affect the permissions for the current connection. The new permissions will be used only when the next connection is established. During the current connection&rsquo;s lifecycle, all read and write operations for the user will be based on the permissions saved in memory during authentication.</p>
+<p>You can use the following command to view the current connections established with the MySQL server:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-MySQL" data-lang="MySQL"><span class="line"><span class="cl"><span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">show</span><span class="w"> </span><span class="n">processlist</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">+----------+------+--------------------+-------------+---------+------+-------+------------------+</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">|</span><span class="w"> </span><span class="n">Id</span><span class="w">       </span><span class="o">|</span><span class="w"> </span><span class="k">User</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Host</span><span class="w">               </span><span class="o">|</span><span class="w"> </span><span class="n">db</span><span class="w">          </span><span class="o">|</span><span class="w"> </span><span class="n">Command</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kt">Time</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">State</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Info</span><span class="w">             </span><span class="o">|</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">+----------+------+--------------------+-------------+---------+------+-------+------------------+</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">|</span><span class="w"> </span><span class="mi">10773010</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="mi">10</span><span class="p">.</span><span class="mi">99</span><span class="p">.</span><span class="mi">17</span><span class="p">.</span><span class="mi">131</span><span class="p">:</span><span class="mi">21086</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">NULL</span><span class="w">        </span><span class="o">|</span><span class="w"> </span><span class="n">Sleep</span><span class="w">   </span><span class="o">|</span><span class="w">  </span><span class="mi">210</span><span class="w"> </span><span class="o">|</span><span class="w">       </span><span class="o">|</span><span class="w"> </span><span class="no">NULL</span><span class="w">             </span><span class="o">|</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">|</span><span class="w"> </span><span class="mi">10773094</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="mi">10</span><span class="p">.</span><span class="mi">99</span><span class="p">.</span><span class="mi">17</span><span class="p">.</span><span class="mi">131</span><span class="p">:</span><span class="mi">23980</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">mysql_learn</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Sleep</span><span class="w">   </span><span class="o">|</span><span class="w">   </span><span class="mi">72</span><span class="w"> </span><span class="o">|</span><span class="w">       </span><span class="o">|</span><span class="w"> </span><span class="no">NULL</span><span class="w">             </span><span class="o">|</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">|</span><span class="w"> </span><span class="mi">10773150</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="mi">10</span><span class="p">.</span><span class="mi">99</span><span class="p">.</span><span class="mi">17</span><span class="p">.</span><span class="mi">131</span><span class="p">:</span><span class="mi">25924</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">NULL</span><span class="w">        </span><span class="o">|</span><span class="w"> </span><span class="n">Query</span><span class="w">   </span><span class="o">|</span><span class="w">    </span><span class="mi">0</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">init</span><span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="k">show</span><span class="w"> </span><span class="n">processlist</span><span class="w"> </span><span class="o">|</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">+----------+------+--------------------+-------------+---------+------+-------+------------------+</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="mi">3</span><span class="w"> </span><span class="n">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="kt">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">02</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>You can see that three users with the username &ldquo;root&rdquo; have established connections with the MySQL service. Among them, the user with Id 10773010 has an empty database (<code>db</code>) and the value of <code>Command</code> is &ldquo;Sleep&rdquo;, indicating that the user has not executed any other commands after connecting and has been idle for 210 seconds (<code>Time</code> column).</p>
+<blockquote>
+<p>Does this idle time keep increasing indefinitely? In other words, does the MySQL connection stay open continuously?</p>
+</blockquote>
+<p>Certainly not. It is not possible for a connection to be established a year ago and for MySQL to keep it active while I haven&rsquo;t done anything (just like making a reservation at a restaurant and if you don&rsquo;t show up within a certain time, they will cancel it). MySQL also has a similar mechanism. If a connection remains idle for a long time without any activity, it will automatically be closed after a certain period of time. This maximum idle time is controlled by the <code>wait_timeout</code> parameter, which defaults to 2 * 60 * 60 = 7200 seconds.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-MySQL" data-lang="MySQL"><span class="line"><span class="cl"><span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">show</span><span class="w"> </span><span class="n">variables</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="s1">&#39;wait_timeout&#39;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">+---------------+-------+</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">|</span><span class="w"> </span><span class="n">Variable_name</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Value</span><span class="w"> </span><span class="o">|</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">+---------------+-------+</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">|</span><span class="w"> </span><span class="n">wait_timeout</span><span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="mi">7200</span><span class="w">  </span><span class="o">|</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">+---------------+-------+</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="mi">1</span><span class="w"> </span><span class="n">row</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="kt">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">03</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="n">sec</span><span class="p">)</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>If we find a connection undesirable, we can also manually kill that connection using the <code>kill connection +Id</code> command. If I want to kill the connection with Id 10773010, I simply execute the following command:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-MySQL" data-lang="MySQL"><span class="line"><span class="cl"><span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">kill</span><span class="w"> </span><span class="n">connection</span><span class="w"> </span><span class="o">+</span><span class="mi">10773010</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Query</span><span class="w"> </span><span class="n">OK</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="n">rows</span><span class="w"> </span><span class="nf">affected</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">02</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">show</span><span class="w"> </span><span class="n">processlist</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">+----------+------+--------------------+-------------+---------+------+-------+------------------+</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">|</span><span class="w"> </span><span class="n">Id</span><span class="w">       </span><span class="o">|</span><span class="w"> </span><span class="k">User</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Host</span><span class="w">               </span><span class="o">|</span><span class="w"> </span><span class="n">db</span><span class="w">          </span><span class="o">|</span><span class="w"> </span><span class="n">Command</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kt">Time</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">State</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Info</span><span class="w">             </span><span class="o">|</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">+----------+------+--------------------+-------------+---------+------+-------+------------------+</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">|</span><span class="w"> </span><span class="mi">10773094</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="mi">10</span><span class="p">.</span><span class="mi">99</span><span class="p">.</span><span class="mi">17</span><span class="p">.</span><span class="mi">131</span><span class="p">:</span><span class="mi">23980</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">mysql_learn</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Sleep</span><span class="w">   </span><span class="o">|</span><span class="w">  </span><span class="mi">895</span><span class="w"> </span><span class="o">|</span><span class="w">       </span><span class="o">|</span><span class="w"> </span><span class="no">NULL</span><span class="w">             </span><span class="o">|</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">|</span><span class="w"> </span><span class="mi">10773150</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="mi">10</span><span class="p">.</span><span class="mi">99</span><span class="p">.</span><span class="mi">17</span><span class="p">.</span><span class="mi">131</span><span class="p">:</span><span class="mi">25924</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">NULL</span><span class="w">        </span><span class="o">|</span><span class="w"> </span><span class="n">Query</span><span class="w">   </span><span class="o">|</span><span class="w">    </span><span class="mi">0</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">init</span><span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="k">show</span><span class="w"> </span><span class="n">processlist</span><span class="w"> </span><span class="o">|</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">+----------+------+--------------------+-------------+---------+------+-------+------------------+</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="mi">2</span><span class="w"> </span><span class="n">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="kt">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">03</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">mysql</span><span class="o">&gt;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>You can see that the connection with Id 10773010 has been killed.</p>
+<blockquote>
+<p>Can you establish an unlimited number of connections with the MySQL server?</p>
+</blockquote>
+<p>Just like any resource, there is a limit to the number of connections that MySQL can handle. MySQL&rsquo;s connections are valuable resources, so it cannot and should not provide an unlimited number of connections. Similar to the maximum idle time controlled by the <code>wait_timeout</code> parameter, the maximum number of connections is controlled by the <code>max_connections</code> parameter.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-MySQL" data-lang="MySQL"><span class="line"><span class="cl"><span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">show</span><span class="w"> </span><span class="n">variables</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="s1">&#39;max_connections&#39;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">+-----------------+-------+</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">|</span><span class="w"> </span><span class="n">Variable_name</span><span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="n">Value</span><span class="w"> </span><span class="o">|</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">+-----------------+-------+</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">|</span><span class="w"> </span><span class="n">max_connections</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="mi">2500</span><span class="w">  </span><span class="o">|</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">+-----------------+-------+</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="mi">1</span><span class="w"> </span><span class="n">row</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="kt">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">03</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>For example, if the maximum number of connections for my MySQL server is 2500, it means that at any given moment, it can only maintain a maximum of 2500 connections. If this limit is exceeded, the system will reject subsequent connection requests and an error will be reported: <code>Too many connections</code>.</p>
+<p>We know that HTTP protocol is based on TCP, and it has both persistent connections (long connections) and non-persistent connections (short connections). Similarly, MySQL also has long connections and short connections.</p>
+<ul>
+<li>Long connections: As the name suggests, these are connections with a long lifespan. After the client establishes a connection with MySQL, the connection is not immediately released after each SQL statement is executed. Instead, it is kept alive, allowing reuse for subsequent SQL statements without the need to reconnect.</li>
+<li>Short connections: As the name suggests, these are connections with a short lifespan. After the client establishes a connection with MySQL, the connection is immediately released after each SQL statement is executed. The next SQL statement requires a new connection to be established.</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># Long connection</span>
+</span></span><span class="line"><span class="cl">Establish TCP connection and connect to MySQL
+</span></span><span class="line"><span class="cl">Execute SQL1
+</span></span><span class="line"><span class="cl">Execute SQL2
+</span></span><span class="line"><span class="cl">Execute SQL3
+</span></span><span class="line"><span class="cl">....
+</span></span><span class="line"><span class="cl">Execute SQLn
+</span></span><span class="line"><span class="cl">Close the connection by completing the TCP four-way handshake with MySQL.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Short connections</span>
+</span></span><span class="line"><span class="cl">Establish TCP connection and connect to MySQL
+</span></span><span class="line"><span class="cl">Execute SQL1
+</span></span><span class="line"><span class="cl">Close the connection by completing the TCP four-way handshake with MySQL.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Establish TCP connection and connect to MySQL
+</span></span><span class="line"><span class="cl">Execute SQL2
+</span></span><span class="line"><span class="cl">Close the connection by completing the TCP four-way handshake with MySQL.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Establish TCP connection and connect to MySQL
+</span></span><span class="line"><span class="cl">Execute SQL3
+</span></span><span class="line"><span class="cl">Close the connection by completing the TCP four-way handshake with MySQL.
+</span></span><span class="line"><span class="cl">....
+</span></span><span class="line"><span class="cl">Establish TCP connection and connect to MySQL
+</span></span><span class="line"><span class="cl">Execute SQLn
+</span></span><span class="line"><span class="cl">Close the connection by completing the TCP four-way handshake with MySQL.
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>It is evident that both long connections and short connections have their advantages and disadvantages.
+The advantage of long connections is that they reuse resources without reconnecting for each SQL statement, which can reduce the execution time of SQL statements (by eliminating the three-way handshake process for establishing connections). However, the disadvantage is that connections that are not released for a long time occupy system resources. Accumulating too many long connections may cause MySQL to run out of memory (OOM). Therefore, the maximum number of connections should not be set too high.
+The advantage of short connections is that the connection is released immediately after each SQL statement, reducing the load on the MySQL system. However, the disadvantage is that each SQL statement requires a new connection, which increases the execution time of SQL statements.</p>
+<p>In practical development, it is generally recommended to use long connections because they reduce the overhead of establishing and terminating connections. However, having too many long connections can lead to high system load in MySQL, resulting in service disruptions and restarts.</p>
+<blockquote>
+<p>Long connections that are not released for a long time can consume a significant amount of memory in the MySQL system. How can this be resolved?</p>
+</blockquote>
+<p>There are several common approaches to address this issue:</p>
+<ol>
+<li>
+<p><code>Set reasonable timeout values</code>: When establishing long connections between the MySQL server and clients, setting appropriate timeout values is important. By configuring the <code>wait_timeout</code> and <code>interactive_timeout</code> parameters, you can control the automatic closure of connections that have been idle for a certain period. This ensures that long inactive connections are released, freeing up related resources.</p>
+</li>
+<li>
+<p><code>Use connection pooling</code>: Utilizing connection pooling is a common solution. Connection pooling manages a pool of pre-established connections and allocates them to clients as needed. By reusing connections, it avoids frequent creation and destruction of connections, thus reducing resource consumption. Connection pooling often provides connection management and monitoring features, allowing you to configure parameters such as the maximum number of connections and timeout durations based on your requirements.</p>
+</li>
+<li>
+<p><code>Explicitly close connections</code>: When writing application code, ensure that connections are explicitly closed when they are no longer needed. This ensures timely release of connections after usage, avoiding prolonged resource occupation. Close connections at appropriate times, such as after request processing or when a session ends, to actively release associated resources.</p>
+</li>
+<li>
+<p><code>Optimize the usage of database connections</code>: Analyzing and optimizing the way database connections are used can also reduce resource consumption. For example, minimize the number of concurrent connections, use connection pooling for connection management, and control the lifecycle of connections appropriately. Avoid unnecessary long idle connections and minimize unnecessary connection overhead.</p>
+</li>
+<li>
+<p><code>Periodically restart the MySQL service</code>: Periodic restarts of the MySQL service can help clean up resources and reset the system state, reducing the load issues that arise after prolonged operation. However, this approach should be carefully considered as restarts may interrupt ongoing operations and affect system availability.</p>
+</li>
+</ol>
+<p>To summarize, these approaches help address the issue of long connections in the connector process. The process involves:</p>
+<ul>
+<li>Establishing a connection through TCP three-way handshake.</li>
+<li>Verifying client credentials.</li>
+<li>Storing the user&rsquo;s permissions for the connection&rsquo;s lifespan.</li>
+</ul>
+<p>When reusing connections, administrators can use the FLUSH PRIVILEGES statement to force-refresh the permission table, ensuring that long-established connections use updated permission data for subsequent operations.</p>
+<h3 id="query-cache">Query Cache</h3>
+<p>After establishing a connection, the client can send SQL statements to the MySQL server for execution. Upon receiving an SQL statement, the MySQL server first determines whether it is a query statement (based on whether the first field of the SQL statement is &ldquo;SELECT&rdquo;). If it is a query statement, MySQL checks the query cache to see if there is a cached result for this SQL statement. If a cached result exists, it is directly returned to the client without further processing. The cache is stored in a key-value format, where the key is the SQL query statement and the value is the query result.</p>
+<p>While this caching mechanism seems promising, there are concerns regarding cache hit rates and efficiency. In general, MySQL&rsquo;s query cache has a high invalidation rate because any data update in the MySQL table will invalidate the cache. For example, if we execute the following query:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-MySQL" data-lang="MySQL"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>After the first execution of this query, MySQL caches the result for <code>id=1</code>. However, if MySQL performs an update statement, the cache will be invalidated. For instance, if MySQL updates the data for <code>id=2</code>:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-MySQL" data-lang="MySQL"><span class="line"><span class="cl"><span class="k">UPDATE</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="kt">SET</span><span class="w"> </span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;张三&#39;</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="o">=</span><span class="mi">2</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>One might wonder why MySQL takes such a blunt approach. After all, updating <code>id=2</code> should not affect the result for <code>id=1</code>. However, MySQL does not have knowledge of whether updating <code>id=2</code> would impact the record for <code>id=1</code>, or the cost of determining the impact is too high (difficult to assess). To ensure data consistency, MySQL simply invalidates the cache whenever there is an update operation.</p>
+<p>From the analysis above, it appears that the query cache has limited utility. Even in scenarios where there are more reads than writes, complete avoidance of writes is not feasible. As long as there is a write operation, all caches for the table become invalidated, incurring significant costs. Therefore, starting from version 8.0, MySQL has removed the query cache feature.</p>
+<h3 id="parser">Parser</h3>
+<p>For an SQL statement to be executed successfully, it must first comply with the SQL syntax rules defined by MySQL. These rules can be understood as the mutually agreed-upon guidelines between us and MySQL. We adhere to these rules when writing SQL statements, and similarly, MySQL follows these rules to parse and execute the SQL statements we write. It is not feasible for us to provide MySQL with arbitrary strings and expect it to execute them. Before executing an SQL statement, MySQL needs to understand the purpose of the statement, whether it is an insert, delete, update, or select operation, as well as the tables and fields involved in the SQL statement. This information can be extracted based on the syntax rules, which is essentially the task of the parser.</p>
+<p>The parser performs two main tasks:</p>
+<ol>
+<li>Syntax Analysis: MySQL checks whether the SQL statement has any syntax errors based on the agreed-upon syntax rules. If there are syntax errors, MySQL will directly report an error, such as &ldquo;You have an error in your SQL syntax&rdquo;. For example, if we execute the following statement:</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-MySQL" data-lang="MySQL"><span class="line"><span class="cl"><span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="n">slect</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">friend</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">id</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">ERROR</span><span class="w"> </span><span class="mi">2013</span><span class="w"> </span><span class="p">(</span><span class="n">HY000</span><span class="p">):</span><span class="w"> </span><span class="n">Lost</span><span class="w"> </span><span class="n">connection</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">MySQL</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="n">during</span><span class="w"> </span><span class="n">query</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">No</span><span class="w"> </span><span class="n">connection</span><span class="p">.</span><span class="w"> </span><span class="n">Trying</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">reconnect</span><span class="p">...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Connection</span><span class="w"> </span><span class="n">id</span><span class="p">:</span><span class="w">    </span><span class="mi">10788396</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Current</span><span class="w"> </span><span class="k">database</span><span class="p">:</span><span class="w"> </span><span class="n">mysql_learn</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">ERROR</span><span class="w"> </span><span class="mi">1064</span><span class="w"> </span><span class="p">(</span><span class="mi">42000</span><span class="p">):</span><span class="w"> </span><span class="n">You</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">error</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="k">SQL</span><span class="w"> </span><span class="n">syntax</span><span class="p">;</span><span class="w"> </span><span class="k">check</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">manual</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">corresponds</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">MySQL</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">right</span><span class="w"> </span><span class="n">syntax</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="k">use</span><span class="w"> </span><span class="n">near</span><span class="w"> </span><span class="s1">&#39;slect * from friend where id=1&#39;</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">mysql</span><span class="o">&gt;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>Here, we mistakenly typed <code>slect</code> instead of <code>select</code>. MySQL checks the SQL statement against the syntax rules and identifies that it does not conform to the syntax. As a result, it reports an error. This process is similar to the parameter validation commonly used in backend development.</p>
+<ol start="2">
+<li>Lexical Analysis: Regardless of the complexity of an SQL statement, it always follows certain patterns. For example, the keyword <code>where</code> is always followed by a query condition, and the keyword <code>from</code> is followed by a table name. MySQL implements a lexical analyzer that extracts table names, SQL types, field names, and query conditions from the SQL statement. This preparation work is then passed on to the subsequent modules for further processing.</li>
+</ol>
+<p>It&rsquo;s important to note that while syntax checking and lexical analysis are performed by the parser, the verification of table names and field names&rsquo; existence is not handled at the parser level. This can be understood as the parser layer being focused on local logic and not involving network or API calls.</p>
+<h3 id="preprocessor">Preprocessor</h3>
+<p>Once an SQL statement is parsed, it can be determined that the statement is potentially executable. However, this doesn&rsquo;t guarantee its successful execution. Parsing the SQL statement ensures that the syntax is correct and extracts key information such as table names, but it doesn&rsquo;t verify if the SQL statement can be executed successfully. For example, if the SQL statement refers to a table that doesn&rsquo;t exist, it won&rsquo;t be executed successfully. The preprocessor performs two main tasks:</p>
+<ol>
+<li>
+<p>Checking the Existence of Tables and Fields: The preprocessor checks whether the table names and field names extracted by the parser exist. This step involves reading table information and verifying the existence of table names and field names. If any of the referenced tables or fields don&rsquo;t exist, an error is returned.</p>
+</li>
+<li>
+<p>Replacing <code>*</code> with Actual Field Names: The preprocessor replaces the <code>*</code> symbol (which denotes selecting all fields) with the actual field names of the table. This step is necessary to determine the specific fields to be retrieved from the table.</p>
+</li>
+</ol>
+<p>Unlike the parser, the preprocessor step involves more than just local logic. During the preprocessing phase, it requires reading table information and potentially making API calls to check the existence of tables and fields.</p>
+<p>If we execute the following SQL statement and encounter an error, it is actually returned by the preprocessor:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-MySQL" data-lang="MySQL"><span class="line"><span class="cl"><span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">frined</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">id</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">ERROR</span><span class="w"> </span><span class="mi">1146</span><span class="w"> </span><span class="p">(</span><span class="mi">42</span><span class="n">S02</span><span class="p">):</span><span class="w"> </span><span class="k">Table</span><span class="w"> </span><span class="s1">&#39;mysql_learn.frined&#39;</span><span class="w"> </span><span class="n">doesn</span><span class="s1">&#39;t exist
+</span></span></span><span class="line"><span class="cl"><span class="s1">mysql&gt;
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>In this example, the preprocessor identifies that the table name <code>frined</code> doesn&rsquo;t exist, leading to an error indicating the table doesn&rsquo;t exist in the specified database.</p>
+<h3 id="optimizer">Optimizer</h3>
+<p>After the SQL statement goes through the parser and preprocessor, it reaches the optimizer. Strictly speaking, at this point, it can no longer be called an SQL statement because it has been significantly transformed. The optimizer&rsquo;s role is crucial because it selects an optimal execution plan based on the SQL statement and the actual data in the tables. For example, if a query has multiple indexes, the optimizer analyzes and determines which index to use based on the estimated cost. Additionally, if the table has a small amount of data, a full table scan might be more efficient than using an index.</p>
+<p>To understand the execution plan of a query, we often use the <code>EXPLAIN</code> command. By adding the <code>EXPLAIN</code> keyword before the <code>SELECT</code> statement, we can see the execution plan.</p>
+<p><strong>Query 1:</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-MySQL" data-lang="MySQL"><span class="line"><span class="cl"><span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">explain</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="o">`</span><span class="k">like</span><span class="o">`</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">id</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">+----+-------------+-------+------------+-------+---------------+---------+---------+-------+------+----------+-------+</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">|</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">select_type</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">partitions</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">type</span><span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">possible_keys</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">key</span><span class="w">     </span><span class="o">|</span><span class="w"> </span><span class="n">key_len</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">ref</span><span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="n">rows</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">filtered</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Extra</span><span class="w"> </span><span class="o">|</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">+----+-------------+-------+------------+-------+---------------+---------+---------+-------+------+----------+-------+</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">|</span><span class="w">  </span><span class="mi">1</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">SIMPLE</span><span class="w">      </span><span class="o">|</span><span class="w"> </span><span class="k">like</span><span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="no">NULL</span><span class="w">       </span><span class="o">|</span><span class="w"> </span><span class="n">const</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w">       </span><span class="o">|</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="mi">4</span><span class="w">       </span><span class="o">|</span><span class="w"> </span><span class="n">const</span><span class="w"> </span><span class="o">|</span><span class="w">    </span><span class="mi">1</span><span class="w"> </span><span class="o">|</span><span class="w">   </span><span class="mi">100</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">NULL</span><span class="w">  </span><span class="o">|</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">+----+-------------+-------+------------+-------+---------------+---------+---------+-------+------+----------+-------+</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="mi">1</span><span class="w"> </span><span class="n">row</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="kt">set</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="nf">warning</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">04</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">mysql</span><span class="o">&gt;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>Query 2:</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-MySQL" data-lang="MySQL"><span class="line"><span class="cl"><span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">explain</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="o">`</span><span class="k">like</span><span class="o">`</span><span class="w"> </span><span class="k">limit</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">+----+-------------+-------+------------+-------+---------------+---------------------+---------+------+------+----------+-------------+</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">|</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">select_type</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">partitions</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">type</span><span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">possible_keys</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">key</span><span class="w">                 </span><span class="o">|</span><span class="w"> </span><span class="n">key_len</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">ref</span><span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">rows</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">filtered</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Extra</span><span class="w">       </span><span class="o">|</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">+----+-------------+-------+------------+-------+---------------+---------------------+---------+------+------+----------+-------------+</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">|</span><span class="w">  </span><span class="mi">1</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">SIMPLE</span><span class="w">      </span><span class="o">|</span><span class="w"> </span><span class="k">like</span><span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="no">NULL</span><span class="w">       </span><span class="o">|</span><span class="w"> </span><span class="k">index</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">NULL</span><span class="w">          </span><span class="o">|</span><span class="w"> </span><span class="n">uk_user_id_liker_id</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="mi">8</span><span class="w">       </span><span class="o">|</span><span class="w"> </span><span class="no">NULL</span><span class="w"> </span><span class="o">|</span><span class="w">    </span><span class="mi">3</span><span class="w"> </span><span class="o">|</span><span class="w">   </span><span class="mi">100</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">Using</span><span class="w"> </span><span class="k">index</span><span class="w"> </span><span class="o">|</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">+----+-------------+-------+------------+-------+---------------+---------------------+---------+------+------+----------+-------------+</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="mi">1</span><span class="w"> </span><span class="n">row</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="kt">set</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="nf">warning</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">03</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">mysql</span><span class="o">&gt;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>In the above examples, the <code>key</code> column is not empty. In Query 1, MySQL chooses to use the <code>PRIMARY</code> key index, while in Query 2, it uses the <code>uk_user_id_liker_id</code> unique index. If the <code>key</code> column is empty, it means that no index is used, and a full table scan is performed.</p>
+<p>In practice, even for identical SQL statements, the execution plan may vary depending on various factors, including indexes and the size of table data. In summary, MySQL&rsquo;s optimizer selects a relatively optimal execution plan based on several conditions to minimize the execution cost of SQL statements.</p>
+<h3 id="executor">Executor</h3>
+<p>After the preceding steps, we finally come to the actual execution of the SQL statement. The executor acts as a bridge between the MySQL server layer and the storage engine layer. The executor doesn&rsquo;t execute the SQL statement directly; instead, it passes the processed &ldquo;SQL statement&rdquo; to the storage engine through API interfaces. It then waits for the storage engine to return the execution results, which are then passed back to the query cache and the connector.</p>
+<h2 id="indexes">Indexes</h2>
+<h2 id="three-main-logs">Three Main Logs</h2>
+<h3 id="undo-log">Undo Log</h3>
+<h3 id="redo-log">Redo Log</h3>
+<h3 id="binary-log">Binary Log</h3>
+<h2 id="locks">Locks</h2>
+<h2 id="transactions">Transactions</h2>
+<h3 id="atomicity">Atomicity</h3>
+<h3 id="durability">Durability</h3>
+<h3 id="isolation">Isolation</h3>
+<h3 id="consistency">Consistency</h3>
+<h2 id="data-structures">Data Structures</h2>
+<h2 id="memory">Memory</h2></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2023-07-01</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/en/mysql-core-concepts/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://www.bardblog.cn/en/mysql-core-concepts/" data-title="Core Concepts of MySQL" data-via="cz960601" data-hashtags="MySQL,InnoDB"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://www.bardblog.cn/en/mysql-core-concepts/" data-hashtag="MySQL"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://www.bardblog.cn/en/mysql-core-concepts/" data-title="Core Concepts of MySQL"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Reddit" data-sharer="reddit" data-url="https://www.bardblog.cn/en/mysql-core-concepts/"><i class="fab fa-reddit fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://www.bardblog.cn/en/mysql-core-concepts/" data-title="Core Concepts of MySQL"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://www.bardblog.cn/en/mysql-core-concepts/" data-title="Core Concepts of MySQL"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/en/tags/mysql/">MySQL</a>,&nbsp;<a href="/en/tags/innodb/">InnoDB</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/en/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/en/git-advanced-usage/" class="prev" rel="prev" title="Advanced Usage of Git"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Advanced Usage of Git</a>
+            <a href="/en/theme-documentation-typeit-shortcode/" class="next" rel="next" title="Theme Documentation - typeit Shortcode">Theme Documentation - typeit Shortcode<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="gitalk" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://github.com/gitalk/gitalk"></a>Gitalk</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.115.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://www.bardblog.cn" target="_blank">Bard</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.13.1/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{"gitalk":{"admin":["YourFantasy"],"clientID":"64f57a27c4b33d7930ff","clientSecret":"34e7c8aa13489f51aa54f53c4734d0e38762b83f","id":"2023-07-01T08:59:43+08:00","owner":"YourFantasy","repo":"blog","title":"Core Concepts of MySQL"}},"cookieconsent":{"content":{"dismiss":"Got it!","link":"Learn more","message":"This website uses Cookies to improve your experience."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"data":{"id-1":"编程浪子","id-2":"编程浪子"},"lightgallery":true,"search":{"algoliaAppID":"58KPEJ4RD6","algoliaIndex":"index.en","algoliaSearchKey":"a48c9e27b67c52f03f9b8daa3cbdd18e","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"algolia"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

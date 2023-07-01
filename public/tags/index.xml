@@ -4,7 +4,23 @@
         <link>https://www.bardblog.cn/tags/</link>
         <description>Tags - 标签 - 编程浪子</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>cz950601@gmail.com (Bard)</managingEditor>
-            <webMaster>cz950601@gmail.com (Bard)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 27 Jun 2023 00:01:52 &#43;0800</lastBuildDate><atom:link href="https://www.bardblog.cn/tags/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>cz950601@gmail.com (Bard)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 01 Jul 2023 08:59:43 &#43;0800</lastBuildDate><atom:link href="https://www.bardblog.cn/tags/" rel="self" type="application/rss+xml" /><item>
+    <title>InnoDB</title>
+    <link>https://www.bardblog.cn/tags/innodb/</link>
+    <pubDate>Sat, 01 Jul 2023 08:59:43 &#43;0800</pubDate>
+    <author>Bard</author>
+    <guid>https://www.bardblog.cn/tags/innodb/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>MySQL</title>
+    <link>https://www.bardblog.cn/tags/mysql/</link>
+    <pubDate>Sat, 01 Jul 2023 08:59:43 &#43;0800</pubDate>
+    <author>Bard</author>
+    <guid>https://www.bardblog.cn/tags/mysql/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
     <title>git</title>
     <link>https://www.bardblog.cn/tags/git/</link>
     <pubDate>Tue, 27 Jun 2023 00:01:52 &#43;0800</pubDate>
@@ -66,22 +82,6 @@
     <pubDate>Wed, 04 Mar 2020 16:29:59 &#43;0800</pubDate>
     <author>Bard</author>
     <guid>https://www.bardblog.cn/tags/shortcodes/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>HTML</title>
-    <link>https://www.bardblog.cn/tags/html/</link>
-    <pubDate>Sun, 01 Dec 2019 21:57:40 &#43;0800</pubDate>
-    <author>Bard</author>
-    <guid>https://www.bardblog.cn/tags/html/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>emoji</title>
-    <link>https://www.bardblog.cn/tags/emoji/</link>
-    <pubDate>Tue, 01 Oct 2019 17:55:28 &#43;0800</pubDate>
-    <author>Bard</author>
-    <guid>https://www.bardblog.cn/tags/emoji/</guid>
     <description><![CDATA[]]></description>
 </item>
 </channel>

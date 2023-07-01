@@ -4,7 +4,23 @@
         <link>https://www.bardblog.cn/en/tags/</link>
         <description>Tags - Tag - 编程浪子</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>cz950601@gmail.com (Bard)</managingEditor>
-            <webMaster>cz950601@gmail.com (Bard)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 27 Jun 2023 00:01:52 &#43;0800</lastBuildDate><atom:link href="https://www.bardblog.cn/en/tags/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>cz950601@gmail.com (Bard)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 01 Jul 2023 08:59:43 &#43;0800</lastBuildDate><atom:link href="https://www.bardblog.cn/en/tags/" rel="self" type="application/rss+xml" /><item>
+    <title>InnoDB</title>
+    <link>https://www.bardblog.cn/en/tags/innodb/</link>
+    <pubDate>Sat, 01 Jul 2023 08:59:43 &#43;0800</pubDate>
+    <author>Bard</author>
+    <guid>https://www.bardblog.cn/en/tags/innodb/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>MySQL</title>
+    <link>https://www.bardblog.cn/en/tags/mysql/</link>
+    <pubDate>Sat, 01 Jul 2023 08:59:43 &#43;0800</pubDate>
+    <author>Bard</author>
+    <guid>https://www.bardblog.cn/en/tags/mysql/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
     <title>git</title>
     <link>https://www.bardblog.cn/en/tags/git/</link>
     <pubDate>Tue, 27 Jun 2023 00:01:52 &#43;0800</pubDate>
@@ -66,22 +82,6 @@
     <pubDate>Fri, 06 Mar 2020 21:29:01 &#43;0800</pubDate>
     <author>Bard</author>
     <guid>https://www.bardblog.cn/en/tags/installation/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>content</title>
-    <link>https://www.bardblog.cn/en/tags/content/</link>
-    <pubDate>Thu, 05 Mar 2020 15:58:26 &#43;0800</pubDate>
-    <author>Bard</author>
-    <guid>https://www.bardblog.cn/en/tags/content/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>Markdown</title>
-    <link>https://www.bardblog.cn/en/tags/markdown/</link>
-    <pubDate>Thu, 05 Mar 2020 15:58:26 &#43;0800</pubDate>
-    <author>Bard</author>
-    <guid>https://www.bardblog.cn/en/tags/markdown/</guid>
     <description><![CDATA[]]></description>
 </item>
 </channel>

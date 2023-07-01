@@ -4,7 +4,7 @@
         <link>https://www.bardblog.cn/categories/technology/</link>
         <description>technology - 分类 - 编程浪子</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>cz950601@gmail.com (Bard)</managingEditor>
-            <webMaster>cz950601@gmail.com (Bard)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 27 Jun 2023 00:01:52 &#43;0800</lastBuildDate><atom:link href="https://www.bardblog.cn/categories/technology/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>cz950601@gmail.com (Bard)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 01 Jul 2023 08:59:43 &#43;0800</lastBuildDate><atom:link href="https://www.bardblog.cn/categories/technology/" rel="self" type="application/rss+xml" /><item>
     <title>连通块点数最大值</title>
     <link>https://www.bardblog.cn/algorithm-dfs-acwing-846/</link>
     <pubDate>Sat, 24 Jun 2023 12:57:40 &#43;0800</pubDate>
@@ -35,6 +35,14 @@
     <author>Bard</author>
     <guid>https://www.bardblog.cn/algorithm-greedy-disjoint/</guid>
     <description><![CDATA[题目描述 给定 N个闭区间 [ai,bi]，请你在数轴上选择若干个区间，使得选中的区间之间互不相交（包括端点）。 输出可选取区间的最大数量。 输入格式]]></description>
+</item>
+<item>
+    <title>MySQL核心概念</title>
+    <link>https://www.bardblog.cn/mysql-core-concepts/</link>
+    <pubDate>Sat, 01 Jul 2023 08:59:43 &#43;0800</pubDate>
+    <author>Bard</author>
+    <guid>https://www.bardblog.cn/mysql-core-concepts/</guid>
+    <description><![CDATA[介绍MySQL的核心概念]]></description>
 </item>
 <item>
     <title>Git高级用法</title>

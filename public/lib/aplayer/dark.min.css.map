@@ -1,7 +1,7 @@
 {
 	"version": 3,
 	"file": "dark.min.css",
-	"sourceRoot": "/Users/bard/Desktop/blog",
+	"sourceRoot": "/Users/bard/Downloads/blog",
 	"sources": [
 		"themes/LoveIt/assets/lib/aplayer/dark.scss"
 	],

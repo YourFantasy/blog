@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>MySQL核心概念 - 编程浪子</title><meta name="Description" content="介绍MySQL的核心概念"><meta property="og:title" content="MySQL核心概念" />
+<meta property="og:description" content="介绍MySQL的核心概念" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.bardblog.cn/mysql-core-concepts/" /><meta property="og:image" content="https://www.bardblog.cn/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-07-01T08:59:43+08:00" />
+<meta property="article:modified_time" content="2023-07-01T08:59:43+08:00" /><meta property="og:site_name" content="编程浪子" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://www.bardblog.cn/logo.png"/>
+
+<meta name="twitter:title" content="MySQL核心概念"/>
+<meta name="twitter:description" content="介绍MySQL的核心概念"/>
+<meta name="application-name" content="Bard">
+<meta name="apple-mobile-web-app-title" content="Bard"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://www.bardblog.cn/mysql-core-concepts/" /><link rel="prev" href="https://www.bardblog.cn/git-advanced-usage/" /><link rel="next" href="https://www.bardblog.cn/theme-documentation-typeit-shortcode/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "MySQL核心概念",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/www.bardblog.cn\/mysql-core-concepts\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/www.bardblog.cn\/images\/Apple-Devices-Preview.png",
+                            "width":  3200 ,
+                            "height":  2048 
+                        }],"genre": "posts","keywords": "MySQL, InnoDB","wordcount":  6249 ,
+        "url": "https:\/\/www.bardblog.cn\/mysql-core-concepts\/","datePublished": "2023-07-01T08:59:43+08:00","dateModified": "2023-07-01T08:59:43+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "xxxx","logo": {
+                    "@type": "ImageObject",
+                    "url": "https:\/\/www.bardblog.cn\/images\/avatar.gif",
+                    "width":  700 ,
+                    "height":  700 
+                }},"author": {
+                "@type": "Person",
+                "name": "Bard"
+            },"description": "介绍MySQL的核心概念"
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="编程浪子"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw' aria-hidden='true'></i></span><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/categories/documentation/"> 文档 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/YourFantasy/blog" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="选择语言">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/mysql-core-concepts/" selected>简体中文</option><option value="/en/mysql-core-concepts/">English</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="编程浪子"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw' aria-hidden='true'></i></span><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/categories/documentation/" title="">文档</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/YourFantasy/blog" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/mysql-core-concepts/" selected>简体中文</option><option value="/en/mysql-core-concepts/">English</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">MySQL核心概念</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="www.bardblog.cn" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bard</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/technology/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>technology</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-07-01">2023-07-01</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 6249 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 13 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#sql语句执行流程">SQL语句执行流程</a>
+      <ul>
+        <li><a href="#连接器">连接器</a></li>
+        <li><a href="#查询缓存">查询缓存</a></li>
+        <li><a href="#解析器">解析器</a></li>
+        <li><a href="#预处理器">预处理器</a></li>
+        <li><a href="#优化器">优化器</a></li>
+        <li><a href="#执行器">执行器</a></li>
+      </ul>
+    </li>
+    <li><a href="#索引">索引</a></li>
+    <li><a href="#三大日志">三大日志</a>
+      <ul>
+        <li><a href="#undo日志">undo日志</a></li>
+        <li><a href="#redo日志">redo日志</a></li>
+        <li><a href="#bin日志">bin日志</a></li>
+      </ul>
+    </li>
+    <li><a href="#各种锁">各种锁</a></li>
+    <li><a href="#事务">事务</a>
+      <ul>
+        <li><a href="#原子性">原子性</a></li>
+        <li><a href="#持久性">持久性</a></li>
+        <li><a href="#隔离性">隔离性</a></li>
+        <li><a href="#一致性">一致性</a></li>
+      </ul>
+    </li>
+    <li><a href="#数据结构">数据结构</a></li>
+    <li><a href="#内存">内存</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="mysql">MySQL</h1>
+<p>介绍MySQL的一些核心概念以及它们的底层实现,以下都是基于MySQL的InnoDB存储引擎。</p>
+<h2 id="sql语句执行流程">SQL语句执行流程</h2>
+<p>我们刚开始学习SQL的时候，第一个学的就是select语句了，以下就是一条最简单的查询语句:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="o">//</span><span class="w"> </span><span class="err">在</span><span class="n">student</span><span class="err">表中查询一条</span><span class="n">id</span><span class="err">为</span><span class="mi">1</span><span class="err">的记录</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">id</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>那么执行这条SQL语句的全流程是什么呢？<code>MySQL内部执行这条简单的SQL语句都做了哪些事，内部发生了什么呢？</code>带着疑问开始学习MySQL，了解MySQL的内部架构。
+先从全局的角度来看一条SQL语句的执行流程，从图中可以看到SQL语句从客户端到到数据存储整个流程以及MySQL的架构所包含的模块。</p>
+<p><figure><a class="lightgallery" href="/mysql-core-concepts/mysql-execution-flow.jpeg" title="MySQL执行流程" data-thumbnail="/mysql-core-concepts/mysql-execution-flow.jpeg" data-sub-html="<h2>MySQL执行流程</h2><p>MySQL执行流程</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/mysql-core-concepts/mysql-execution-flow.jpeg"
+            data-srcset="/mysql-core-concepts/mysql-execution-flow.jpeg, /mysql-core-concepts/mysql-execution-flow.jpeg 1.5x, /mysql-core-concepts/mysql-execution-flow.jpeg 2x"
+            data-sizes="auto"
+            alt="/mysql-core-concepts/mysql-execution-flow.jpeg" width="2802" height="1916" />
+    </a><figcaption class="image-caption">MySQL执行流程</figcaption>
+    </figure></p>
+<p>可以看到MySQL内部分为两层，<code>Server层和存储引擎层</code>。</p>
+<ul>
+<li><code>Server层负责建立和客户端连接、分析、优化和执行SQL语句。</code>Server层和存储引擎无关，MySQL的核心模块都是在Server层实现，包括连接器、解析器、预处理器、优化器、执行器，此外MySQL的内置函数和所有跨存储引擎的功能都是在Server层实现/。</li>
+<li><code>存储引擎层负责数据的提取和存储。</code>存储引擎有多重，常见的有InnoDB、MyISAM、Memory，提供给Server层的接口都是一样的，只是具体实现不同。本文主要就InnodDB存储引擎展开，InnoDB也是MySQL的默认存储引擎。我们熟悉的MySQL的一些概念，如索引、事务、锁等都是在存储引擎层实现的，InnoDB的索引类型是B+树，我们在数据库表中创建的主键索引、联合索引、普通索引等都是用的B+树索引</li>
+</ul>
+<p>以上介绍了一下MySQL的整体架构，总的架构来说“不算复杂”，就Server层和存储引擎层，下面就具体细节展开。</p>
+<h3 id="连接器">连接器</h3>
+<p>如果想要对MySQL进行增删改查操作，首先肯定是要和MySQL建立连接才能继续接下来的操作，一般使用如下命令和MySQL服务建立连接。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># -h 指定域名或者ip地址</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># -u 指定用户名</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># -p 指定密码，从风险角度考量一般不写死，而是在执行命令后手动在控制台输入</span>
+</span></span><span class="line"><span class="cl">mysql -h ip -u user -p
+</span></span><span class="line"><span class="cl">如：
+</span></span><span class="line"><span class="cl">mysql -h 192.168.1.111 -u root -p 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>因为MySQL的的传输层协议是基于TCP的，所以建立连接的过程需要经过TCP三次握手。如果MySQL服务器运行正常，在建立TCP连接后，会验证我们的用户名和密码是否正确，如果用户名或者密码不对，就会报错：<code>Access denied for user</code>。如果用户名和密码都是ok的，连接器就会根据用户名查询改用户具有的权限，把权限保存在内存里，在改次连接断开之前，即便是管理员修改了用户的权限，也不会影响用户在本次连接的权限，只会在下次建立连接的时候才会使用新的权限，在本次连接生命周期中，用户的所有读写操作的权限都是基于认证的时候保存在内存的权限。
+可以使用如下命令查看当前mysql服务器建立的脸颊情况</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-MySQL" data-lang="MySQL"><span class="line"><span class="cl"><span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">show</span><span class="w"> </span><span class="n">processlist</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">+----------+------+--------------------+-------------+---------+------+-------+------------------+</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">|</span><span class="w"> </span><span class="n">Id</span><span class="w">       </span><span class="o">|</span><span class="w"> </span><span class="k">User</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Host</span><span class="w">               </span><span class="o">|</span><span class="w"> </span><span class="n">db</span><span class="w">          </span><span class="o">|</span><span class="w"> </span><span class="n">Command</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kt">Time</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">State</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Info</span><span class="w">             </span><span class="o">|</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">+----------+------+--------------------+-------------+---------+------+-------+------------------+</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">|</span><span class="w"> </span><span class="mi">10773010</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="mi">10</span><span class="p">.</span><span class="mi">99</span><span class="p">.</span><span class="mi">17</span><span class="p">.</span><span class="mi">131</span><span class="p">:</span><span class="mi">21086</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">NULL</span><span class="w">        </span><span class="o">|</span><span class="w"> </span><span class="n">Sleep</span><span class="w">   </span><span class="o">|</span><span class="w">  </span><span class="mi">210</span><span class="w"> </span><span class="o">|</span><span class="w">       </span><span class="o">|</span><span class="w"> </span><span class="no">NULL</span><span class="w">             </span><span class="o">|</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">|</span><span class="w"> </span><span class="mi">10773094</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="mi">10</span><span class="p">.</span><span class="mi">99</span><span class="p">.</span><span class="mi">17</span><span class="p">.</span><span class="mi">131</span><span class="p">:</span><span class="mi">23980</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">mysql_learn</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Sleep</span><span class="w">   </span><span class="o">|</span><span class="w">   </span><span class="mi">72</span><span class="w"> </span><span class="o">|</span><span class="w">       </span><span class="o">|</span><span class="w"> </span><span class="no">NULL</span><span class="w">             </span><span class="o">|</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">|</span><span class="w"> </span><span class="mi">10773150</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="mi">10</span><span class="p">.</span><span class="mi">99</span><span class="p">.</span><span class="mi">17</span><span class="p">.</span><span class="mi">131</span><span class="p">:</span><span class="mi">25924</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">NULL</span><span class="w">        </span><span class="o">|</span><span class="w"> </span><span class="n">Query</span><span class="w">   </span><span class="o">|</span><span class="w">    </span><span class="mi">0</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">init</span><span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="k">show</span><span class="w"> </span><span class="n">processlist</span><span class="w"> </span><span class="o">|</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">+----------+------+--------------------+-------------+---------+------+-------+------------------+</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="mi">3</span><span class="w"> </span><span class="n">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="kt">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">02</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>可以看到,有三个用户名为root的用户和MySQL服务建立了连接，其中Id为10773010的用户使用的db是空而且<code>Commond</code>的值是Sleep，意味着该用户执行连接命令后没有再执行过其它任何命令，并且空闲等待的时间为210s（Time列）</p>
+<blockquote>
+<p>那么这个空闲等待时间会一直无限递增吗？换句话说MySQL连接会一直保存着吗？</p>
+</blockquote>
+<p>肯定是不可能的，不可能我一年前建立的一个连接然后忘了啥都没干，但是MySQL还记着一直给我保存着，显然这是不可能的（就好比去餐厅吃饭，预约了一个座位，超过一定时间没去肯定会给你取消的），MySQL也有类似的机制，如果一个连接长期在哪空转啥都不干，超过一定时间内就会自动断开，这个断开时间（最大空闲时常）是由 <code>wait_timeout</code>这个参数控制的，默认的是2<em>60</em>60=7200s。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-MySQL" data-lang="MySQL"><span class="line"><span class="cl"><span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">show</span><span class="w"> </span><span class="n">variables</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="s1">&#39;wait_timeout&#39;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">+---------------+-------+</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">|</span><span class="w"> </span><span class="n">Variable_name</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Value</span><span class="w"> </span><span class="o">|</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">+---------------+-------+</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">|</span><span class="w"> </span><span class="n">wait_timeout</span><span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="mi">7200</span><span class="w">  </span><span class="o">|</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">+---------------+-------+</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="mi">1</span><span class="w"> </span><span class="n">row</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="kt">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">03</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>如果我们看某个连接不爽，也可以使用 <code>kill connection +Id</code>命令手动kill这个连接，我现在想要干掉10773010这个连接，只需要执行如下命令：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-MySQL" data-lang="MySQL"><span class="line"><span class="cl"><span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">kill</span><span class="w"> </span><span class="n">connection</span><span class="w"> </span><span class="o">+</span><span class="mi">10773010</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Query</span><span class="w"> </span><span class="n">OK</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="n">rows</span><span class="w"> </span><span class="nf">affected</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">02</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">show</span><span class="w"> </span><span class="n">processlist</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">+----------+------+--------------------+-------------+---------+------+-------+------------------+</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">|</span><span class="w"> </span><span class="n">Id</span><span class="w">       </span><span class="o">|</span><span class="w"> </span><span class="k">User</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Host</span><span class="w">               </span><span class="o">|</span><span class="w"> </span><span class="n">db</span><span class="w">          </span><span class="o">|</span><span class="w"> </span><span class="n">Command</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kt">Time</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">State</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Info</span><span class="w">             </span><span class="o">|</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">+----------+------+--------------------+-------------+---------+------+-------+------------------+</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">|</span><span class="w"> </span><span class="mi">10773094</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="mi">10</span><span class="p">.</span><span class="mi">99</span><span class="p">.</span><span class="mi">17</span><span class="p">.</span><span class="mi">131</span><span class="p">:</span><span class="mi">23980</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">mysql_learn</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Sleep</span><span class="w">   </span><span class="o">|</span><span class="w">  </span><span class="mi">895</span><span class="w"> </span><span class="o">|</span><span class="w">       </span><span class="o">|</span><span class="w"> </span><span class="no">NULL</span><span class="w">             </span><span class="o">|</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">|</span><span class="w"> </span><span class="mi">10773150</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="mi">10</span><span class="p">.</span><span class="mi">99</span><span class="p">.</span><span class="mi">17</span><span class="p">.</span><span class="mi">131</span><span class="p">:</span><span class="mi">25924</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">NULL</span><span class="w">        </span><span class="o">|</span><span class="w"> </span><span class="n">Query</span><span class="w">   </span><span class="o">|</span><span class="w">    </span><span class="mi">0</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">init</span><span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="k">show</span><span class="w"> </span><span class="n">processlist</span><span class="w"> </span><span class="o">|</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">+----------+------+--------------------+-------------+---------+------+-------+------------------+</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="mi">2</span><span class="w"> </span><span class="n">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="kt">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">03</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">mysql</span><span class="o">&gt;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>可以看到10773010这个连接已经被kill掉了</p>
+<blockquote>
+<p>可以无限和MySQL服务器建立连接吗？</p>
+</blockquote>
+<p>就像任何资源都是有上限的，MySQL的连接也是宝贵的资源，肯定不会也不能无限提供，就像最大空闲市场是由<code>wait_timeout</code>这个参数控制的一样，最大连接数是由 <code>max_connections</code>参数控制的</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-MySQL" data-lang="MySQL"><span class="line"><span class="cl"><span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">show</span><span class="w"> </span><span class="n">variables</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="s1">&#39;max_connections&#39;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">+-----------------+-------+</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">|</span><span class="w"> </span><span class="n">Variable_name</span><span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="n">Value</span><span class="w"> </span><span class="o">|</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">+-----------------+-------+</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">|</span><span class="w"> </span><span class="n">max_connections</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="mi">2500</span><span class="w">  </span><span class="o">|</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">+-----------------+-------+</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="mi">1</span><span class="w"> </span><span class="n">row</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="kt">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">03</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">mysql</span><span class="o">&gt;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>比如我的MySQL服务器的最大连接数是2500，意味着在同一时刻最多只能保持2500个连接，超过这个值，系统会拒绝接下来的连接请求，并且报错<code>Too many connections</code>。</p>
+<p>我们知道HTTP协议是基于TCP协议的，HTTP有长连接和短连接，同样的MySQL也有长连接和短连接。</p>
+<ul>
+<li>长连接：顾名思义，存活周期很长的连接，客户端在和MySQL建立连接后，每次执行完一条SQL语句，连接不会马上释放，而是保存着，下次再执行SQL语句不用重复建连了，而是可以复用这条连接。</li>
+<li>短连接：故名思义，存活周期较短的连接，客户端在和MySQL建立连接后，每次执行完一条SQL语句，连接马上释放，下次再执行SQL语句需要重新建连。</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># 长连接</span>
+</span></span><span class="line"><span class="cl">经过tcp三次握手和MySQL建立连接
+</span></span><span class="line"><span class="cl">执行sql1
+</span></span><span class="line"><span class="cl">执行sql2
+</span></span><span class="line"><span class="cl">执行sql3
+</span></span><span class="line"><span class="cl">....
+</span></span><span class="line"><span class="cl">执行sqln
+</span></span><span class="line"><span class="cl">经过tcp四次挥手和MySQL断开链接。
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 短连接</span>
+</span></span><span class="line"><span class="cl">经过tcp三次握手和MySQL建立连接
+</span></span><span class="line"><span class="cl">执行sql1
+</span></span><span class="line"><span class="cl">经过tcp四次挥手和MySQL断开链接。
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">经过tcp三次握手和MySQL建立连接
+</span></span><span class="line"><span class="cl">执行sql2
+</span></span><span class="line"><span class="cl">经过tcp四次挥手和MySQL断开链接。
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">经过tcp三次握手和MySQL建立连接
+</span></span><span class="line"><span class="cl">执行sql3
+</span></span><span class="line"><span class="cl">经过tcp四次挥手和MySQL断开链接。
+</span></span><span class="line"><span class="cl">....
+</span></span><span class="line"><span class="cl">经过tcp三次握手和MySQL建立连接
+</span></span><span class="line"><span class="cl">执行sqln
+</span></span><span class="line"><span class="cl">经过tcp四次挥手和MySQL断开链接。
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>可以看到长连接和短连接各有优劣。
+长连接的好处在于不用每次执行SQL语句都建立连接，做到资源复用，而且可以降低SQL语句耗时（省去建立连接的三次握手过程）；坏处在于连接长期得不到释放，连接是需要占用MySQL的系统资源的，如果长连接累积的很多，可能会导致MySQL系统OOM，所以最大连接数不能配置的太高。
+短连接的好处在于每次执行完SQL语句连接都被释放掉了，降低MySQL系统负载，坏处是每次执行SQL语句都需要建立连接，会增加SQL语句执行耗时。</p>
+<p>在实际开发过程中，一般推荐使用长连接，因为可以减少建连和断连的过程，但是长连接过多可能会导致MySQL系统高负载，导致服务异常重启。</p>
+<blockquote>
+<p>长连接长期不释放，MySQL系统内存会占用很大，如何解决？</p>
+</blockquote>
+<p>一般来说，有以下几种解决方式：</p>
+<ul>
+<li><code>设置合理的超时时间</code>在MySQL服务器和客户端之间建立长连接时，可以设置合理的超时时间。通过配置wait_timeout和interactive_timeout参数，可以控制连接在闲置一段时间后自动关闭。这样可以确保长时间不活跃的连接被释放，释放相关的资源。</li>
+<li><code>使用连接池</code>使用连接池管理连接是一种常见的解决方案。连接池可以维护一组预先创建的连接，并在需要时分配给客户端。连接池会复用连接，避免频繁地创建和销毁连接，从而减少资源消耗。连接池通常还提供连接的管理和监控功能，可以根据需求配置连接的最大数量、超时时间等参数。</li>
+<li><code>显式关闭连接</code>在编写应用程序代码时，确保在不再需要连接时显式关闭连接。这样可以确保连接在使用完毕后及时释放，避免资源长时间占用。在合适的时机，比如请求处理完毕后或会话结束时，通过关闭连接来主动释放相关资源。</li>
+<li><code>优化数据库连接的使用</code>分析和优化数据库连接的使用方式也可以降低资源占用。例如，尽量减少并发连接的数量，使用连接池来管理连接，合理控制连接的生命周期等。避免无谓的长时间连接闲置，减少不必要的连接开销。</li>
+<li><code>定期重启MySQL服务</code>定期重启MySQL服务可以清理资源并重置状态，从而减少长时间运行后的负载问题。这种方法需要慎重考虑，因为重启可能会中断正在进行的操作，并影响系统的可用性。</li>
+</ul>
+<p>以上就是连接器的整个过程，小结一下</p>
+<ul>
+<li>和客户端经过TCP三次握手建立连接。</li>
+<li>校验客户端的用户名和密码，如果密码不对就会报错。</li>
+<li>如果用户名和密码都ok的话，获取并保存用户的权限，本次连接生命周期内都会使用相同的权限，即便用户的权限发生了变化。如果连接服用的话，考虑到安全性，管理员可以使用FLUSH PRIVILEGES语句强制刷新权限表，这样可以确保已建立的长连接在下次操作时使用更新后的权限数据。</li>
+</ul>
+<h3 id="查询缓存">查询缓存</h3>
+<p>建立连接之后，客户端就可以向MySQL服务器发送执行SQL了，MySQL服务器收到SQL语句后首先判断这个SQL语句是不是查询语句（根据SQL语句第一个字段是不select来判断），如果是查询语句的话，MySQL就会先去查询缓存里面查找是否有这个SQL查询语句的缓存结果，如果有的话，直接就返回给客户端，不进行下一步，缓存是以key:value形式存储的，key是SQL查询语句，value是查询结果。
+看起来很美好，但是需要关注一下这里的缓存命中以及有效率的问题，在一般情况下，MySQL的查询缓存失效率是很高的，因为只要MySQL表中有数据更新，缓存就会失效。比如我要查询</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-MySQL" data-lang="MySQL"><span class="line"><span class="cl"><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">id</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>第一次查询这条记录后，MySQL会把id=1的查询结果刷到缓存中，但是如果MySQL执行了更新语句，这个缓存就会失效。
+比如MySQL更新了id=2的数据</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-MySQL" data-lang="MySQL"><span class="line"><span class="cl"><span class="k">update</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="kt">set</span><span class="w"> </span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;张三&#39;</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">id</span><span class="o">=</span><span class="mi">2</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>我们可能会在想，为啥MySQL做的这么粗暴呢，更新id=2不影响id=1的结果啊，为啥要把id=1的缓存干掉？因为MySQL不知道更新id=2这条记录是否会影响id=1的这条记录，或者说想要知道是否会影响的代价太大了(很难判断是否会有影响，如果真要判断，付出的代价相比于缓存的收益更大，得不偿失)，MySQL为了保证数据的一致性，干脆只要一有更新操作就让缓存失效。
+从上面的分析可以知道，这个缓存好像没啥用，因为即便是读多写的场景，也不能完全不写，而只要有写操作，就让表的所有缓存失效，代价是很大的，成本和收益不成正比，所以在MySQL8.0的版本，去掉了查询缓存这个功能。</p>
+<h3 id="解析器">解析器</h3>
+<p>一条SQL语句如果能够执行成功，首先肯定是符合MySQL的SQL语法规范的，这个规范可以理解为我们和MySQL定的规则，我们遵循这个规则来写SQL语句，MySQL同样也要遵循规则去解析执行我们写的SQL语句，不可能说我们随便写一段字符串，MySQL也去给我们执行。在执行SQL语句之前，MySQL需要理解我们这条SQL语句是干嘛的，是增、删、改还是查，SQL语句涉及到哪些表，哪些表字段？这些都需要也可以根据语法规则去提取出来的，这实际上就是解析器要做的事。
+解析器会做两件事：</p>
+<p>第一件事： <code>语法分析</code>MySQL会根据和我们协定的语法规则检查SQL语句是否有语法错误，如果有语法错误，会直接报错<code>You have an error in your SQL syntax</code>,比如我们执行如下语句</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-MySQL" data-lang="MySQL"><span class="line"><span class="cl"><span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="n">slect</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">friend</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">id</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">ERROR</span><span class="w"> </span><span class="mi">2013</span><span class="w"> </span><span class="p">(</span><span class="n">HY000</span><span class="p">):</span><span class="w"> </span><span class="n">Lost</span><span class="w"> </span><span class="n">connection</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">MySQL</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="n">during</span><span class="w"> </span><span class="n">query</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">No</span><span class="w"> </span><span class="n">connection</span><span class="p">.</span><span class="w"> </span><span class="n">Trying</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">reconnect</span><span class="p">...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Connection</span><span class="w"> </span><span class="n">id</span><span class="p">:</span><span class="w">    </span><span class="mi">10788396</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Current</span><span class="w"> </span><span class="k">database</span><span class="p">:</span><span class="w"> </span><span class="n">mysql_learn</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">ERROR</span><span class="w"> </span><span class="mi">1064</span><span class="w"> </span><span class="p">(</span><span class="mi">42000</span><span class="p">):</span><span class="w"> </span><span class="n">You</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">error</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="k">SQL</span><span class="w"> </span><span class="n">syntax</span><span class="p">;</span><span class="w"> </span><span class="k">check</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">manual</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">corresponds</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">MySQL</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">right</span><span class="w"> </span><span class="n">syntax</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="k">use</span><span class="w"> </span><span class="n">near</span><span class="w"> </span><span class="s1">&#39;slect * from friend where id=1&#39;</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">mysql</span><span class="o">&gt;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>把<code>select</code>打成了<code>slect</code>，MySQL根据语法规则校验这条SQL语句是不符合语法规范的，就直接报错了。这个类似于我们后台开发常用的参数校验。</p>
+<p>第二件事： <code>词法分析</code>：不管是多复杂的SQL语句总是有规律可循的，比如<code>where</code>关键字后面肯定是查询条件，<code>from</code>关键字后面是表名， MySQL实现了词法解析器，根据SQL语句提取出来表名、SQL类型、表名、字段名，where查询条件等，做好准备工作给到后面模块使用。</p>
+<p>需要注意的是上面说到语法检查和词法分析是在解析器做的，但是判断表名和字段名是否存在这些并不是在解析器层做的，可以理解为解析器这一层都是本地逻辑，不涉及到网络或者API调用。</p>
+<h3 id="预处理器">预处理器</h3>
+<p>SQL语句经过解析器后，就可以判断这条SQL语句是可能可以被执行的，为什么是可能呢？因为经过解析器只能说明这条SQL语句语法是没问题的以及提取了表名等需要执行的SQL语句包含的关键信息，但并不代表这个SQL语句就一定能执行成功，就像上面说的，如果SQL语句查询一张不存在的表，那么肯定不会执行成功的。预处理器主要干两件事：</p>
+<ul>
+<li>检查解析器从SQL语句中提取出来的表名、字段名是否存在。</li>
+<li>将<code>select *</code>的<code>*</code>替换成实际的字段名</li>
+</ul>
+<p>这一步就不像解析器那样是纯本地逻辑的，在预处理阶段，需要先读取表的信息，进而检查表名、字段名是否存在，以及将 <code>*</code>替换成实际的字段名，这就涉及到API调用了。
+我们执行如下SQL语句报错，这个报错其实是预处理器返回的。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-MySQL" data-lang="MySQL"><span class="line"><span class="cl"><span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">frined</span><span class="w">  </span><span class="k">where</span><span class="w"> </span><span class="n">id</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">ERROR</span><span class="w"> </span><span class="mi">1146</span><span class="w"> </span><span class="p">(</span><span class="mi">42</span><span class="n">S02</span><span class="p">):</span><span class="w"> </span><span class="k">Table</span><span class="w"> </span><span class="s1">&#39;mysql_learn.frined&#39;</span><span class="w"> </span><span class="n">doesn</span><span class="s1">&#39;t exist
+</span></span></span><span class="line"><span class="cl"><span class="s1">mysql&gt;
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="优化器">优化器</h3>
+<p>经过解析器和预处理器后，SQL语句来到了优化器，严格来说，到了优化器，不能再叫SQL语句了，因为经过前面两位大哥的处理之后，SQL语句已经<code>面目全非</code>，到了优化器这一层，可以确定这条SQL语法是完全合法的，既没有语法错误，表名和字段名也都存在。那为啥还要经过优化器处理，直接丢给执行器执行不就行了吗？肯定不行，如果这么无脑的话，那MySQL估计没人用了。优化器会根据SQL语句以及当前表的实际数据情况等选择一个合适的执行方案，比如一条SQL查询语句有多个索引，优化器就要分析判断使用哪个索引查询代价更小，又比如如果表里的数据量很小的时候，全表扫描代价可能更小，优化器可能会选择全表扫描而不选择使用索引。
+回顾一下我们经常使用的<code>explain</code>命令，在<code>select</code>前面加上<code>explain</code>关键字就可以知道本次查询执行计划。</p>
+<p><strong>查询语句一</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-MySQL" data-lang="MySQL"><span class="line"><span class="cl"><span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">explain</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="o">`</span><span class="k">like</span><span class="o">`</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">id</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">+----+-------------+-------+------------+-------+---------------+---------+---------+-------+------+----------+-------+</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">|</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">select_type</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">partitions</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">type</span><span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">possible_keys</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">key</span><span class="w">     </span><span class="o">|</span><span class="w"> </span><span class="n">key_len</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">ref</span><span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="n">rows</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">filtered</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Extra</span><span class="w"> </span><span class="o">|</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">+----+-------------+-------+------------+-------+---------------+---------+---------+-------+------+----------+-------+</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">|</span><span class="w">  </span><span class="mi">1</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">SIMPLE</span><span class="w">      </span><span class="o">|</span><span class="w"> </span><span class="k">like</span><span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="no">NULL</span><span class="w">       </span><span class="o">|</span><span class="w"> </span><span class="n">const</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w">       </span><span class="o">|</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="mi">4</span><span class="w">       </span><span class="o">|</span><span class="w"> </span><span class="n">const</span><span class="w"> </span><span class="o">|</span><span class="w">    </span><span class="mi">1</span><span class="w"> </span><span class="o">|</span><span class="w">   </span><span class="mi">100</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">NULL</span><span class="w">  </span><span class="o">|</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">+----+-------------+-------+------------+-------+---------------+---------+---------+-------+------+----------+-------+</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="mi">1</span><span class="w"> </span><span class="n">row</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="kt">set</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="nf">warning</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">04</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">mysql</span><span class="o">&gt;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>查询语句二</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-MySQL" data-lang="MySQL"><span class="line"><span class="cl"><span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">explain</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="o">`</span><span class="k">like</span><span class="o">`</span><span class="w"> </span><span class="k">limit</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">+----+-------------+-------+------------+-------+---------------+---------------------+---------+------+------+----------+-------------+</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">|</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">select_type</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">partitions</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">type</span><span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">possible_keys</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">key</span><span class="w">                 </span><span class="o">|</span><span class="w"> </span><span class="n">key_len</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">ref</span><span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">rows</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">filtered</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Extra</span><span class="w">       </span><span class="o">|</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">+----+-------------+-------+------------+-------+---------------+---------------------+---------+------+------+----------+-------------+</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">|</span><span class="w">  </span><span class="mi">1</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">SIMPLE</span><span class="w">      </span><span class="o">|</span><span class="w"> </span><span class="k">like</span><span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="no">NULL</span><span class="w">       </span><span class="o">|</span><span class="w"> </span><span class="k">index</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">NULL</span><span class="w">          </span><span class="o">|</span><span class="w"> </span><span class="n">uk_user_id_liker_id</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="mi">8</span><span class="w">       </span><span class="o">|</span><span class="w"> </span><span class="no">NULL</span><span class="w"> </span><span class="o">|</span><span class="w">    </span><span class="mi">3</span><span class="w"> </span><span class="o">|</span><span class="w">   </span><span class="mi">100</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">Using</span><span class="w"> </span><span class="k">index</span><span class="w"> </span><span class="o">|</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">+----+-------------+-------+------------+-------+---------------+---------------------+---------+------+------+----------+-------------+</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="mi">1</span><span class="w"> </span><span class="n">row</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="kt">set</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="nf">warning</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">03</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">mysql</span><span class="o">&gt;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>可以看到两次查询<code>key</code>这一列都不为空，查询语句一MySQL选择了<code>PRIMARY</code>主键索引，查询语句二则选择使用了<code>uk_user_id_liker_id</code>唯一索引，如果<code>key</code>为空，则代表没有使用索引，而是使用了全表扫描。
+在实际开发中，一摸一样的SQL语句，在不同时刻执行执行计划可能会不一样，执行计划取决于很多因素，包括索引、表数据量大小等。总而言之MySQL会根据很多条件选择一种相对最优的执行计划减少SQL语句执行成本。</p>
+<h3 id="执行器">执行器</h3>
+<p>经过前面的&quot;前戏&quot;后，终于要进入正题了，正式执行SQL语句了，执行器说白了就是MySQL的Server层和存储引擎层的一个桥梁，执行器并不实际执行SQL语句，而是通过API接口把经过一系列处理后的&quot;SQL语句&quot;丢给存储引擎执行，等待存储引擎返回执行结果，再把执行结果返回给查询缓存以及连接器。</p>
+<h2 id="索引">索引</h2>
+<h2 id="三大日志">三大日志</h2>
+<h3 id="undo日志">undo日志</h3>
+<h3 id="redo日志">redo日志</h3>
+<h3 id="bin日志">bin日志</h3>
+<h2 id="各种锁">各种锁</h2>
+<h2 id="事务">事务</h2>
+<h3 id="原子性">原子性</h3>
+<h3 id="持久性">持久性</h3>
+<h3 id="隔离性">隔离性</h3>
+<h3 id="一致性">一致性</h3>
+<h2 id="数据结构">数据结构</h2>
+<h2 id="内存">内存</h2></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2023-07-01</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/mysql-core-concepts/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://www.bardblog.cn/mysql-core-concepts/" data-title="MySQL核心概念" data-via="cz960601" data-hashtags="MySQL,InnoDB"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://www.bardblog.cn/mysql-core-concepts/" data-hashtag="MySQL"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://www.bardblog.cn/mysql-core-concepts/" data-title="MySQL核心概念"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Reddit" data-sharer="reddit" data-url="https://www.bardblog.cn/mysql-core-concepts/"><i class="fab fa-reddit fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://www.bardblog.cn/mysql-core-concepts/" data-title="MySQL核心概念"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://www.bardblog.cn/mysql-core-concepts/" data-title="MySQL核心概念"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/mysql/">MySQL</a>,&nbsp;<a href="/tags/innodb/">InnoDB</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/git-advanced-usage/" class="prev" rel="prev" title="Git高级用法"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Git高级用法</a>
+            <a href="/theme-documentation-typeit-shortcode/" class="next" rel="next" title="主题文档 - typeit Shortcode">主题文档 - typeit Shortcode<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="gitalk" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://github.com/gitalk/gitalk"></a>Gitalk</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.115.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://www.bardblog.cn" target="_blank">Bard</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.13.1/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/twemoji@14.0.2/dist/twemoji.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"gitalk":{"admin":["YourFantasy"],"clientID":"64f57a27c4b33d7930ff","clientSecret":"34e7c8aa13489f51aa54f53c4734d0e38762b83f","id":"2023-07-01T08:59:43+08:00","owner":"YourFantasy","repo":"blog","title":"MySQL核心概念"}},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"data":{"id-1":"编程浪子","id-2":"编程浪子"},"lightgallery":true,"search":{"algoliaAppID":"58KPEJ4RD6","algoliaIndex":"index.zh-cn","algoliaSearchKey":"a48c9e27b67c52f03f9b8daa3cbdd18e","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"},"twemoji":true,"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
