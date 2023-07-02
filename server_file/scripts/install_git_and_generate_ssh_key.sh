@@ -1,9 +1,9 @@
-sudo yum update
+echo "y" | sudo yum update
 if [$? -ne 0];then
     echo "update yum failed"
     exit 1
 fi
-yum install curl-devel expat-devel gettext-devel   openssl-devel zlib-devel
+echo "y" | yum install curl-devel expat-devel gettext-devel   openssl-devel zlib-devel
 if [$? -ne 0];then
     echo "install  openssl failed"
     exit 1
