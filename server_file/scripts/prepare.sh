@@ -1,6 +1,6 @@
 mkdir -p /home/bardchen/software/hugo/scripts;
 cd /home/bardchen/software/hugo;
-git pull git@github.com:YourFantasy/blog.git&&cd blog;
+git clone git@github.com:YourFantasy/blog.git&&cd blog;
 cd server_file/scripts/&&cp git_pull.sh .env  push_algolia_json.js push_algolia_json_en.js /home/bardchen/software/hugo/scripts/;
 cd ../yum.repos.d&&cp *.repo /etc/yum.repos.d/;
 
