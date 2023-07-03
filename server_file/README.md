@@ -4,6 +4,4 @@
 
 2.然后再在[GitHub](https://github.com/settings/keys) 配置SSH keys
 
-3.
-
-4.最后执行server_file/scritps/scripts/prepare.sh脚本
+3.最后执行server_file/scritps/scripts/prepare.sh脚本

@@ -13,4 +13,6 @@ if [$? -ne 0];then
     echo "install git-cored failed"
     exit 1
 fi
-ssh-keygen -t rsa -C "cz950601@gmail.com"
+echo -e '\n\n\n' | ssh-keygen -t rsa -C "cz950601@gmail.com"
+
+cat /root/.ssh/id_rsa.pub
