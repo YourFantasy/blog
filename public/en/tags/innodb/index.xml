@@ -6,6 +6,14 @@
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>cz950601@gmail.com (Bard)</managingEditor>
             <webMaster>cz950601@gmail.com (Bard)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 01 Jul 2023 08:59:43 &#43;0800</lastBuildDate><atom:link href="https://www.bardblog.cn/en/tags/innodb/" rel="self" type="application/rss+xml" /><item>
     <title>Core Concepts of MySQL</title>
+    <link>https://www.bardblog.cn/en/interview/</link>
+    <pubDate>Sat, 01 Jul 2023 08:59:43 &#43;0800</pubDate>
+    <author>Author</author>
+    <guid>https://www.bardblog.cn/en/interview/</guid>
+    <description><![CDATA[Introduction to the core concepts of MySQL]]></description>
+</item>
+<item>
+    <title>Core Concepts of MySQL</title>
     <link>https://www.bardblog.cn/en/mysql-core-concepts/</link>
     <pubDate>Sat, 01 Jul 2023 08:59:43 &#43;0800</pubDate>
     <author>Author</author>

@@ -4,7 +4,7 @@
         <link>https://www.bardblog.cn/tags/algorithm/</link>
         <description>algorithm - 标签 - 编程浪子</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>cz950601@gmail.com (Bard)</managingEditor>
-            <webMaster>cz950601@gmail.com (Bard)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 24 Jun 2023 12:57:40 &#43;0800</lastBuildDate><atom:link href="https://www.bardblog.cn/tags/algorithm/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>cz950601@gmail.com (Bard)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 09 Jul 2023 16:08:27 &#43;0800</lastBuildDate><atom:link href="https://www.bardblog.cn/tags/algorithm/" rel="self" type="application/rss+xml" /><item>
     <title>连通块点数最大值</title>
     <link>https://www.bardblog.cn/algorithm-dfs-acwing-846/</link>
     <pubDate>Sat, 24 Jun 2023 12:57:40 &#43;0800</pubDate>
@@ -27,6 +27,561 @@
     <author>Bard</author>
     <guid>https://www.bardblog.cn/algorithm-greedy-disjoint/</guid>
     <description><![CDATA[题目描述 给定 N个闭区间 [ai,bi]，请你在数轴上选择若干个区间，使得选中的区间之间互不相交（包括端点）。 输出可选取区间的最大数量。 输入格式]]></description>
+</item>
+<item>
+    <title>一致性hash算法</title>
+    <link>https://www.bardblog.cn/consistent-hash/</link>
+    <pubDate>Sun, 09 Jul 2023 16:08:27 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://www.bardblog.cn/consistent-hash/</guid>
+    <description><![CDATA[<h2 id="负载均衡算法">负载均衡算法</h2>
+<p>在分布式系统中，一般来说会有多台机器，机器可能会分布在不同的集群，客户端的一个请求经过服务注册中心或者网关，注册中心或者网关会根据负载均衡算法将本次请求分发到某台具体的服务器，负载均衡算法主要用于分配网络或计算资源，以优化响应时间和避免过度负载任何一个资源常见的有如下的负载均衡算法：
+负载均衡算法主要用于分配网络或计算资源，以优化响应时间和避免过度负载任何一个资源。以下是一些常见的负载均衡算法：</p>
+<ol>
+<li>
+<p><strong>轮询（Round Robin）</strong>：这是最简单的负载均衡算法，它将请求按顺序分配给服务器。当到达最后一个服务器时，算法会返回到队列的顶部并重新开始。</p>
+</li>
+<li>
+<p><strong>加权轮询（Weighted Round Robin）</strong>：这是轮询的一个变种，它考虑到了服务器的处理能力。每个服务器都被分配一个权重，权重较高的服务器将接收更多的请求。</p>
+</li>
+<li>
+<p><strong>最少连接（Least Connections）</strong>：这种算法将新的请求分配给当前连接数最少的服务器。这对于处理时间较长的请求非常有效。</p>
+</li>
+<li>
+<p><strong>加权最少连接（Weighted Least Connections）</strong>：这是最少连接算法的一个变种，它考虑到了服务器的处理能力。每个服务器都被分配一个权重，权重较高的服务器将接收更多的请求。</p>
+</li>
+<li>
+<p><strong>随机（Random）</strong>：这种算法将请求随机分配给服务器。</p>
+</li>
+<li>
+<p><strong>最短响应时间（Least Response Time）</strong>：这种算法将请求分配给响应时间最短的服务器。</p>
+</li>
+<li>
+<p><strong>普通哈希（Hash）</strong>：这种算法根据源IP地址或者请求入参的哈希值来分配请求。这样可以保证来自同一源IP地址或者同一个请求总是被分配给同一台服务器。</p>
+</li>
+<li>
+<p><strong>一致性哈希（Consistent Hashing）</strong>：对普通Hash算法的一个改进，这种算法主要用于分布式系统，它可以在服务器集群的数量发生变化时，最小化重新分配的数据。</p>
+</li>
+</ol>
+<p>设想我们有这样一个场景：有一个分布式服务，我们需要为这个服务构造一个本地缓存，当服务的机器数很多的时候，同一个key可能在多台机器上都会有缓存，如果要缓存的数据量很大的时候，同一台机器上key过多可能会导致机器内存占用率过高，严重的可能会发生OOM，这就要求缓存的key散列的分布在不同的机器上，减少单台机器的负载，需要构造一个请求入参和机器的映射关系，让相同的请求打到相同的机器上。应该采用上述何种算法提高缓存的命中率并减少缓存占用空间呢？1-6的算法，一个请求打到哪台服务器随机性很大，7-8都是hash算法，如果把请求入参hash，理论上可以保证同样的请求达到同样的机器上的。
+<figure><a class="lightgallery" href="/consistent-hash/consistent_hash.png" title="hash负载均衡" data-thumbnail="/consistent-hash/consistent_hash.png" data-sub-html="<h2>hash负载均衡</h2><p>hash负载均衡</p>">
+        
+    </a><figcaption class="image-caption">hash负载均衡</figcaption>
+    </figure></p>
+<p>如上图所示，假设这个服务有A/B/C/D四台机器，</p>
+<h2 id="代码实现">代码实现</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span><span class="lnt">118
+</span><span class="lnt">119
+</span><span class="lnt">120
+</span><span class="lnt">121
+</span><span class="lnt">122
+</span><span class="lnt">123
+</span><span class="lnt">124
+</span><span class="lnt">125
+</span><span class="lnt">126
+</span><span class="lnt">127
+</span><span class="lnt">128
+</span><span class="lnt">129
+</span><span class="lnt">130
+</span><span class="lnt">131
+</span><span class="lnt">132
+</span><span class="lnt">133
+</span><span class="lnt">134
+</span><span class="lnt">135
+</span><span class="lnt">136
+</span><span class="lnt">137
+</span><span class="lnt">138
+</span><span class="lnt">139
+</span><span class="lnt">140
+</span><span class="lnt">141
+</span><span class="lnt">142
+</span><span class="lnt">143
+</span><span class="lnt">144
+</span><span class="lnt">145
+</span><span class="lnt">146
+</span><span class="lnt">147
+</span><span class="lnt">148
+</span><span class="lnt">149
+</span><span class="lnt">150
+</span><span class="lnt">151
+</span><span class="lnt">152
+</span><span class="lnt">153
+</span><span class="lnt">154
+</span><span class="lnt">155
+</span><span class="lnt">156
+</span><span class="lnt">157
+</span><span class="lnt">158
+</span><span class="lnt">159
+</span><span class="lnt">160
+</span><span class="lnt">161
+</span><span class="lnt">162
+</span><span class="lnt">163
+</span><span class="lnt">164
+</span><span class="lnt">165
+</span><span class="lnt">166
+</span><span class="lnt">167
+</span><span class="lnt">168
+</span><span class="lnt">169
+</span><span class="lnt">170
+</span><span class="lnt">171
+</span><span class="lnt">172
+</span><span class="lnt">173
+</span><span class="lnt">174
+</span><span class="lnt">175
+</span><span class="lnt">176
+</span><span class="lnt">177
+</span><span class="lnt">178
+</span><span class="lnt">179
+</span><span class="lnt">180
+</span><span class="lnt">181
+</span><span class="lnt">182
+</span><span class="lnt">183
+</span><span class="lnt">184
+</span><span class="lnt">185
+</span><span class="lnt">186
+</span><span class="lnt">187
+</span><span class="lnt">188
+</span><span class="lnt">189
+</span><span class="lnt">190
+</span><span class="lnt">191
+</span><span class="lnt">192
+</span><span class="lnt">193
+</span><span class="lnt">194
+</span><span class="lnt">195
+</span><span class="lnt">196
+</span><span class="lnt">197
+</span><span class="lnt">198
+</span><span class="lnt">199
+</span><span class="lnt">200
+</span><span class="lnt">201
+</span><span class="lnt">202
+</span><span class="lnt">203
+</span><span class="lnt">204
+</span><span class="lnt">205
+</span><span class="lnt">206
+</span><span class="lnt">207
+</span><span class="lnt">208
+</span><span class="lnt">209
+</span><span class="lnt">210
+</span><span class="lnt">211
+</span><span class="lnt">212
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;crypto/rand&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;encoding/hex&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;hash/fnv&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;net&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;sort&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;sync&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">const</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">keySize</span>    <span class="p">=</span> <span class="mi">1000</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">traceIDLen</span> <span class="p">=</span> <span class="mi">16</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">ringSize</span>   <span class="p">=</span> <span class="mi">100</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">hr</span> <span class="o">:=</span> <span class="nf">NewHashRing</span><span class="p">([]</span><span class="nx">ServerNode</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">Name</span><span class="p">:</span>   <span class="s">&#34;grpc.app.server1.service1&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">Weight</span><span class="p">:</span> <span class="mf">0.89</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="p">},</span>
+</span></span><span class="line"><span class="cl">		<span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">IP</span><span class="p">:</span> <span class="nx">net</span><span class="p">.</span><span class="nf">ParseIP</span><span class="p">(</span><span class="s">&#34;123.33.32.1&#34;</span><span class="p">),</span> <span class="nx">Port</span><span class="p">:</span> <span class="mi">8932</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">Weight</span><span class="p">:</span> <span class="mf">0.73</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="p">},</span>
+</span></span><span class="line"><span class="cl">		<span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">IP</span><span class="p">:</span> <span class="nx">net</span><span class="p">.</span><span class="nf">ParseIP</span><span class="p">(</span><span class="s">&#34;123.33.32.1&#34;</span><span class="p">),</span> <span class="nx">Port</span><span class="p">:</span> <span class="mi">8933</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="p">},</span>
+</span></span><span class="line"><span class="cl">		<span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">IP</span><span class="p">:</span> <span class="nx">net</span><span class="p">.</span><span class="nf">ParseIP</span><span class="p">(</span><span class="s">&#34;234.65.32.3&#34;</span><span class="p">),</span> <span class="nx">Port</span><span class="p">:</span> <span class="mi">8932</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">Weight</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="p">},</span>
+</span></span><span class="line"><span class="cl">		<span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">IP</span><span class="p">:</span> <span class="nx">net</span><span class="p">.</span><span class="nf">ParseIP</span><span class="p">(</span><span class="s">&#34;231.23.32.11&#34;</span><span class="p">),</span> <span class="nx">Port</span><span class="p">:</span> <span class="mi">32322</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">Weight</span><span class="p">:</span> <span class="mf">1.11</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="p">},</span>
+</span></span><span class="line"><span class="cl">	<span class="p">})</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">keys</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">string</span><span class="p">,</span> <span class="nx">keySize</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nx">keySize</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">keys</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">=</span> <span class="nf">generateTraceID</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">keys</span><span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="nx">keySize</span><span class="o">-</span><span class="nx">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="p">=</span> <span class="nx">keys</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">key</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">keys</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%s:%s\n&#34;</span><span class="p">,</span> <span class="nx">key</span><span class="p">,</span> <span class="nx">hr</span><span class="p">.</span><span class="nf">GetNode</span><span class="p">(</span><span class="nx">key</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;AddNodes====================&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">hr</span><span class="p">.</span><span class="nf">AddNodes</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">ServerNode</span><span class="p">{</span><span class="nx">IP</span><span class="p">:</span> <span class="nx">net</span><span class="p">.</span><span class="nf">ParseIP</span><span class="p">(</span><span class="s">&#34;132.232.123.223&#34;</span><span class="p">),</span> <span class="nx">Port</span><span class="p">:</span> <span class="mi">1923</span><span class="p">,</span> <span class="nx">Weight</span><span class="p">:</span> <span class="mf">0.91</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">ServerNode</span><span class="p">{</span><span class="nx">Name</span><span class="p">:</span> <span class="s">&#34;trpc.app.server2.service1&#34;</span><span class="p">,</span> <span class="nx">Weight</span><span class="p">:</span> <span class="mf">1.21</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">	<span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">key</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">keys</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%s:%s\n&#34;</span><span class="p">,</span> <span class="nx">key</span><span class="p">,</span> <span class="nx">hr</span><span class="p">.</span><span class="nf">GetNode</span><span class="p">(</span><span class="nx">key</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;RemoveNodes====================&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">hr</span><span class="p">.</span><span class="nf">RemoveNodes</span><span class="p">(</span><span class="nx">hr</span><span class="p">.</span><span class="nf">GetNode</span><span class="p">(</span><span class="nx">keys</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="nx">hr</span><span class="p">.</span><span class="nf">GetNode</span><span class="p">(</span><span class="nx">keys</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="nx">hr</span><span class="p">.</span><span class="nf">GetNode</span><span class="p">(</span><span class="nx">keys</span><span class="p">[</span><span class="mi">3</span><span class="p">]))</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">key</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">keys</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%s:%s\n&#34;</span><span class="p">,</span> <span class="nx">key</span><span class="p">,</span> <span class="nx">hr</span><span class="p">.</span><span class="nf">GetNode</span><span class="p">(</span><span class="nx">key</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// HashRing 哈希环
+</span></span></span><span class="line"><span class="cl"><span class="c1">// nodes  真实结点
+</span></span></span><span class="line"><span class="cl"><span class="c1">// virtualNodes n个虚拟节点指向一个实际节点,一个实体节点变成n个虚拟结点，均匀打散。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">type</span> <span class="nx">HashRing</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">nodes</span>        <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="nx">ServerNode</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">virtualNodes</span> <span class="kd">map</span><span class="p">[</span><span class="kt">uint32</span><span class="p">]</span><span class="nx">ServerNode</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">sortedHashes</span> <span class="p">[]</span><span class="kt">uint32</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">mu</span>           <span class="nx">sync</span><span class="p">.</span><span class="nx">RWMutex</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// ServerNode 服务器结点信息
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">type</span> <span class="nx">ServerNode</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">Name</span>   <span class="kt">string</span>  <span class="c1">// 服务名
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">IP</span>     <span class="nx">net</span><span class="p">.</span><span class="nx">IP</span>  <span class="c1">// ip地址
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">Port</span>   <span class="kt">uint16</span>  <span class="c1">// 端口
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">Weight</span> <span class="kt">float32</span> <span class="c1">// 权重
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// NewHashRing 新建一个hash环
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="nf">NewHashRing</span><span class="p">(</span><span class="nx">nodes</span> <span class="p">[]</span><span class="nx">ServerNode</span><span class="p">)</span> <span class="o">*</span><span class="nx">HashRing</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">ns</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="nx">ServerNode</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">nodes</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">nd</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">nodes</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">ns</span><span class="p">[</span><span class="nx">nd</span><span class="p">.</span><span class="nf">String</span><span class="p">()]</span> <span class="p">=</span> <span class="nx">nd</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nx">hr</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">HashRing</span><span class="p">{</span><span class="nx">nodes</span><span class="p">:</span> <span class="nx">ns</span><span class="p">,</span> <span class="nx">virtualNodes</span><span class="p">:</span> <span class="kd">map</span><span class="p">[</span><span class="kt">uint32</span><span class="p">]</span><span class="nx">ServerNode</span><span class="p">{}}</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">hr</span><span class="p">.</span><span class="nx">virtualNodes</span> <span class="p">=</span> <span class="nx">hr</span><span class="p">.</span><span class="nf">generateVirtualNodes</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">hr</span><span class="p">.</span><span class="nx">sortedHashes</span> <span class="p">=</span> <span class="nx">hr</span><span class="p">.</span><span class="nf">genSortedHashes</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">hr</span><span class="p">.</span><span class="nx">mu</span> <span class="p">=</span> <span class="nx">sync</span><span class="p">.</span><span class="nx">RWMutex</span><span class="p">{}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">hr</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// AddNodes 添加结点
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">h</span> <span class="o">*</span><span class="nx">HashRing</span><span class="p">)</span> <span class="nf">AddNodes</span><span class="p">(</span><span class="nx">nodes</span> <span class="o">...</span><span class="nx">ServerNode</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">h</span><span class="p">.</span><span class="nx">mu</span><span class="p">.</span><span class="nf">Lock</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="k">defer</span> <span class="nx">h</span><span class="p">.</span><span class="nx">mu</span><span class="p">.</span><span class="nf">Unlock</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">node</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">nodes</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">ok</span> <span class="o">:=</span> <span class="nx">h</span><span class="p">.</span><span class="nx">nodes</span><span class="p">[</span><span class="nx">node</span><span class="p">.</span><span class="nf">String</span><span class="p">()];</span> <span class="nx">ok</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="k">continue</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">h</span><span class="p">.</span><span class="nx">nodes</span><span class="p">[</span><span class="nx">node</span><span class="p">.</span><span class="nf">String</span><span class="p">()]</span> <span class="p">=</span> <span class="nx">node</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">h</span><span class="p">.</span><span class="nf">addVirtualNodes</span><span class="p">(</span><span class="nx">node</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">h</span><span class="p">.</span><span class="nx">sortedHashes</span> <span class="p">=</span> <span class="nx">h</span><span class="p">.</span><span class="nf">genSortedHashes</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// RemoveNodes 移除结点
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">h</span> <span class="o">*</span><span class="nx">HashRing</span><span class="p">)</span> <span class="nf">RemoveNodes</span><span class="p">(</span><span class="nx">nodes</span> <span class="o">...</span><span class="nx">ServerNode</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">h</span><span class="p">.</span><span class="nx">mu</span><span class="p">.</span><span class="nf">Lock</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="k">defer</span> <span class="nx">h</span><span class="p">.</span><span class="nx">mu</span><span class="p">.</span><span class="nf">Unlock</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">node</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">nodes</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nb">delete</span><span class="p">(</span><span class="nx">h</span><span class="p">.</span><span class="nx">nodes</span><span class="p">,</span> <span class="nx">node</span><span class="p">.</span><span class="nf">String</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">h</span><span class="p">.</span><span class="nf">deleteVirtualNodes</span><span class="p">(</span><span class="nx">node</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">h</span><span class="p">.</span><span class="nx">sortedHashes</span> <span class="p">=</span> <span class="nx">h</span><span class="p">.</span><span class="nf">genSortedHashes</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// GetNode 获取结点
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">h</span> <span class="o">*</span><span class="nx">HashRing</span><span class="p">)</span> <span class="nf">GetNode</span><span class="p">(</span><span class="nx">key</span> <span class="kt">string</span><span class="p">)</span> <span class="nx">ServerNode</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">h</span><span class="p">.</span><span class="nx">mu</span><span class="p">.</span><span class="nf">RLock</span><span class="p">()</span> <span class="c1">// Use read lock instead of write lock
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">defer</span> <span class="nx">h</span><span class="p">.</span><span class="nx">mu</span><span class="p">.</span><span class="nf">RUnlock</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nx">h</span><span class="p">.</span><span class="nx">virtualNodes</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="nx">ServerNode</span><span class="p">{}</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">hashValue</span> <span class="o">:=</span> <span class="nf">hash</span><span class="p">(</span><span class="nx">key</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">h</span><span class="p">.</span><span class="nx">sortedHashes</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="nx">h</span><span class="p">.</span><span class="nx">sortedHashes</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="p">&lt;</span> <span class="nx">hashValue</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="nx">h</span><span class="p">.</span><span class="nx">virtualNodes</span><span class="p">[</span><span class="nx">h</span><span class="p">.</span><span class="nx">sortedHashes</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">i</span><span class="p">,</span> <span class="nx">j</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">h</span><span class="p">.</span><span class="nx">sortedHashes</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nx">j</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">mid</span> <span class="o">:=</span> <span class="nx">i</span> <span class="o">+</span> <span class="p">(</span><span class="nx">j</span><span class="o">-</span><span class="nx">i</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nx">h</span><span class="p">.</span><span class="nx">sortedHashes</span><span class="p">[</span><span class="nx">mid</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="nx">hashValue</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">j</span> <span class="p">=</span> <span class="nx">mid</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">i</span> <span class="p">=</span> <span class="nx">mid</span> <span class="o">+</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">h</span><span class="p">.</span><span class="nx">sortedHashes</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="nx">hashValue</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="nx">h</span><span class="p">.</span><span class="nx">virtualNodes</span><span class="p">[</span><span class="nx">h</span><span class="p">.</span><span class="nx">sortedHashes</span><span class="p">[</span><span class="nx">i</span><span class="p">]]</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">h</span><span class="p">.</span><span class="nx">virtualNodes</span><span class="p">[</span><span class="nx">h</span><span class="p">.</span><span class="nx">sortedHashes</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">h</span> <span class="o">*</span><span class="nx">HashRing</span><span class="p">)</span> <span class="nf">generateVirtualNodes</span><span class="p">()</span> <span class="kd">map</span><span class="p">[</span><span class="kt">uint32</span><span class="p">]</span><span class="nx">ServerNode</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">virtualNodes</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">map</span><span class="p">[</span><span class="kt">uint32</span><span class="p">]</span><span class="nx">ServerNode</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">node</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">h</span><span class="p">.</span><span class="nx">nodes</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nb">int</span><span class="p">(</span><span class="nx">ringSize</span><span class="o">*</span><span class="nx">node</span><span class="p">.</span><span class="nx">Weight</span><span class="p">);</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">virtualNode</span> <span class="o">:=</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;%s#%d&#34;</span><span class="p">,</span> <span class="nx">node</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">virtualNodes</span><span class="p">[</span><span class="nf">hash</span><span class="p">(</span><span class="nx">virtualNode</span><span class="p">)]</span> <span class="p">=</span> <span class="nx">node</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">virtualNodes</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">h</span> <span class="o">*</span><span class="nx">HashRing</span><span class="p">)</span> <span class="nf">addVirtualNodes</span><span class="p">(</span><span class="nx">node</span> <span class="nx">ServerNode</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nb">int</span><span class="p">(</span><span class="nx">ringSize</span><span class="o">*</span><span class="nx">node</span><span class="p">.</span><span class="nx">Weight</span><span class="p">);</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">virtualNode</span> <span class="o">:=</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;%s#%d&#34;</span><span class="p">,</span> <span class="nx">node</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">h</span><span class="p">.</span><span class="nx">virtualNodes</span><span class="p">[</span><span class="nf">hash</span><span class="p">(</span><span class="nx">virtualNode</span><span class="p">)]</span> <span class="p">=</span> <span class="nx">node</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">h</span> <span class="o">*</span><span class="nx">HashRing</span><span class="p">)</span> <span class="nf">deleteVirtualNodes</span><span class="p">(</span><span class="nx">node</span> <span class="nx">ServerNode</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nb">int</span><span class="p">(</span><span class="nx">ringSize</span><span class="o">*</span><span class="nx">node</span><span class="p">.</span><span class="nx">Weight</span><span class="p">);</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nb">delete</span><span class="p">(</span><span class="nx">h</span><span class="p">.</span><span class="nx">virtualNodes</span><span class="p">,</span> <span class="nf">hash</span><span class="p">(</span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;%s#%d&#34;</span><span class="p">,</span> <span class="nx">node</span><span class="p">,</span> <span class="nx">i</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">h</span> <span class="o">*</span><span class="nx">HashRing</span><span class="p">)</span> <span class="nf">genSortedHashes</span><span class="p">()</span> <span class="p">[]</span><span class="kt">uint32</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">hashes</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">uint32</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">h</span><span class="p">.</span><span class="nx">virtualNodes</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">node</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">h</span><span class="p">.</span><span class="nx">virtualNodes</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">hashes</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">hashes</span><span class="p">,</span> <span class="nx">node</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">sort</span><span class="p">.</span><span class="nf">Slice</span><span class="p">(</span><span class="nx">hashes</span><span class="p">,</span> <span class="kd">func</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="nx">j</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">bool</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="nx">hashes</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">&lt;</span> <span class="nx">hashes</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">	<span class="p">})</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">hashes</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">hash</span><span class="p">(</span><span class="nx">key</span> <span class="kt">string</span><span class="p">)</span> <span class="kt">uint32</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">h</span> <span class="o">:=</span> <span class="nx">fnv</span><span class="p">.</span><span class="nf">New32a</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">_</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">h</span><span class="p">.</span><span class="nf">Write</span><span class="p">([]</span><span class="nb">byte</span><span class="p">(</span><span class="nx">key</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">h</span><span class="p">.</span><span class="nf">Sum32</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">s</span> <span class="nx">ServerNode</span><span class="p">)</span> <span class="nf">equal</span><span class="p">(</span><span class="nx">node</span> <span class="nx">ServerNode</span><span class="p">)</span> <span class="kt">bool</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nx">s</span><span class="p">.</span><span class="nx">Name</span><span class="p">)</span> <span class="p">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">Name</span><span class="p">)</span> <span class="p">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">s</span><span class="p">.</span><span class="nx">Name</span> <span class="o">==</span> <span class="nx">node</span><span class="p">.</span><span class="nx">Name</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nx">s</span><span class="p">.</span><span class="nx">IP</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">||</span> <span class="nx">s</span><span class="p">.</span><span class="nx">Port</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">||</span> <span class="nb">len</span><span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">IP</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">||</span> <span class="nx">node</span><span class="p">.</span><span class="nx">Port</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">s</span><span class="p">.</span><span class="nx">IP</span><span class="p">.</span><span class="nf">Equal</span><span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">IP</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nx">s</span><span class="p">.</span><span class="nx">Port</span> <span class="o">==</span> <span class="nx">node</span><span class="p">.</span><span class="nx">Port</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">s</span> <span class="nx">ServerNode</span><span class="p">)</span> <span class="nf">String</span><span class="p">()</span> <span class="kt">string</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nx">s</span><span class="p">.</span><span class="nx">Name</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;target://%s&#34;</span><span class="p">,</span> <span class="nx">s</span><span class="p">.</span><span class="nx">Name</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;IP://%s:%d&#34;</span><span class="p">,</span> <span class="nx">s</span><span class="p">.</span><span class="nx">IP</span><span class="p">,</span> <span class="nx">s</span><span class="p">.</span><span class="nx">Port</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">generateTraceID</span><span class="p">()</span> <span class="kt">string</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">traceID</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">byte</span><span class="p">,</span> <span class="nx">traceIDLen</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">_</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">rand</span><span class="p">.</span><span class="nf">Read</span><span class="p">(</span><span class="nx">traceID</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nb">panic</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">hex</span><span class="p">.</span><span class="nf">EncodeToString</span><span class="p">(</span><span class="nx">traceID</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="实际应用">实际应用</h2>]]></description>
+</item>
+<item>
+    <title>zset分析与实现</title>
+    <link>https://www.bardblog.cn/redis-zset-implemention/</link>
+    <pubDate>Thu, 06 Jul 2023 12:49:02 &#43;0800</pubDate>
+    <author>Bard</author>
+    <guid>https://www.bardblog.cn/redis-zset-implemention/</guid>
+    <description><![CDATA[<h2 id="概念">概念</h2>
+<p>跳表是一种很特殊的数据结构，可以把跳表理解为一个多层链表，每一层都是一个有序链表，链表之间通过指针连接，并且最底层的那个链表保存跳表完整的元素，跳表示意图如下：
+<figure><a class="lightgallery" href="/redis-zset-implemention/skiplist.png" title="跳表示意图" data-thumbnail="/redis-zset-implemention/skiplist.png" data-sub-html="<h2>跳表示意图</h2><p>跳表示意图</p>">
+        
+    </a><figcaption class="image-caption">跳表示意图</figcaption>
+    </figure>
+可以看到除了最后一层链表，每一层链表元素都有可能缺失。</p>
+<p>小结一下跳表的基本特征：</p>
+<ul>
+<li>每一层都是一个按照结点的score有序的链表</li>
+<li>链表结点key全局唯一，score可以相同</li>
+<li>不同层链表相同结点之间通过指针相连</li>
+<li>最底层链表含有跳表所有元素</li>
+</ul>
+<p>由此可以抽象化出跳表的数据结构：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// skipList 跳表数据结构
+</span></span></span><span class="line"><span class="cl"><span class="c1">// Data 链表结点数据
+</span></span></span><span class="line"><span class="cl"><span class="c1">// next 指向下一个节点指针，同一层链表结点按照Score非递减
+</span></span></span><span class="line"><span class="cl"><span class="c1">// down，与下一层连接指针，当前节点p p!=nil&amp;&amp;p.down!=nil 满足 p.Data==p.down.Data
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">type</span> <span class="nx">skipList</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">Data</span> <span class="nx">Data</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">next</span> <span class="o">*</span><span class="nx">skipList</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">down</span> <span class="o">*</span><span class="nx">skipList</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// Data 数据类型
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">type</span> <span class="nx">Data</span> <span class="o">*</span><span class="nx">Element</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Element 链表结点格式
+</span></span></span><span class="line"><span class="cl"><span class="c1">// Key: zSet的成员key，全局唯一
+</span></span></span><span class="line"><span class="cl"><span class="c1">// Score: zSet的成员对应的分数，可以一样
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">type</span> <span class="nx">Element</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">Key</span>   <span class="kt">string</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">Score</span> <span class="kt">int</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="插入流程">插入流程</h2>
+<h2 id="删除流程">删除流程</h2>
+<h2 id="更新流程">更新流程</h2>
+<h2 id="查询流程">查询流程</h2>
+<h2 id="代码实现">代码实现</h2>
+<h2 id="实际应用">实际应用</h2>
+]]></description>
+</item>
+<item>
+    <title>面试复盘</title>
+    <link>https://www.bardblog.cn/interview/</link>
+    <pubDate>Sat, 01 Jul 2023 08:59:43 &#43;0800</pubDate>
+    <author>Bard</author>
+    <guid>https://www.bardblog.cn/interview/</guid>
+    <description><![CDATA[记录社招面试过程及复盘]]></description>
 </item>
 </channel>
 </rss>

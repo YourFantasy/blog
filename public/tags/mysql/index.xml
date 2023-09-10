@@ -12,5 +12,13 @@
     <guid>https://www.bardblog.cn/mysql-core-concepts/</guid>
     <description><![CDATA[介绍MySQL的核心概念]]></description>
 </item>
+<item>
+    <title>面试复盘</title>
+    <link>https://www.bardblog.cn/interview/</link>
+    <pubDate>Sat, 01 Jul 2023 08:59:43 &#43;0800</pubDate>
+    <author>Bard</author>
+    <guid>https://www.bardblog.cn/interview/</guid>
+    <description><![CDATA[记录社招面试过程及复盘]]></description>
+</item>
 </channel>
 </rss>

@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Kafka - 标签 - 编程浪子</title>
+        <link>https://www.bardblog.cn/tags/kafka/</link>
+        <description>Kafka - 标签 - 编程浪子</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>cz950601@gmail.com (Bard)</managingEditor>
+            <webMaster>cz950601@gmail.com (Bard)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 01 Jul 2023 08:59:43 &#43;0800</lastBuildDate><atom:link href="https://www.bardblog.cn/tags/kafka/" rel="self" type="application/rss+xml" /><item>
+    <title>面试复盘</title>
+    <link>https://www.bardblog.cn/interview/</link>
+    <pubDate>Sat, 01 Jul 2023 08:59:43 &#43;0800</pubDate>
+    <author>Bard</author>
+    <guid>https://www.bardblog.cn/interview/</guid>
+    <description><![CDATA[记录社招面试过程及复盘]]></description>
+</item>
+</channel>
+</rss>

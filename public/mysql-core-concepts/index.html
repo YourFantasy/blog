@@ -18,7 +18,7 @@
 <meta name="application-name" content="Bard">
 <meta name="apple-mobile-web-app-title" content="Bard"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://www.bardblog.cn/mysql-core-concepts/" /><link rel="prev" href="https://www.bardblog.cn/git-advanced-usage/" /><link rel="next" href="https://www.bardblog.cn/theme-documentation-typeit-shortcode/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://www.bardblog.cn/mysql-core-concepts/" /><link rel="prev" href="https://www.bardblog.cn/interview/" /><link rel="next" href="https://www.bardblog.cn/redis-zset-implemention/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
     {
@@ -34,7 +34,7 @@
                             "url": "https:\/\/www.bardblog.cn\/images\/Apple-Devices-Preview.png",
                             "width":  3200 ,
                             "height":  2048 
-                        }],"genre": "posts","keywords": "MySQL, InnoDB","wordcount":  6249 ,
+                        }],"genre": "posts","keywords": "MySQL, InnoDB","wordcount":  11173 ,
         "url": "https:\/\/www.bardblog.cn\/mysql-core-concepts\/","datePublished": "2023-07-01T08:59:43+08:00","dateModified": "2023-07-01T08:59:43+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": {
@@ -119,8 +119,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">MySQL核心概念</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="www.bardblog.cn" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bard</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/technology/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>technology</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-07-01">2023-07-01</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 6249 字&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 13 分钟&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-07-01">2023-07-01</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 11173 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 23 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>目录</span>
@@ -136,9 +136,17 @@
         <li><a href="#预处理器">预处理器</a></li>
         <li><a href="#优化器">优化器</a></li>
         <li><a href="#执行器">执行器</a></li>
+        <li><a href="#小结">小结</a></li>
       </ul>
     </li>
-    <li><a href="#索引">索引</a></li>
+    <li><a href="#索引">索引</a>
+      <ul>
+        <li><a href="#数据结构划分">数据结构划分</a></li>
+        <li><a href="#物理存储划分">物理存储划分</a></li>
+        <li><a href="#字段特征划分">字段特征划分</a></li>
+        <li><a href="#字段个数划分">字段个数划分</a></li>
+      </ul>
+    </li>
     <li><a href="#三大日志">三大日志</a>
       <ul>
         <li><a href="#undo日志">undo日志</a></li>
@@ -146,11 +154,30 @@
         <li><a href="#bin日志">bin日志</a></li>
       </ul>
     </li>
-    <li><a href="#各种锁">各种锁</a></li>
+    <li><a href="#各种锁">各种锁</a>
+      <ul>
+        <li><a href="#表级锁">表级锁</a></li>
+        <li><a href="#行锁">行锁</a></li>
+        <li><a href="#间隙锁">间隙锁</a></li>
+        <li><a href="#临键锁">临键锁</a></li>
+        <li><a href="#插入意向锁">插入意向锁</a></li>
+        <li><a href="#自增锁">自增锁</a></li>
+      </ul>
+    </li>
     <li><a href="#事务">事务</a>
       <ul>
-        <li><a href="#原子性">原子性</a></li>
-        <li><a href="#持久性">持久性</a></li>
+        <li><a href="#原子性">原子性</a>
+          <ul>
+            <li><a href="#底层实现">底层实现</a></li>
+            <li><a href="#小结-1">小结</a></li>
+          </ul>
+        </li>
+        <li><a href="#持久性">持久性</a>
+          <ul>
+            <li><a href="#底层实现-1">底层实现</a></li>
+            <li><a href="#小结-2">小结</a></li>
+          </ul>
+        </li>
         <li><a href="#隔离性">隔离性</a></li>
         <li><a href="#一致性">一致性</a></li>
       </ul>
@@ -169,7 +196,7 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="o">//</span><span class="w"> </span><span class="err">在</span><span class="n">student</span><span class="err">表中查询一条</span><span class="n">id</span><span class="err">为</span><span class="mi">1</span><span class="err">的记录</span><span class="w">
+<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="o">//</span><span class="w"> </span><span class="err">在</span><span class="n">student表中查询一条id为1的记录</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">id</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
 </div>
@@ -536,17 +563,174 @@
 在实际开发中，一摸一样的SQL语句，在不同时刻执行执行计划可能会不一样，执行计划取决于很多因素，包括索引、表数据量大小等。总而言之MySQL会根据很多条件选择一种相对最优的执行计划减少SQL语句执行成本。</p>
 <h3 id="执行器">执行器</h3>
 <p>经过前面的&quot;前戏&quot;后，终于要进入正题了，正式执行SQL语句了，执行器说白了就是MySQL的Server层和存储引擎层的一个桥梁，执行器并不实际执行SQL语句，而是通过API接口把经过一系列处理后的&quot;SQL语句&quot;丢给存储引擎执行，等待存储引擎返回执行结果，再把执行结果返回给查询缓存以及连接器。</p>
+<h3 id="小结">小结</h3>
+<p>总结一条SQL语句从客户端发起到客户端收到执行结果的过程</p>
+<ul>
+<li>客户端经过连接器和MySQL服务端建立连接，连接器会校验用户名及密码是否正确，以及确定用户的权限，并存储用户的权限在内存中，在本次连接的生命周期中，用户的权限是一致的。</li>
+<li>建立连接之后，请求来到了解析器，解析器主要干两件事：校验SQL语句是否符合语法规范，有语法错误直接报错；提取 SQL语句的关键字、表名、表字段关键信息。</li>
+<li>经过解析器校验语法和提取关键信息后，请求到了预处理器，预处理器主要是确认SQL语句的表名字段名是否存在如果不存在直接报错，以及将 <code>*</code>关键字替换成实际的表字段。</li>
+<li>经过上述检查和处理，就表示这条SQL语句是可执行的，但是在执行之前，服务端需要分析判断索引、当前数据表数据情况优化SQL语句执行，选择一个相对最优的方式去执行。</li>
+<li>执行器收到优化器优化后的SQL语句，将SQL语句丢给存储引擎，然后等待执行结果将结果返回给执行器和查询缓存。</li>
+</ul>
 <h2 id="索引">索引</h2>
+<p>上述详细阐述了一条SQL语句从客户端到执行器丢给存储引擎整个流程，以上都是在MySQL的服务层实现的与存储引擎无关。本节主要介绍InnoDB存储引擎的索引概念和底层实现以及具体应用。
+说到索引，首先要明确一下在MySQL中有哪些索引，根据不同维度划分，有以下几类索引</p>
+<h3 id="数据结构划分">数据结构划分</h3>
+<table>
+<thead>
+<tr>
+<th>索引类型\存储引擎</th>
+<th>InnoDB</th>
+<th>MyISAM</th>
+<th>Memory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>B+Tree</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>HASH</td>
+<td>No,会有自适应hash，存储引擎自动实现，没法指定。</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Full-Text</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<p>InnoDB是MySQL默认的存储引擎，实际业务开发中，也比较推荐使用InnoDB，InnoDB事实上成了默认标准了</p>
+<h3 id="物理存储划分">物理存储划分</h3>
+<h3 id="字段特征划分">字段特征划分</h3>
+<h3 id="字段个数划分">字段个数划分</h3>
 <h2 id="三大日志">三大日志</h2>
 <h3 id="undo日志">undo日志</h3>
+<p>undo日志是innodb引擎实现的一个</p>
 <h3 id="redo日志">redo日志</h3>
 <h3 id="bin日志">bin日志</h3>
+<p>bin日志是mysql服务层实现的用于数据持久化的一种日志</p>
 <h2 id="各种锁">各种锁</h2>
+<h3 id="表级锁">表级锁</h3>
+<h3 id="行锁">行锁</h3>
+<h3 id="间隙锁">间隙锁</h3>
+<h3 id="临键锁">临键锁</h3>
+<h3 id="插入意向锁">插入意向锁</h3>
+<h3 id="自增锁">自增锁</h3>
+<p>自增锁（Auto-Increment Lock）主要用于生成自增主键ID。在InnoDB中，当一张表的主键列设置为自增（AUTO_INCREMENT）时，每次插入新记录时，主键列的值会自动递增。自增锁确保在同一时间只有一个事务能够获取自增列的下一个值，避免在高并发场景下出现主键ID重复的问题。</p>
+<p>当一个事务需要插入一条新记录时，它会请求自增锁，获取自增列的下一个值作为主键ID。在事务完成插入操作并释放自增锁之前，其他试图插入新记录的事务需要等待。这样，自增锁可以确保主键ID的唯一性，避免数据不一致的问题。</p>
 <h2 id="事务">事务</h2>
 <h3 id="原子性">原子性</h3>
+<h4 id="底层实现">底层实现</h4>
+<p>一组操作要么都成功要么都失败，称之为原子性。设想一个场景，我现在有一个多写逻辑，有A、B、C三个步骤，A和B都成功了，C失败了，这个时候需要回滚数据恢复到这个逻辑之前，也就是要撤销A和B，这就要求我们需要知道被A和B修改成功的数据被修改之前的原始数据，然后用这个原始数据回滚，所以需要有一个地方记录被修改之前的原始数据。在Innodb中，这个存储被修改数据在修改之前的数据就是undo日志，也就是说，innodb的事务原子性是通过undo日志实现的。具体过程如下：</p>
+<p><figure><a class="lightgallery" href="/mysql-core-concepts/undo-log.png" title="事务原子性" data-thumbnail="/mysql-core-concepts/undo-log.png" data-sub-html="<h2>Undo日志实现原子性</h2><p>事务原子性</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/mysql-core-concepts/undo-log.png"
+            data-srcset="/mysql-core-concepts/undo-log.png, /mysql-core-concepts/undo-log.png 1.5x, /mysql-core-concepts/undo-log.png 2x"
+            data-sizes="auto"
+            alt="/mysql-core-concepts/undo-log.png" width="2655" height="1101" />
+    </a><figcaption class="image-caption">Undo日志实现原子性</figcaption>
+    </figure></p>
+<ol>
+<li>修改一行或多行数据，会在这个事务的update undo log链表中插入修改之前的数据，使用头插法按照修改的顺序插入数据，这些数据是按照修改的顺序逆序存储的，也就是说，最后修改的数据会被放在链表的最前面。</li>
+<li>插入/删除一行或多行数据，会在这个事务的insert undo log链表中记录被插入/删除数据的主键id，使用头插法按照修改的顺序插入主键ID，这些ID也是按照插入的顺序逆序存储的，也就是说，最后插入的数据的ID会被放在链表的最前面。</li>
+<li>如果事务执行失败或者被回滚，InnoDB会遍历上述日志链表，按照顺序执行回滚操作，以此来撤销事务中的所有修改。</li>
+</ol>
+<h4 id="小结-1">小结</h4>
+<p>innodb借助undo日志实现事务的原子性，具体做法的在每次更新或者插入/删除数据之前先备份一下当前数据到undo日志链表中，当事务回滚的时候就可以遍历执行unlo日志链表达到回滚数据的目的</p>
 <h3 id="持久性">持久性</h3>
+<h4 id="底层实现-1">底层实现</h4>
+<p>持久性要求在数据库发生崩溃（如宕机、拔电源的时候，数据也能够保证不丢失。确保数据库从宕机等状态恢复的时候能够从磁盘中恢复尚未写到binlog的日志。和unro日志记录修改之前的数据不一样，redo日志是记录被修改后的数据，当数据库发生崩溃重启的时候，会根据unlo日志回滚尚未提交成功的事务。然后根据redo日志重放事务。</p>
+<p>假设现在有两个事务，A事务执行到一半，B事务执行完成并提交，系统崩溃宕机，系统重启后，redo日志重放B事务并提交，undo日志回滚A事务。这就是InnoDB如何使用Undo日志和Redo日志来恢复系统状态的。通过这两种日志，InnoDB可以确保在系统崩溃后，所有已提交的事务的修改都不会丢失，所有未提交的事务的修改都可以被撤销，从而保证了数据库的一致性和持久性。</p>
+<p>每次当一个事务进行修改操作时，InnoDB会生成相应的Redo日志，这个Redo日志有一个LSN，这是一个递增的数字，用来标识每个Redo日志的唯一性。同时，每个数据页在内存中也有一个LSN，表示这个数据页到哪个点被修改过。当这个Redo日志被应用到数据页时，也就是数据页被修改时，数据页的LSN会被更新为这个Redo日志的LSN。这样，数据页的LSN就表示了这个数据页被修改的最后一次操作。在重放过程中，InnoDB会比较Redo日志的LSN和数据页的LSN，只有当Redo日志的LSN大于数据页的LSN时，才会重放这个日志，也就是说，只有当Redo日志中的修改还没有被应用到数据页时，才会重放这个日志，所以在回放的时候并不是无脑回放所有的redo日志，而是会判断lsn丢弃掉已经持久化数据到数据页的redo日志，避免数据重复写入到数据页。mysql使用两阶段提交保证redo log和bin log的一致性，简单来说才数据写入bin log的时候会先写redo 日志，此时redo日志的状态为prepare，写redo日志成功后继续写bin log，bin log写成功后最后再把redo log的状态从prepare 改为commit。<code>两阶段提交的目的是为了保证主库和从库数据的一致性</code>，在事务崩溃的时候借助redo日志，可以恢复本机的数据页的数据，但是主从同步是借助bin log完成的，如果没有两阶段提交，可能会导致主库和从库的数据不一致。</p>
+<p><figure><a class="lightgallery" href="/mysql-core-concepts/two-phase-commit.png" title="事务持久性" data-thumbnail="/mysql-core-concepts/two-phase-commit.png" data-sub-html="<h2>两阶段提交保证binlog数据和本机数据一致性</h2><p>事务持久性</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/mysql-core-concepts/two-phase-commit.png"
+            data-srcset="/mysql-core-concepts/two-phase-commit.png, /mysql-core-concepts/two-phase-commit.png 1.5x, /mysql-core-concepts/two-phase-commit.png 2x"
+            data-sizes="auto"
+            alt="/mysql-core-concepts/two-phase-commit.png" width="5245" height="2505" />
+    </a><figcaption class="image-caption">两阶段提交保证binlog数据和本机数据一致性</figcaption>
+    </figure></p>
+<h4 id="小结-2">小结</h4>
+<p>持久性依赖于undo和redo日志，每次事务提交的时候就会把redo日志落盘，当系统崩溃恢复的时候，会进入redo阶段回放日志，redo阶段的目的是为了<code>将成功提交但还没持久化到数据页的那部分事务进行回放恢复</code>；redo回放完成后进入到undo阶段，undo阶段的目的是将<code>因系统崩溃导致未提交的事务的数据进行回滚避免脏数据</code>。在redo阶段和undo阶段期间会阻塞所有写请求直到重放和恢复完成，这是为了确保数据库在恢复过程中保持一致性，避免在恢复过程中产生新的错误或不一致；而对于读请求则视事务的隔离级别以及数据库系统的配置而定。</p>
 <h3 id="隔离性">隔离性</h3>
+<p>在mysql中有四种隔离级别，按照隔离程度分别是<code>读未提交</code>、<code>读已提交</code>、<code>可重复读</code>、<code>串行化</code>。所谓隔离性指的是多事务之间是隔离的，互相不干扰，抛开事务来看，我们日常写业务代码的时候，涉及到对多个线程共享的数据进行读写的时候，为了保证数据的安全性，一般会对共享数据进行加锁，其实这个“加锁”就是mysql中的最高隔离级别<code>串行化</code>。在mysql中为了兼顾性能和数据一致性，提供了不同的隔离级别，业务可以根据自己实际使用情况选用不同的隔离级别。</p>
+<ul>
+<li><em><strong>读未提交</strong></em></li>
+</ul>
+<p>最低的一种隔离级别，在事务中读到的数据永远是当前数据库最新的数据，在一个事务执行过程中，如果有其它事务对该事务读取的数据进行修改，可以读到其它事务修改但还未提交的数据。可以把它类比于多线程对共享数据进行读写，但不做任何并发保护，可能会导致读到很奇怪的数据，甚至读到修改一半的数据。读未提交因为是最低的隔离级别，性能自然也是最好的，因为不需要任何手段保护数据，但是数据一致性也是最差的。读未提交可能会导致<code>脏读</code>(读到其它事务更新但又回滚的数据)、<code>不可重复读</code>（多次读同一条数据结果不一样）<code>幻读</code>（多次读同一个范围内的数据返回的结果少了或者多了数据）。<code>读未提交</code>适用于对性能要求比较高，但是对于数据一致性要求稍弱的场景，比如<code>实时数据分析</code>、<code>缓存预热</code>、<code>非关键业务数据查询</code></p>
+<ul>
+<li><em><strong>读已提交</strong></em></li>
+</ul>
+<p>可以读到其它事务提交的数据，底层使用mvcc+redo实现，每次查询的时候都会开启一个快照，获取当前还没提交的事务ID列表，下一个事务ID是上述列表中最大事务ID+1，判断读到的数据的的事务ID是否在这个还未提交的事务ID列表中以及是否是下一个事务ID，如果不在的话，就认为数据是可信的，直接返回，否则的话会沿着回滚链表指针向后遍历直到找到可信的数据。因为每次查询都会开启一个快照，所以如果第一次快照里面的某些事务在第二次开启快照的时候提交了，第二次开启快照的时候未提交事务ID列表就没有第一次和第二次快照这个时间区间内的事务（因为已经提交了），所以会读到本事务执行期间其它已经成功提交的事务的数据，所以会造成不可重复读。在读已提交这个隔离级别，只有行锁和表锁起作用。</p>
+<ul>
+<li><em><strong>可重复读</strong></em></li>
+</ul>
+<p>实现和读已提交类似，区别在于rr隔离级别会在事务启动的时候开启一个全局快照，而不是像读已提交每次都会开启一个快照，也就是说rr级别下，整个事务周期中其它未提交事务ID列表和下一个事务ID是保持不变的，这样的好处在于其它事务提交的数据跟我无关，在快照读的情况下可以避免<code>不可重复读</code>和<code>幻读</code>的问题。但是需要注意的是，对于当前读（如 select .. for update /update /delete等语句）会读到当前的最新数据，对于当前读，rr会使用next-key lock+行锁来尽量保证避免出现幻读的问题，但是不能百分之百保证幻读，典型的如下两个例子。⚠️：幻读在rr隔离级别下只会出现在当前读这个场景，对于普通读是没有影响的。</p>
+<p><code>case1</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="n">begin</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="k">user</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">id</span><span class="o">=</span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="c1"># user表中不存在id=2这条数据，读出来是空
+</span></span></span><span class="line"><span class="cl"><span class="c1">#....在这个区间内另一个事务执行 insert into user (id,name) values(2,&#34;lisi&#34;)并成功提交
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">update</span><span class="w"> </span><span class="k">user</span><span class="w"> </span><span class="kt">set</span><span class="w"> </span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;zhangsan&#39;</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">id</span><span class="o">=</span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="c1"># 因为此时user表中有id=2这条数据，update会当前读，所以这条数据成功更新了
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">select</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="k">user</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">id</span><span class="o">=</span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="c1"># user表中存在id=2这条数据，并且是由本事务更新的，所以读出来这条数据是 `zhangsan`
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">commit</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1"># 在以上事务执行过程中，出现一模一样的sql执行语句两次执行结果不一样，出现了幻读，由于update是当前读会更新表中的数据，第二次读的时候发现表中隐藏列的指针代表的版本是本事务修改的，所以认为数据是可信的，返回结果。
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>case2</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="n">begin</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="k">user</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">id</span><span class="o">&gt;</span><span class="mi">3</span><span class="p">;</span><span class="w"> </span><span class="c1"># 此时有表中有三条数据 id 分别为4、5、6
+</span></span></span><span class="line"><span class="cl"><span class="c1">#....在这个区间内另一个事务执行 insert into user (id,name) values(7,&#34;lisi&#34;)并成功提交
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="k">user</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">id</span><span class="o">&gt;</span><span class="mi">3</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="k">update</span><span class="p">;</span><span class="w"> </span><span class="c1"># 因为for update 是当前读，并且由于第一次读是快照读不回上写锁，所以本次读会读出四条数据，id 分别为 4、5、6、7
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">commit</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1"># 两次读的数据不一样，出现了幻读，原因在于第一个select语句是快照读只会加读锁不回加写锁，也就是说阻止不了其他事务插入删除或者更新数据，而刚好第二次读是当前读，读到的最新的数据，导致了两次读取数据不一样。但是如果把两个语句换个顺序就不会出现幻读的问题了，因为for update会加next-key lock(gap 锁+行锁)，会锁住数据其他事务在本事务提交之前是不能进行增、删、改的操作
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">begin</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="k">user</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">id</span><span class="o">&gt;</span><span class="mi">3</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="k">update</span><span class="p">;</span><span class="w"> </span><span class="c1"># 此时有表中有三条数据 id 分别为4、5、6，会加间隙锁[4,+∞),直到本事务提交才释放
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="k">user</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">id</span><span class="o">&gt;</span><span class="mi">3</span><span class="p">;</span><span class="w"> </span><span class="c1"># 因为第一次select加锁了，所以本次读出来的数据和第一次一样，不会出现幻读。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">commit</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li><em><strong>串行化</strong></em></li>
+</ul>
+<p>最高的一种隔离级别，类似于加读写锁，同一时刻只有一个事务在执行，类似于单线程的方式。这种隔离级别下不回出现以上三种隔离级别的问题，但是性能也是最差的。一般用在对于数据一致性要求极高的场景，如银行、金融等领域。</p>
 <h3 id="一致性">一致性</h3>
+<p>上述疏导的原子性、隔离性、持久性，都是手段，一致性才是目的，换句话说mysq实现了原子性、持久性、隔离性保证数据的一致性。</p>
 <h2 id="数据结构">数据结构</h2>
 <h2 id="内存">内存</h2></div><div class="post-footer" id="post-footer">
     <div class="post-info">
@@ -571,14 +755,14 @@
         </section>
     </div>
 
-    <div class="post-nav"><a href="/git-advanced-usage/" class="prev" rel="prev" title="Git高级用法"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Git高级用法</a>
-            <a href="/theme-documentation-typeit-shortcode/" class="next" rel="next" title="主题文档 - typeit Shortcode">主题文档 - typeit Shortcode<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+    <div class="post-nav"><a href="/interview/" class="prev" rel="prev" title="面试复盘"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>面试复盘</a>
+            <a href="/redis-zset-implemention/" class="next" rel="next" title="zset分析与实现">zset分析与实现<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 <div id="comments"><div id="gitalk" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://github.com/gitalk/gitalk"></a>Gitalk</a>.
             </noscript></div></article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.115.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.118.2">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
                 </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://www.bardblog.cn" target="_blank">Bard</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>
