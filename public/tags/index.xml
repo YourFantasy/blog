@@ -29,7 +29,7 @@
     <description><![CDATA[]]></description>
 </item>
 <item>
-    <title>Redis</title>
+    <title>redis</title>
     <link>https://www.bardblog.cn/tags/redis/</link>
     <pubDate>Thu, 06 Jul 2023 12:49:02 &#43;0800</pubDate>
     <author>Bard</author>
@@ -50,14 +50,6 @@
     <pubDate>Sat, 01 Jul 2023 08:59:43 &#43;0800</pubDate>
     <author>Bard</author>
     <guid>https://www.bardblog.cn/tags/innodb/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>Kafka</title>
-    <link>https://www.bardblog.cn/tags/kafka/</link>
-    <pubDate>Sat, 01 Jul 2023 08:59:43 &#43;0800</pubDate>
-    <author>Bard</author>
-    <guid>https://www.bardblog.cn/tags/kafka/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
@@ -82,6 +74,14 @@
     <pubDate>Tue, 27 Jun 2023 00:01:52 &#43;0800</pubDate>
     <author>Bard</author>
     <guid>https://www.bardblog.cn/tags/linux/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>bfs</title>
+    <link>https://www.bardblog.cn/tags/bfs/</link>
+    <pubDate>Sat, 24 Jun 2023 12:57:40 &#43;0800</pubDate>
+    <author>Bard</author>
+    <guid>https://www.bardblog.cn/tags/bfs/</guid>
     <description><![CDATA[]]></description>
 </item>
 </channel>

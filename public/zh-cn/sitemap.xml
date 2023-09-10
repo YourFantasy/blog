@@ -215,8 +215,6 @@
                     hreflang="zh-cn"
                     href="https://www.bardblog.cn/tags/innodb/"
                     /></url><url>
-            <loc>https://www.bardblog.cn/categories/interview/</loc><lastmod>2023-07-01T08:59:43&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://www.bardblog.cn/tags/kafka/</loc><lastmod>2023-07-01T08:59:43&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://www.bardblog.cn/tags/mysql/</loc><lastmod>2023-07-01T08:59:43&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
@@ -234,15 +232,6 @@
                     rel="alternate"
                     hreflang="zh-cn"
                     href="https://www.bardblog.cn/mysql-core-concepts/"
-                    /></url><url>
-            <loc>https://www.bardblog.cn/interview/</loc><lastmod>2023-07-01T08:59:43&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
-                        rel="alternate"
-                        hreflang="en"
-                        href="https://www.bardblog.cn/en/interview/"
-                        /><xhtml:link
-                    rel="alternate"
-                    hreflang="zh-cn"
-                    href="https://www.bardblog.cn/interview/"
                     /></url><url>
             <loc>https://www.bardblog.cn/tags/git/</loc><lastmod>2023-06-27T00:01:52&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"

@@ -3,7 +3,7 @@ title: "面试复盘"
 subtitle: ""
 date: 2023-07-01T08:59:43+08:00
 lastmod: 2023-07-01T08:59:43+08:00
-draft: false
+draft: true
 author: "Bard"
 authorLink: "www.bardblog.cn"
 description: "记录社招面试过程及复盘"
@@ -40,10 +40,10 @@ share:
 comment:
   enable: true
   # ...
+
 ---
 
 <!--more-->
-
 # 项目总结
 
 ## 底层存储设计
@@ -60,19 +60,23 @@ comment:
 #### redis底层设计
 
 - 首先介绍一下业务背景，几个核心的关系链场景基本概念，解释为啥要使用redis作为db使用，然后解释说明为啥要用redis的hash这种数据结构，排除法来选择。以频道下的人这个关系链存储来展开，再引申到key和热 key 问题怎么解决？
-- 以频道ID作为key，filed是成员id，filed对应的value是成员基本信息，入昵称、角色等业务信息，是pb序列化后的结果。
+- 以频道ID作为key，filed是成员id，filed对应的value是成员基本信息，昵称、角色等业务信息，是pb序列化后的结果。
 - 频道初始化的时候有两个hash结构的key，一个称之为member，一个称之为info，member很大，info很小，存储频道业务和元数据路由信息。每个member表分配beginIndex,endIndex。
 - 拆表/合并策略：类似于二叉树的结点分裂，每次一分为二，计算qq号的hash值，分配到左区间还是右区间，并更新路由信息，大概耗时90多ms；如果发现某个子表的数量很小，尝试和它的另一半合并，并更新路由信息，大概耗时40ms。
 - 版本号控制，全局有一个版本号，每个子表也有一个版本号；控制当前的版本，版本号是递增的，初始化的时候是0，每次数据更新或者分裂都会更新版本号。
-- 支持多租户，上述只是以频道下这个人作为例子，实际上我们的这套存储设计抽象是跟业务无关的，抽象，支持多租户0成本接入。
+- 支持多租户，上述只是以频道下这个人作为例子，实际上我们的这套存储设计抽象是跟业务无关的，安全、抽象，支持多租户0成本接入。划分号段，实现水平扩展能力。
+
+Gt member 目前是4GB*32分片6副本，目前redis实例的均值qps是60w左右，平均一个分片是60w/32/6=3000qps，分片峰值qps是7k，单key是1.2MB大小
+
+单分片负载最高的是20%左右
 
 #### 在redis之上构建的本地缓存
 
 - 缓存子表，没台机器存储全量大频道数据，目前占用8G左右，三大策略保证一致性；
 
-  ```shell
-  1.广播更新（内网，增量）；2后台定时轮询子表版本号，版本号落后，更新数据（全量）；3；缓存命中抽样上报，低于阈值触发熔断（降级熔断）。
-  ```
+    ```shell
+    1.广播更新（内网，增量）；2后台定时轮询子表版本号，版本号落后，更新数据（全量）；3；缓存命中抽样上报，低于阈值触发熔断（降级熔断）。
+    ```
 
 - 排队合并写入，对于加频道/退频道请求，会本地排队聚合写入，减少广播次数。请求合并.
 
@@ -88,9 +92,9 @@ comment:
 
 ### 优化
 
-- 优化人的子频道这个存储，将反向关系链做准，以反向关系链鉴权人在不在频道，热点问题变成散列问题。
+- 优化人的频道这个存储，将反向关系链做准，以反向关系链鉴权人在不在频道，热点问题变成散列问题。
 - 存储模型优化：历史原因导致，鉴权模型私密子频道+身份组+私密子频道下的人+身份组下的人，干掉私密子频道下的人，把私密子频道也理解为一个隐藏身份组，梳理上下游服务，读写改造灰度、历史数据迁移，发布节奏控制，风险把控
-- 基于关系链存储构建二级cache缓存：梳理业务，细化人和子频道纬度，哪些地方写会影响缓存，子频道-身份组（本地）和人-身份组（redis）纬度的缓存。细化写逻辑。热点问题变成散列问题
+- 基于关系链存储构建二级cache缓存：梳理业务，细化人和子频道纬度，哪些地方写会影响缓存，子频道-身份组（本地）和人-身份组（redis）纬度的缓存。细化写逻辑。热点问题变成散列问题，鉴权读缓存和本地比较不一致则鉴权扩散。减少无效鉴权，精细化控制。用户纬度的子频道seq和全局的子频道纬度seq作对比。所有可能影响的地方入口写。人/子频道鉴权.seq内容是权限位。构建二级缓存。
 
 ## 事件中心拉平
 
@@ -99,6 +103,10 @@ comment:
 王者荣耀等超大频道运营活动导致一下子感知到很多人，推送信令触发拉取操作，千人千面对后台关系链产生较大压力。
 
 ### 优化
+
+### 限流
+
+减少事件的数量，在写服务入口处限制写的频率，使用令牌桶算法，进而减少事件的数量，缓解消息积压。，事件推送采用漏桶算法平滑推送
 
 #### 削峰拉平
 
@@ -126,7 +134,7 @@ member:事件的内容序列化后的内容
 
 ```
 
-- 每300ms从taskKey取任务，再从eventKeys中取任务，根据事件类型进行合并分包写到一个下游kafka，5000个人一个包。每次执行完任务后更新last_consumer_score
+- 每300ms从taskKey取任务，再从eventKeys中取任务，根据事件类型进行合并分包写到一个下游kafka，5000个人一个包。每次执行完任务后更新last_consumer_score和并从task中删除和zset中移除
 - 兜底逻辑：考虑到服务宕机等问题，可能某台机器写到taskKey的任务没来得及消费，这个时候需要另外一个线程执行兜底逻辑消费未被消费的任务，会使用分布式锁上锁，防止多台机器重复消费。
 - 下游服务消费写入的kafka执行推送任务，复用大群通道推送，限流控速。
 
@@ -138,12 +146,21 @@ member:事件的内容序列化后的内容
 
 ### 背景
 
-底层id转换服务，请求量大上游多，数据量key超多，对服务稳定性以及耗时有严苛要求。
+底层id转换服务，请求量大上游多，数据量key超多，对服务稳定性以及耗时有严苛要求。设计一个缓存的要点
+
+- 设置缓存占用大小，防止无限制增长导致oom
+- 分片策略，减少锁粒度
+- 合适的hash算法，减少hash碰撞。
+- singleflight策略，减少缓存击穿
+- 缓存淘汰策略，缓存过期时间。
+- 数据结构高效，时间复杂度和空间复杂度的平衡。
+- 打点监控，缓存击穿率，缓存命中率监控告警。
+- 缓存持久化，缓存预热。
 
 ### 现状
 
 - 单机缓存构建耗时过长，10分钟后机器才能提供服务，且随着id数增长，耗时会越来越大。
-- bigcache占用空间过大（bigcache空间占用由map+对象序列化后内存消耗组成），线上30GB内存最多存储2亿数据。
+- bigcache占用空间过大，存在瓶颈（bigcache空间占用由map+对象序列化后内存消耗组成），线上30GB内存最多存储2亿数据。
 - 服务中大量使用int转string、pb打解包等方法，以及不合理的打点，影响整体性能。
 
 ### 优化
@@ -158,6 +175,7 @@ member:事件的内容序列化后的内容
   5.使用插入排序的方式更新数据，基本有序数据插入排序时间复杂度很快;触发容量上限会删除最老的数据，没有触发的话会按照步长扩容。
   6.使用cos作为持久化数据（加密+压缩，压缩率60%）每天随机一台机器定时dump一次数据到56个cos小文件，每个文件都有hash校验和。
   7.服务启动并发拉取cos数据还原加载本地内存数据，根据hash校验和剔除掉有问题文件，4s内恢复。
+  8.读到新数据广播兄弟结点更新，最大程度保证各个机器数据完备性。
   ```
 
 ## 大群通道
@@ -189,7 +207,7 @@ cach3:	key:uin:value:map[guild_id][sub_id]  //人在每个频道所属的子表�
 - 设计不合理代码性能优化，重构，池化技术、缓存、请求合并。
 - 推动上游服务请求合并&增加缓存，优化性能节省机器资源。
 
-## 其它
+## 海量服务总结
 
 - 架构合理：底层存储选型是否合理，数据结构/表设计是否合理，数据/扩散比模型推演,分库分表，存储拆分。
 - 横向/纵向扩容：系统具有较好的扩展能力，留足buffer，自动扩缩容，减少人工介入。
@@ -197,7 +215,7 @@ cach3:	key:uin:value:map[guild_id][sub_id]  //人在每个频道所属的子表�
 - gc调优；gc压力过大，需要分析优化，减少内存碎片，减少gc频率，减少gc次数。
 - 锁优化，减少锁粒度，分片锁而不是全局锁，读写锁而不是互斥锁，乐观锁而不是悲观锁。
 - 缓存：缓存预热，饿加载方式，同时尽量保证缓存一致性保，多级缓存。
-- 全链路监控告警：包括pass、拨测、服务指标、打点监控等全链路无死角告警。监控要求全面且准确，并且针对告警有应对预案。
+- 全链路监控告警：包括pass、拨测、服务指标、耗时波动、请求量波动、打点监控等全链路无死角告警。监控要求全面且准确，并且针对告警有应对预案。告警包括单机和大盘的指标。
 - 并发/异步：代码层面能够并发的并发，能够异步的异步，使用mq等方式解耦。
 - 链路优化/精简，微服务架构优化，轻量级接口，减少无效请求和调用，请求聚合，减少重复请求。
 - 限流/降级策略，非核心场景降级开关，避免阻塞主流程，保证主场景可用。
@@ -208,6 +226,15 @@ cach3:	key:uin:value:map[guild_id][sub_id]  //人在每个频道所属的子表�
 - 容灾：同地多机房，异地部署，防止全死全活。
 - 服务接口数据自修复能力，系统健壮性。数据压缩，cpu和io权衡。
 - 降低系统耦合度，接口单一职责，接口拆分。避免大而全接口，微服务改造。
+
+## 方法论
+
+- 做任何事之前先想再做，在做的过程中继续想，要主动思考，发现问题，不要做一个被动的执行者，磨刀不误砍柴工，谋定而后动。
+- 想到了一个方案或者解法不要冲动马上去做，而是要多讨论，集思广益，有没有其他的方法，更好的方法？虽然最后只会选用一个方法去做，但这个思考的过程对自己来说是个很好的沉淀，在未来的某一天可能就用上了。
+- 做任何事之前都需要评估下风险、成本，列出一个roadmap，各个阶段的风险点是什么，涉及到的上下游，是否知会到了，拒绝不可控，遍历潜在的风险，根据墨菲定律，可能出问题的地方一定会出问题，不要放过每一个细节。
+- 事有轻重缓急缓解，四象限法则，紧急重要的事一定要最高优先级去做，不紧急不重要的事情绝对不去做，第一象限和第四象限占少数，生活中大多数事第二三象限的事，一般来说主要精力放在紧急不重要的事情上，久久为功，不要让重要的事变成紧急的事。
+- 学会合理的申请和协调资源，包括但不限于人力资源、时间资源等，要做成一件事，一个人是不行的，需要很多资源的支持，给资源才能做成事，协调各方资源，定一个计划表，只有一个okr把事情做成。
+- 主人翁意识，多思考，多总结，推动上下游去做事，积极主动。多记录总结，每件事做完之后总结复盘一下得与失，成长与思考。
 
 
 # 面试复盘
@@ -1043,7 +1070,6 @@ func findTarget(matrix [][]int, target int) bool {
   >redis.call('EXPIRE', key, 2 * capacity / rate)
   >
   >return allowed		
-  >```
 
 **全排列：**
 
@@ -1176,17 +1202,17 @@ func (q *queue) isEmpty() bool {
 >      -- 锁不存在，尝试获取锁
 >      redis.call('HSET', key, requestId, 1)
 >      redis.call('PEXPIRE', key, expireTime)
->      return 1, expireTime -- initialize
+>      return {1, expireTime} -- initialize
 >  else
 >      -- 锁存在，检查是否是同一个请求ID
 >      if redis.call('HEXISTS', key, requestId) == 1 then
 >          -- 是同一个请求ID，增加计数
 >          redis.call('HINCRBY', key, requestId, 1)
 >          redis.call('PEXPIRE', key, expireTime)
->          return 0, redis.call('PTTL', key) -- success
+>          return {0, redis.call('PTTL', key)} -- success
 >      else
 >          -- 不是同一个请求ID，获取锁失败
->          return -1, redis.call('PTTL', key) -- failed
+>          return {-1, redis.call('PTTL', key)} -- failed
 >      end
 >  end
 > end
@@ -1203,7 +1229,7 @@ func (q *queue) isEmpty() bool {
 > local function TryUnLock(key, requestId, expireTime)
 >  if redis.call('EXISTS', key) == 0 then
 >      -- 锁不存在，释放锁成功
->      return 0, 0 -- success
+>      return {0, 0} -- success
 >  else
 >      -- 锁存在，检查是否是同一个请求ID
 >      if redis.call('HEXISTS', key, requestId) == 1 then
@@ -1211,17 +1237,17 @@ func (q *queue) isEmpty() bool {
 >          if tonumber(cnt) == 1 then
 >              -- 计数为1，删除锁
 >              redis.call('HDEL', key, requestId)
->              return 0, 0 -- success
+>              return {0, 0} -- success
 >          else
 >              -- 是同一个请求ID，减少计数
 >              redis.call('HINCRBY', key, requestId, -1)
 >              -- 给锁续期
 >              redis.call('PEXPIRE', key, expireTime)
->              return -1, redis.call('PTTL', key) -- failed
+>              return {0, redis.call('PTTL', key)} -- success
 >          end
 >      else
 >          -- 不是同一个请求ID，释放锁失败
->          return -1, redis.call('PTTL', key) -- failed
+>          return {-1, redis.call('PTTL', key)} -- failed
 >      end
 >  end
 > end
@@ -1292,9 +1318,8 @@ func (q *queue) isEmpty() bool {
   > - 如果当前事务是第一个修改数据行的事务，还需要将数据行的DB_TRX_ID更新为当前事务的ID。
   >
   > 通过上述机制，InnoDB实现了MVCC，支持多个事务并发访问数据，同时保证了事务隔离性。需要注意的是，InnoDB的MVCC实现与事务隔离级别有关。在不同的隔离级别下，Read View的创建时机和数据行可见性判断规则可能会有所不同。
-
+  
 - 快照读和当前读
-
 > InnoDB通过在每个数据行中添加额外的系统列（如DB_TRX_ID和DB_ROLL_PTR）来维护数据的多个版本。
 >
 > 1. 快照读（Snapshot Read）：
@@ -1443,6 +1468,7 @@ func palindromeSubString(str string) string{
 > return a
 > }
 > ```
+>
 
 ### 20230801 小红书二面（过）
 
@@ -1962,7 +1988,6 @@ func isLetter(b byte) bool {
 ## 字节跳动
 
 ### 20230821 字节跳动一面（挂）
-
 - 聊项目，扣细节，底层关系链怎么设计，消息怎么分发。
 - 一个好的系统应该是怎么样的？
 - 设计一个cache，带过期时间自动淘汰并且当数据满了的时候会使用lru算法淘汰内存
@@ -2113,12 +2138,11 @@ func isLetter(b byte) bool {
 >
 > 
 
-## 百度
+## 百度（offer)
 
-### 20230824 百度一面
+### 20230824 百度一面（过）
 
 - 聊项目，抠细节，30分钟
-
 - mysql的索引、事务
 
 - 微服务治理手段，方法
@@ -2147,4 +2171,177 @@ func isLetter(b byte) bool {
   }
   ```
 
-  
+### 20230830 百度二面（过）
+
+  - id 转换服务，为啥用slice而不是用map
+  - 如果短时间内有大量服务进来，缓存穿透，该怎么处理？提前预热，降级丢弃，步隆过滤器，流量探测异常熔断，合并排队。
+  - 消息通道是怎么做的？消息分级，消息精简。
+
+### 20230906 百度三面（过）
+
+- 最优挑战性的一个技术优化
+- 和客户端合作的一个技术优化，最后优化的成果是什么样的？对于百度ai的看法
+- 自己最大的优点是什么，自己最大的不足是什么？
+
+## 高德
+
+### 20230829 高德一面（挂）
+
+- mysql的索引，索引优化，哪些字段不适合建立索引？
+- mysql支持事务消息吗？怎么做的？
+- redis的ziplist，怎么实现的？
+- kafka消息积压怎么处理？增大分区数、增大消费者数量、降级处理，丢弃消息，并发消费。kafka的一些常见概念
+- kafka为啥快，mysql分表问题，如果以name分表，但是以address为查询条件，该怎么做？全局索引，mysql的全局索引
+- 合并两个有序单链表
+
+## 字节跳动
+
+### 20230831 字节跳动一面（挂）
+
+- kafka的八股文，怎么保证数据不丢、怎么保证解决消息积压问题。
+- kafka的realance，kafka的高性能，高吞吐量。
+- 分表的策略怎么实现，如何解决数据一致性。
+- redis实现分布式可重入锁怎么实现？
+- 有序数组和为某个target的对数？
+
+## 快手
+
+### 20230831 快手一面（过）
+
+- mysql的事务、索引等，具体例子分析索引使用情况。
+- mysql的间隙锁，怎么做的？间隙锁能解解决幻读吗？
+- 线上事故排查，cpu飙高怎么处理，解决方案和思路。
+- 怎么解决大key和热key问题？分库分表，构建缓存？缓存一致性
+- 二分查找
+
+### 20230904 快手二面（过）
+
+- 项目，怎么解决大key和热key问题
+- 10亿个map<uint64,uint64>键值对，不考虑内存空洞占用多少空间，考虑内存空洞呢？如果考虑内存空洞呢？量级是怎么样的？
+- lru算法
+
+### 20230908 快手三面
+
+- 直播场景怎么实现高并发推送消息
+- im怎么实现的，如何应对策略。
+- 给定一个固定长度的数组，实现一个环形队列，并且实现add,pop两个方法。
+
+```go
+type queue struct{
+    b int
+    e int
+    currentSize int
+    nums []int
+}
+const invalid=-1
+func (q *queue) pop() int{
+    if q.currentSize==0{
+        return  invalid
+    }
+    res:=q.nums[q.b]
+    q.b=(q.b+1)%len(q.nums)
+    q.currentSize-=1
+    return res
+}
+
+// 1 2 3 4 5
+// 0 2 3 4 5
+// 6 2 3 4 5
+func (q *queue) add(num int) int{
+    if q.currentSize>=len(q.nums){
+        return invalid
+    }
+    q.e=(q.e+1)%len(q.nums)
+    q.nums[q.e]=num
+    q.currentSize+=1
+    return num
+}
+
+func New(capacity int) queue{
+    return queue{
+        nums:make([]int,capacity),
+        b:0,
+        e:-1,
+    }
+}
+```
+
+
+
+
+
+## 滴滴（offer)
+
+### 20230902 滴滴一面（过）
+
+- 聊项目，分裂怎么分裂的，合并怎么合并的？
+- kafka如何保证分区数据有序的？
+- mysql事务的索引、事务。
+- 重排链表，1 2 3 4 5 6 7 -> 1 7 2 6 3 5 4
+
+```go
+func resortListNode(head *ListNode) *ListNode {
+	h := reverse(findMedium(head))
+	t := head
+	for h != nil && head != nil {
+		next1, next2 := head.Next, h.Next
+		h.Next = head.Next
+		head.Next = h
+		head = next1
+		h = next2
+	}
+	return t
+}
+
+type ListNode struct {
+	Val  int
+	Next *ListNode
+}
+
+// 1 2 3 4 5 6 7
+func buildListNode(nums []int) *ListNode {
+	h := &ListNode{}
+	p := h
+	for i := 0; i < len(nums); i++ {
+		node := &ListNode{Val: nums[i]}
+		h.Next = node
+		h = h.Next
+	}
+	return p.Next
+}
+
+func reverse(head *ListNode) *ListNode {
+	var p *ListNode
+	for head != nil {
+		next := head.Next
+		head.Next = p
+		p = head
+		head = next
+	}
+	return p
+}
+
+// 1 2 3 4 5 6 7
+// 1 2 3 4
+// 5 6 7
+func findMedium(head *ListNode) *ListNode {
+	h := head
+	for head != nil && head.Next != nil {
+		h = h.Next
+		head = head.Next.Next
+	}
+	res := h.Next
+	h.Next = nil
+	return res
+}
+```
+
+
+
+### 20230902 滴滴二面（过）
+
+- 聊项目，怎么解决大key和热key的
+- 如果发消息某台机器挂了怎么办岂不是消息丢失了？
+- webSocket阻塞式和非阻塞式
+- tcp的滑动窗口是干嘛的，有什么用？
+- 对于未来职业规划

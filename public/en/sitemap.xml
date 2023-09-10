@@ -155,15 +155,7 @@
                     hreflang="en"
                     href="https://www.bardblog.cn/en/categories/"
                     /></url><url>
-            <loc>https://www.bardblog.cn/en/interview/</loc><lastmod>2023-07-01T08:59:43&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
-                        rel="alternate"
-                        hreflang="zh-cn"
-                        href="https://www.bardblog.cn/interview/"
-                        /><xhtml:link
-                    rel="alternate"
-                    hreflang="en"
-                    href="https://www.bardblog.cn/en/interview/"
-                    /></url><url>
+            <loc>https://www.bardblog.cn/en/interview/</loc><lastmod>2023-07-01T08:59:43&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://www.bardblog.cn/en/mysql-core-concepts/</loc><lastmod>2023-07-01T08:59:43&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
