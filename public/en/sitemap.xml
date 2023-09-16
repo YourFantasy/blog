@@ -371,4 +371,22 @@
                     rel="alternate"
                     hreflang="en"
                     href="https://www.bardblog.cn/en/tags/emoji/"
+                    /></url><url>
+            <loc>https://www.bardblog.cn/en/algorithm-cache-obsolescence/</loc><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://www.bardblog.cn/algorithm-cache-obsolescence/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://www.bardblog.cn/en/algorithm-cache-obsolescence/"
+                    /></url><url>
+            <loc>https://www.bardblog.cn/en/reactor-pattern/</loc><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://www.bardblog.cn/reactor-pattern/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://www.bardblog.cn/en/reactor-pattern/"
                     /></url></urlset>

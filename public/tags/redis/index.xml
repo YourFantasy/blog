@@ -1,10 +1,18 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>redis - 标签 - 编程浪子</title>
+        <title>Redis - 标签 - 编程浪子</title>
         <link>https://www.bardblog.cn/tags/redis/</link>
-        <description>redis - 标签 - 编程浪子</description>
+        <description>Redis - 标签 - 编程浪子</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>cz950601@gmail.com (Bard)</managingEditor>
-            <webMaster>cz950601@gmail.com (Bard)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 06 Jul 2023 12:49:02 &#43;0800</lastBuildDate><atom:link href="https://www.bardblog.cn/tags/redis/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>cz950601@gmail.com (Bard)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 16 Sep 2023 08:59:43 &#43;0800</lastBuildDate><atom:link href="https://www.bardblog.cn/tags/redis/" rel="self" type="application/rss+xml" /><item>
+    <title>LFU和LRU缓存淘汰算法</title>
+    <link>https://www.bardblog.cn/algorithm-cache-obsolescence/</link>
+    <pubDate>Sat, 16 Sep 2023 08:59:43 &#43;0800</pubDate>
+    <author>Bard</author>
+    <guid>https://www.bardblog.cn/algorithm-cache-obsolescence/</guid>
+    <description><![CDATA[缓存淘汰算法LRU和LFU及其实现]]></description>
+</item>
+<item>
     <title>zset分析与实现</title>
     <link>https://www.bardblog.cn/redis-zset-implemention/</link>
     <pubDate>Thu, 06 Jul 2023 12:49:02 &#43;0800</pubDate>
@@ -76,6 +84,14 @@
 <h2 id="代码实现">代码实现</h2>
 <h2 id="实际应用">实际应用</h2>
 ]]></description>
+</item>
+<item>
+    <title>Reactor模式</title>
+    <link>https://www.bardblog.cn/reactor-pattern/</link>
+    <pubDate>Sat, 01 Jul 2023 08:59:43 &#43;0800</pubDate>
+    <author>Bard</author>
+    <guid>https://www.bardblog.cn/reactor-pattern/</guid>
+    <description><![CDATA[对于reactor的一点理解]]></description>
 </item>
 </channel>
 </rss>
