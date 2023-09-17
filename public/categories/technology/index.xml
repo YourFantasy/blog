@@ -637,6 +637,14 @@
 ]]></description>
 </item>
 <item>
+    <title>GMP调度模型</title>
+    <link>https://www.bardblog.cn/programing-language-gmp/</link>
+    <pubDate>Sat, 01 Jul 2023 08:59:43 &#43;0800</pubDate>
+    <author>Bard</author>
+    <guid>https://www.bardblog.cn/programing-language-gmp/</guid>
+    <description><![CDATA[详解golang 的gmp调度模型]]></description>
+</item>
+<item>
     <title>MySQL核心概念</title>
     <link>https://www.bardblog.cn/mysql-core-concepts/</link>
     <pubDate>Sat, 01 Jul 2023 08:59:43 &#43;0800</pubDate>
@@ -651,109 +659,6 @@
     <author>Bard</author>
     <guid>https://www.bardblog.cn/reactor-pattern/</guid>
     <description><![CDATA[对于reactor的一点理解]]></description>
-</item>
-<item>
-    <title>Git高级用法</title>
-    <link>https://www.bardblog.cn/git-advanced-usage/</link>
-    <pubDate>Tue, 27 Jun 2023 00:01:52 &#43;0800</pubDate>
-    <author>Bard</author>
-    <guid>https://www.bardblog.cn/git-advanced-usage/</guid>
-    <description><![CDATA[<h2 id="git-子模块">Git 子模块</h2>
-<h3 id="概念">概念</h3>
-<blockquote>
-<p>Git 子模块允许你将另一个 Git 仓库作为主仓库的子目录引入。每个子模块都是一个独立的 Git 项目，具有自己的提交、拉取和推送操作。主仓库以子模块的形式包含多个子仓库。</p>
-</blockquote>
-<h3 id="示例">示例</h3>
-<p>我们通过一个示例来了解如何使用 Git 子模块。</p>
-<ol>
-<li>
-<p>创建一个名为 &ldquo;gitSubmodules&rdquo; 的文件夹，并将其初始化为 Git 仓库：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">mkdir gitSubmodules
-</span></span><span class="line"><span class="cl"><span class="nb">cd</span> gitSubmodules
-</span></span><span class="line"><span class="cl">git init
-</span></span></code></pre></td></tr></table>
-</div>
-</div></li>
-<li>
-<p>添加一个远程 origin，并将仓库推送到 GitHub：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git remote add origin git@github.com:你的用户名/gitSubmodules.git
-</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;关于 gitSubmodules&#34;</span> &gt;&gt; README.md
-</span></span><span class="line"><span class="cl">git add .
-</span></span><span class="line"><span class="cl">git commit -m <span class="s2">&#34;初始化 gitSubmodules&#34;</span>
-</span></span><span class="line"><span class="cl">git push --set-upstream origin main
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>在这里，将 &ldquo;你的用户名&rdquo; 替换为你的 GitHub 用户名。</p>
-</li>
-<li>
-<p>现在，让我们将两个子仓库添加到 &ldquo;gitSubmodules&rdquo; 仓库中：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git submodule add git@github.com:你的用户名/submodule1.git
-</span></span><span class="line"><span class="cl">git submodule add git@github.com:你的用户名/submodule2.git
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>执行这些命令后，&ldquo;gitSubmodules&rdquo; 仓库将添加子模块 &ldquo;submodule1&rdquo; 和 &ldquo;submodule2&rdquo;。此命令会将子模块的远程仓库克隆到 &ldquo;gitSubmodules&rdquo; 仓库的根目录中。</p>
-<p>默认情况下，每个子模块将被放置在与子仓库同名的目录中。</p>
-</li>
-<li>
-<p>如果你执行 <code>git status</code> 命令，你将看到仓库中现在有一个名为 &ldquo;.gitmodules&rdquo; 的文件，以及两个名为 &ldquo;submodule1&rdquo; 和 &ldquo;submodule2&rdquo; 的目录。</p>
-<p>&ldquo;.gitmodules&rdquo; 文件存储了子模块的本地目录路径与远程仓库 URL 之间的映射关系。</p>
-</li>
-<li>
-<p>提交并推送更改到主仓库：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git add .
-</span></span><span class="line"><span class="cl">git commit -m <span class="s2">&#34;添加 submodule1 和 submodule2 子模块&#34;</span>
-</span></span><span class="line"><span class="cl">git push
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>这将把子模块的信息一并推送到远程仓库。</p>
-</li>
-<li>
-<p>如果有人克隆了 &ldquo;gitSubmodules&rdquo; 仓库，他们最初会得到子模块的空目录。为了将子模块填充为其相应的内容，他们需要运行以下命令：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git submodule init
-</span></span><span class="line"><span class="cl">git submodule update
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>运行这些命令后，子模块的远程文件将与本地仓库同步，包括每个子模块的提交信息。</p>
-</li>
-</ol>
-<h3 id="使用场景">使用场景</h3>
-<p>Git 子模块在需要在主项目中引入其他项目时非常有用,每个项目可以拥有自己独立的仓库和版本控制历史，确保对主项目和子模块的修改互不干扰。</p>
-]]></description>
 </item>
 </channel>
 </rss>

@@ -381,6 +381,15 @@
                     hreflang="en"
                     href="https://www.bardblog.cn/en/algorithm-cache-obsolescence/"
                     /></url><url>
+            <loc>https://www.bardblog.cn/en/programing-language-gmp/</loc><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://www.bardblog.cn/programing-language-gmp/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://www.bardblog.cn/en/programing-language-gmp/"
+                    /></url><url>
             <loc>https://www.bardblog.cn/en/reactor-pattern/</loc><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"

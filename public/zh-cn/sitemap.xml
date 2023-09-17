@@ -216,6 +216,18 @@
             <loc>https://www.bardblog.cn/consistent-hash/</loc><lastmod>2023-09-16T16:08:27&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://www.bardblog.cn/tags/zset/</loc><lastmod>2023-07-06T12:49:02&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://www.bardblog.cn/redis-zset-implemention/</loc><lastmod>2023-07-06T12:49:02&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://www.bardblog.cn/tags/gmp/</loc><lastmod>2023-07-01T08:59:43&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://www.bardblog.cn/programing-language-gmp/</loc><lastmod>2023-07-01T08:59:43&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="en"
+                        href="https://www.bardblog.cn/en/programing-language-gmp/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="zh-cn"
+                    href="https://www.bardblog.cn/programing-language-gmp/"
+                    /></url><url>
+            <loc>https://www.bardblog.cn/tags/go/</loc><lastmod>2023-07-01T08:59:43&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://www.bardblog.cn/tags/gorotinue/</loc><lastmod>2023-07-01T08:59:43&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://www.bardblog.cn/tags/innodb/</loc><lastmod>2023-07-01T08:59:43&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
@@ -255,6 +267,7 @@
                     hreflang="zh-cn"
                     href="https://www.bardblog.cn/reactor-pattern/"
                     /></url><url>
+            <loc>https://www.bardblog.cn/tags/thread/</loc><lastmod>2023-07-01T08:59:43&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://www.bardblog.cn/tags/git/</loc><lastmod>2023-06-27T00:01:52&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
