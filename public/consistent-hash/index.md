@@ -77,7 +77,7 @@ func main() {
 	for _, key := range keys {
 		fmt.Printf("%s:%s\n", key, hr.GetNode(key))
 	}
-	fmt.Println("AddNodes====================")
+	fmt.Println("AddNodes============================================================")
 	hr.AddNodes(
 		ServerNode{IP: net.ParseIP("132.232.123.223"), Port: 1923, Weight: 0.91},
 		ServerNode{Name: "trpc.app.server2.service1", Weight: 1.21},
@@ -85,7 +85,7 @@ func main() {
 	for _, key := range keys {
 		fmt.Printf("%s:%s\n", key, hr.GetNode(key))
 	}
-	fmt.Println("RemoveNodes====================")
+	fmt.Println("RemoveNodes============================================================x")
 	hr.RemoveNodes(hr.GetNode(keys[0]), hr.GetNode(keys[1]), hr.GetNode(keys[3]))
 	for _, key := range keys {
 		fmt.Printf("%s:%s\n", key, hr.GetNode(key))
@@ -143,6 +143,9 @@ func (h *HashRing) RemoveNodes(nodes ...ServerNode) {
 	h.mu.Lock()
 	defer h.mu.Unlock()
 	for _, node := range nodes {
+		if _, ok := h.nodes[node.String()]; !ok {
+			continue
+		}
 		delete(h.nodes, node.String())
 		h.deleteVirtualNodes(node)
 	}
@@ -241,7 +244,6 @@ func generateTraceID() string {
 	}
 	return hex.EncodeToString(traceID)
 }
-
 ```
 
 ## 调度过程

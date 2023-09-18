@@ -229,6 +229,15 @@
             <loc>https://www.bardblog.cn/consistent-hash/</loc><lastmod>2023-09-16T16:08:27&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://www.bardblog.cn/tags/zset/</loc><lastmod>2023-07-06T12:49:02&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://www.bardblog.cn/redis-zset-implemention/</loc><lastmod>2023-07-06T12:49:02&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://www.bardblog.cn/programing-language-channel/</loc><lastmod>2023-07-01T08:59:43&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="en"
+                        href="https://www.bardblog.cn/en/programing-language-channel/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="zh-cn"
+                    href="https://www.bardblog.cn/programing-language-channel/"
+                    /></url><url>
             <loc>https://www.bardblog.cn/tags/innodb/</loc><lastmod>2023-07-01T08:59:43&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
@@ -258,6 +267,7 @@
                     hreflang="zh-cn"
                     href="https://www.bardblog.cn/mysql-core-concepts/"
                     /></url><url>
+            <loc>https://www.bardblog.cn/tags/queue/</loc><lastmod>2023-07-01T08:59:43&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://www.bardblog.cn/tags/reactor/</loc><lastmod>2023-07-01T08:59:43&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://www.bardblog.cn/reactor-pattern/</loc><lastmod>2023-07-01T08:59:43&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
