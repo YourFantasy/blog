@@ -34,7 +34,7 @@
                             "url": "https:\/\/www.bardblog.cn\/images\/Apple-Devices-Preview.png",
                             "width":  3200 ,
                             "height":  2048 
-                        }],"genre": "posts","keywords": "hash, algorithm, skiplist","wordcount":  3677 ,
+                        }],"genre": "posts","keywords": "hash, algorithm, load balance","wordcount":  3669 ,
         "url": "https:\/\/www.bardblog.cn\/consistent-hash\/","datePublished": "2023-07-09T16:08:27+08:00","dateModified": "2023-09-16T16:08:27+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": {
@@ -119,7 +119,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">一致性hash算法</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://www.bardblog.cn" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bard</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/technology/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>technology</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-07-09">2023-07-09</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 3677 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-07-09">2023-07-09</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 3669 字&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 8 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -141,8 +141,7 @@
   </ul>
 </nav></div>
             </div><div class="content" id="content"><h2 id="负载均衡算法">负载均衡算法</h2>
-<p>在分布式系统中，一般来说会有多台机器，机器可能会分布在不同的集群，客户端的一个请求经过服务注册中心或者网关，注册中心或者网关会根据负载均衡算法将本次请求分发到某台具体的服务器，负载均衡算法主要用于分配网络或计算资源，以优化响应时间和避免过度负载任何一个资源常见的有如下的负载均衡算法：
-负载均衡算法主要用于分配网络或计算资源，以优化响应时间和避免过度负载任何一个资源。以下是一些常见的负载均衡算法：</p>
+<p>在分布式系统中，一般来说会有多台机器，机器可能会分布在不同的集群，客户端的一个请求经过服务注册中心或者网关，注册中心或者网关会根据负载均衡算法将本次请求分发到某台具体的服务器，负载均衡算法主要用于分配网络或计算资源，以优化响应时间和避免过度负载任何一个资源。以下是一些常见的负载均衡算法：</p>
 <ol>
 <li>
 <p><strong>轮询（Round Robin）</strong>：这是最简单的负载均衡算法，它将请求按顺序分配给服务器。当到达最后一个服务器时，算法会返回到队列的顶部并重新开始。</p>
@@ -169,7 +168,7 @@
 <p><strong>一致性哈希（Consistent Hashing）</strong>：对普通Hash算法的一个改进，这种算法主要用于分布式系统，它可以在服务器集群的数量发生变化时，最小化重新分配的数据。</p>
 </li>
 </ol>
-<p>设想我们有这样一个场景：有一个分布式服务，我们需要为这个服务构造一个本地缓存，当服务的机器数很多的时候，同一个key可能在多台机器上都会有缓存，如果要缓存的数据量很大的时候，同一台机器上key过多可能会导致机器内存占用率过高，严重的可能会发生OOM，这就要求缓存的key散列的分布在不同的机器上，减少单台机器的负载，需要构造一个请求入参和机器的映射关系，让相同的请求打到相同的机器上。应该采用上述何种算法提高缓存的命中率并减少缓存占用空间呢？1-6的算法，一个请求打到哪台服务器随机性很大，7-8都是hash算法，如果把请求入参hash，理论上可以保证同样的请求达到同样的机器上的。
+<p>设想我们有这样一个场景：有一个分布式服务，我们需要为这个服务构造一个本地缓存，当服务的机器数很多的时候，同一个key可能在多台机器上都会有缓存，如果要缓存的数据量很大的时候，同一台机器上key过多可能会导致机器内存占用率过高，严重的可能会发生OOM，这就要求缓存的key散列的分布在不同的机器上，减少单台机器的负载，需要构造一个请求入参和机器的映射关系，让相同的请求打到相同的机器上。应该采用上述何种算法提高缓存的命中率并减少缓存占用空间呢？1-6的算法，一个请求打到哪台服务器随机性很大，7-8都是hash算法，如果把请求入参hash，理论上可以保证同样的请求达到同样的机器上的。但是普通的hash算法的问题在于，当服务发生扩缩容的时候，会导致请求倾斜，请求不够均匀离散。
 <figure><a class="lightgallery" href="/consistent-hash/consistent_hash.png" title="hash负载均衡" data-thumbnail="/consistent-hash/consistent_hash.png" data-sub-html="<h2>hash负载均衡</h2><p>hash负载均衡</p>">
         <img
             class="lazyload"
@@ -686,13 +685,13 @@
                             <a class="link-to-markdown" href="/consistent-hash/index.md" target="_blank">阅读原始文档</a>
                         </span></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://www.bardblog.cn/consistent-hash/" data-title="一致性hash算法" data-via="cz960601" data-hashtags="hash,algorithm,skiplist"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://www.bardblog.cn/consistent-hash/" data-hashtag="hash"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://www.bardblog.cn/consistent-hash/" data-title="一致性hash算法"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Reddit" data-sharer="reddit" data-url="https://www.bardblog.cn/consistent-hash/"><i class="fab fa-reddit fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://www.bardblog.cn/consistent-hash/" data-title="一致性hash算法"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://www.bardblog.cn/consistent-hash/" data-title="一致性hash算法"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://www.bardblog.cn/consistent-hash/" data-title="一致性hash算法" data-via="cz960601" data-hashtags="hash,algorithm,load balance"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://www.bardblog.cn/consistent-hash/" data-hashtag="hash"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://www.bardblog.cn/consistent-hash/" data-title="一致性hash算法"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Reddit" data-sharer="reddit" data-url="https://www.bardblog.cn/consistent-hash/"><i class="fab fa-reddit fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://www.bardblog.cn/consistent-hash/" data-title="一致性hash算法"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://www.bardblog.cn/consistent-hash/" data-title="一致性hash算法"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/hash/">hash</a>,&nbsp;<a href="/tags/algorithm/">algorithm</a>,&nbsp;<a href="/tags/skiplist/">skiplist</a></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/hash/">hash</a>,&nbsp;<a href="/tags/algorithm/">algorithm</a>,&nbsp;<a href="/tags/load-balance/">load balance</a></section>
         <section>
             <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
         </section>
