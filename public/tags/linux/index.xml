@@ -9,14 +9,15 @@
     <managingEditor>cz950601@gmail.com (Bard)</managingEditor>
     <webMaster>cz950601@gmail.com (Bard)</webMaster>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Tue, 27 Jun 2023 00:01:52 +0800</lastBuildDate>
-    <atom:link href="https://www.bardblog.cn/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 27 Jun 2023 00:01:52 +0800</lastBuildDate><atom:link href="https://www.bardblog.cn/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Git高级用法</title>
       <link>https://www.bardblog.cn/git-advanced-usage/</link>
-      <pubDate>Tue, 27 Jun 2023 00:01:52 +0800</pubDate><author>cz950601@gmail.com (Bard)</author>
+      <pubDate>Tue, 27 Jun 2023 00:01:52 +0800</pubDate>
+      <author>cz950601@gmail.com (Bard)</author>
       <guid>https://www.bardblog.cn/git-advanced-usage/</guid>
       <description>Git 子模块 概念 Git 子模块允许你将另一个 Git 仓库作为主仓库的子目录引入。每个子模块都是一个独立的 Git 项目，具有自己的提交、拉取和推送操作。主仓库以子模</description>
     </item>
+    
   </channel>
 </rss>

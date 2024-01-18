@@ -9,28 +9,41 @@
     <managingEditor>cz950601@gmail.com (Bard)</managingEditor>
     <webMaster>cz950601@gmail.com (Bard)</webMaster>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Sat, 24 Jun 2023 12:57:40 +0800</lastBuildDate>
-    <atom:link href="https://www.bardblog.cn/en/tags/algorithm/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 24 Jun 2023 12:57:40 +0800</lastBuildDate><atom:link href="https://www.bardblog.cn/en/tags/algorithm/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Maximum Size of Connected Components</title>
       <link>https://www.bardblog.cn/en/algorithm-bfs-acwing-844/</link>
-      <pubDate>Sat, 24 Jun 2023 12:57:40 +0800</pubDate><author>cz950601@gmail.com (Bard)</author>
+      <pubDate>Sat, 24 Jun 2023 12:57:40 +0800</pubDate>
+      <author>cz950601@gmail.com (Bard)</author>
       <guid>https://www.bardblog.cn/en/algorithm-bfs-acwing-844/</guid>
-      <description>Problem Description Given an n×m 2D integer array representing a maze, where the array contains only 0s and 1s, with 0 representing a path that can be traversed and 1 representing an impassable wall.&#xA;Initially, there is a person at the top-left corner (1, 1). It is known that the person can move one position in any direction: up, down, left, or right.&#xA;The task is to determine the minimum number of moves required for the person to reach the bottom-right corner (n, m).</description>
+      <description>Problem Description Given an n×m 2D integer array representing a maze, where the array contains only 0s and 1s, with 0 representing a path that can be traversed and 1 representing an impassable wall.
+Initially, there is a person at the top-left corner (1, 1). It is known that the person can move one position in any direction: up, down, left, or right.
+The task is to determine the minimum number of moves required for the person to reach the bottom-right corner (n, m).</description>
     </item>
+    
     <item>
       <title>Maximum Size of Connected Components</title>
       <link>https://www.bardblog.cn/en/algorithm-dfs-acwing-846/</link>
-      <pubDate>Sat, 24 Jun 2023 12:57:40 +0800</pubDate><author>cz950601@gmail.com (Bard)</author>
+      <pubDate>Sat, 24 Jun 2023 12:57:40 +0800</pubDate>
+      <author>cz950601@gmail.com (Bard)</author>
       <guid>https://www.bardblog.cn/en/algorithm-dfs-acwing-846/</guid>
-      <description>Problem Description Given a tree with n nodes (numbered 1 to n) and n-1 undirected edges.&#xA;Please find the centroid of the tree and output the maximum number of nodes in each remaining connected component after removing the centroid.&#xA;Centroid Definition: The centroid of a tree is a node such that if it is removed, the maximum number of nodes in each remaining connected component is minimized.&#xA;Input Format The first line contains an integer n, representing the number of nodes in the tree.</description>
+      <description>Problem Description Given a tree with n nodes (numbered 1 to n) and n-1 undirected edges.
+Please find the centroid of the tree and output the maximum number of nodes in each remaining connected component after removing the centroid.
+Centroid Definition: The centroid of a tree is a node such that if it is removed, the maximum number of nodes in each remaining connected component is minimized.
+Input Format The first line contains an integer n, representing the number of nodes in the tree.</description>
     </item>
+    
     <item>
       <title>Maximum Non-overlapping Intervals</title>
       <link>https://www.bardblog.cn/en/algorithm-greedy-disjoint/</link>
-      <pubDate>Sat, 24 Jun 2023 12:57:40 +0800</pubDate><author>cz950601@gmail.com (Bard)</author>
+      <pubDate>Sat, 24 Jun 2023 12:57:40 +0800</pubDate>
+      <author>cz950601@gmail.com (Bard)</author>
       <guid>https://www.bardblog.cn/en/algorithm-greedy-disjoint/</guid>
-      <description>Problem Description Given N closed intervals [ai, bi], you need to select a subset of intervals on the number line such that the selected intervals do not overlap with each other (including the endpoints).&#xA;Output the maximum number of intervals that can be selected.&#xA;Input Format The first line contains an integer N, representing the number of intervals.&#xA;The next N lines contain two integers ai and bi each, representing the endpoints of an interval.</description>
+      <description>Problem Description Given N closed intervals [ai, bi], you need to select a subset of intervals on the number line such that the selected intervals do not overlap with each other (including the endpoints).
+Output the maximum number of intervals that can be selected.
+Input Format The first line contains an integer N, representing the number of intervals.
+The next N lines contain two integers ai and bi each, representing the endpoints of an interval.</description>
     </item>
+    
   </channel>
 </rss>

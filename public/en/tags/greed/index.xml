@@ -9,14 +9,18 @@
     <managingEditor>cz950601@gmail.com (Bard)</managingEditor>
     <webMaster>cz950601@gmail.com (Bard)</webMaster>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Sat, 24 Jun 2023 12:57:40 +0800</lastBuildDate>
-    <atom:link href="https://www.bardblog.cn/en/tags/greed/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 24 Jun 2023 12:57:40 +0800</lastBuildDate><atom:link href="https://www.bardblog.cn/en/tags/greed/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Maximum Non-overlapping Intervals</title>
       <link>https://www.bardblog.cn/en/algorithm-greedy-disjoint/</link>
-      <pubDate>Sat, 24 Jun 2023 12:57:40 +0800</pubDate><author>cz950601@gmail.com (Bard)</author>
+      <pubDate>Sat, 24 Jun 2023 12:57:40 +0800</pubDate>
+      <author>cz950601@gmail.com (Bard)</author>
       <guid>https://www.bardblog.cn/en/algorithm-greedy-disjoint/</guid>
-      <description>Problem Description Given N closed intervals [ai, bi], you need to select a subset of intervals on the number line such that the selected intervals do not overlap with each other (including the endpoints).&#xA;Output the maximum number of intervals that can be selected.&#xA;Input Format The first line contains an integer N, representing the number of intervals.&#xA;The next N lines contain two integers ai and bi each, representing the endpoints of an interval.</description>
+      <description>Problem Description Given N closed intervals [ai, bi], you need to select a subset of intervals on the number line such that the selected intervals do not overlap with each other (including the endpoints).
+Output the maximum number of intervals that can be selected.
+Input Format The first line contains an integer N, representing the number of intervals.
+The next N lines contain two integers ai and bi each, representing the endpoints of an interval.</description>
     </item>
+    
   </channel>
 </rss>

@@ -9,28 +9,33 @@
     <managingEditor>cz950601@gmail.com (Bard)</managingEditor>
     <webMaster>cz950601@gmail.com (Bard)</webMaster>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Sat, 16 Sep 2023 08:59:43 +0800</lastBuildDate>
-    <atom:link href="https://www.bardblog.cn/tags/redis/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 16 Sep 2023 08:59:43 +0800</lastBuildDate><atom:link href="https://www.bardblog.cn/tags/redis/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>LFU和LRU缓存淘汰算法</title>
       <link>https://www.bardblog.cn/algorithm-cache-obsolescence/</link>
-      <pubDate>Sat, 16 Sep 2023 08:59:43 +0800</pubDate><author>cz950601@gmail.com (Bard)</author>
+      <pubDate>Sat, 16 Sep 2023 08:59:43 +0800</pubDate>
+      <author>cz950601@gmail.com (Bard)</author>
       <guid>https://www.bardblog.cn/algorithm-cache-obsolescence/</guid>
       <description></description>
     </item>
+    
     <item>
       <title>zset分析与实现</title>
       <link>https://www.bardblog.cn/redis-zset-implemention/</link>
-      <pubDate>Thu, 06 Jul 2023 12:49:02 +0800</pubDate><author>cz950601@gmail.com (Bard)</author>
+      <pubDate>Thu, 06 Jul 2023 12:49:02 +0800</pubDate>
+      <author>cz950601@gmail.com (Bard)</author>
       <guid>https://www.bardblog.cn/redis-zset-implemention/</guid>
       <description>概念 跳表是一种很特殊的数据结构，可以把跳表理解为一个多层链表，每一层都是一个有序链表，链表之间通过指针连接，并且最底层的那个链表保存跳表完整</description>
     </item>
+    
     <item>
       <title>Reactor模式</title>
       <link>https://www.bardblog.cn/reactor-pattern/</link>
-      <pubDate>Sat, 01 Jul 2023 08:59:43 +0800</pubDate><author>cz950601@gmail.com (Bard)</author>
+      <pubDate>Sat, 01 Jul 2023 08:59:43 +0800</pubDate>
+      <author>cz950601@gmail.com (Bard)</author>
       <guid>https://www.bardblog.cn/reactor-pattern/</guid>
       <description></description>
     </item>
+    
   </channel>
 </rss>
