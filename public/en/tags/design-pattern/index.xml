@@ -1,17 +1,22 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>design-pattern - Tag - 编程浪子</title>
-        <link>https://www.bardblog.cn/en/tags/design-pattern/</link>
-        <description>design-pattern - Tag - 编程浪子</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>cz950601@gmail.com (Bard)</managingEditor>
-            <webMaster>cz950601@gmail.com (Bard)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 26 Jun 2023 12:57:40 &#43;0800</lastBuildDate><atom:link href="https://www.bardblog.cn/en/tags/design-pattern/" rel="self" type="application/rss+xml" /><item>
-    <title>Factory Pattern</title>
-    <link>https://www.bardblog.cn/en/desigin-pattern-factory/</link>
-    <pubDate>Mon, 26 Jun 2023 12:57:40 &#43;0800</pubDate>
-    <author>Bard</author>
-    <guid>https://www.bardblog.cn/en/desigin-pattern-factory/</guid>
-    <description><![CDATA[The Factory Method pattern is a creational design pattern that provides a way to delegate the creation of objects to subclasses. In the Factory Method pattern, an abstract factory class defines an interface for creating objects, but the specific object creation is deferred to the subclasses.
-Simple Factory Pattern The Simple Factory pattern, also known as the Static Method pattern, defines a static method in the object creation factory class to create objects.]]></description>
-</item>
-</channel>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>design-pattern on 编程浪子</title>
+    <link>https://www.bardblog.cn/en/tags/design-pattern/</link>
+    <description>Recent content in design-pattern on 编程浪子</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <managingEditor>cz950601@gmail.com (Bard)</managingEditor>
+    <webMaster>cz950601@gmail.com (Bard)</webMaster>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Mon, 26 Jun 2023 12:57:40 +0800</lastBuildDate>
+    <atom:link href="https://www.bardblog.cn/en/tags/design-pattern/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Factory Pattern</title>
+      <link>https://www.bardblog.cn/en/desigin-pattern-factory/</link>
+      <pubDate>Mon, 26 Jun 2023 12:57:40 +0800</pubDate><author>cz950601@gmail.com (Bard)</author>
+      <guid>https://www.bardblog.cn/en/desigin-pattern-factory/</guid>
+      <description>The Factory Method pattern is a creational design pattern that provides a way to delegate the creation of objects to subclasses. In the Factory Method pattern, an abstract factory class defines an interface for creating objects, but the specific object creation is deferred to the subclasses.&#xA;Simple Factory Pattern The Simple Factory pattern, also known as the Static Method pattern, defines a static method in the object creation factory class to create objects.</description>
+    </item>
+  </channel>
 </rss>

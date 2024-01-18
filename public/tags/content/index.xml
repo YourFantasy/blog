@@ -1,16 +1,14 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>内容 - 标签 - 编程浪子</title>
-        <link>https://www.bardblog.cn/tags/content/</link>
-        <description>内容 - 标签 - 编程浪子</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>cz950601@gmail.com (Bard)</managingEditor>
-            <webMaster>cz950601@gmail.com (Bard)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 05 Mar 2020 16:30:05 &#43;0800</lastBuildDate><atom:link href="https://www.bardblog.cn/tags/content/" rel="self" type="application/rss+xml" /><item>
-    <title>主题文档 - 内容</title>
-    <link>https://www.bardblog.cn/theme-documentation-content/</link>
-    <pubDate>Thu, 05 Mar 2020 16:30:05 &#43;0800</pubDate>
-    <author>Bard</author>
-    <guid>https://www.bardblog.cn/theme-documentation-content/</guid>
-    <description><![CDATA[<p>了解如何在 <strong>LoveIt</strong> 主题中快速, 直观地创建和组织内容.</p>]]></description>
-</item>
-</channel>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>内容 on 编程浪子</title>
+    <link>https://www.bardblog.cn/tags/content/</link>
+    <description>Recent content in 内容 on 编程浪子</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <managingEditor>cz950601@gmail.com (Bard)</managingEditor>
+    <webMaster>cz950601@gmail.com (Bard)</webMaster>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <atom:link href="https://www.bardblog.cn/tags/content/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
 </rss>

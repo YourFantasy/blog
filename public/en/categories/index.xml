@@ -1,32 +1,36 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>Categories - Category - 编程浪子</title>
-        <link>https://www.bardblog.cn/en/categories/</link>
-        <description>Categories - Category - 编程浪子</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>cz950601@gmail.com (Bard)</managingEditor>
-            <webMaster>cz950601@gmail.com (Bard)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 01 Jul 2023 08:59:43 &#43;0800</lastBuildDate><atom:link href="https://www.bardblog.cn/en/categories/" rel="self" type="application/rss+xml" /><item>
-    <title>technology</title>
-    <link>https://www.bardblog.cn/en/categories/technology/</link>
-    <pubDate>Sat, 01 Jul 2023 08:59:43 &#43;0800</pubDate>
-    <author>Bard</author>
-    <guid>https://www.bardblog.cn/en/categories/technology/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>Documentation</title>
-    <link>https://www.bardblog.cn/en/categories/documentation/</link>
-    <pubDate>Fri, 06 Mar 2020 21:29:01 &#43;0800</pubDate>
-    <author>Bard</author>
-    <guid>https://www.bardblog.cn/en/categories/documentation/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>Markdown</title>
-    <link>https://www.bardblog.cn/en/categories/markdown/</link>
-    <pubDate>Sun, 01 Dec 2019 21:57:40 &#43;0800</pubDate>
-    <author>Bard</author>
-    <guid>https://www.bardblog.cn/en/categories/markdown/</guid>
-    <description><![CDATA[]]></description>
-</item>
-</channel>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on 编程浪子</title>
+    <link>https://www.bardblog.cn/en/categories/</link>
+    <description>Recent content in Categories on 编程浪子</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <managingEditor>cz950601@gmail.com (Bard)</managingEditor>
+    <webMaster>cz950601@gmail.com (Bard)</webMaster>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Sat, 01 Jul 2023 08:59:43 +0800</lastBuildDate>
+    <atom:link href="https://www.bardblog.cn/en/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>technology</title>
+      <link>https://www.bardblog.cn/en/categories/technology/</link>
+      <pubDate>Sat, 01 Jul 2023 08:59:43 +0800</pubDate><author>cz950601@gmail.com (Bard)</author>
+      <guid>https://www.bardblog.cn/en/categories/technology/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>life</title>
+      <link>https://www.bardblog.cn/en/categories/life/</link>
+      <pubDate>Sat, 24 Jun 2023 12:57:40 +0800</pubDate><author>cz950601@gmail.com (Bard)</author>
+      <guid>https://www.bardblog.cn/en/categories/life/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Documentation</title>
+      <link>https://www.bardblog.cn/en/categories/documentation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>cz950601@gmail.com (Bard)</author>
+      <guid>https://www.bardblog.cn/en/categories/documentation/</guid>
+      <description></description>
+    </item>
+  </channel>
 </rss>
