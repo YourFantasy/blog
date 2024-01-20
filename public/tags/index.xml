@@ -4,7 +4,23 @@
         <link>https://www.bardblog.cn/tags/</link>
         <description>Tags - 标签 - 编程浪子</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>cz950601@gmail.com (Bard)</managingEditor>
-            <webMaster>cz950601@gmail.com (Bard)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 17 Sep 2023 08:59:43 &#43;0800</lastBuildDate><atom:link href="https://www.bardblog.cn/tags/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>cz950601@gmail.com (Bard)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 20 Jan 2024 08:57:40 &#43;0800</lastBuildDate><atom:link href="https://www.bardblog.cn/tags/" rel="self" type="application/rss+xml" /><item>
+    <title>gentle</title>
+    <link>https://www.bardblog.cn/tags/gentle/</link>
+    <pubDate>Sat, 20 Jan 2024 08:57:40 &#43;0800</pubDate>
+    <author>Bard</author>
+    <guid>https://www.bardblog.cn/tags/gentle/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>sunlight</title>
+    <link>https://www.bardblog.cn/tags/sunlight/</link>
+    <pubDate>Sat, 20 Jan 2024 08:57:40 &#43;0800</pubDate>
+    <author>Bard</author>
+    <guid>https://www.bardblog.cn/tags/sunlight/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
     <title>GMP</title>
     <link>https://www.bardblog.cn/tags/gmp/</link>
     <pubDate>Sun, 17 Sep 2023 08:59:43 &#43;0800</pubDate>
@@ -66,22 +82,6 @@
     <pubDate>Sun, 09 Jul 2023 16:08:27 &#43;0800</pubDate>
     <author>Bard</author>
     <guid>https://www.bardblog.cn/tags/hash/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>load balance</title>
-    <link>https://www.bardblog.cn/tags/load-balance/</link>
-    <pubDate>Sun, 09 Jul 2023 16:08:27 &#43;0800</pubDate>
-    <author>Bard</author>
-    <guid>https://www.bardblog.cn/tags/load-balance/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>skiplist</title>
-    <link>https://www.bardblog.cn/tags/skiplist/</link>
-    <pubDate>Thu, 06 Jul 2023 12:49:02 &#43;0800</pubDate>
-    <author>Bard</author>
-    <guid>https://www.bardblog.cn/tags/skiplist/</guid>
     <description><![CDATA[]]></description>
 </item>
 </channel>

@@ -1,16 +1,16 @@
 ---
 weight: 4
-title: "Maximum Size of Connected Components"
-date: 2023-06-24T12:57:40+08:00
-lastmod: 2023-06-24T14:57:40+08:00
+title: "我的小太阳"
+date: 2024-01-20T08:57:40+08:00
+lastmod: 2024-01-20T08:57:40+08:00
 draft: false
 author: "Bard"
-description: "Solving connected components problem using Depth-First Search"
+description: "阳光明媚，温暖人心的小太阳。"
 images: []
 resources:
 
-tags: ["love","fate"]
-categories: ["life"]
+tags: ["gentle","sunlight"]
+categories: ["heartbeat"]
 
 lightgallery: true
 ---
