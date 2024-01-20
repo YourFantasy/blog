@@ -29,15 +29,7 @@
                     hreflang="en"
                     href="https://www.bardblog.cn/en/algorithm-dfs-acwing-846/"
                     /></url><url>
-            <loc>https://www.bardblog.cn/en/my-love/</loc><lastmod>2023-06-24T14:57:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
-                        rel="alternate"
-                        hreflang="zh-cn"
-                        href="https://www.bardblog.cn/my-love/"
-                        /><xhtml:link
-                    rel="alternate"
-                    hreflang="en"
-                    href="https://www.bardblog.cn/en/my-love/"
-                    /></url><url>
+            <loc>https://www.bardblog.cn/en/my-love/</loc><lastmod>2023-06-24T14:57:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://www.bardblog.cn/en/algorithm-greedy-disjoint/</loc><lastmod>2023-06-24T14:57:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
@@ -183,15 +175,7 @@
                     hreflang="en"
                     href="https://www.bardblog.cn/en/tags/bfs/"
                     /></url><url>
-            <loc>https://www.bardblog.cn/en/tags/fate/</loc><lastmod>2023-06-24T14:57:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
-                        rel="alternate"
-                        hreflang="zh-cn"
-                        href="https://www.bardblog.cn/tags/fate/"
-                        /><xhtml:link
-                    rel="alternate"
-                    hreflang="en"
-                    href="https://www.bardblog.cn/en/tags/fate/"
-                    /></url><url>
+            <loc>https://www.bardblog.cn/en/tags/fate/</loc><lastmod>2023-06-24T14:57:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://www.bardblog.cn/en/tags/greed/</loc><lastmod>2023-06-24T14:57:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
@@ -201,24 +185,8 @@
                     hreflang="en"
                     href="https://www.bardblog.cn/en/tags/greed/"
                     /></url><url>
-            <loc>https://www.bardblog.cn/en/categories/life/</loc><lastmod>2023-06-24T14:57:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
-                        rel="alternate"
-                        hreflang="zh-cn"
-                        href="https://www.bardblog.cn/categories/life/"
-                        /><xhtml:link
-                    rel="alternate"
-                    hreflang="en"
-                    href="https://www.bardblog.cn/en/categories/life/"
-                    /></url><url>
-            <loc>https://www.bardblog.cn/en/tags/love/</loc><lastmod>2023-06-24T14:57:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
-                        rel="alternate"
-                        hreflang="zh-cn"
-                        href="https://www.bardblog.cn/tags/love/"
-                        /><xhtml:link
-                    rel="alternate"
-                    hreflang="en"
-                    href="https://www.bardblog.cn/en/tags/love/"
-                    /></url><url>
+            <loc>https://www.bardblog.cn/en/categories/life/</loc><lastmod>2023-06-24T14:57:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://www.bardblog.cn/en/tags/love/</loc><lastmod>2023-06-24T14:57:40&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://www.bardblog.cn/en/algorithm-cache-obsolescence/</loc><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
