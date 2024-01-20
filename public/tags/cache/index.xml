@@ -1,23 +1,16 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Cache on 编程浪子</title>
-    <link>https://www.bardblog.cn/tags/cache/</link>
-    <description>Recent content in Cache on 编程浪子</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>zh-CN</language>
-    <managingEditor>cz950601@gmail.com (Bard)</managingEditor>
-    <webMaster>cz950601@gmail.com (Bard)</webMaster>
-    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Sat, 16 Sep 2023 08:59:43 +0800</lastBuildDate><atom:link href="https://www.bardblog.cn/tags/cache/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>LFU和LRU缓存淘汰算法</title>
-      <link>https://www.bardblog.cn/algorithm-cache-obsolescence/</link>
-      <pubDate>Sat, 16 Sep 2023 08:59:43 +0800</pubDate>
-      <author>cz950601@gmail.com (Bard)</author>
-      <guid>https://www.bardblog.cn/algorithm-cache-obsolescence/</guid>
-      <description></description>
-    </item>
-    
-  </channel>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Cache - 标签 - 编程浪子</title>
+        <link>https://www.bardblog.cn/tags/cache/</link>
+        <description>Cache - 标签 - 编程浪子</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>cz950601@gmail.com (Bard)</managingEditor>
+            <webMaster>cz950601@gmail.com (Bard)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 16 Sep 2023 08:59:43 &#43;0800</lastBuildDate><atom:link href="https://www.bardblog.cn/tags/cache/" rel="self" type="application/rss+xml" /><item>
+    <title>LFU和LRU缓存淘汰算法</title>
+    <link>https://www.bardblog.cn/algorithm-cache-obsolescence/</link>
+    <pubDate>Sat, 16 Sep 2023 08:59:43 &#43;0800</pubDate>
+    <author>Bard</author>
+    <guid>https://www.bardblog.cn/algorithm-cache-obsolescence/</guid>
+    <description><![CDATA[缓存淘汰算法LRU和LFU及其实现]]></description>
+</item>
+</channel>
 </rss>

@@ -1,88 +1,168 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>technology on 编程浪子</title>
-    <link>https://www.bardblog.cn/en/categories/technology/</link>
-    <description>Recent content in technology on 编程浪子</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <managingEditor>cz950601@gmail.com (Bard)</managingEditor>
-    <webMaster>cz950601@gmail.com (Bard)</webMaster>
-    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Sat, 01 Jul 2023 08:59:43 +0800</lastBuildDate><atom:link href="https://www.bardblog.cn/en/categories/technology/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Factory Pattern</title>
-      <link>https://www.bardblog.cn/en/desigin-pattern-factory/</link>
-      <pubDate>Mon, 26 Jun 2023 12:57:40 +0800</pubDate>
-      <author>cz950601@gmail.com (Bard)</author>
-      <guid>https://www.bardblog.cn/en/desigin-pattern-factory/</guid>
-      <description>The Factory Method pattern is a creational design pattern that provides a way to delegate the creation of objects to subclasses. In the Factory Method pattern, an abstract factory class defines an interface for creating objects, but the specific object creation is deferred to the subclasses.
-Simple Factory Pattern The Simple Factory pattern, also known as the Static Method pattern, defines a static method in the object creation factory class to create objects.</description>
-    </item>
-    
-    <item>
-      <title>Maximum Size of Connected Components</title>
-      <link>https://www.bardblog.cn/en/algorithm-bfs-acwing-844/</link>
-      <pubDate>Sat, 24 Jun 2023 12:57:40 +0800</pubDate>
-      <author>cz950601@gmail.com (Bard)</author>
-      <guid>https://www.bardblog.cn/en/algorithm-bfs-acwing-844/</guid>
-      <description>Problem Description Given an n×m 2D integer array representing a maze, where the array contains only 0s and 1s, with 0 representing a path that can be traversed and 1 representing an impassable wall.
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>technology - Category - 编程浪子</title>
+        <link>https://www.bardblog.cn/en/categories/technology/</link>
+        <description>technology - Category - 编程浪子</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>cz950601@gmail.com (Bard)</managingEditor>
+            <webMaster>cz950601@gmail.com (Bard)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 01 Jul 2023 08:59:43 &#43;0800</lastBuildDate><atom:link href="https://www.bardblog.cn/en/categories/technology/" rel="self" type="application/rss+xml" /><item>
+    <title>Factory Pattern</title>
+    <link>https://www.bardblog.cn/en/desigin-pattern-factory/</link>
+    <pubDate>Mon, 26 Jun 2023 12:57:40 &#43;0800</pubDate>
+    <author>Bard</author>
+    <guid>https://www.bardblog.cn/en/desigin-pattern-factory/</guid>
+    <description><![CDATA[The Factory Method pattern is a creational design pattern that provides a way to delegate the creation of objects to subclasses. In the Factory Method pattern, an abstract factory class defines an interface for creating objects, but the specific object creation is deferred to the subclasses.
+Simple Factory Pattern The Simple Factory pattern, also known as the Static Method pattern, defines a static method in the object creation factory class to create objects.]]></description>
+</item>
+<item>
+    <title>Maximum Size of Connected Components</title>
+    <link>https://www.bardblog.cn/en/algorithm-bfs-acwing-844/</link>
+    <pubDate>Sat, 24 Jun 2023 12:57:40 &#43;0800</pubDate>
+    <author>Bard</author>
+    <guid>https://www.bardblog.cn/en/algorithm-bfs-acwing-844/</guid>
+    <description><![CDATA[Problem Description Given an n×m 2D integer array representing a maze, where the array contains only 0s and 1s, with 0 representing a path that can be traversed and 1 representing an impassable wall.
 Initially, there is a person at the top-left corner (1, 1). It is known that the person can move one position in any direction: up, down, left, or right.
-The task is to determine the minimum number of moves required for the person to reach the bottom-right corner (n, m).</description>
-    </item>
-    
-    <item>
-      <title>Maximum Size of Connected Components</title>
-      <link>https://www.bardblog.cn/en/algorithm-dfs-acwing-846/</link>
-      <pubDate>Sat, 24 Jun 2023 12:57:40 +0800</pubDate>
-      <author>cz950601@gmail.com (Bard)</author>
-      <guid>https://www.bardblog.cn/en/algorithm-dfs-acwing-846/</guid>
-      <description>Problem Description Given a tree with n nodes (numbered 1 to n) and n-1 undirected edges.
+The task is to determine the minimum number of moves required for the person to reach the bottom-right corner (n, m).]]></description>
+</item>
+<item>
+    <title>Maximum Size of Connected Components</title>
+    <link>https://www.bardblog.cn/en/algorithm-dfs-acwing-846/</link>
+    <pubDate>Sat, 24 Jun 2023 12:57:40 &#43;0800</pubDate>
+    <author>Bard</author>
+    <guid>https://www.bardblog.cn/en/algorithm-dfs-acwing-846/</guid>
+    <description><![CDATA[Problem Description Given a tree with n nodes (numbered 1 to n) and n-1 undirected edges.
 Please find the centroid of the tree and output the maximum number of nodes in each remaining connected component after removing the centroid.
 Centroid Definition: The centroid of a tree is a node such that if it is removed, the maximum number of nodes in each remaining connected component is minimized.
-Input Format The first line contains an integer n, representing the number of nodes in the tree.</description>
-    </item>
-    
-    <item>
-      <title>Maximum Non-overlapping Intervals</title>
-      <link>https://www.bardblog.cn/en/algorithm-greedy-disjoint/</link>
-      <pubDate>Sat, 24 Jun 2023 12:57:40 +0800</pubDate>
-      <author>cz950601@gmail.com (Bard)</author>
-      <guid>https://www.bardblog.cn/en/algorithm-greedy-disjoint/</guid>
-      <description>Problem Description Given N closed intervals [ai, bi], you need to select a subset of intervals on the number line such that the selected intervals do not overlap with each other (including the endpoints).
+Input Format The first line contains an integer n, representing the number of nodes in the tree.]]></description>
+</item>
+<item>
+    <title>Maximum Non-overlapping Intervals</title>
+    <link>https://www.bardblog.cn/en/algorithm-greedy-disjoint/</link>
+    <pubDate>Sat, 24 Jun 2023 12:57:40 &#43;0800</pubDate>
+    <author>Bard</author>
+    <guid>https://www.bardblog.cn/en/algorithm-greedy-disjoint/</guid>
+    <description><![CDATA[Problem Description Given N closed intervals [ai, bi], you need to select a subset of intervals on the number line such that the selected intervals do not overlap with each other (including the endpoints).
 Output the maximum number of intervals that can be selected.
 Input Format The first line contains an integer N, representing the number of intervals.
-The next N lines contain two integers ai and bi each, representing the endpoints of an interval.</description>
-    </item>
-    
-    <item>
-      <title>Core Concepts of MySQL</title>
-      <link>https://www.bardblog.cn/en/interview/</link>
-      <pubDate>Sat, 01 Jul 2023 08:59:43 +0800</pubDate>
-      <author>cz950601@gmail.com (Bard)</author>
-      <guid>https://www.bardblog.cn/en/interview/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Core Concepts of MySQL</title>
-      <link>https://www.bardblog.cn/en/mysql-core-concepts/</link>
-      <pubDate>Sat, 01 Jul 2023 08:59:43 +0800</pubDate>
-      <author>cz950601@gmail.com (Bard)</author>
-      <guid>https://www.bardblog.cn/en/mysql-core-concepts/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Advanced Usage of Git</title>
-      <link>https://www.bardblog.cn/en/git-advanced-usage/</link>
-      <pubDate>Tue, 27 Jun 2023 00:01:52 +0800</pubDate>
-      <author>cz950601@gmail.com (Bard)</author>
-      <guid>https://www.bardblog.cn/en/git-advanced-usage/</guid>
-      <description>Git Submodules Concept Git submodules allow you to include another Git repository as a subdirectory within your main (parent) repository. Each submodule is an independent Git project with its own commits, pull requests, and pushes. The parent repository includes multiple submodules as part of its structure.
-Example Let&amp;rsquo;s walk through an example to understand how to use Git submodules.
-Create a folder named &amp;ldquo;gitSubmodules&amp;rdquo; and initialize it as a Git repository:</description>
-    </item>
-    
-  </channel>
+The next N lines contain two integers ai and bi each, representing the endpoints of an interval.]]></description>
+</item>
+<item>
+    <title>Core Concepts of MySQL</title>
+    <link>https://www.bardblog.cn/en/interview/</link>
+    <pubDate>Sat, 01 Jul 2023 08:59:43 &#43;0800</pubDate>
+    <author>Author</author>
+    <guid>https://www.bardblog.cn/en/interview/</guid>
+    <description><![CDATA[Introduction to the core concepts of MySQL]]></description>
+</item>
+<item>
+    <title>Core Concepts of MySQL</title>
+    <link>https://www.bardblog.cn/en/mysql-core-concepts/</link>
+    <pubDate>Sat, 01 Jul 2023 08:59:43 &#43;0800</pubDate>
+    <author>Author</author>
+    <guid>https://www.bardblog.cn/en/mysql-core-concepts/</guid>
+    <description><![CDATA[Introduction to the core concepts of MySQL]]></description>
+</item>
+<item>
+    <title>Advanced Usage of Git</title>
+    <link>https://www.bardblog.cn/en/git-advanced-usage/</link>
+    <pubDate>Tue, 27 Jun 2023 00:01:52 &#43;0800</pubDate>
+    <author>Bard</author>
+    <guid>https://www.bardblog.cn/en/git-advanced-usage/</guid>
+    <description><![CDATA[<h2 id="git-submodules">Git Submodules</h2>
+<h3 id="concept">Concept</h3>
+<blockquote>
+<p>Git submodules allow you to include another Git repository as a subdirectory within your main (parent) repository. Each submodule is an independent Git project with its own commits, pull requests, and pushes. The parent repository includes multiple submodules as part of its structure.</p>
+</blockquote>
+<h3 id="example">Example</h3>
+<p>Let&rsquo;s walk through an example to understand how to use Git submodules.</p>
+<ol>
+<li>
+<p>Create a folder named &ldquo;gitSubmodules&rdquo; and initialize it as a Git repository:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">mkdir gitSubmodules
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> gitSubmodules
+</span></span><span class="line"><span class="cl">git init
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>Add a remote origin and push the repository to GitHub:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git remote add origin git@github.com:YOUR_USERNAME/gitSubmodules.git
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;About gitSubmodules&#34;</span> &gt;&gt; README.md
+</span></span><span class="line"><span class="cl">git add .
+</span></span><span class="line"><span class="cl">git commit -m <span class="s2">&#34;Initialize gitSubmodules&#34;</span>
+</span></span><span class="line"><span class="cl">git push --set-upstream origin main
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Here, replace &ldquo;YOUR_USERNAME&rdquo; with your actual GitHub username.</p>
+</li>
+<li>
+<p>Now, let&rsquo;s add two submodules to the &ldquo;gitSubmodules&rdquo; repository:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git submodule add git@github.com:YOUR_USERNAME/submodule1.git
+</span></span><span class="line"><span class="cl">git submodule add git@github.com:YOUR_USERNAME/submodule2.git
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>By executing these commands, the submodules &ldquo;submodule1&rdquo; and &ldquo;submodule2&rdquo; will be added to the &ldquo;gitSubmodules&rdquo; repository. This command will clone the remote repositories of the submodules into the root directory of the &ldquo;gitSubmodules&rdquo; repository.</p>
+<p>By default, each submodule will be placed in a directory with the same name as the submodule repository.</p>
+</li>
+<li>
+<p>If you run <code>git status</code> at this point, you will see that the repository now contains a new file named &ldquo;.gitmodules&rdquo; and two new directories: &ldquo;submodule1&rdquo; and &ldquo;submodule2&rdquo;.</p>
+<p>The &ldquo;.gitmodules&rdquo; file stores the mapping between the local directory paths and the remote repository URLs of the submodules.</p>
+</li>
+<li>
+<p>Commit and push the changes to the parent repository:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git add .
+</span></span><span class="line"><span class="cl">git commit -m <span class="s2">&#34;Add submodule1 and submodule2 submodules&#34;</span>
+</span></span><span class="line"><span class="cl">git push
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>This will push the submodule information to the remote repository as well.</p>
+</li>
+<li>
+<p>If someone else clones the &ldquo;gitSubmodules&rdquo; repository, they will initially have empty directories for the submodules. To populate the submodules with their respective contents, they need to run the following commands:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git submodule init
+</span></span><span class="line"><span class="cl">git submodule update
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>After running these commands, the submodules&rsquo; remote files will be synchronized to the local repository, including the commit information for each submodule.</p>
+</li>
+</ol>
+<h3 id="use-cases">Use Cases</h3>
+<p>Git submodules are useful when you need to include other projects within your main project. Each project can have its own separate repository and version control history, ensuring that modifications to the main and submodules do not affect each other.</p>
+]]></description>
+</item>
+</channel>
 </rss>

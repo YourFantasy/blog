@@ -1,26 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>greed on 编程浪子</title>
-    <link>https://www.bardblog.cn/en/tags/greed/</link>
-    <description>Recent content in greed on 编程浪子</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <managingEditor>cz950601@gmail.com (Bard)</managingEditor>
-    <webMaster>cz950601@gmail.com (Bard)</webMaster>
-    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Sat, 24 Jun 2023 12:57:40 +0800</lastBuildDate><atom:link href="https://www.bardblog.cn/en/tags/greed/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Maximum Non-overlapping Intervals</title>
-      <link>https://www.bardblog.cn/en/algorithm-greedy-disjoint/</link>
-      <pubDate>Sat, 24 Jun 2023 12:57:40 +0800</pubDate>
-      <author>cz950601@gmail.com (Bard)</author>
-      <guid>https://www.bardblog.cn/en/algorithm-greedy-disjoint/</guid>
-      <description>Problem Description Given N closed intervals [ai, bi], you need to select a subset of intervals on the number line such that the selected intervals do not overlap with each other (including the endpoints).
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>greed - Tag - 编程浪子</title>
+        <link>https://www.bardblog.cn/en/tags/greed/</link>
+        <description>greed - Tag - 编程浪子</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>cz950601@gmail.com (Bard)</managingEditor>
+            <webMaster>cz950601@gmail.com (Bard)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 24 Jun 2023 12:57:40 &#43;0800</lastBuildDate><atom:link href="https://www.bardblog.cn/en/tags/greed/" rel="self" type="application/rss+xml" /><item>
+    <title>Maximum Non-overlapping Intervals</title>
+    <link>https://www.bardblog.cn/en/algorithm-greedy-disjoint/</link>
+    <pubDate>Sat, 24 Jun 2023 12:57:40 &#43;0800</pubDate>
+    <author>Bard</author>
+    <guid>https://www.bardblog.cn/en/algorithm-greedy-disjoint/</guid>
+    <description><![CDATA[Problem Description Given N closed intervals [ai, bi], you need to select a subset of intervals on the number line such that the selected intervals do not overlap with each other (including the endpoints).
 Output the maximum number of intervals that can be selected.
 Input Format The first line contains an integer N, representing the number of intervals.
-The next N lines contain two integers ai and bi each, representing the endpoints of an interval.</description>
-    </item>
-    
-  </channel>
+The next N lines contain two integers ai and bi each, representing the endpoints of an interval.]]></description>
+</item>
+</channel>
 </rss>

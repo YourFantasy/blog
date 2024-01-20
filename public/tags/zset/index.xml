@@ -1,23 +1,81 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>zSet on 编程浪子</title>
-    <link>https://www.bardblog.cn/tags/zset/</link>
-    <description>Recent content in zSet on 编程浪子</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>zh-CN</language>
-    <managingEditor>cz950601@gmail.com (Bard)</managingEditor>
-    <webMaster>cz950601@gmail.com (Bard)</webMaster>
-    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Thu, 06 Jul 2023 12:49:02 +0800</lastBuildDate><atom:link href="https://www.bardblog.cn/tags/zset/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>zset分析与实现</title>
-      <link>https://www.bardblog.cn/redis-zset-implemention/</link>
-      <pubDate>Thu, 06 Jul 2023 12:49:02 +0800</pubDate>
-      <author>cz950601@gmail.com (Bard)</author>
-      <guid>https://www.bardblog.cn/redis-zset-implemention/</guid>
-      <description>概念 跳表是一种很特殊的数据结构，可以把跳表理解为一个多层链表，每一层都是一个有序链表，链表之间通过指针连接，并且最底层的那个链表保存跳表完整</description>
-    </item>
-    
-  </channel>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>zSet - 标签 - 编程浪子</title>
+        <link>https://www.bardblog.cn/tags/zset/</link>
+        <description>zSet - 标签 - 编程浪子</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>cz950601@gmail.com (Bard)</managingEditor>
+            <webMaster>cz950601@gmail.com (Bard)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 06 Jul 2023 12:49:02 &#43;0800</lastBuildDate><atom:link href="https://www.bardblog.cn/tags/zset/" rel="self" type="application/rss+xml" /><item>
+    <title>zset分析与实现</title>
+    <link>https://www.bardblog.cn/redis-zset-implemention/</link>
+    <pubDate>Thu, 06 Jul 2023 12:49:02 &#43;0800</pubDate>
+    <author>Bard</author>
+    <guid>https://www.bardblog.cn/redis-zset-implemention/</guid>
+    <description><![CDATA[<h2 id="概念">概念</h2>
+<p>跳表是一种很特殊的数据结构，可以把跳表理解为一个多层链表，每一层都是一个有序链表，链表之间通过指针连接，并且最底层的那个链表保存跳表完整的元素，跳表示意图如下：
+<figure><a class="lightgallery" href="/redis-zset-implemention/skiplist.png" title="跳表示意图" data-thumbnail="/redis-zset-implemention/skiplist.png" data-sub-html="<h2>跳表示意图</h2><p>跳表示意图</p>">
+        
+    </a><figcaption class="image-caption">跳表示意图</figcaption>
+    </figure>
+可以看到除了最后一层链表，每一层链表元素都有可能缺失。</p>
+<p>小结一下跳表的基本特征：</p>
+<ul>
+<li>每一层都是一个按照结点的score有序的链表</li>
+<li>链表结点key全局唯一，score可以相同</li>
+<li>不同层链表相同结点之间通过指针相连</li>
+<li>最底层链表含有跳表所有元素</li>
+</ul>
+<p>由此可以抽象化出跳表的数据结构：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// skipList 跳表数据结构
+</span></span></span><span class="line"><span class="cl"><span class="c1">// Data 链表结点数据
+</span></span></span><span class="line"><span class="cl"><span class="c1">// next 指向下一个节点指针，同一层链表结点按照Score非递减
+</span></span></span><span class="line"><span class="cl"><span class="c1">// down，与下一层连接指针，当前节点p p!=nil&amp;&amp;p.down!=nil 满足 p.Data==p.down.Data
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">type</span> <span class="nx">skipList</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">Data</span> <span class="nx">Data</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">next</span> <span class="o">*</span><span class="nx">skipList</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">down</span> <span class="o">*</span><span class="nx">skipList</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// Data 数据类型
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">type</span> <span class="nx">Data</span> <span class="o">*</span><span class="nx">Element</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Element 链表结点格式
+</span></span></span><span class="line"><span class="cl"><span class="c1">// Key: zSet的成员key，全局唯一
+</span></span></span><span class="line"><span class="cl"><span class="c1">// Score: zSet的成员对应的分数，可以一样
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">type</span> <span class="nx">Element</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">Key</span>   <span class="kt">string</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">Score</span> <span class="kt">int</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="插入流程">插入流程</h2>
+<h2 id="删除流程">删除流程</h2>
+<h2 id="更新流程">更新流程</h2>
+<h2 id="查询流程">查询流程</h2>
+<h2 id="代码实现">代码实现</h2>
+<h2 id="实际应用">实际应用</h2>
+]]></description>
+</item>
+</channel>
 </rss>

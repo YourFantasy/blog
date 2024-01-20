@@ -1,104 +1,88 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Tags on 编程浪子</title>
-    <link>https://www.bardblog.cn/en/tags/</link>
-    <description>Recent content in Tags on 编程浪子</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <managingEditor>cz950601@gmail.com (Bard)</managingEditor>
-    <webMaster>cz950601@gmail.com (Bard)</webMaster>
-    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Sat, 01 Jul 2023 08:59:43 +0800</lastBuildDate><atom:link href="https://www.bardblog.cn/en/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>InnoDB</title>
-      <link>https://www.bardblog.cn/en/tags/innodb/</link>
-      <pubDate>Sat, 01 Jul 2023 08:59:43 +0800</pubDate>
-      <author>cz950601@gmail.com (Bard)</author>
-      <guid>https://www.bardblog.cn/en/tags/innodb/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>MySQL</title>
-      <link>https://www.bardblog.cn/en/tags/mysql/</link>
-      <pubDate>Sat, 01 Jul 2023 08:59:43 +0800</pubDate>
-      <author>cz950601@gmail.com (Bard)</author>
-      <guid>https://www.bardblog.cn/en/tags/mysql/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>git</title>
-      <link>https://www.bardblog.cn/en/tags/git/</link>
-      <pubDate>Tue, 27 Jun 2023 00:01:52 +0800</pubDate>
-      <author>cz950601@gmail.com (Bard)</author>
-      <guid>https://www.bardblog.cn/en/tags/git/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>linux</title>
-      <link>https://www.bardblog.cn/en/tags/linux/</link>
-      <pubDate>Tue, 27 Jun 2023 00:01:52 +0800</pubDate>
-      <author>cz950601@gmail.com (Bard)</author>
-      <guid>https://www.bardblog.cn/en/tags/linux/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>design-pattern</title>
-      <link>https://www.bardblog.cn/en/tags/design-pattern/</link>
-      <pubDate>Mon, 26 Jun 2023 12:57:40 +0800</pubDate>
-      <author>cz950601@gmail.com (Bard)</author>
-      <guid>https://www.bardblog.cn/en/tags/design-pattern/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>algorithm</title>
-      <link>https://www.bardblog.cn/en/tags/algorithm/</link>
-      <pubDate>Sat, 24 Jun 2023 12:57:40 +0800</pubDate>
-      <author>cz950601@gmail.com (Bard)</author>
-      <guid>https://www.bardblog.cn/en/tags/algorithm/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>bfs</title>
-      <link>https://www.bardblog.cn/en/tags/bfs/</link>
-      <pubDate>Sat, 24 Jun 2023 12:57:40 +0800</pubDate>
-      <author>cz950601@gmail.com (Bard)</author>
-      <guid>https://www.bardblog.cn/en/tags/bfs/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>fate</title>
-      <link>https://www.bardblog.cn/en/tags/fate/</link>
-      <pubDate>Sat, 24 Jun 2023 12:57:40 +0800</pubDate>
-      <author>cz950601@gmail.com (Bard)</author>
-      <guid>https://www.bardblog.cn/en/tags/fate/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>greed</title>
-      <link>https://www.bardblog.cn/en/tags/greed/</link>
-      <pubDate>Sat, 24 Jun 2023 12:57:40 +0800</pubDate>
-      <author>cz950601@gmail.com (Bard)</author>
-      <guid>https://www.bardblog.cn/en/tags/greed/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>love</title>
-      <link>https://www.bardblog.cn/en/tags/love/</link>
-      <pubDate>Sat, 24 Jun 2023 12:57:40 +0800</pubDate>
-      <author>cz950601@gmail.com (Bard)</author>
-      <guid>https://www.bardblog.cn/en/tags/love/</guid>
-      <description></description>
-    </item>
-    
-  </channel>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Tags - Tag - 编程浪子</title>
+        <link>https://www.bardblog.cn/en/tags/</link>
+        <description>Tags - Tag - 编程浪子</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>cz950601@gmail.com (Bard)</managingEditor>
+            <webMaster>cz950601@gmail.com (Bard)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 01 Jul 2023 08:59:43 &#43;0800</lastBuildDate><atom:link href="https://www.bardblog.cn/en/tags/" rel="self" type="application/rss+xml" /><item>
+    <title>InnoDB</title>
+    <link>https://www.bardblog.cn/en/tags/innodb/</link>
+    <pubDate>Sat, 01 Jul 2023 08:59:43 &#43;0800</pubDate>
+    <author>Bard</author>
+    <guid>https://www.bardblog.cn/en/tags/innodb/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>MySQL</title>
+    <link>https://www.bardblog.cn/en/tags/mysql/</link>
+    <pubDate>Sat, 01 Jul 2023 08:59:43 &#43;0800</pubDate>
+    <author>Bard</author>
+    <guid>https://www.bardblog.cn/en/tags/mysql/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>git</title>
+    <link>https://www.bardblog.cn/en/tags/git/</link>
+    <pubDate>Tue, 27 Jun 2023 00:01:52 &#43;0800</pubDate>
+    <author>Bard</author>
+    <guid>https://www.bardblog.cn/en/tags/git/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>linux</title>
+    <link>https://www.bardblog.cn/en/tags/linux/</link>
+    <pubDate>Tue, 27 Jun 2023 00:01:52 &#43;0800</pubDate>
+    <author>Bard</author>
+    <guid>https://www.bardblog.cn/en/tags/linux/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>design-pattern</title>
+    <link>https://www.bardblog.cn/en/tags/design-pattern/</link>
+    <pubDate>Mon, 26 Jun 2023 12:57:40 &#43;0800</pubDate>
+    <author>Bard</author>
+    <guid>https://www.bardblog.cn/en/tags/design-pattern/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>algorithm</title>
+    <link>https://www.bardblog.cn/en/tags/algorithm/</link>
+    <pubDate>Sat, 24 Jun 2023 12:57:40 &#43;0800</pubDate>
+    <author>Bard</author>
+    <guid>https://www.bardblog.cn/en/tags/algorithm/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>bfs</title>
+    <link>https://www.bardblog.cn/en/tags/bfs/</link>
+    <pubDate>Sat, 24 Jun 2023 12:57:40 &#43;0800</pubDate>
+    <author>Bard</author>
+    <guid>https://www.bardblog.cn/en/tags/bfs/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>fate</title>
+    <link>https://www.bardblog.cn/en/tags/fate/</link>
+    <pubDate>Sat, 24 Jun 2023 12:57:40 &#43;0800</pubDate>
+    <author>Bard</author>
+    <guid>https://www.bardblog.cn/en/tags/fate/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>greed</title>
+    <link>https://www.bardblog.cn/en/tags/greed/</link>
+    <pubDate>Sat, 24 Jun 2023 12:57:40 &#43;0800</pubDate>
+    <author>Bard</author>
+    <guid>https://www.bardblog.cn/en/tags/greed/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>love</title>
+    <link>https://www.bardblog.cn/en/tags/love/</link>
+    <pubDate>Sat, 24 Jun 2023 12:57:40 &#43;0800</pubDate>
+    <author>Bard</author>
+    <guid>https://www.bardblog.cn/en/tags/love/</guid>
+    <description><![CDATA[]]></description>
+</item>
+</channel>
 </rss>

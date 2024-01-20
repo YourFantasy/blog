@@ -18,7 +18,7 @@
 <meta name="application-name" content="Bard">
 <meta name="apple-mobile-web-app-title" content="Bard"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://www.bardblog.cn/programing-language-gmp/" /><link rel="prev" href="https://www.bardblog.cn/algorithm-cache-obsolescence/" /><link rel="next" href="https://www.bardblog.cn/theme-documentation-typeit-shortcode/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://www.bardblog.cn/programing-language-gmp/" /><link rel="prev" href="https://www.bardblog.cn/algorithm-cache-obsolescence/" /><link rel="next" href="https://www.bardblog.cn/algorithm-greedy-disjoint/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
     {
@@ -34,7 +34,7 @@
                             "url": "https:\/\/www.bardblog.cn\/images\/Apple-Devices-Preview.png",
                             "width":  3200 ,
                             "height":  2048 
-                        }],"genre": "posts","keywords": "Go, GMP, Gorotinue, Thread","wordcount":  7357 ,
+                        }],"genre": "posts","keywords": "Go, GMP, Gorotinue, Thread","wordcount":  7122 ,
         "url": "https:\/\/www.bardblog.cn\/programing-language-gmp\/","datePublished": "2023-09-17T08:59:43+08:00","dateModified": "2023-09-17T08:59:43+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": {
@@ -119,7 +119,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">GMP调度模型</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="www.bardblog.cn" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bard</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/technology/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>technology</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-09-17">2023-09-17</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 7357 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-09-17">2023-09-17</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 7122 字&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 15 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -141,11 +141,10 @@
   </ul>
 </nav></div>
             </div><div class="content" id="content"><h2 id="进程线程协程">进程线程协程</h2>
-<p>无论程序是用什么编程语言编写的，最终它都会在操作系统中运行。一个运行中的程序可以被视为一个进程，每个进程都有自己的内存空间和资源，且进程之间是相互隔离的。通常情况下，一个应用程序的功能并非单一，例如一个聊天应用，在进行语音通话的同时还可以进行文字聊天。那么，究竟是什么支撑着这些功能的运行呢？显然不是进程。这就引出了另一个概念：线程。线程是属于某个进程的，一个进程可以拥有多个线程，这些线程并发执行以支持进程的多个功能。进程和线程都是操作系统的基本单位或资源，多线程技术可以充分利用现代CPU的多核资源，以更高效地完成进程的多个任务。</p>
-<p>进程-线程两级结构是当今大多数软件所采用的模式。然而，线程并非足够轻量。我们使用线程是为了让它完成某个具体任务，但线程除了完成任务本身所需的时间外，还有一些额外的开销，如线程切换。当线程因I/O或锁等原因阻塞时，就会发生线程切换。但这个切换过程并不是足够快，很多时候切换的耗时高于执行任务的耗时，导致CPU资源得不到充分利用。因此，我们需要一个更轻量级的执行单元，使得切换过程更加高效，从而充分利用CPU资源。拿go语言来说，Go语言通过实现协程（goroutine）和一套调度机制，为开发者提供了更轻量级的执行单元。协程相较于线程，需要保存的上下文内容更少，切换速度更快，因此能够充分高效地利用系统资源，提高系统并发度。</p>
-<p>协程是用户级线程，它们由Go运行时（runtime）进行管理和调度，而非直接由操作系统管理。这使得Go运行时可以在较少的操作系统线程上调度大量的协程，降低了线程切换的开销。当一个协程因I/O或其他原因阻塞时，Go运行时会将其他协程调度到同一个操作系统线程上运行，从而实现高效的并发执行。</p>
-<p>Go语言的协程模型使得编写高并发程序变得更加简单。通过使用关键字<code>go</code>，开发者可以轻松地创建一个新的协程并发执行函数。Go语言还提供了强大的并发原语，如通道（channel）和同步原语（如互斥锁和WaitGroup），以帮助开发者在协程之间进行安全的数据传递和同步。</p>
-<p>Go语言通过实现协程和一套调度机制，为开发者提供了一种更轻量级、高效的并发编程模型，使得充分利用CPU资源和提高系统并发度成为可能。</p>
+<p>无论程序使用何种编程语言编写，它们最终都在操作系统中运行。运行中的程序被视为进程，每个进程拥有独立的内存空间和资源，且进程之间相互隔离。通常，应用程序具有多种功能，例如聊天应用在进行语音通话时还可以进行文字聊天。支撑这些功能运行的并非进程，而是线程。线程属于进程，一个进程可以拥有多个线程，它们并发执行以支持进程的多个功能。进程和线程作为操作系统的基本单位或资源，多线程技术充分利用现代CPU的多核资源，提高任务执行效率。</p>
+<p>尽管进程-线程两级结构被广泛应用于软件开发，线程并非足够轻量。线程在完成任务的同时，还需承担额外开销，如线程切换。当线程因I/O或锁等原因阻塞时，会发生线程切换。然而，切换过程耗时较长，导致CPU资源得不到充分利用。因此，需要更轻量级的执行单元以提高切换效率，从而充分利用CPU资源。Go语言通过实现协程（goroutine）和调度机制，为开发者提供了更轻量级的执行单元。与线程相比，协程保存的上下文内容更少，切换速度更快，从而高效利用系统资源，提高并发度。</p>
+<p>协程是用户级线程，由Go运行时（runtime）管理和调度，而非直接由操作系统管理。这使得Go运行时能在较少的操作系统线程上调度大量协程，降低线程切换开销。当协程因I/O或其他原因阻塞时，Go运行时将其他协程调度到同一操作系统线程上运行，实现高效并发执行。</p>
+<p>Go语言的协程模型简化了高并发程序编写。使用关键字go，开发者轻松创建新协程并发执行函数。Go语言还提供强大的并发原语，如通道（channel）和同步原语（如互斥锁和WaitGroup），帮助开发者在协程间进行安全的数据传递和同步。</p>
 <h2 id="gmp调度机制">GMP调度机制</h2>
 <p>Go语言实现了一套高效的调度机制，在运行时管理和调度goroutine，而不是让操作系统直接管理。这种机制类似于“虚拟线程”的概念，Go在语言层面模拟了操作系统线程切换机制。</p>
 <p>在传统的进程-线程二级结构中，一个线程隶属于某个固定的进程，一个进程可以拥有多个线程，形成1:M的模型。然而，在Go语言的GMP模型中，协程（G）和线程（M）之间形成了一个M:N的模型。这意味着一个协程并不是固定承载在一个线程上，而是可以在多个线程之间切换和轮转执行。这种模型允许更加高效地利用系统资源，提高并发性能。</p>
@@ -976,14 +975,14 @@ Sched调度器的主要职责包括：</p>
     </div>
 
     <div class="post-nav"><a href="/algorithm-cache-obsolescence/" class="prev" rel="prev" title="LFU和LRU缓存淘汰算法"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>LFU和LRU缓存淘汰算法</a>
-            <a href="/theme-documentation-typeit-shortcode/" class="next" rel="next" title="主题文档 - typeit Shortcode">主题文档 - typeit Shortcode<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+            <a href="/algorithm-greedy-disjoint/" class="next" rel="next" title="最大不相交区间数量">最大不相交区间数量<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 <div id="comments"><div id="gitalk" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://github.com/gitalk/gitalk"></a>Gitalk</a>.
             </noscript></div></article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.118.2">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
-                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://www.bardblog.cn" target="_blank">Bard</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.118.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2023 - 2024</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://www.bardblog.cn" target="_blank">Bard</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>
 
