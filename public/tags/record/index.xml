@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>record - 标签 - 编程浪子</title>
+        <link>https://www.bardblog.cn/tags/record/</link>
+        <description>record - 标签 - 编程浪子</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>cz950601@gmail.com (Bard)</managingEditor>
+            <webMaster>cz950601@gmail.com (Bard)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 24 Jan 2024 08:57:40 &#43;0800</lastBuildDate><atom:link href="https://www.bardblog.cn/tags/record/" rel="self" type="application/rss+xml" /><item>
+    <title>错事本</title>
+    <link>https://www.bardblog.cn/mistake/</link>
+    <pubDate>Wed, 24 Jan 2024 08:57:40 &#43;0800</pubDate>
+    <author>Bard</author>
+    <guid>https://www.bardblog.cn/mistake/</guid>
+    <description><![CDATA[记录每次犯的错，给出时间、具体经过、原因、造成后果、解决方法，规避措施，事后反思。 2024.01.24 事件经过 23号晚上答应小太阳帮她抢票，8点的票7点50起]]></description>
+</item>
+</channel>
+</rss>
